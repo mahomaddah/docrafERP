@@ -127,6 +127,19 @@
   <ItemGroup>
     <Resource Include="UIassets\prIcon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="UIassets\Account Switcher Info.png" />
+    <Resource Include="UIassets\RAF_LOGO-removebg-preview 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="UIassets\RAF_LOGO-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="UIassets\name.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="UIassets\Erpicon.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

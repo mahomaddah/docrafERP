@@ -23,5 +23,20 @@ namespace docrafERP.Views
         {
             InitializeComponent();
         }
+
+        private void NavBarMove(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
+        private void CloseBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
     }
 }
