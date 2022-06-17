@@ -1,0 +1,145 @@
+﻿<Window x:Class="docrafERP.HomeView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:docrafERP"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:views="clr-namespace:docrafERP.Views"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow"  Height="701" Width="1152">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="357" ></ColumnDefinition>
+            <ColumnDefinition Width="97*"/>
+   
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="111"></RowDefinition>
+            <RowDefinition Height="87"></RowDefinition>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="navBar" Background="#07AEFF" Grid.Row="0" Grid.Column="1" MouseDown="NavBarMove">
+            <WrapPanel Margin="60 40 10 10">        
+                <Label Name="LabelMainBlueTittleOnTop" Content="Manage Assets" FontFamily="Roboto" FontSize="24px" Foreground="#FFFFFF" ></Label>
+            </WrapPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 8 56">
+                <Button x:Name="MinimizeBtn"
+                          Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
+                            Background="Transparent"
+                          
+                            BorderBrush="White"
+                          ToolTip="Minimize the app..."
+                          IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="MinimizeBtn_Click">
+                    <materialDesign:PackIcon Kind="WindowMinimize"    />
+                </Button>
+                <Button Margin="2 0 0 0" x:Name="CloseBtn"
+                          Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
+                          Background="Transparent"
+                          BorderBrush="White"
+                          ToolTip="Close the application but keep the service active..."
+                          IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="CloseBtn_Click">
+                    <materialDesign:PackIcon Kind="Close"    />
+                </Button>
+
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="LeftBarBackGround"  Grid.Column="0" Grid.RowSpan="3" Background="#F1F1F1"/>
+        <Grid Grid.RowSpan="2" Grid.Row="1" Grid.Column="1"  Margin="30 30 30 30">
+            <views:DashboardUserControl x:Name="UCDashbord" HorizontalAlignment="Left" Height="590"  Width="800" VerticalAlignment="Top"  />
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0" Margin="2 2 2 2">
+            <StackPanel Margin="42 2 2 2">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Height="22"  Width="18" Kind="HospitalBuilding" >
+                        <materialDesign:PackIcon.Foreground>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#07AEFF" Offset="0"/>
+                            </LinearGradientBrush>
+                        </materialDesign:PackIcon.Foreground>
+                    </materialDesign:PackIcon>
+                    <Label x:Name="CompanyNameLB" Content="Unit 2 3/F Wardley Building" FontSize="20px" FontWeight="Bold" FontFamily="Roboto" Margin="0 0 0 8"></Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" MouseDown="StackPanel_MouseDown">
+                    <materialDesign:PackIcon Height="22"  Width="18" Kind="Account" >
+                        <materialDesign:PackIcon.Foreground>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#07AEFF" Offset="0"/>
+                            </LinearGradientBrush>
+                        </materialDesign:PackIcon.Foreground>
+                    </materialDesign:PackIcon>
+                    <Label Margin="2 0 0 0" x:Name="AccountNameLB"  Content="Admin01" FontSize="14px" FontWeight="Normal" FontFamily="Roboto" ></Label>
+                    <materialDesign:PackIcon Height="22"  Width="18" Kind="ArrowDropDown" >
+                        <materialDesign:PackIcon.Foreground>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#0DCAF2" Offset="0"/>
+                            </LinearGradientBrush>
+                        </materialDesign:PackIcon.Foreground>
+                    </materialDesign:PackIcon>
+                </StackPanel>
+                <Line Stretch="Fill" Margin="-30 4 0 0" Stroke="DarkGray" X2="1" Width="300" />
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="0">
+            <StackPanel Margin="44 10 1 1" Orientation="Vertical">
+                <StackPanel x:Name="btn1"  Orientation="Horizontal" Margin="0 0 0 10" MouseDown="DahsboardClicked">
+                    <materialDesign:PackIcon Height="22"  Width="18" Kind="Women" >
+                        <materialDesign:PackIcon.Foreground>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#07AEFF" Offset="0"/>
+                            </LinearGradientBrush>
+                        </materialDesign:PackIcon.Foreground>
+                    </materialDesign:PackIcon>
+                    <Label Margin="2 0 0 0"  Content="Manage Assets" FontSize="14px"  FontFamily="Roboto" ></Label>
+                </StackPanel>
+                <StackPanel x:Name="btn2"  Orientation="Horizontal" Margin="0 0 0 10"  MouseDown="USermanagmentClicked">
+                    <materialDesign:PackIcon Height="22"  Width="18" Kind="Stethoscope" >
+                        <materialDesign:PackIcon.Foreground>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#07AEFF" Offset="0"/>
+                            </LinearGradientBrush>
+                        </materialDesign:PackIcon.Foreground>
+                    </materialDesign:PackIcon>
+                    <Label  Margin="2 0 0 0"  Content="Manage Supplies" FontSize="14px" FontFamily="Roboto" ></Label>
+                </StackPanel>
+                <StackPanel x:Name="btn3"  Orientation="Horizontal" Margin="0 0 0 10" MouseDown="DeviceManClicked">
+                    <materialDesign:PackIcon Height="22"  Width="18" Kind="Internet">
+                        <materialDesign:PackIcon.Foreground>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#07AEFF" Offset="0"/>
+                            </LinearGradientBrush>
+                        </materialDesign:PackIcon.Foreground>
+                    </materialDesign:PackIcon>
+                    <Label Margin="2 0 0 0"  Content="Purchase Requests" FontSize="14px"  FontFamily="Roboto" ></Label>
+                </StackPanel>
+                <StackPanel  Orientation="Horizontal" Margin="0 0 0 10"  MouseDown="SettingClicked">
+                    <materialDesign:PackIcon Height="22"  Width="18" Kind="DocumentSign" >
+                        <materialDesign:PackIcon.Foreground>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#07AEFF" Offset="0"/>
+                            </LinearGradientBrush>
+                        </materialDesign:PackIcon.Foreground>
+                    </materialDesign:PackIcon>
+                    <Label Margin="2 0 0 0"  Content="Issue Documents" FontSize="14px"  FontFamily="Roboto" ></Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 10"  MouseDown="SettingClicked">
+                    <materialDesign:PackIcon Height="22"  Width="18" Kind="Settings" >
+                        <materialDesign:PackIcon.Foreground>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#07AEFF" Offset="0"/>
+                            </LinearGradientBrush>
+                        </materialDesign:PackIcon.Foreground>
+                    </materialDesign:PackIcon>
+                    <Label Margin="2 0 0 0"  Content="Settings" FontSize="14px"  FontFamily="Roboto" ></Label>
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+
+    
+</Window>
