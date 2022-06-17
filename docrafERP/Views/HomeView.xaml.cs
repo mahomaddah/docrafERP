@@ -41,5 +41,30 @@ namespace docrafERP
         {
             this.WindowState = WindowState.Minimized;
         }
+
+        private void USermanagmentClicked(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void StackPanel_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void DahsboardClicked(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void DeviceManClicked(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void SettingClicked(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }
