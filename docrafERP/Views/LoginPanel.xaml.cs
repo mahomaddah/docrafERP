@@ -38,5 +38,13 @@ namespace docrafERP.Views
         {
             this.WindowState = WindowState.Minimized;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            new HomeView().ShowDialog();
+ 
+
+        }
     }
 }

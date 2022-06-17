@@ -16,8 +16,10 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="214"></RowDefinition>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-
+     
+        
         <Grid Grid.Row="0" MouseDown="NavBarMove" Background="#F1F1F1">
             <StackPanel  Orientation="Horizontal" Margin="323,-18,0,161">
                 <Button x:Name="MinimizeBtn"
@@ -42,35 +44,101 @@
                 </Button>
             </StackPanel>
         </Grid>
-        
-        
-        
+
         <Grid Grid.Row="0" MouseDown="NavBarMove">
             <StackPanel>
-             <StackPanel Margin="19 0 10 0" Orientation="Horizontal">
-                <Image Stretch="UniformToFill" Source="/UIassets/RAF_LOGO-removebg-preview 1.png"  Width="120" Height="110" />
-                <StackPanel Margin="-5 25 0 0" >
-                     
-                    <Label FontWeight="SemiBold" FontFamily="Roboto" Foreground="#00315A" Content="DR. R.A. FERNANDO" FontSize="20" Height="29"></Label>
-                    <Label Margin="0 -7 0 0" FontWeight="Bold" FontFamily="Roboto" Foreground="#000000" Content="SCHOOL of HEALTHCARE TECHNOLOGY" FontSize="10" Height="19"></Label>
-                    <Label Margin="112 -5 0 0" FontWeight="UltraBlack" FontFamily="Roboto" Foreground="#000000" Content="ERP Desktop" FontSize="12" Height="22"/>
+                <StackPanel Margin="19 0 10 0" Orientation="Horizontal">
+                    <Image Stretch="UniformToFill" Source="/UIassets/RAF_LOGO-removebg-preview 1.png"  Width="120" Height="110" />
+                    <StackPanel Margin="-5 25 0 0" >
+
+                        <Label FontWeight="SemiBold" FontFamily="Roboto" Foreground="#00315A" Content="DR. R.A. FERNANDO" FontSize="20" Height="29"></Label>
+                        <Label Margin="0 -7 0 0" FontWeight="Bold" FontFamily="Roboto" Foreground="#000000" Content="SCHOOL of HEALTHCARE TECHNOLOGY" FontSize="10" Height="19"></Label>
+                        <Label Margin="112 -5 0 0" FontWeight="UltraBlack" FontFamily="Roboto" Foreground="#000000" Content="ERP Desktop" FontSize="12" Height="22"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Margin="42 2 2 2">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Height="26"  Width="26" Kind="HospitalBuilding" >
+                            <materialDesign:PackIcon.Foreground>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#07AEFF" Offset="0"/>
+                                </LinearGradientBrush>
+                            </materialDesign:PackIcon.Foreground>
+                        </materialDesign:PackIcon>
+                        <Label x:Name="CompanyNameLB" Content="Unit 2 3/F Wardley Building" FontSize="20px" FontWeight="Bold" FontFamily="Roboto" Margin="0 0 0 8" Height="33"></Label>
+                    </StackPanel>
+
+                    <Line Stretch="Fill" Margin="-30 30 0 0" Stroke="DarkGray" X2="1" Width="300" />
                 </StackPanel>
             </StackPanel>
-             <StackPanel Margin="42 2 2 2">
+        </Grid>
+
+        <Grid Grid.Row="1" >
+            <StackPanel Margin="40">
+                <Label Margin="0 10 0 0" FontSize="18" FontFamily="Roboto" FontWeight="Medium" Content="Username (verified)"></Label>
+                <TextBox
+                            FontWeight="Normal"
+                        
+                            Margin="0 10 0 0"
+                            Style="{StaticResource MaterialDesignFilledTextBox}"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left"
+                            AcceptsReturn="True"
+                            TextWrapping="Wrap"
+                            MaxWidth="400"
+                            materialDesign:HintAssist.Hint="Please enter your Username..."
+                        
+                            Foreground="#000009"
+                            SelectionBrush="#07AD40"
+                            BorderBrush="#07AEFF"
+                            FontFamily="Roboto"
+                            FontSize="16px" CaretBrush="#FF07AD40" Width="300"/>
+                <Label Margin="0 10 0 10" FontSize="11" FontFamily="Roboto" Foreground="#07AD40" FontWeight="Light" Content="Verified used name and password provided by IT department"></Label>
+                <Label Margin="0 10 0 0" FontSize="18" FontFamily="Roboto" FontWeight="Medium" Content="Password"></Label>
+                <PasswordBox
+                            FontWeight="Normal"
+                           
+                            Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left"
+                            materialDesign:HintAssist.Hint="Please enter your Password"
+                            Margin="0 10 0 0"
+                            Foreground="#000009"
+                            SelectionBrush="#07AD40"
+                            BorderBrush="#07AEFF"
+                            FontFamily="Roboto"
+                            FontSize="14px" CaretBrush="#FF07AD40" Width="300"/>
+            </StackPanel>
+            <DockPanel VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 40 50">
                 <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Height="26"  Width="26" Kind="HospitalBuilding" >
-                        <materialDesign:PackIcon.Foreground>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="#07AEFF" Offset="0"/>
-                            </LinearGradientBrush>
-                        </materialDesign:PackIcon.Foreground>
-                    </materialDesign:PackIcon>
-                    <Label x:Name="CompanyNameLB" Content="Unit 2 3/F Wardley Building" FontSize="20px" FontWeight="Bold" FontFamily="Roboto" Margin="0 0 0 8" Height="33"></Label>
+
+                  
+
+                    <materialDesign:Badged 
+                         
+                                 Badge="{materialDesign:PackIcon Kind=Login}"
+                                 BadgeColorZoneMode="SecondaryMid" Height="36" Width="87">
+
+                        <materialDesign:Badged 
+                                    Badge="{materialDesign:PackIcon Kind=Login}"
+                                    Width="87" Height="36"
+                                    BadgeColorZoneMode="SecondaryMid" >
+
+                            <Button
+                                Foreground="White"
+                                    Width="87" Height="36"
+                                    Background="#07AEFF"
+                                    FontFamily="Roboto"
+                                    BorderBrush="#07AEFF"
+                                    Content="Login"
+                                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Click="Button_Click"  />
+                        </materialDesign:Badged>
+                    </materialDesign:Badged>
+
                 </StackPanel>
-          
-                <Line Stretch="Fill" Margin="-30 30 0 0" Stroke="DarkGray" X2="1" Width="300" />
-            </StackPanel>
-            </StackPanel>
-        </Grid>     
+            </DockPanel>
+        </Grid>
+
+
     </Grid>
 </Window>
