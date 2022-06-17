@@ -14,7 +14,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="357" ></ColumnDefinition>
             <ColumnDefinition Width="97*"/>
-             
+
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="111"></RowDefinition>
@@ -23,7 +23,7 @@
         </Grid.RowDefinitions>
 
         <Grid x:Name="navBar" Background="#07AEFF" Grid.Row="0" Grid.Column="1" MouseDown="NavBarMove">
-            <WrapPanel Margin="60 40 10 10">        
+            <WrapPanel Margin="60 40 10 10">
                 <Label Name="LabelMainBlueTittleOnTop" Content="Manage Assets" FontFamily="Roboto" FontSize="24px" Foreground="#FFFFFF" ></Label>
             </WrapPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 8 56">
@@ -86,7 +86,7 @@
         <Grid Grid.Row="2" Grid.Column="0">
             <StackPanel Margin="44 10 1 1" Orientation="Vertical">
                 <StackPanel x:Name="btn1"  Orientation="Horizontal" Margin="0 0 0 10" MouseDown="DahsboardClicked">
-                    <materialDesign:PackIcon Height="22"  Width="18" Kind="Women" >
+                    <materialDesign:PackIcon Height="22"  Width="18" Kind="ClipboardSearchOutline" >
                         <materialDesign:PackIcon.Foreground>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                 <GradientStop Color="#07AEFF" Offset="0"/>
@@ -106,13 +106,9 @@
                     <Label  Margin="2 0 0 0"  Content="Manage Supplies" FontSize="14px" FontFamily="Roboto" ></Label>
                 </StackPanel>
                 <StackPanel x:Name="btn3"  Orientation="Horizontal" Margin="0 0 0 10" MouseDown="DeviceManClicked">
-                    <materialDesign:PackIcon Height="22"  Width="18" Kind="Internet">
-                        <materialDesign:PackIcon.Foreground>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="#07AEFF" Offset="0"/>
-                            </LinearGradientBrush>
-                        </materialDesign:PackIcon.Foreground>
-                    </materialDesign:PackIcon>
+
+                    <Image Margin="1 0 0 0" Height="16"  Width="13" Stretch="Fill" Source="/UIassets/prIcon.png" />
+
                     <Label Margin="2 0 0 0"  Content="Purchase Requests" FontSize="14px"  FontFamily="Roboto" ></Label>
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" Margin="0 0 0 10"  MouseDown="SettingClicked">
@@ -141,5 +137,5 @@
 
     </Grid>
 
-    
+
 </Window>
