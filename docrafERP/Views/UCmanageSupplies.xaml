@@ -5,10 +5,18 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:docrafERP.Views"
              mc:Ignorable="d" 
-           d:DesignHeight="550" d:DesignWidth="800">
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"  
+             d:DesignHeight="550" d:DesignWidth="800">
     <Grid>
         <StackPanel>
-            <Label  Style="{StaticResource Header1}" Foreground="#000008" Content="Manage Supplies Panel"  />
+            <Line Stretch="Fill" Margin="0 4 0 0" Stroke="DarkGray" X2="1" Width="800" />
+            <StackPanel Margin="0 10 0 10" Orientation="Horizontal">
+                <materialDesign:PackIcon Height="23" Width="23"  Margin="0 0 5 0" Kind="ArchiveCheckOutline" Foreground="#00CE46"/>
+                <Label  Content="Available" Style="{StaticResource Header2}" FontFamily="Roboto" Foreground="#00CE46"></Label>
+                <materialDesign:PackIcon Height="23" Width="23"  Margin="30 0 5 0" Kind="ArchiveCancelOutline" Foreground="#FF3232"/>
+                <Label Content="Unavailable" Style="{StaticResource Header2}" FontFamily="Roboto" Foreground="#FF3232"></Label>
+
+            </StackPanel>
         </StackPanel>
     </Grid>
 </UserControl>
