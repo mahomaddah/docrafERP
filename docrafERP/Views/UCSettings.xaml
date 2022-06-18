@@ -10,8 +10,9 @@
     <Grid>
         <StackPanel>
             <Grid Grid.Row="1" >
-                <StackPanel Margin="40">
+                <StackPanel Margin="5">
                     <Label Margin="0 -10 0 0" FontSize="18" FontFamily="Roboto" FontWeight="Medium" Content="Connection Settings"></Label>
+                    <ProgressBar Margin="0 0 0 0" Value="23" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
                     <Label Margin="0 30 0 -2" FontSize="15" FontFamily="Roboto" Foreground="Gray" FontWeight="Light" Content="Mssql Server address:"></Label>
                     <StackPanel  Orientation="Horizontal">
                         <TextBox
@@ -50,7 +51,7 @@
                       
                     </StackPanel>
                 </StackPanel>
-                <DockPanel VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 40 -170">
+                <DockPanel VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 40 -260">
                     <StackPanel Orientation="Horizontal">
 
                         <materialDesign:Badged 

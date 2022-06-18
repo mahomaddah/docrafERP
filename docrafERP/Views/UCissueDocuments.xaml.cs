@@ -24,5 +24,10 @@ namespace docrafERP.Views
         {
             InitializeComponent();
         }
+
+        private void MssqlSaveBTN(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

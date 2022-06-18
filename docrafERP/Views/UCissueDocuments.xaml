@@ -9,7 +9,98 @@
              d:DesignHeight="550" d:DesignWidth="800">
     <Grid>
         <StackPanel>
-            <Label  Content="Issue Documents"  Style="{StaticResource Header1}" Foreground="#000008"  />
+            <Label Margin="0 5 0 0" Style="{StaticResource Header1}" Foreground="#000008" Content="Forms" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30.5" />
+            <ProgressBar Margin="0 0 0 10" Value="6.5" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
+            <ListView VerticalAlignment="Center">
+                <ListView.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="#FFD1CECE" Offset="1"/>
+                    </LinearGradientBrush>
+                </ListView.BorderBrush>
+
+                <StackPanel Orientation="Horizontal" >
+                    <Label Width="250" VerticalAlignment="Center"
+                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                     Content="Appendix 59 - Inventory Custodian Slip - ICS" />
+
+                </StackPanel>
+                <StackPanel  Orientation="Horizontal">
+                    <Label Width="250" VerticalAlignment="Center"
+                        BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                        Content="Appendix 60 - Purchase Request - PR" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label VerticalAlignment="Center" Width="250"
+                    BorderBrush="Black" Style="{StaticResource Header2}" FontFamily="Roboto"
+                 Content="Appendix 61 - Purchase Order - PO" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label VerticalAlignment="Center"  Width="250"
+                        BorderBrush="Black" Style="{StaticResource Header2}" FontFamily="Roboto"
+                        Content="Appendix 62- Inspection and Acceptance Report - IAR" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label VerticalAlignment="Center" Width="250"
+                        BorderBrush="Black" Style="{StaticResource Header2}" FontFamily="Roboto"
+                        Content="Appendix 63 - Requisition and Issue Slip - RIS" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label VerticalAlignment="Center" Width="250"
+                        BorderBrush="Black" Style="{StaticResource Header2}" FontFamily="Roboto"
+                        Content="Appendix 64 - Report of Supplies and Materials Issued - RSMI" />
+                </StackPanel>
+            </ListView>
+            <Line Stretch="Fill" Margin="0,5,0,0" HorizontalAlignment="Left" Width="247" Stroke="DarkGray" X2="1" Opacity="0.4" />
+            <Label Margin="0 10 0 10" FontSize="11" FontFamily="Roboto" Foreground="#07AD40" FontWeight="Light" Content="In this panel you can issue any document manually"></Label>
         </StackPanel>
+        <DockPanel VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 40 30">
+            <StackPanel Orientation="Horizontal">
+
+                <materialDesign:Badged 
+                         
+                                 Badge="{materialDesign:PackIcon Kind=Eye}"
+                                 BadgeColorZoneMode="SecondaryMid" Height="36" Width="87">
+
+                    <materialDesign:Badged 
+                                    Badge="{materialDesign:PackIcon Kind=Eye}"
+                                    Width="87" Height="36"
+                                    BadgeColorZoneMode="SecondaryMid" >
+
+                        <Button
+                                Foreground="#07AEFF"
+                                    Width="87" Height="36"
+                                    Background="Transparent"
+                                    FontFamily="Roboto"
+                                    BorderBrush="#07AEFF"
+                                    Content="VIEW "
+                                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"  />
+                    </materialDesign:Badged>
+                </materialDesign:Badged>
+
+
+                <materialDesign:Badged Margin="25 0 0 0"
+                         
+                                 Badge="{materialDesign:PackIcon Kind=Printer}"
+                                 BadgeColorZoneMode="SecondaryMid" Height="36" Width="87">
+
+                    <materialDesign:Badged 
+                                    Badge="{materialDesign:PackIcon Kind=Printer}"
+                                    Width="87" Height="36"
+                                    BadgeColorZoneMode="SecondaryMid" >
+
+                        <Button
+                                Foreground="White"
+                                    Width="87" Height="36"
+                                    Background="#07AEFF"
+                                    FontFamily="Roboto"
+                                    BorderBrush="#07AEFF"
+                                    Content="PRINT"
+                                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Click="MssqlSaveBTN"  />
+                    </materialDesign:Badged>
+                </materialDesign:Badged>
+
+            </StackPanel>
+        </DockPanel>
     </Grid>
 </UserControl>
