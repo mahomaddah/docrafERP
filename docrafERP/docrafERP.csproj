@@ -185,6 +185,13 @@
   <ItemGroup>
     <Resource Include="UIassets\image 9.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="UIassets\image 18.png" />
+    <Resource Include="UIassets\image 19.png" />
+    <Resource Include="UIassets\image 20.png" />
+    <Resource Include="UIassets\image 21.png" />
+    <Resource Include="UIassets\image20.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

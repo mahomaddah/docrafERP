@@ -24,5 +24,20 @@ namespace docrafERP.Views
         {
             InitializeComponent();
         }
+
+        private void SupplyDeleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SupplyEditBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SupplyAddBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

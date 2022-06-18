@@ -10,12 +10,97 @@
     <Grid>
         <StackPanel>
             <Line Stretch="Fill" Margin="0 4 0 0" Stroke="DarkGray" X2="1" Width="800" />
-            <StackPanel Margin="0 10 0 10" Orientation="Horizontal">
-                <materialDesign:PackIcon Height="23" Width="23"  Margin="0 0 5 0" Kind="ArchiveCheckOutline" Foreground="#00CE46"/>
-                <Label  Content="Available" Style="{StaticResource Header2}" FontFamily="Roboto" Foreground="#00CE46"></Label>
-                <materialDesign:PackIcon Height="23" Width="23"  Margin="30 0 5 0" Kind="ArchiveCancelOutline" Foreground="#FF3232"/>
-                <Label Content="Unavailable" Style="{StaticResource Header2}" FontFamily="Roboto" Foreground="#FF3232"></Label>
+       
+            <StackPanel>
+                <StackPanel Margin="0 5 0 10" Orientation="Horizontal">
+                    <materialDesign:PackIcon Height="23" Width="23"  Margin="0 0 5 0" Kind="ArchiveCheckOutline" Foreground="#00CE46"/>
+                    <Label  Content="Ready to use" Style="{StaticResource Header2}" FontFamily="Roboto" Foreground="#00CE46"></Label>
+                    <materialDesign:PackIcon Height="23" Width="23"  Margin="65 0 5 0" Kind="ArchiveCancelOutline" Foreground="#FF3232"/>
+                    <Label Content="Out of stock" Style="{StaticResource Header2}" FontFamily="Roboto" Foreground="#FF3232"></Label>
+                    <materialDesign:PackIcon Height="23" Width="23"  Margin="65 0 5 0" Kind="ArchiveAlertOutline" Foreground="#FFA500"/>
+                    <Label Content="Low on stock" Style="{StaticResource Header2}" FontFamily="Roboto" Foreground="#FFA500"></Label>
+                </StackPanel>
 
+                <Label Margin="0 5 0 0" Style="{StaticResource Header1}" Foreground="#000008" Content="Supplies" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30.5" />
+                <ProgressBar Margin="0 0 0 10" Value="8.7" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
+
+                <ListView VerticalAlignment="Center">
+                    <ListView.BorderBrush>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black" Offset="0"/>
+                            <GradientStop Color="#FFD1CECE" Offset="1"/>
+                        </LinearGradientBrush>
+                    </ListView.BorderBrush>
+
+                    <StackPanel Orientation="Horizontal" >
+                        <Label Width="250" VerticalAlignment="Center"
+                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                     Content="MEDICAL MASK     narang.com     0                      " />
+                        <materialDesign:PackIcon VerticalAlignment="Center" Margin="5 5 1 5" Height="18" Width="18" Kind="ArchiveCancelOutline" Foreground="#FF3232"/>
+                        <Label VerticalAlignment="Center" Content="Out of stock" Margin="0 5 0 0" Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#FF3232"></Label>
+                        <Image Margin="55 0 0 0" Source="/UIassets/image 18.png"  Height="45" />
+
+                    </StackPanel>
+                    <StackPanel  Orientation="Horizontal">
+                        <Label Width="250" VerticalAlignment="Center"
+                        BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                        Content="ICU CCU Portable   narang.com    21                " />
+                        <materialDesign:PackIcon VerticalAlignment="Center" Margin="5 5 1 5" Height="18" Width="18" Kind="ArchiveAlertOutline" Foreground="#FFA500"/>
+                        <Label VerticalAlignment="Center" Content="Low on stock" Margin="0 5 0 0"  Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#FFA500"></Label>
+                        <Image Margin="50 0 0 0" Source="/UIassets/image 19.png"  Height="45" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label VerticalAlignment="Center" Width="250"
+                    BorderBrush="Black" Style="{StaticResource Header2}" FontFamily="Roboto"
+                 Content="Medline DYND12.. narang.com     43" />
+                        <materialDesign:PackIcon VerticalAlignment="Center" Margin="5 5 1 5" Height="18" Width="18" Kind="ArchiveCheckOutline" Foreground="#00CE46"/>
+                        <Label VerticalAlignment="Center" Content="Ready to use" Margin="0 5 0 0"  Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#00CE46"></Label>
+                        <Image Margin="52 0 0 0" Source="/UIassets/image 20.png"  Height="45" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label VerticalAlignment="Center"  Width="250"
+                        BorderBrush="Black" Style="{StaticResource Header2}" FontFamily="Roboto"
+                        Content="Insyte Autoguard.. Vendor.com      3                        " />
+                        <materialDesign:PackIcon VerticalAlignment="Center" Margin="5 5 1 5" Height="18" Width="18" Kind="ArchiveAlertOutline" Foreground="#FFA500"/>
+                        <Label VerticalAlignment="Center" Content="Low on stock" Margin="0 5 0 0"  Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#FFA500"></Label>
+                        <Image Margin="50 0 0 0" Source="/UIassets/image 21.png"  Height="45" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label VerticalAlignment="Center" Width="250"
+                        BorderBrush="Black" Style="{StaticResource Header2}" FontFamily="Roboto"
+                        Content="First Aid Kit...           narang.com    69                     " />
+                        <materialDesign:PackIcon VerticalAlignment="Center" Margin="5 5 1 5" Height="18" Width="18" Kind="ArchiveCheckOutline" Foreground="#00CE46"/>
+                        <Label VerticalAlignment="Center" Content="Ready to use" Margin="0 5 0 0"  Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#00CE46"></Label>
+                        <Image Margin="52 0 0 0" Source="/UIassets/image20.png"  Height="45" />
+                    </StackPanel>
+                </ListView>
+                <Line Stretch="Fill" Margin="0,5,0,0" HorizontalAlignment="Left" Width="442" Stroke="DarkGray" X2="1" Opacity="0.4" />
+                <StackPanel Orientation="Horizontal" Margin="0 10 10 10">
+                    <Button
+                  Width="142"
+                  x:Name="MobieDeleteBtn"
+                  Style="{StaticResource MaterialDesignOutlinedButton}"
+                  ToolTip="CLick to delete an User..."
+                  Content="Delete"     
+                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="SupplyDeleteBtn_Click" />
+                    <Button
+                  Margin="10 0 0 0"
+                  Width="142"
+                  x:Name="MobieEditBtn"
+                  Style="{StaticResource MaterialDesignOutlinedButton}"
+                  ToolTip="CLick to edit an User..."
+                  Content="Edit"     
+                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="SupplyEditBtn_Click" />
+                    <Button
+                  Margin="10 0 0 0"
+                  Width="142"
+                  x:Name="MobieAddBtn"
+                  Style="{StaticResource MaterialDesignOutlinedButton}"
+                  ToolTip="CLick to add a new User..."
+                  Content="Add New"     
+                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Click="SupplyAddBtn_Click" />
+                </StackPanel>
+                <Label  Style="{StaticResource Header4}" Margin="0 5 0 0" Foreground="DarkGray" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="42.5" />
             </StackPanel>
         </StackPanel>
     </Grid>

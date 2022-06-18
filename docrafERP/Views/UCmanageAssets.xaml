@@ -10,8 +10,6 @@
     <Grid>
 
         <StackPanel>
-
-
             <StackPanel Margin="0 5 0 10" Orientation="Horizontal">
                 <materialDesign:PackIcon Height="23" Width="23"  Margin="0 0 5 0" Kind="ClipboardCheck" Foreground="#00CE46"/>
                 <Label  Content="Available" Style="{StaticResource Header2}" FontFamily="Roboto" Foreground="#00CE46"></Label>
