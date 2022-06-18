@@ -13,6 +13,7 @@
         Title="MainWindow"  Height="701" Width="1152">
     <Grid>
         <Grid.ColumnDefinitions>
+            
             <ColumnDefinition Width="357" ></ColumnDefinition>
             <ColumnDefinition Width="97*"/>
 
@@ -22,7 +23,7 @@
             <RowDefinition Height="87"></RowDefinition>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
+        
         <Grid x:Name="navBar" Background="#07AEFF" Grid.Row="0" Grid.Column="1" MouseDown="NavBarMove">
             <WrapPanel Margin="60 40 10 10">
                 <Label Name="LabelMainBlueTittleOnTop" Content="Manage Assets" FontFamily="Roboto" FontSize="24px" Foreground="#FFFFFF" ></Label>
@@ -30,8 +31,7 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 8 56">
                 <Button x:Name="MinimizeBtn"
                           Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
-                            Background="Transparent"
-                          
+                            Background="Transparent"           
                             BorderBrush="White"
                           ToolTip="Minimize the app..."
                           IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="MinimizeBtn_Click">
@@ -45,13 +45,20 @@
                           IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="CloseBtn_Click">
                     <materialDesign:PackIcon Kind="Close"    />
                 </Button>
-
             </StackPanel>
         </Grid>
-      
+        
         <Grid x:Name="LeftBarBackGround"  Grid.Column="0" Grid.RowSpan="3" Background="#F1F1F1"/>
         <Grid Grid.RowSpan="2" Grid.Row="1" Grid.Column="1"  Margin="30 30 30 30">
-            <views:DashboardUserControl x:Name="UCDashbord" HorizontalAlignment="Left" Height="530"  Width="735" VerticalAlignment="Top"  />
+            
+            <views:UCmanageAssets x:Name="manageAssetsUC" Visibility="Visible"/>
+            <views:UCmanageSupplies x:Name="manageSuppliesUC" Visibility="Hidden" />
+            <views:UCeditAsset x:Name="editAssetUC" Visibility="Hidden" />
+            <views:UCeditSupply x:Name="editSupplyUC" Visibility="Hidden" />
+            <views:UCSettings x:Name="settingsUC" Visibility="Hidden" />
+            <views:UCissueDocuments x:Name="issueDocumentsUC" Visibility="Hidden" />
+            <views:UCpurchaseRequests x:Name="purchaseRequestsUC" Visibility="Hidden" />
+            
         </Grid>
         <Grid Grid.Row="1" Grid.Column="0" Margin="2 2 2 2">
             <StackPanel Margin="42 2 2 2">
@@ -65,7 +72,7 @@
                     </materialDesign:PackIcon>
                     <Label x:Name="CompanyNameLB" Content="Unit 2 3/F Wardley Building" FontSize="20px" FontWeight="Bold" FontFamily="Roboto" Margin="0 0 0 8"></Label>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" MouseDown="StackPanel_MouseDown">
+                <StackPanel Orientation="Horizontal" MouseDown="ProfileClicked" HorizontalAlignment="Left">
                     <materialDesign:PackIcon Height="22"  Width="18" Kind="Account" >
                         <materialDesign:PackIcon.Foreground>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -87,7 +94,7 @@
         </Grid>
         <Grid Grid.Row="2" Grid.Column="0">
             <StackPanel Margin="44 10 1 1" Orientation="Vertical">
-                <StackPanel x:Name="btn1"  Orientation="Horizontal" Margin="0 0 0 10" MouseDown="DahsboardClicked">
+                <StackPanel x:Name="btn1"  Orientation="Horizontal" Margin="0 0 0 10" MouseDown="ManageAssetsClicked">
                     <materialDesign:PackIcon Height="22"  Width="18" Kind="ClipboardSearchOutline" >
                         <materialDesign:PackIcon.Foreground>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -97,7 +104,7 @@
                     </materialDesign:PackIcon>
                     <Label Margin="2 0 0 0"  Content="Manage Assets" FontSize="14px"  FontFamily="Roboto" ></Label>
                 </StackPanel>
-                <StackPanel x:Name="btn2"  Orientation="Horizontal" Margin="0 0 0 10"  MouseDown="USermanagmentClicked">
+                <StackPanel x:Name="btn2"  Orientation="Horizontal" Margin="0 0 0 10"  MouseDown="ManageSuppliesClicked">
                     <materialDesign:PackIcon Height="22"  Width="18" Kind="Stethoscope" >
                         <materialDesign:PackIcon.Foreground>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -107,13 +114,12 @@
                     </materialDesign:PackIcon>
                     <Label  Margin="2 0 0 0"  Content="Manage Supplies" FontSize="14px" FontFamily="Roboto" ></Label>
                 </StackPanel>
-                <StackPanel x:Name="btn3"  Orientation="Horizontal" Margin="0 0 0 10" MouseDown="DeviceManClicked">
+                <StackPanel x:Name="btn3"  Orientation="Horizontal" Margin="0 0 0 10" MouseDown="purchaseRequestsClicked">
 
                     <Image Margin="1 0 0 0" Height="16"  Width="13" Stretch="Fill" Source="/UIassets/prIcon.png" />
-
                     <Label Margin="2 0 0 0"  Content="Purchase Requests" FontSize="14px"  FontFamily="Roboto" ></Label>
                 </StackPanel>
-                <StackPanel  Orientation="Horizontal" Margin="0 0 0 10"  MouseDown="SettingClicked">
+                <StackPanel x:Name="btn4"  Orientation="Horizontal" Margin="0 0 0 10"  MouseDown="issueDocumentsClicked">
                     <materialDesign:PackIcon Height="22"  Width="18" Kind="DocumentSign" >
                         <materialDesign:PackIcon.Foreground>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -123,7 +129,7 @@
                     </materialDesign:PackIcon>
                     <Label Margin="2 0 0 0"  Content="Issue Documents" FontSize="14px"  FontFamily="Roboto" ></Label>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0 0 0 10"  MouseDown="SettingClicked">
+                <StackPanel x:Name="btn5"  Orientation="Horizontal" Margin="0 0 0 10"  MouseDown="settingsPanelClicked">
                     <materialDesign:PackIcon Height="22"  Width="18" Kind="Settings" >
                         <materialDesign:PackIcon.Foreground>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

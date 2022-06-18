@@ -16,28 +16,13 @@ using System.Windows.Shapes;
 namespace docrafERP.Views
 {
     /// <summary>
-    /// DashboardUserControl.xaml etkileşim mantığı
+    /// UCissueDocuments.xaml etkileşim mantığı
     /// </summary>
-    public partial class DashboardUserControl : UserControl
+    public partial class UCissueDocuments : UserControl
     {
-        public DashboardUserControl()
+        public UCissueDocuments()
         {
             InitializeComponent();
-        }
-
-        private void UserControl_ContextMenuClosing(object sender, ContextMenuEventArgs e)
-        {
-
-        }
-
-        private void Grid_ContextMenuOpening(object sender, ContextMenuEventArgs e)
-        {
-
-        }
-
-        private void NavBarMove(object sender, MouseButtonEventArgs e)
-        {
-
         }
     }
 }

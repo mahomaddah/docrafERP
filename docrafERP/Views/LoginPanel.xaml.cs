@@ -43,8 +43,8 @@ namespace docrafERP.Views
         {
             this.Hide();
             new HomeView().ShowDialog();
- 
-
         }
+
+
     }
 }

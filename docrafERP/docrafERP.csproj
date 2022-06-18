@@ -66,13 +66,43 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Views\DashboardUserControl.xaml.cs">
-      <DependentUpon>DashboardUserControl.xaml</DependentUpon>
+    <Compile Include="Views\UCeditAsset.xaml.cs">
+      <DependentUpon>UCeditAsset.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UCeditSupply.xaml.cs">
+      <DependentUpon>UCeditSupply.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UCissueDocuments.xaml.cs">
+      <DependentUpon>UCissueDocuments.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UCmanageAssets.xaml.cs">
+      <DependentUpon>UCmanageAssets.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginPanel.xaml.cs">
       <DependentUpon>LoginPanel.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\DashboardUserControl.xaml">
+    <Compile Include="Views\UCmanageSupplies.xaml.cs">
+      <DependentUpon>UCmanageSupplies.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UCpurchaseRequests.xaml.cs">
+      <DependentUpon>UCpurchaseRequests.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UCSettings.xaml.cs">
+      <DependentUpon>UCSettings.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\UCeditAsset.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UCeditSupply.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UCissueDocuments.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UCmanageAssets.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -89,6 +119,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\LoginPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UCmanageSupplies.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UCpurchaseRequests.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UCSettings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

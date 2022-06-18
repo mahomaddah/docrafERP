@@ -23,8 +23,7 @@ namespace docrafERP
     {
         public HomeView()
         {
-            InitializeComponent();
-            new LoginPanel().Show();
+            InitializeComponent();          
         }
 
         public void NavBarMove(object sender, MouseButtonEventArgs e)
@@ -42,29 +41,44 @@ namespace docrafERP
             this.WindowState = WindowState.Minimized;
         }
 
-        private void USermanagmentClicked(object sender, MouseButtonEventArgs e)
+        #region Dashboard Buttons:
+
+        private void ManageAssetsClicked(object sender, MouseButtonEventArgs e)
         {
 
         }
 
-        private void StackPanel_MouseDown(object sender, MouseButtonEventArgs e)
+        private void ManageSuppliesClicked(object sender, MouseButtonEventArgs e)
         {
 
         }
 
-        private void DahsboardClicked(object sender, MouseButtonEventArgs e)
+        private void purchaseRequestsClicked(object sender, MouseButtonEventArgs e)
         {
 
         }
 
-        private void DeviceManClicked(object sender, MouseButtonEventArgs e)
+        private void issueDocumentsClicked(object sender, MouseButtonEventArgs e)
         {
 
         }
 
-        private void SettingClicked(object sender, MouseButtonEventArgs e)
+        private void settingsPanelClicked(object sender, MouseButtonEventArgs e)
         {
 
         }
+        #endregion
+
+        private void ProfileClicked(object sender, MouseButtonEventArgs e)
+        {
+          var result=  MessageBox.Show("Do you want to log out from the application?", "Sign out?", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                this.Hide();
+                new LoginPanel().ShowDialog();
+             
+            }
+        }
+
     }
 }
