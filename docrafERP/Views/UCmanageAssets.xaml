@@ -11,53 +11,98 @@
 
         <StackPanel>
 
-            <Line Stretch="Fill" Margin="0 30 0 0" Stroke="DarkGray" X2="1" Width="800" Opacity="0.4" />
-            <StackPanel Margin="0 10 0 10" Orientation="Horizontal">
+
+            <StackPanel Margin="0 5 0 10" Orientation="Horizontal">
                 <materialDesign:PackIcon Height="23" Width="23"  Margin="0 0 5 0" Kind="ClipboardCheck" Foreground="#00CE46"/>
                 <Label  Content="Available" Style="{StaticResource Header2}" FontFamily="Roboto" Foreground="#00CE46"></Label>
-                <materialDesign:PackIcon Height="23" Width="23"  Margin="150 0 5 0" Kind="ClipboardOff" Foreground="#FF3232"/>
+                <materialDesign:PackIcon Height="23" Width="23"  Margin="150 0 5 0" Kind="ClipboardCheck" Foreground="#FF3232"/>
                 <Label Content="Unavailable" Style="{StaticResource Header2}" FontFamily="Roboto" Foreground="#FF3232"></Label>
             </StackPanel>
 
-            <Label Margin="0 10 0 0" Style="{StaticResource Header1}" Foreground="#000008" Content="Products" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30.5" />
-            <ProgressBar Margin="0 0 0 10" Value="8.5" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
-            
-            <ListView>
-               
-                <StackPanel Orientation="Horizontal">
-                    <Label 
-                    BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
-                 Content="Zebra Terminál - Sklad 01" />
-                    <materialDesign:PackIcon Margin="275 5 1 5" Height="18" Width="18" Kind="LanConnect" Foreground="#00CE46"/>
-                    <Label Content="Connection is active" Margin="0 5 0 0" Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#00CE46"></Label>
+            <Label Margin="0 5 0 0" Style="{StaticResource Header1}" Foreground="#000008" Content="Products" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30.5" />
+            <ProgressBar Margin="0 0 0 10" Value="8.7" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
+
+            <ListView VerticalAlignment="Center">
+                <ListView.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="#FFD1CECE" Offset="1"/>
+                    </LinearGradientBrush>
+                </ListView.BorderBrush>
+
+                <StackPanel Orientation="Horizontal" >
+                    <Label Width="250" VerticalAlignment="Center"
+                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                     Content="ACER LAPTOP                        DR.R.A Ferr." />
+                    <materialDesign:PackIcon VerticalAlignment="Center" Margin="5 5 1 5" Height="18" Width="18" Kind="ClipboardCheck" Foreground="#00CE46"/>
+                    <Label VerticalAlignment="Center" Content="Available" Margin="0 5 0 0" Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#00CE46"></Label>
+                    <Image Margin="50 0 0 0" Source="/UIassets/image 9.png"  Height="45" />
+
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label 
+                <StackPanel  Orientation="Horizontal">
+                    <Label Width="250" VerticalAlignment="Center"
                         BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
-                        Content="Zebra Terminál - Sklad 02" />
-                    <materialDesign:PackIcon Margin="275 5 1 5" Height="18" Width="18" Kind="LanConnect" Foreground="#00CE46"/>
-                    <Label Content="Connection is active" Margin="0 5 0 0"  Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#00CE46"></Label>
+                        Content="ACER LAPTOP                        DR.Max.      " />
+                    <materialDesign:PackIcon VerticalAlignment="Center" Margin="5 5 1 5" Height="18" Width="18" Kind="ClipboardCheck" Foreground="#00CE46"/>
+                    <Label VerticalAlignment="Center" Content="Available" Margin="0 5 0 0"  Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#00CE46"></Label>
+                    <Image Margin="50 0 0 0" Source="/UIassets/image 9.png"  Height="45" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Label
+                    <Label VerticalAlignment="Center" Width="250"
                     BorderBrush="Black" Style="{StaticResource Header2}" FontFamily="Roboto"
-                 Content="Zebra Terminál - Sklad 03" />
-                    <materialDesign:PackIcon Margin="275 5 1 5" Height="18" Width="18" Kind="LanDisconnect" Foreground="#FF3232"/>
-                    <Label Content="Disconnected" Margin="0 5 0 0"  Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#FF3232"></Label>
+                 Content="ACER LAPTOP                        DR.Rex" />
+                    <materialDesign:PackIcon VerticalAlignment="Center" Margin="5 5 1 5" Height="18" Width="18" Kind="ClipboardCheck" Foreground="#FF3232"/>
+                    <Label VerticalAlignment="Center" Content="Unavailable" Margin="0 5 0 0"  Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#FF3232"></Label>
+                    <Image Margin="38 0 0 0" Source="/UIassets/image 9.png"  Height="45" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Label 
+                    <Label VerticalAlignment="Center"  Width="250"
                         BorderBrush="Black" Style="{StaticResource Header2}" FontFamily="Roboto"
-                        Content="Zebra Terminál - Sklad 04" />
-                    <materialDesign:PackIcon Margin="275 5 1 5" Height="18" Width="18" Kind="LanConnect" Foreground="#00CE46"/>
-                    <Label Content="Connection is active" Margin="0 5 0 0"  Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#00CE46"></Label>
+                        Content="ACER LAPTOP                        DR.Alex" />
+                    <materialDesign:PackIcon VerticalAlignment="Center" Margin="5 5 1 5" Height="18" Width="18" Kind="ClipboardCheck" Foreground="#00CE46"/>
+                    <Label VerticalAlignment="Center" Content="Available" Margin="0 5 0 0"  Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#00CE46"></Label>
+                    <Image Margin="50 0 0 0" Source="/UIassets/image 9.png"  Height="45" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label VerticalAlignment="Center" Width="250"
+                        BorderBrush="Black" Style="{StaticResource Header2}" FontFamily="Roboto"
+                        Content="ACER LAPTOP                        DR.Madona" />
+                    <materialDesign:PackIcon VerticalAlignment="Center" Margin="5 5 1 5" Height="18" Width="18" Kind="ClipboardCheck" Foreground="#00CE46"/>
+                    <Label VerticalAlignment="Center" Content="Available" Margin="0 5 0 0"  Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#00CE46"></Label>
+                    <Image Margin="50 0 0 0" Source="/UIassets/image 9.png"  Height="45" />
                 </StackPanel>
             </ListView>
-            
-            <Label Name="LabelLisans" Margin="0 10 0 0" Style="{StaticResource Header1}" Foreground="#000008" Content="License" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30.5" />
-            <ProgressBar Margin="0 0 0 5" Value="7" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
+            <Line Stretch="Fill" Margin="0,5,0,0" HorizontalAlignment="Left" Width="442" Stroke="DarkGray" X2="1" Opacity="0.4" />
+            <StackPanel Orientation="Horizontal" Margin="0 10 10 10">
+                <Button
+                  Width="142"
+                  x:Name="MobieDeleteBtn"
+                  Style="{StaticResource MaterialDesignOutlinedButton}"
+                  ToolTip="CLick to delete an User..."
+                  Content="Delete"     
+                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="AssetDeleteBtn_Click" />
+                <Button
+                  Margin="10 0 0 0"
+                  Width="142"
+                  x:Name="MobieEditBtn"
+                  Style="{StaticResource MaterialDesignOutlinedButton}"
+                  ToolTip="CLick to edit an User..."
+                  Content="Edit"     
+                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="AssetEditBtn_Click" />
+                <Button
+                  Margin="10 0 0 0"
+                  Width="142"
+                  x:Name="MobieAddBtn"
+                  Style="{StaticResource MaterialDesignOutlinedButton}"
+                  ToolTip="CLick to add a new User..."
+                  Content="Add New"     
+                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Click="AssetAddBtn_Click" />
+            </StackPanel>
+
+            <Label Name="LabelLisans" Margin="0 5 0 0" Style="{StaticResource Header1}" Foreground="#000008" Content="License" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30.5" />
+            <ProgressBar Margin="0 0 0 5" Value="8" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
             <Label  Style="{StaticResource Header4}" Margin="0 5 0 0" Foreground="DarkGray" Content="ERP Desktop, valid until 22.06. 2030" HorizontalAlignment="Left" VerticalAlignment="Top" Height="42.5" />
         </StackPanel>
-       
+
     </Grid>
 </UserControl>

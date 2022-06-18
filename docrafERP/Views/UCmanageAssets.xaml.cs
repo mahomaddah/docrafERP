@@ -25,5 +25,19 @@ namespace docrafERP.Views
             InitializeComponent();
         }
 
+        private void AssetDeleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AssetEditBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AssetAddBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
