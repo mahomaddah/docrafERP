@@ -20,7 +20,7 @@
             <Label Margin="0 5 0 0" Style="{StaticResource Header1}" Foreground="#000008" Content="Products" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30.5" />
             <ProgressBar Margin="0 0 0 10" Value="8.7" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
 
-            <ListView VerticalAlignment="Center">
+            <ListView Name="LVassets" VerticalAlignment="Center">
                 <ListView.BorderBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0"/>
@@ -76,7 +76,7 @@
                   Width="142"
                   x:Name="MobieDeleteBtn"
                   Style="{StaticResource MaterialDesignOutlinedButton}"
-                  ToolTip="CLick to delete an User..."
+                  ToolTip="CLick to delete an Asset..."
                   Content="Delete"     
                   IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="AssetDeleteBtn_Click" />
                 <Button
@@ -84,7 +84,7 @@
                   Width="142"
                   x:Name="MobieEditBtn"
                   Style="{StaticResource MaterialDesignOutlinedButton}"
-                  ToolTip="CLick to edit an User..."
+                  ToolTip="CLick to edit an Asset..."
                   Content="Edit"     
                   IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="AssetEditBtn_Click" />
                 <Button
@@ -92,7 +92,7 @@
                   Width="142"
                   x:Name="MobieAddBtn"
                   Style="{StaticResource MaterialDesignOutlinedButton}"
-                  ToolTip="CLick to add a new User..."
+                  ToolTip="CLick to add a new Asset..."
                   Content="Add New"     
                   IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Click="AssetAddBtn_Click" />
             </StackPanel>

@@ -27,17 +27,25 @@ namespace docrafERP.Views
 
         private void AssetDeleteBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            if (LVassets.SelectedIndex != -1)
+                LVassets.Items.Remove(LVassets.SelectedItem);
         }
 
         private void AssetEditBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            if (LVassets.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select and item first....");
+            }
+            else
+            {
+                SingletoneHomeView.Instance.homeView.bringTheUC("Edit Asset");
+            }
         }
 
         private void AssetAddBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            SingletoneHomeView.Instance.homeView.bringTheUC("Edit Asset");
         }
     }
 }

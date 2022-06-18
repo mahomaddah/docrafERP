@@ -27,17 +27,27 @@ namespace docrafERP.Views
 
         private void SupplyDeleteBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            if (LVsupplies.SelectedIndex != -1)
+            {
+                LVsupplies.Items.Remove(LVsupplies.SelectedItem);
+            }
         }
 
         private void SupplyEditBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            if (LVsupplies.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select and item first....");
+            }
+            else
+            {
+                SingletoneHomeView.Instance.homeView.bringTheUC("Edit Supply");
+            }
         }
 
         private void SupplyAddBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            SingletoneHomeView.Instance.homeView.bringTheUC("Edit Supply");
         }
     }
 }

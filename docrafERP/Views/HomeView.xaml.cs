@@ -23,7 +23,8 @@ namespace docrafERP
     {
         public HomeView()
         {
-            InitializeComponent();          
+            InitializeComponent();
+            SingletoneHomeView.Instance.homeView = this;
         }
 
         #region WindowBasicButtons:
@@ -57,7 +58,7 @@ namespace docrafERP
 
         #region Dashboard Buttons:
 
-        void bringTheUC(string UCname)
+        public void bringTheUC(string UCname)
         {
             //hide all (7 UC for now )
 
@@ -80,6 +81,9 @@ namespace docrafERP
                 case "Settings": { settingsUC.Visibility = Visibility.Visible; break; }
                 case "Purchase Requests Panel": { purchaseRequestsUC.Visibility = Visibility.Visible; break; }
                 case "Issue Documents": { issueDocumentsUC.Visibility = Visibility.Visible; break; }
+                case "Edit Asset": { editAssetUC.Visibility = Visibility.Visible; break; }
+                case "Edit Supply": { editSupplyUC.Visibility = Visibility.Visible; break; }
+
             }
         }
 

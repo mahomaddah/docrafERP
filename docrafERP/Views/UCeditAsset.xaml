@@ -9,7 +9,7 @@
              d:DesignHeight="550" d:DesignWidth="800">
     <Grid>
         <StackPanel>
-            <Label  Style="{StaticResource Header1}" Foreground="#000008" Content="Manage Assets Panel"  />
+            <Label  Style="{StaticResource Header1}" Foreground="#000008" Content="EDit Assets Panel"  />
         </StackPanel>
     </Grid>
 </UserControl>
