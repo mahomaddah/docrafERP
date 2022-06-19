@@ -8,9 +8,254 @@
              mc:Ignorable="d" 
              d:DesignHeight="550" d:DesignWidth="800">
     <Grid>
-        <StackPanel>
-            
-            <Label  Style="{StaticResource Header1}" Foreground="#000008" Content="Edit Supply"  />
-        </StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="99*"/>
+            <ColumnDefinition Width="61*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="1" Margin="30 0 0 0">
+            <StackPanel>
+                <Image Source="/UIassets/image 23.png" Width="220" Height="220" Margin="0 0 0 5"/>
+                <Label Content="Related Documents" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header1}" Margin="0 0 0 5"  />
+                <StackPanel Margin="0 0 20 0">
+                    <ListView Height="236"  BorderThickness="2" BorderBrush="#0DCAF2" >
+                        <ListViewItem Content="Purchase Request.pdf" Margin="1"  BorderThickness="1" BorderBrush="#0DCAF2" ></ListViewItem>
+                        <ListViewItem Content="Purchase Order.pdf" Margin="1" BorderThickness="1" BorderBrush="#0DCAF2" ></ListViewItem>
+                        <ListViewItem Content="AIR.pdf" Margin="1"  BorderThickness="1" BorderBrush="#0DCAF2" ></ListViewItem>
+                        <ListViewItem Content="Invoice.pdf" Margin="1" BorderThickness="1" BorderBrush="#0DCAF2" ></ListViewItem>
+                        <ListViewItem Content="ReceivingLabDoc.pdf" Margin="1"  BorderThickness="1" BorderBrush="#0DCAF2" ></ListViewItem>
+                        <ListViewItem Content="Warrant.pdf" Margin="1" BorderThickness="1" BorderBrush="#0DCAF2" ></ListViewItem>
+                    </ListView>
+                    <StackPanel Orientation="Horizontal" >
+                        <materialDesign:PackIcon Height="27"  Width="27" Kind="FileDocumentAdd" Margin="2 6 0 0" MouseDown="AddDocBtn">
+                            <materialDesign:PackIcon.Foreground>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#0DCAF2" Offset="0"/>
+                                </LinearGradientBrush>
+                            </materialDesign:PackIcon.Foreground>
+                        </materialDesign:PackIcon>
+                        <materialDesign:PackIcon Height="27"  Width="27" Kind="FileDocumentDelete" Margin="2 6 0 0" MouseDown="DeleteDocBtn">
+                            <materialDesign:PackIcon.Foreground>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#0DCAF2" Offset="0"/>
+                                </LinearGradientBrush>
+                            </materialDesign:PackIcon.Foreground>
+                        </materialDesign:PackIcon>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="0">
+            <StackPanel>
+
+                <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
+                    <Label Content="Name" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
+                    <TextBox VerticalAlignment="Center"
+                 FontWeight="Normal"
+                            Width="330"
+                            Margin="0 0 0 0"
+                            Style="{StaticResource MaterialDesignFilledTextBox}"
+                            
+                            HorizontalAlignment="Left"
+                            AcceptsReturn="True"
+                            TextWrapping="Wrap"
+                            MaxWidth="400"
+                            Text="ICU CCU Portable"
+                            materialDesign:HintAssist.Hint="Please enter the Supply name..."
+                            Foreground="#000009"
+                            SelectionBrush="#07AD40"
+                            BorderBrush="#0DCAF2"
+                            FontFamily="Roboto"
+                            FontSize="12px" CaretBrush="#FF07AD40"/>
+                </StackPanel>
+
+                <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
+                    <Label Content="Purchase Price" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
+                    <TextBox VerticalAlignment="Center"
+                 FontWeight="Normal"
+                            Width="330"
+                            Margin="0 0 0 0"
+                            Style="{StaticResource MaterialDesignFilledTextBox}"
+                            
+                            HorizontalAlignment="Left"
+                            AcceptsReturn="True"
+                            TextWrapping="Wrap"
+                            MaxWidth="400"
+                            Text="₱998.00"
+                            materialDesign:HintAssist.Hint="Please enter the Price"
+                            Foreground="#000009"
+                            SelectionBrush="#07AD40"
+                            BorderBrush="#0DCAF2"
+                            FontFamily="Roboto"
+                            FontSize="12px" CaretBrush="#FF07AD40"/>
+                </StackPanel>
+                <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
+                    <Label Content="Quantity" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
+                    <TextBox VerticalAlignment="Center"
+                 FontWeight="Normal"
+                            Width="330"
+                            Margin="0 0 0 0"
+                            Style="{StaticResource MaterialDesignFilledTextBox}"
+                            
+                            HorizontalAlignment="Left"
+                            AcceptsReturn="True"
+                            TextWrapping="Wrap"
+                            MaxWidth="400"
+                            
+                            materialDesign:HintAssist.Hint="21"
+                            Foreground="#000009"
+                            SelectionBrush="#07AD40"
+                            BorderBrush="#0DCAF2"
+                            FontFamily="Roboto"
+                            FontSize="12px" CaretBrush="#FF07AD40"/>
+                </StackPanel>
+
+                <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
+                    <Label Content="Lot Number" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
+                    <TextBox VerticalAlignment="Center"
+                 FontWeight="Normal"
+                            Width="330"
+                            Margin="0 0 0 0"
+                            Style="{StaticResource MaterialDesignFilledTextBox}"
+                            
+                            HorizontalAlignment="Left"
+                            AcceptsReturn="True"
+                            TextWrapping="Wrap"
+                            MaxWidth="400"
+                            
+                            materialDesign:HintAssist.Hint="4CE0460B2MMLD0G"
+                            Foreground="#000009"
+                            SelectionBrush="#07AD40"
+                            BorderBrush="#0DCAF2"
+                            FontFamily="Roboto"
+                            FontSize="12px" CaretBrush="#FF07AD40"/>
+                </StackPanel>
+
+                <ProgressBar Margin="0 10 0 10" Value="95.1" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
+                <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
+                    <Label Content="Expiration Date" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
+                    <TextBox VerticalAlignment="Center"
+                 FontWeight="Normal"
+                            Width="330"
+                            Margin="0 0 0 0"
+                            Style="{StaticResource MaterialDesignFilledTextBox}"
+                            
+                            HorizontalAlignment="Left"
+                            AcceptsReturn="True"
+                            TextWrapping="Wrap"
+                            MaxWidth="400"
+                            Text="none"
+                            materialDesign:HintAssist.Hint="June 7, 2022"
+                            Foreground="#000009"
+                            SelectionBrush="#07AD40"
+                            BorderBrush="#0DCAF2"
+                            FontFamily="Roboto"
+                            FontSize="12px" CaretBrush="#FF07AD40"/>
+                </StackPanel>
+
+                <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
+                    <Label Content="Purchased Vendor" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header3}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
+                    <TextBox VerticalAlignment="Center"
+                 FontWeight="Normal"
+                            Width="330"
+                            Margin="0 0 0 0"
+                            Style="{StaticResource MaterialDesignFilledTextBox}"
+                            
+                            HorizontalAlignment="Left"
+                            AcceptsReturn="True"
+                            TextWrapping="Wrap"
+                            MaxWidth="400"
+                            
+                            materialDesign:HintAssist.Hint="Apple Inc."
+                            Foreground="#000009"
+                            SelectionBrush="#07AD40"
+                            BorderBrush="#0DCAF2"
+                            FontFamily="Roboto"
+                            FontSize="12px" CaretBrush="#FF07AD40"/>
+                </StackPanel>
+                <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
+                    <Label Content="Enter or generate a new barcode for the product" FontWeight="Normal" Style="{StaticResource Header2}" VerticalAlignment="Center" Foreground="#FF07AD40" Margin="0 10 0 0"   />
+                </StackPanel>
+
+                <StackPanel Margin="0,2,46,2" Orientation="Horizontal">
+                    <Label Content="Barcode" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
+                    <TextBox VerticalAlignment="Center"
+                 FontWeight="Normal"
+                            Width="194"
+                            Margin="0 0 0 0"
+                            Style="{StaticResource MaterialDesignFilledTextBox}"
+                            
+                            HorizontalAlignment="Left"
+                            AcceptsReturn="True"
+                            TextWrapping="Wrap"
+                            MaxWidth="400"
+                            
+                            materialDesign:HintAssist.Hint="Enter / Generate new"
+                            Foreground="#07AD40"
+                            SelectionBrush="#07AD40"
+                            BorderBrush="#0DCAF2"
+                            FontFamily="Roboto"
+                            FontSize="12px" CaretBrush="#FF07AD40" Text="036000291452"/>
+                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="0 10 0 10">
+
+                        <materialDesign:PackIcon HorizontalAlignment="Left" Height="35"  Width="35" Kind="ForeignKey" Margin="3 10 0 0" MouseDown="GeneradeRandomBtn">
+                            <materialDesign:PackIcon.Foreground>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#0DCAF2" Offset="0"/>
+                                </LinearGradientBrush>
+                            </materialDesign:PackIcon.Foreground>
+                        </materialDesign:PackIcon>
+                        <materialDesign:PackIcon HorizontalAlignment="Left" Height="35"  Width="35" Kind="ContentCopy" Margin="2 10 0 0" MouseDown="copyToCLipboardBtn" >
+                            <materialDesign:PackIcon.Foreground>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#0DCAF2" Offset="0"/>
+                                </LinearGradientBrush>
+                            </materialDesign:PackIcon.Foreground>
+                        </materialDesign:PackIcon>
+                        <materialDesign:PackIcon HorizontalAlignment="Left" Height="35"  Width="35" Kind="BarcodeScan" Margin="2 10 0 0" MouseDown="ScanBarconeBtn">
+                            <materialDesign:PackIcon.Foreground>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#0DCAF2" Offset="0"/>
+                                </LinearGradientBrush>
+                            </materialDesign:PackIcon.Foreground>
+                        </materialDesign:PackIcon>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Margin="102 0 0 0" Orientation="Vertical"  HorizontalAlignment="Left" >
+                        <Label Foreground="Gray" Style="{StaticResource Header2}" Content="Serial code for printing" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130"/>
+                        <Image Source="/UIassets/image 15.png" HorizontalAlignment="Left"  Width="130" Height="105"/>
+
+                    </StackPanel>
+                    <StackPanel Margin="0 30 0 0">
+                        <materialDesign:PackIcon Height="27"  Width="27" Kind="ContentSave" Margin="2 0 0 0" MouseDown="QRSaveAspicBtn">
+                            <materialDesign:PackIcon.Foreground>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#0DCAF2" Offset="0"/>
+                                </LinearGradientBrush>
+                            </materialDesign:PackIcon.Foreground>
+                        </materialDesign:PackIcon>
+
+                        <materialDesign:PackIcon Height="27"  Width="27" Kind="Whatsapp" Margin="2 6 0 0" MouseDown="QRwhatsappBtn">
+                            <materialDesign:PackIcon.Foreground>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#0DCAF2" Offset="0"/>
+                                </LinearGradientBrush>
+                            </materialDesign:PackIcon.Foreground>
+                        </materialDesign:PackIcon>
+                        <materialDesign:PackIcon Height="27"  Width="27" Kind="Barcode" Margin="2 6 0 0" MouseDown="PrintQRcodeBTn">
+                            <materialDesign:PackIcon.Foreground>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#0DCAF2" Offset="0"/>
+                                </LinearGradientBrush>
+                            </materialDesign:PackIcon.Foreground>
+                        </materialDesign:PackIcon>
+                    </StackPanel>
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>

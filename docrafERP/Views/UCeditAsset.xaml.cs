@@ -24,5 +24,56 @@ namespace docrafERP.Views
         {
             InitializeComponent();
         }
+
+        private void PackIcon_MouseDown_1(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void copyToCLipboardBtn(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void GeneradeRandomBtn(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void ScanBarconeBtn(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+
+        private void PrintQRcodeBTn(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void QRwhatsappBtn(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void QRSaveAspicBtn(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void AddDocBtn(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void DeleteDocBtn(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }
