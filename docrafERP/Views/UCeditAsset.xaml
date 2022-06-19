@@ -129,7 +129,7 @@
                             SelectionBrush="#07AD40"
                             BorderBrush="#0DCAF2"
                             FontFamily="Roboto"
-                            FontSize="12px" CaretBrush="#FF07AD40" TextChanged="TextBox_TextChanged"/>
+                            FontSize="12px" CaretBrush="#FF07AD40" />
                 </StackPanel>
 
                 <ProgressBar Margin="0 10 0 10" Value="95.1" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
@@ -197,7 +197,7 @@
 
                 <StackPanel Margin="0,2,46,2" Orientation="Horizontal">
                     <Label Content="Barcode" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
-                    <TextBox VerticalAlignment="Center"
+                    <TextBox Name="EncryptionKeyTB" VerticalAlignment="Center"
                  FontWeight="Normal"
                             Width="194"
                             Margin="0 0 0 0"
@@ -213,7 +213,7 @@
                             SelectionBrush="#07AD40"
                             BorderBrush="#0DCAF2"
                             FontFamily="Roboto"
-                            FontSize="12px" CaretBrush="#FF07AD40" TextChanged="TextBox_TextChanged" Text="036000291452"/>
+                            FontSize="12px" CaretBrush="#FF07AD40"  Text="73960856467"/>
                     <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="0 10 0 10">
 
                         <materialDesign:PackIcon HorizontalAlignment="Left" Height="35"  Width="35" Kind="ForeignKey" Margin="3 10 0 0" MouseDown="GeneradeRandomBtn">
@@ -242,8 +242,8 @@
 
                 <StackPanel Orientation="Horizontal">
                     <StackPanel Margin="102 0 0 0" Orientation="Vertical"  HorizontalAlignment="Left" >
-                        <Label Foreground="Gray" Style="{StaticResource Header2}" Content="Serial code for printing" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130"/>
-                        <Image Source="/UIassets/image 15.png" HorizontalAlignment="Left"  Width="130" Height="105"/>
+                        <Label Foreground="Gray" Style="{StaticResource Header3}" Content="Serial code for printing" HorizontalAlignment="Center" VerticalAlignment="Top" MaxWidth="130"/>
+                        <Image x:Name="QRcodeImage" Source="/UIassets/image 15.png" HorizontalAlignment="Center"  Width="110" Height="95"/>
 
                     </StackPanel>
                     <StackPanel Margin="0 30 0 0">
