@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using docrafERP.Models;
 
     /// HomeView.xaml etkileşim mantığı
 namespace docrafERP
@@ -22,14 +23,44 @@ namespace docrafERP
     /// </summary>
     public partial class HomeView : Window
     {
+        public List<Asset> Assets { get; set; }
+        public List<Supply> Supplies { get; set; }
+        public List<PurchaseRequest> PurchaseRequests { get; set; }
+
+        public void GetData()
+        {
+            DataService dataService = new DataService();
+
+            Assets = dataService.GetAllAssets();
+            Supplies = new List<Supply>();
+            PurchaseRequests = new List<PurchaseRequest>();
+
+            //Tests:
+            //test1 select all asset
+            // MessageBox.Show("Asset: " + dataService.GetAllAssets().First().Device);
+
+            //inset new asset :
+            // dataService.InsertAsset(new Asset { ImagePath="fdsfad" , Device ="INSERT SUCCESS" ,Barcode="1234" ,PurchaseRequetID=2, DateReceived ="dfda" , DocumentsFolderPath="fdsa" , OwnerOrLocation = "owner" , PurchasedVendor="apple" , PurchasePrice="123 USD" , Status ="Brocken" , RemarksJson =" heree" , SerialNumber = "1232132" });
+
+            //Delete Asset:
+            // dataService.DeleteAsset(new Asset { AssetID = 5 });
+
+            //get one asset by id:
+            // MessageBox.Show("select one Asset: " + dataService.GeAsset(new Asset { AssetID = 2 }));
+
+            //Update asset:
+            //dataService.UpdateAsset(new Asset { AssetID = 3, ImagePath = "fdsfad", Device = "Updateee SUCCESS", Barcode = "1234", PurchaseRequetID = 2, DateReceived = "dfda", DocumentsFolderPath = "fdsa", OwnerOrLocation = "owner", PurchasedVendor = "apple", PurchasePrice = "123 USD", Status = "Brocken", RemarksJson = " heree", SerialNumber = "1232132" });
+        }
+
         public HomeView()
         {
             InitializeComponent();
             SingletoneHomeView.Instance.homeView = this;
 
-            DataService dataService = new DataService();
-            MessageBox.Show("asset: " + dataService.GetAllAssets().First().Device);
+            GetData();
         }
+
+        
 
         #region WindowBasicButtons:
 
