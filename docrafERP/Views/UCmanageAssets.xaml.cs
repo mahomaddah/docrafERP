@@ -47,5 +47,11 @@ namespace docrafERP.Views
         {
             SingletoneHomeView.Instance.homeView.bringTheUC("Edit Asset");
         }
+
+        private void ItemSelected(object sender, MouseButtonEventArgs e)
+        {
+            if (LVassets.SelectedIndex != -1)
+                SingletoneHomeView.Instance.homeView.bringTheUC("Edit Asset");
+        }
     }
 }

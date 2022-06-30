@@ -64,5 +64,16 @@ namespace docrafERP.Views
         {
 
         }
+
+        private void BacktoSupBtn(object sender, MouseButtonEventArgs e)
+        {
+            SingletoneHomeView.Instance.homeView.bringTheUC("Manage Supplies");
+        }
+
+        private void SavetoSupBtn(object sender, MouseButtonEventArgs e)
+        {
+            //save first 
+            SingletoneHomeView.Instance.homeView.bringTheUC("Manage Supplies");
+        }
     }
 }

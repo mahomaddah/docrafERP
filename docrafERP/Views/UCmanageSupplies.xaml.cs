@@ -49,5 +49,13 @@ namespace docrafERP.Views
         {
             SingletoneHomeView.Instance.homeView.bringTheUC("Edit Supply");
         }
+
+        private void ItemSelected(object sender, MouseButtonEventArgs e)
+        {
+            if (LVsupplies.SelectedIndex != -1)
+            {
+                SingletoneHomeView.Instance.homeView.bringTheUC("Edit Supply");
+            }
+        }
     }
 }

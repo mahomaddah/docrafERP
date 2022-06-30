@@ -41,6 +41,21 @@
                                 </LinearGradientBrush>
                             </materialDesign:PackIcon.Foreground>
                         </materialDesign:PackIcon>
+                        <materialDesign:PackIcon Height="27"  Width="27" Kind="ContentSave" Margin="120 6 0 0" MouseDown="SavetoAssetBtn">
+                            <materialDesign:PackIcon.Foreground>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#0DCAF2" Offset="0"/>
+                                </LinearGradientBrush>
+                            </materialDesign:PackIcon.Foreground>
+                        </materialDesign:PackIcon>
+
+                        <materialDesign:PackIcon Height="27"  Width="27" Kind="SignOut" Margin="2 6 0 0" MouseDown="BacktoAssetBtn">
+                            <materialDesign:PackIcon.Foreground>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#0DCAF2" Offset="0"/>
+                                </LinearGradientBrush>
+                            </materialDesign:PackIcon.Foreground>
+                        </materialDesign:PackIcon>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

@@ -109,10 +109,13 @@ namespace docrafERP.Views
 
         }
 
-
         private void PrintQRcodeBTn(object sender, MouseButtonEventArgs e)
         {
-
+            //string path = Environment.CurrentDirectory + "\\tempQRimage.png";
+            //lastQrimage.Save(path, ImageFormat.Png);
+        
+            //System.Threading.Thread.Sleep(1000);
+            //SingletoneHomeView.Instance.homeView.issueDocumentsUC.printDoc(path);
         }
 
         private void QRwhatsappBtn(object sender, MouseButtonEventArgs e)
@@ -133,7 +136,7 @@ namespace docrafERP.Views
             {
                 if (lastQrimage != null)
                 {
-                    lastQrimage.Save(string.Concat(saveFileDialog.FileName, ".jpeg"), ImageFormat.Png);                 
+                    lastQrimage.Save(string.Concat(saveFileDialog.FileName, ".Png"), ImageFormat.Png);                 
                 }
             }
             else MessageBox.Show("Could not save...");
@@ -147,6 +150,17 @@ namespace docrafERP.Views
         private void DeleteDocBtn(object sender, MouseButtonEventArgs e)
         {
 
+        }
+
+        private void SavetoAssetBtn(object sender, MouseButtonEventArgs e)
+        {
+            //save asset first...
+            SingletoneHomeView.Instance.homeView.bringTheUC("Manage Assets");
+        }
+
+        private void BacktoAssetBtn(object sender, MouseButtonEventArgs e)
+        {
+            SingletoneHomeView.Instance.homeView.bringTheUC("Manage Assets");
         }
     }
 }
