@@ -1,4 +1,5 @@
-﻿using docrafERP.Views;
+﻿using docrafERP.DataAccessLayer;
+using docrafERP.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,9 @@ namespace docrafERP
         {
             InitializeComponent();
             SingletoneHomeView.Instance.homeView = this;
+
+            DataService dataService = new DataService();
+            MessageBox.Show("asset: " + dataService.GetAllAssets().First().Device);
         }
 
         #region WindowBasicButtons:
