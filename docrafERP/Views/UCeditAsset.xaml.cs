@@ -11,9 +11,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Diagnostics;
 using System.Drawing;
-
-
-
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -35,6 +32,7 @@ namespace docrafERP.Views
             InitializeComponent();
             GetNewCode();
         }
+
         public void GetNewCode()
         {
             EncryptionKeyTB.Text = RandomString(12);
