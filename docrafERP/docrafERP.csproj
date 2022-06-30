@@ -77,6 +77,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Asset.cs" />
+    <Compile Include="Models\PurchaseRequest.cs" />
+    <Compile Include="Models\Supply.cs" />
     <Compile Include="Views\SingletoneHomeView.cs" />
     <Compile Include="Views\UCeditAsset.xaml.cs">
       <DependentUpon>UCeditAsset.xaml</DependentUpon>
@@ -176,7 +180,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataAccessLayer\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="UIassets\prIcon.png" />
