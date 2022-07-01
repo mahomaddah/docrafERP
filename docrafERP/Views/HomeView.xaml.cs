@@ -32,24 +32,11 @@ namespace docrafERP
             DataService dataService = new DataService();
 
             Assets = dataService.GetAllAssets();
-            Supplies = new List<Supply>();
+            Supplies = dataService.GetAllSupplies();
             PurchaseRequests = new List<PurchaseRequest>();
 
-            //Tests:
-            //test1 select all asset
-            // MessageBox.Show("Asset: " + dataService.GetAllAssets().First().Device);
-
-            //inset new asset :
-            // dataService.InsertAsset(new Asset { ImagePath="fdsfad" , Device ="INSERT SUCCESS" ,Barcode="1234" ,PurchaseRequetID=2, DateReceived ="dfda" , DocumentsFolderPath="fdsa" , OwnerOrLocation = "owner" , PurchasedVendor="apple" , PurchasePrice="123 USD" , Status ="Brocken" , RemarksJson =" heree" , SerialNumber = "1232132" });
-
-            //Delete Asset:
-            // dataService.DeleteAsset(new Asset { AssetID = 5 });
-
-            //get one asset by id:
-            // MessageBox.Show("select one Asset: " + dataService.GeAsset(new Asset { AssetID = 2 }));
-
-            //Update asset:
-            //dataService.UpdateAsset(new Asset { AssetID = 3, ImagePath = "fdsfad", Device = "Updateee SUCCESS", Barcode = "1234", PurchaseRequetID = 2, DateReceived = "dfda", DocumentsFolderPath = "fdsa", OwnerOrLocation = "owner", PurchasedVendor = "apple", PurchasePrice = "123 USD", Status = "Brocken", RemarksJson = " heree", SerialNumber = "1232132" });
+            // dataService.InsertSupply(new Supply { Barcode="1243523" ,Name ="Covid 19 Vac." , PurchasePrice="12 USD" , PurchasedVendor="USA" , Quantity="23"  });
+            dataService.UpdateSupply(new Supply { SupplyID = 3 , ImagePath= "/UIassets/image 23.png"  ,Name="Woods"});
         }
 
         public HomeView()

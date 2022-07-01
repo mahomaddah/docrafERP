@@ -34,7 +34,7 @@ namespace docrafERP.DataAccessLayer
             return Connection.Query<Asset>(query).ToList();
         }
 
-        public Asset GeAsset(Asset assetID)
+        public Asset GetAsset(Asset assetID)
         {
             string query = "SELECT * FROM [docrafERPDB].[dbo].[ASSET] WHERE [AssetID]=" + assetID.AssetID;
             return Connection.Query<Asset>(query).ToList().First();
@@ -61,6 +61,35 @@ namespace docrafERP.DataAccessLayer
         #endregion
 
         #region SupplyDataService:
+        public List<Supply> GetAllSupplies()
+        {
+            string query = "SELECT * FROM [docrafERPDB].[dbo].[SUPPLY]";
+            return Connection.Query<Supply>(query).ToList();
+        }
+
+        public Supply GetSupply(Supply supplyID)
+        {
+            string query = "SELECT * FROM [docrafERPDB].[dbo].[SUPPLY] WHERE [SupplyID]=" + supplyID.SupplyID;
+            return Connection.Query<Supply>(query).ToList().First();
+        }
+
+        public void DeleteSupply(Supply supply)
+        {
+            string query = @"DELETE FROM [dbo].[SUPPLY] WHERE SupplyID = " + supply.SupplyID;
+            Connection.Execute(query);
+        }
+
+        public void InsertSupply(Supply supply)
+        {        
+            string query = @"INSERT INTO [dbo].[SUPPLY]([PurchaseRequestID],[DocumentsFolderPath],[ImagePath],[RemarksJson],[Name],[StockStatus],[Quantity],[LotNumber],[ExpirationDate],[PurchasedVendor],[PurchasePrice],[Barcode]) VALUES ( " + supply.PurchaseRequetID + ",'" + supply.DocumentsFolderPath + "','" + supply.ImagePath + "','" + supply.RemarksJson + "','" + supply.Name + "','" + supply.StockStatus + "','"+supply.Quantity+"','" + supply.LotNumber+ "','" + supply.ExpirationDate + "','" + supply.PurchasedVendor + "','" + supply.PurchasePrice + "','" + supply.Barcode + "')";
+            Connection.Execute(query);
+        }
+
+        public void UpdateSupply(Supply supply)
+        {
+            string query = @"UPDATE [dbo].[SUPPLY] SET [PurchaseRequestID] = " + supply.PurchaseRequetID + " ,[DocumentsFolderPath] = '" + supply.DocumentsFolderPath + "',[ImagePath] = '" + supply.ImagePath + "',[RemarksJson] = '" + supply.RemarksJson + "' ,[Name] = '" + supply.Name + "',[Quantity] = '" + supply.Quantity + "',[StockStatus] = '" + supply.StockStatus + "' ,[LotNumber] = '" + supply.LotNumber + "' ,[ExpirationDate] = '" + supply.ExpirationDate + "',[PurchasedVendor] = '" + supply.PurchasedVendor + "',[PurchasePrice] = '" + supply.PurchasePrice + "',[Barcode] = '" + supply.Barcode + "' WHERE SupplyID = " + supply.SupplyID;
+            Connection.Execute(query);
+        }
 
         #endregion
 

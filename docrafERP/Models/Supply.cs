@@ -23,6 +23,11 @@ namespace docrafERP.Models
         public string Barcode { get; set; }
      // public string OwnerOrLocation { get; set; }
         public string StockStatus { get; set; }
+        public Supply()
+        {
+            StockStatus = "Ready to use";
+            ImagePath = @"/UIassets/image 11.png";
+        }
  
     }
 }
