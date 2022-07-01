@@ -33,10 +33,7 @@ namespace docrafERP
 
             Assets = dataService.GetAllAssets();
             Supplies = dataService.GetAllSupplies();
-            PurchaseRequests = new List<PurchaseRequest>();
-
-            // dataService.InsertSupply(new Supply { Barcode="1243523" ,Name ="Covid 19 Vac." , PurchasePrice="12 USD" , PurchasedVendor="USA" , Quantity="23"  });
-            dataService.UpdateSupply(new Supply { SupplyID = 3 , ImagePath= "/UIassets/image 23.png"  ,Name="Woods"});
+            PurchaseRequests = dataService.GetAllPurchaseRequests();
         }
 
         public HomeView()

@@ -96,6 +96,36 @@ namespace docrafERP.DataAccessLayer
 
         #region PurchaseRequestDataService:
 
+        public List<PurchaseRequest> GetAllPurchaseRequests()
+        {
+            string query = "SELECT * FROM [docrafERPDB].[dbo].[PurchaseRequest]";
+            return Connection.Query<PurchaseRequest>(query).ToList();
+        }
+
+        public PurchaseRequest GetPurchaseRequest(PurchaseRequest purchaseRequestID)
+        {
+            string query = "SELECT * FROM [docrafERPDB].[dbo].[PurchaseRequest] WHERE [PurchaseRequetID] = "+purchaseRequestID.PurchaseRequetID;
+            return Connection.Query<PurchaseRequest>(query).ToList().FirstOrDefault();
+        }
+
+        public void DeletePurchaseRequest(PurchaseRequest purchaseRequestID)
+        {
+            string query = @"DELETE FROM [dbo].[PurchaseRequest] WHERE [PurchaseRequetID] = " + purchaseRequestID.PurchaseRequetID;
+            Connection.Execute(query);
+        }
+
+        public void InsertPurchaseRequest(PurchaseRequest purchaseRequest)
+        {
+            string query = @"INSERT INTO [dbo].[PurchaseRequest]([ProductName],[IssuedDate],[IsApproved],[PRdocumentPath])VALUES('"+ purchaseRequest.ProductName+ "','"+ purchaseRequest.IssuedDate+ "','"+ purchaseRequest.IsApproved+ "','"+ purchaseRequest.PRdocumentPath+ "')";
+            Connection.Execute(query);
+        }
+
+        public void UpdatePurchaseRequest(PurchaseRequest purchaseRequest)
+        {
+            string query = @"UPDATE [dbo].[PurchaseRequest] SET [ProductName] = '" + purchaseRequest.ProductName + "',[IssuedDate] = '" + purchaseRequest.IssuedDate + "',[IsApproved] = '" + purchaseRequest.IsApproved + "',[PRdocumentPath] = '" + purchaseRequest.PRdocumentPath + "'WHERE [PurchaseRequetID] = " + purchaseRequest.PurchaseRequetID;
+            Connection.Execute(query);
+        }
+
         #endregion
 
     }
