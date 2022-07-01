@@ -97,6 +97,7 @@
     <Compile Include="Models\Asset.cs" />
     <Compile Include="Models\PurchaseRequest.cs" />
     <Compile Include="Models\Supply.cs" />
+    <Compile Include="Views\AssetTamplateSelector.cs" />
     <Compile Include="Views\SingletoneHomeView.cs" />
     <Compile Include="Views\UCeditAsset.xaml.cs">
       <DependentUpon>UCeditAsset.xaml</DependentUpon>

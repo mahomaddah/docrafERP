@@ -16,12 +16,16 @@ namespace docrafERP.Models
 
         public string Device { get; set; }
         public string OwnerOrLocation { get; set; }
-        public string Status { get; set; }
+        public string Status { get; set; } //Available Unavailable...
         public string SerialNumber { get; set; }
         public string DateReceived { get; set; }
         public string PurchasedVendor { get; set; }
         public string PurchasePrice { get; set; }
         public string Barcode { get; set; }
 
+        public Asset()
+        {
+            Status = "Available";
+        }
     }
 }

@@ -35,8 +35,6 @@ namespace docrafERP
             Supplies = new List<Supply>();
             PurchaseRequests = new List<PurchaseRequest>();
 
-            manageAssetsUC.LVassets.Items.Add(Assets.First().SerialNumber);
-
             //Tests:
             //test1 select all asset
             // MessageBox.Show("Asset: " + dataService.GetAllAssets().First().Device);

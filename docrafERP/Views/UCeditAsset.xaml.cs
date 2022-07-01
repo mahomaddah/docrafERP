@@ -57,7 +57,7 @@ namespace docrafERP.Views
 
             encoder.QRCodeScale = 8;
             lastQrimage = encoder.Encode(EncryptionKeyTB.Text);
-      
+            
             QRcodeImage.Source = BitmapToImageSource(lastQrimage);
         }
 

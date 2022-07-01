@@ -1,7 +1,7 @@
 ﻿<Application x:Class="docrafERP.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:docrafERP"
+             xmlns:local="clr-namespace:docrafERP" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:assetTamplateSelector="clr-namespace:docrafERP.Views"
              StartupUri="Views/HomeView.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -31,6 +31,43 @@
                 <Setter Property="FontSize" Value="8px" />
                 <Setter Property="FontWeight" Value="Normal" />
             </Style>
+
+            <DataTemplate x:Key="AssetAvailableTemplate">
+                <StackPanel  Orientation="Horizontal">
+
+                    <Label Width="150" VerticalAlignment="Center"
+                        BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                        Content="{Binding Device}" />
+                    <Label Width="100" VerticalAlignment="Center"
+                        BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                        Content="{Binding OwnerOrLocation}" />
+                    <materialDesign:PackIcon Kind="ClipboardCheck" Foreground="#00CE46" VerticalAlignment="Center" Margin="15 5 1 5" Height="18" Width="18" />
+                    <Label Content="Available" Foreground="#00CE46" VerticalAlignment="Center"  Margin="0 5 0 0"  Style="{StaticResource Header3}" FontFamily="Roboto" />
+                    <Image Source="{Binding ImagePath}" Margin="40 0 0 0"   Height="45" />
+
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="AssetUnAvailableTemplate">
+                <StackPanel  Orientation="Horizontal">
+
+                    <Label Width="150" VerticalAlignment="Center"
+                        BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                        Content="{Binding Device}" />
+                    <Label Width="100" VerticalAlignment="Center"
+                        BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                        Content="{Binding OwnerOrLocation}" />
+                    <materialDesign:PackIcon Kind="ClipboardOff" Foreground="#FF3232" VerticalAlignment="Center" Margin="15 5 1 5" Height="18" Width="18" />
+                    <Label Content="Unavailable" Foreground="#FF3232" VerticalAlignment="Center"  Margin="0 5 0 0"  Style="{StaticResource Header3}" FontFamily="Roboto" />
+                    <Image Source="{Binding ImagePath}" Margin="40 0 0 0"   Height="45" />
+
+                </StackPanel>
+            </DataTemplate>
+
+            <assetTamplateSelector:AssetTamplateSelector x:Key="dataTemplateSelectorDirectory"
+              AssetAvailableTemp="{StaticResource AssetAvailableTemplate}"
+              AssetUnAvailableTemp="{StaticResource AssetUnAvailableTemplate}" />
+            
 
         </ResourceDictionary>
     </Application.Resources>

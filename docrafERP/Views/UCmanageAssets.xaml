@@ -1,75 +1,36 @@
-﻿<UserControl x:Class="docrafERP.Views.UCmanageAssets"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"      
              xmlns:local="clr-namespace:docrafERP.Views"
+             xmlns:Models="clr-namespace:docrafERP.Models" x:Class="docrafERP.Views.UCmanageAssets"
              mc:Ignorable="d"        
-             d:DesignHeight="550" d:DesignWidth="800">
+             d:DesignHeight="550" d:DesignWidth="800" Loaded="UserControl_Loaded">
     <Grid>
-        
+
         <StackPanel>
             <StackPanel Margin="0 5 0 10" Orientation="Horizontal">
                 <materialDesign:PackIcon Height="23" Width="23"  Margin="0 0 5 0" Kind="ClipboardCheck" Foreground="#00CE46"/>
-                <Label  Content="Available" Style="{StaticResource Header2}" FontFamily="Roboto" Foreground="#00CE46"></Label>
-                <materialDesign:PackIcon Height="23" Width="23"  Margin="150 0 5 0" Kind="ClipboardCheck" Foreground="#FF3232"/>
-                <Label Content="Unavailable" Style="{StaticResource Header2}" FontFamily="Roboto" Foreground="#FF3232"></Label>
+                <Label  Content="Available" Style="{StaticResource Header2}" FontFamily="Roboto" Foreground="#00CE46"/>
+                <materialDesign:PackIcon Height="23" Width="23"  Margin="150 0 5 0" Kind="ClipboardOff" Foreground="#FF3232"/>
+                <Label Content="Unavailable" Style="{StaticResource Header2}" FontFamily="Roboto" Foreground="#FF3232"/>
             </StackPanel>
 
             <Label Margin="0 5 0 0" Style="{StaticResource Header1}" Foreground="#000008" Content="Products" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30.5" />
             <ProgressBar Margin="0 0 0 10" Value="8.7" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
 
-            <ListView MouseDoubleClick="ItemSelected" Height="305" Name="LVassets" VerticalAlignment="Center">
+            <ListView  ItemTemplateSelector="{StaticResource dataTemplateSelectorDirectory}" MouseDoubleClick="ItemSelected" Height="305" x:Name="LVassets" VerticalAlignment="Center">
                 <ListView.BorderBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0"/>
                         <GradientStop Color="#FFD1CECE" Offset="1"/>
                     </LinearGradientBrush>
                 </ListView.BorderBrush>
-
-                <StackPanel Orientation="Horizontal" >
-                    <Label Width="250" VerticalAlignment="Center"
-                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
-                     Content="ACER LAPTOP                        DR.R.A Ferr." />
-                    <materialDesign:PackIcon VerticalAlignment="Center" Margin="5 5 1 5" Height="18" Width="18" Kind="ClipboardCheck" Foreground="#00CE46"/>
-                    <Label VerticalAlignment="Center" Content="Available" Margin="0 5 0 0" Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#00CE46"></Label>
-                    <Image Margin="50 0 0 0" Source="/UIassets/image 9.png"  Height="45" />
-
-                </StackPanel>
-                <StackPanel  Orientation="Horizontal">
-                    <Label Width="250" VerticalAlignment="Center"
-                        BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
-                        Content="ACER LAPTOP                        DR.Max.      " />
-                    <materialDesign:PackIcon VerticalAlignment="Center" Margin="5 5 1 5" Height="18" Width="18" Kind="ClipboardCheck" Foreground="#00CE46"/>
-                    <Label VerticalAlignment="Center" Content="Available" Margin="0 5 0 0"  Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#00CE46"></Label>
-                    <Image Margin="50 0 0 0" Source="/UIassets/image 9.png"  Height="45" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label VerticalAlignment="Center" Width="250"
-                    BorderBrush="Black" Style="{StaticResource Header2}" FontFamily="Roboto"
-                 Content="ACER LAPTOP                        DR.Rex" />
-                    <materialDesign:PackIcon VerticalAlignment="Center" Margin="5 5 1 5" Height="18" Width="18" Kind="ClipboardCheck" Foreground="#FF3232"/>
-                    <Label VerticalAlignment="Center" Content="Unavailable" Margin="0 5 0 0"  Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#FF3232"></Label>
-                    <Image Margin="38 0 0 0" Source="/UIassets/image 9.png"  Height="45" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label VerticalAlignment="Center"  Width="250"
-                        BorderBrush="Black" Style="{StaticResource Header2}" FontFamily="Roboto"
-                        Content="ACER LAPTOP                        DR.Alex" />
-                    <materialDesign:PackIcon VerticalAlignment="Center" Margin="5 5 1 5" Height="18" Width="18" Kind="ClipboardCheck" Foreground="#00CE46"/>
-                    <Label VerticalAlignment="Center" Content="Available" Margin="0 5 0 0"  Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#00CE46"></Label>
-                    <Image Margin="50 0 0 0" Source="/UIassets/image 9.png"  Height="45" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label VerticalAlignment="Center" Width="250"
-                        BorderBrush="Black" Style="{StaticResource Header2}" FontFamily="Roboto"
-                        Content="ACER LAPTOP                        DR.Madona" />
-                    <materialDesign:PackIcon VerticalAlignment="Center" Margin="5 5 1 5" Height="18" Width="18" Kind="ClipboardCheck" Foreground="#00CE46"/>
-                    <Label VerticalAlignment="Center" Content="Available" Margin="0 5 0 0"  Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#00CE46"></Label>
-                    <Image Margin="50 0 0 0" Source="/UIassets/image 9.png"  Height="45" />
-                </StackPanel>
+                
             </ListView>
+
             <Line Stretch="Fill" Margin="0,5,0,0" HorizontalAlignment="Left" Width="442" Stroke="DarkGray" X2="1" Opacity="0.4" />
             <StackPanel Orientation="Horizontal" Margin="0 10 10 10">
                 <Button
@@ -78,7 +39,7 @@
                   Style="{StaticResource MaterialDesignOutlinedButton}"
                   ToolTip="CLick to delete an Asset..."
                   Content="Delete"     
-                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="AssetDeleteBtn_Click" />
+                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Click="AssetDeleteBtn_Click" />
                 <Button
                   Margin="10 0 0 0"
                   Width="142"
@@ -86,7 +47,7 @@
                   Style="{StaticResource MaterialDesignOutlinedButton}"
                   ToolTip="CLick to edit an Asset..."
                   Content="Edit"     
-                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="AssetEditBtn_Click" />
+                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Click="AssetEditBtn_Click" />
                 <Button
                   Margin="10 0 0 0"
                   Width="142"
@@ -97,7 +58,7 @@
                   IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Click="AssetAddBtn_Click" />
             </StackPanel>
 
-            <Label Name="LabelLisans" Margin="0 5 0 0" Style="{StaticResource Header1}" Foreground="#000008" Content="License" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30.5" />
+            <Label x:Name="LabelLisans" Margin="0 5 0 0" Style="{StaticResource Header1}" Foreground="#000008" Content="License" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30.5" />
             <ProgressBar Margin="0 0 0 5" Value="8" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
             <Label  Style="{StaticResource Header4}" Margin="0 5 0 0" Foreground="DarkGray" Content="ERP Desktop, valid until 22.06. 2030" HorizontalAlignment="Left" VerticalAlignment="Top" Height="42.5" />
         </StackPanel>

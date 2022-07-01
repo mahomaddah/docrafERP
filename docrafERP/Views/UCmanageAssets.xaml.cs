@@ -1,5 +1,7 @@
-﻿using System;
+﻿using docrafERP.Models;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +22,19 @@ namespace docrafERP.Views
     /// </summary>
     public partial class UCmanageAssets : UserControl
     {
+        public void RefreshAssetsListViewFromList()
+        {
+
+            LVassets.ItemsSource = SingletoneHomeView.Instance.homeView.Assets.ToList();
+            ICollectionView view = CollectionViewSource.GetDefaultView(LVassets.ItemsSource);
+            view.Refresh();
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            RefreshAssetsListViewFromList();
+        }
+
         public UCmanageAssets()
         {
             InitializeComponent();
@@ -28,7 +43,19 @@ namespace docrafERP.Views
         private void AssetDeleteBtn_Click(object sender, RoutedEventArgs e)
         {
             if (LVassets.SelectedIndex != -1)
-                LVassets.Items.Remove(LVassets.SelectedItem);
+            {
+                var dialog = MessageBox.Show("Are you sure to delete the item ?","Delete?", MessageBoxButton.YesNo);
+                if(dialog== MessageBoxResult.Yes)
+                {
+                    var tempAsset = ((Asset)LVassets.SelectedItem);
+                    SingletoneHomeView.Instance.homeView.Assets.Remove(tempAsset);
+                    //database ... 
+                    new DataAccessLayer.DataService().DeleteAsset(tempAsset);
+                    // reload list view
+                    RefreshAssetsListViewFromList();
+                }
+            }
+               
         }
 
         private void AssetEditBtn_Click(object sender, RoutedEventArgs e)
