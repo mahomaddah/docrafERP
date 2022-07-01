@@ -17,6 +17,7 @@ namespace docrafERP.Models
         public PurchaseRequest()
         {
             IsApproved = true;
+
         }
     }
 }

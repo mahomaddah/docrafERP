@@ -1,4 +1,5 @@
-﻿using System;
+﻿using docrafERP.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -49,7 +50,16 @@ namespace docrafERP.Views
         {
             if (LVsupplies.SelectedIndex != -1)
             {
-                LVsupplies.Items.Remove(LVsupplies.SelectedItem);
+                var dialog = MessageBox.Show("Are you sure to delete the item ?", "Delete?", MessageBoxButton.YesNo);
+                if (dialog == MessageBoxResult.Yes)
+                {
+                    var temp = ((Supply)LVsupplies.SelectedItem);
+                    SingletoneHomeView.Instance.homeView.Supplies.Remove(temp);
+                    //database ... 
+                    new DataAccessLayer.DataService().DeleteSupply(temp);
+                    // reload list view
+                    RefreshAssetsListViewFromList();
+                }
             }
         }
 
@@ -57,26 +67,38 @@ namespace docrafERP.Views
         {
             if (LVsupplies.SelectedIndex == -1)
             {
-                MessageBox.Show("Please select and item first....");
+                MessageBox.Show("Please select an item first....");
             }
             else
             {
-                SingletoneHomeView.Instance.homeView.bringTheUC("Edit Supply");
+                EditSupplie();
             }
-        }
-
-        private void SupplyAddBtn_Click(object sender, RoutedEventArgs e)
-        {
-            SingletoneHomeView.Instance.homeView.bringTheUC("Edit Supply");
         }
 
         private void ItemSelected(object sender, MouseButtonEventArgs e)
         {
             if (LVsupplies.SelectedIndex != -1)
             {
-                SingletoneHomeView.Instance.homeView.bringTheUC("Edit Supply");
+                EditSupplie();
             }
         }
+
+        private void EditSupplie()
+        {
+            var temp = ((Supply)LVsupplies.SelectedItem);
+            SingletoneHomeView.Instance.homeView.editSupplyUC.EditingSupply = temp;
+            SingletoneHomeView.Instance.homeView.editSupplyUC.ComeForAdding = false;
+            SingletoneHomeView.Instance.homeView.bringTheUC("Edit Supply");
+        }
+
+        private void SupplyAddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            SingletoneHomeView.Instance.homeView.editSupplyUC.EditingSupply = new Supply();
+            SingletoneHomeView.Instance.homeView.editSupplyUC.ComeForAdding = true;
+            SingletoneHomeView.Instance.homeView.bringTheUC("Edit Supply");
+        }
+
+       
 
     }
 }

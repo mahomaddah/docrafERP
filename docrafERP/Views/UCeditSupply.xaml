@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:docrafERP.Views"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="550" d:DesignWidth="800">
+             d:DesignHeight="550" d:DesignWidth="800" IsVisibleChanged="UserControl_IsVisibleChanged">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="99*"/>
@@ -68,7 +68,7 @@
 
                 <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
                     <Label Content="Name" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
-                    <TextBox VerticalAlignment="Center"
+                    <TextBox VerticalAlignment="Center" Name="TbName"
                  FontWeight="Normal"
                             Width="330"
                             Margin="0 0 0 0"
@@ -89,7 +89,7 @@
 
                 <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
                     <Label Content="Purchase Price" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
-                    <TextBox VerticalAlignment="Center"
+                    <TextBox VerticalAlignment="Center" x:Name="TbPrice"
                  FontWeight="Normal"
                             Width="330"
                             Margin="0 0 0 0"
@@ -109,7 +109,7 @@
                 </StackPanel>
                 <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
                     <Label Content="Quantity" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
-                    <TextBox VerticalAlignment="Center"
+                    <TextBox VerticalAlignment="Center" x:Name="TbQty"
                  FontWeight="Normal"
                             Width="330"
                             Margin="0 0 0 0"
@@ -130,7 +130,7 @@
 
                 <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
                     <Label Content="Lot Number" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
-                    <TextBox VerticalAlignment="Center"
+                    <TextBox VerticalAlignment="Center" x:Name="TbLotNum"
                  FontWeight="Normal"
                             Width="330"
                             Margin="0 0 0 0"
@@ -152,7 +152,7 @@
                 <ProgressBar Margin="0 10 0 10" Value="95.1" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
                 <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
                     <Label Content="Expiration Date" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
-                    <TextBox VerticalAlignment="Center"
+                    <TextBox VerticalAlignment="Center" Name="TbDate"
                  FontWeight="Normal"
                             Width="330"
                             Margin="0 0 0 0"
@@ -173,7 +173,7 @@
 
                 <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
                     <Label Content="Purchased Vendor" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header3}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
-                    <TextBox VerticalAlignment="Center"
+                    <TextBox VerticalAlignment="Center" x:Name="TbVendor"
                  FontWeight="Normal"
                             Width="330"
                             Margin="0 0 0 0"
@@ -197,7 +197,7 @@
 
                 <StackPanel Margin="0,2,46,2" Orientation="Horizontal">
                     <Label Content="Barcode" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
-                    <TextBox VerticalAlignment="Center"
+                    <TextBox x:Name="EncryptionKeyTB" VerticalAlignment="Center"
                  FontWeight="Normal"
                             Width="194"
                             Margin="0 0 0 0"
@@ -242,8 +242,8 @@
 
                 <StackPanel Orientation="Horizontal">
                     <StackPanel Margin="102 0 0 0" Orientation="Vertical"  HorizontalAlignment="Left" >
-                        <Label Foreground="Gray" Style="{StaticResource Header2}" Content="Serial code for printing" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130"/>
-                        <Image Source="/UIassets/image 15.png" HorizontalAlignment="Left"  Width="130" Height="105"/>
+                        <Label Foreground="Gray" Style="{StaticResource Header3}" Content="Serial code for printing" HorizontalAlignment="Left" VerticalAlignment="Top" MaxWidth="130"/>
+                        <Image x:Name="QRcodeImage" Source="/UIassets/image 15.png" HorizontalAlignment="Left"  Width="110" Height="95"/>
 
                     </StackPanel>
                     <StackPanel Margin="0 30 0 0">

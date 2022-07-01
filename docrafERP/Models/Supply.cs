@@ -28,7 +28,7 @@ namespace docrafERP.Models
             //Low on stock
             
             StockStatus = "Ready to use";
-            ImagePath = @"/UIassets/image 11.png";
+            ImagePath = @"/UIassets/image20.png";
         }
  
     }

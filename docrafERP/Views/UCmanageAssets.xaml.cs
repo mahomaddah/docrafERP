@@ -62,7 +62,7 @@ namespace docrafERP.Views
         {
             if (LVassets.SelectedIndex == -1)
             {
-                MessageBox.Show("Please select and item first....");
+                MessageBox.Show("Please select an item first....");
             }
             else
             {
