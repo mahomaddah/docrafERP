@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,21 @@ namespace docrafERP.Views
     /// </summary>
     public partial class UCpurchaseRequests : UserControl
     {
+        public void RefreshAssetsListViewFromList()
+        {
+
+            PurchaseRequestsLV.ItemsSource = SingletoneHomeView.Instance.homeView.PurchaseRequests;
+            ICollectionView view = CollectionViewSource.GetDefaultView(PurchaseRequestsLV.ItemsSource);
+            view.Refresh();
+        }
         public UCpurchaseRequests()
         {
             InitializeComponent();
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            RefreshAssetsListViewFromList();
         }
     }
 }

@@ -14,5 +14,9 @@ namespace docrafERP.Models
         public string PRdocumentPath { get; set; }
         public bool IsApproved { get; set; }
 
+        public PurchaseRequest()
+        {
+            IsApproved = true;
+        }
     }
 }

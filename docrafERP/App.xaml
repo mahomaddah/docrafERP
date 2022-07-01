@@ -90,6 +90,24 @@
                 </StackPanel>
             </DataTemplate>
 
+            <DataTemplate x:Key="PRapproveTemplate">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="{Binding ProductName}" VerticalAlignment="Center" Width="160" BorderBrush="Black" Style="{StaticResource Header2}" FontFamily="Roboto"/>
+                    <Label Content="{Binding IssuedDate}" VerticalAlignment="Center" Width="90" BorderBrush="Black" Style="{StaticResource Header2}" FontFamily="Roboto"/>
+                    <materialDesign:PackIcon  Kind="Approve"  Foreground="#00CE46" VerticalAlignment="Center" Margin="5 5 1 5" Height="18" Width="18"/>
+                    <Label  Foreground="#00CE46" Content="Approved" VerticalAlignment="Center"  Margin="0 5 0 0"  Style="{StaticResource Header3}" FontFamily="Roboto" ></Label>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="PRDeniedTemplate">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="{Binding ProductName}" VerticalAlignment="Center" Width="160" BorderBrush="Black" Style="{StaticResource Header2}" FontFamily="Roboto"/>
+                    <Label Content="{Binding IssuedDate}" VerticalAlignment="Center" Width="90" BorderBrush="Black" Style="{StaticResource Header2}" FontFamily="Roboto"/>
+                    <materialDesign:PackIcon  Kind="CancelCircle"  Foreground="#FF3232" VerticalAlignment="Center" Margin="5 5 1 5" Height="18" Width="18"/>
+                    <Label  Foreground="#FF3232" Content="Denied" VerticalAlignment="Center"  Margin="0 5 0 0"  Style="{StaticResource Header3}" FontFamily="Roboto" ></Label>
+                </StackPanel>
+            </DataTemplate>
+
             <DataTemplate x:Key="SupplyLowOnStockTemplate">
                 <StackPanel Orientation="Horizontal" >
 
@@ -111,6 +129,10 @@
               SupplyReadyToUseTemp="{StaticResource SupplyReadyToUseTemplate}"
               SupplyOutOfStockTemp="{StaticResource SupplyOutOfStockTemplate}" 
               SupplyLowOnStockTemp="{StaticResource SupplyLowOnStockTemplate}" />
+
+            <viewsDir:PRTamplateSelector x:Key="PRdataTemplateSelectorDirectory"
+              PRapproveTemplate="{StaticResource PRapproveTemplate}"
+              PRDeniedTemplate="{StaticResource PRDeniedTemplate}" />
 
 
         </ResourceDictionary>
