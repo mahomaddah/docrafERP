@@ -26,6 +26,7 @@ namespace docrafERP.Models
         public Asset()
         {
             Status = "Available";
+            ImagePath = @"/UIassets/image 9.png";
         }
     }
 }

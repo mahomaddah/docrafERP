@@ -66,19 +66,28 @@ namespace docrafERP.Views
             }
             else
             {
-                SingletoneHomeView.Instance.homeView.bringTheUC("Edit Asset");
+                EditAsset();
             }
         }
 
         private void AssetAddBtn_Click(object sender, RoutedEventArgs e)
         {
+            SingletoneHomeView.Instance.homeView.editAssetUC.EditingAsset = new Asset();
+            SingletoneHomeView.Instance.homeView.editAssetUC.ComeForAdding = true;
             SingletoneHomeView.Instance.homeView.bringTheUC("Edit Asset");
         }
 
         private void ItemSelected(object sender, MouseButtonEventArgs e)
         {
             if (LVassets.SelectedIndex != -1)
-                SingletoneHomeView.Instance.homeView.bringTheUC("Edit Asset");
+                EditAsset();
+        }
+        void EditAsset()
+        {
+            var tempAsset = ((Asset)LVassets.SelectedItem);
+            SingletoneHomeView.Instance.homeView.editAssetUC.EditingAsset = tempAsset;
+            SingletoneHomeView.Instance.homeView.editAssetUC.ComeForAdding = false;
+            SingletoneHomeView.Instance.homeView.bringTheUC("Edit Asset");
         }
     }
 }

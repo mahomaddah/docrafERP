@@ -18,6 +18,7 @@ using System.Windows.Shapes;
 using System.Drawing.Imaging;
 using System.IO;
 using MessagingToolkit.QRCode.Codec;
+using docrafERP.Models;
 
 namespace docrafERP.Views
 {
@@ -26,12 +27,53 @@ namespace docrafERP.Views
     /// </summary>
     public partial class UCeditAsset : UserControl
     {
+        public Asset EditingAsset { get; set; }
+        public bool ComeForAdding { get; set; }
+
         Bitmap lastQrimage;
         public UCeditAsset()
         {
+            EditingAsset = new Asset();
             InitializeComponent();
             GetNewCode();
         }
+        
+        private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                if (ComeForAdding)
+                {
+                    SingletoneHomeView.Instance.homeView.LabelMainBlueTittleOnTop.Content = "Add a new Asset";
+                }
+                else
+                {
+                    SingletoneHomeView.Instance.homeView.LabelMainBlueTittleOnTop.Content = "Edit Asset";
+                }
+                //update data from object            
+                // try { AssetImage.Source = EditingAsset.ImagePath } catch { } // for image ...
+                TbDevice.Text = EditingAsset.Device;
+                TbLocation.Text = EditingAsset.OwnerOrLocation;
+                TbDate.Text = EditingAsset.DateReceived;
+                TBserial.Text = EditingAsset.SerialNumber;
+                TbStatus.Text = EditingAsset.Status;
+                TBvendor.Text = EditingAsset.PurchasedVendor;
+                TBPrice.Text = EditingAsset.PurchasePrice;
+                // for bar code ....
+                if (EditingAsset.Barcode != null && EditingAsset.Barcode != string.Empty) 
+                {
+                    EncryptionKeyTB.Text = EditingAsset.Barcode;
+                    UpdateQRImage();
+                }
+                else
+                {
+                    GetNewCode();
+                }
+
+                //LVAssetDocs // For updating list view of document from path of related doc path in database and filse name on that folder...
+            }
+        }
+
 
         public void GetNewCode()
         {
@@ -90,8 +132,6 @@ namespace docrafERP.Views
             }
         }
 
- 
-
         private void copyToCLipboardBtn(object sender, MouseButtonEventArgs e)
         {
             Clipboard.SetText(EncryptionKeyTB.Text.ToString());
@@ -144,7 +184,7 @@ namespace docrafERP.Views
 
         private void AddDocBtn(object sender, MouseButtonEventArgs e)
         {
-
+            
         }
 
         private void DeleteDocBtn(object sender, MouseButtonEventArgs e)
@@ -154,13 +194,60 @@ namespace docrafERP.Views
 
         private void SavetoAssetBtn(object sender, MouseButtonEventArgs e)
         {
-            //save asset first...
-            SingletoneHomeView.Instance.homeView.bringTheUC("Manage Assets");
+            if(EncryptionKeyTB.Text == "" || TbDevice.Text == "" || TbLocation.Text == "") { MessageBox.Show("Device name, Responsible person /Location, and Barcode fields cannot be empty..."); }
+            else
+            {
+                EditingAsset.Barcode = EncryptionKeyTB.Text;
+                EditingAsset.DateReceived = TbDate.Text;
+                EditingAsset.Device = TbDevice.Text;
+                EditingAsset.OwnerOrLocation = TbLocation.Text;
+                EditingAsset.PurchasedVendor = TBvendor.Text;
+                EditingAsset.PurchasePrice = TBPrice.Text;
+                EditingAsset.Status = TbStatus.Text;
+                EditingAsset.SerialNumber = TBserial.Text;
+                
+
+                //save asset first...
+                if (ComeForAdding)
+                {
+                    //1.textboxs to the object
+                    //2.database
+                    //3.MainWindow list 
+                    //4.manage asset LV update
+
+                    new DataAccessLayer.DataService().InsertAsset(EditingAsset);
+                    SingletoneHomeView.Instance.homeView.Assets.Add(EditingAsset);
+                    SingletoneHomeView.Instance.homeView.manageAssetsUC.RefreshAssetsListViewFromList();
+                }
+                else
+                {
+                    //for editing ...
+
+                    //1.textboxs to the object
+                    //2.database
+                    //3.MainWindow list 
+                    //4.manage asset LV update
+
+                    new DataAccessLayer.DataService().UpdateAsset(EditingAsset);
+
+              
+                    SingletoneHomeView.Instance.homeView.Assets.Remove(SingletoneHomeView.Instance.homeView.Assets.Find(x => x.AssetID == EditingAsset.AssetID));
+                    SingletoneHomeView.Instance.homeView.Assets.Add(EditingAsset);
+
+                    SingletoneHomeView.Instance.homeView.manageAssetsUC.RefreshAssetsListViewFromList();
+                }
+
+                SingletoneHomeView.Instance.homeView.bringTheUC("Manage Assets");
+
+            }
+           
         }
 
         private void BacktoAssetBtn(object sender, MouseButtonEventArgs e)
         {
             SingletoneHomeView.Instance.homeView.bringTheUC("Manage Assets");
         }
+
+      
     }
 }
