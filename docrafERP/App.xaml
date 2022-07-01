@@ -1,7 +1,7 @@
 ﻿<Application x:Class="docrafERP.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:docrafERP" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:assetTamplateSelector="clr-namespace:docrafERP.Views"
+             xmlns:local="clr-namespace:docrafERP" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:viewsDir="clr-namespace:docrafERP.Views"
              StartupUri="Views/HomeView.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -64,10 +64,54 @@
                 </StackPanel>
             </DataTemplate>
 
-            <assetTamplateSelector:AssetTamplateSelector x:Key="dataTemplateSelectorDirectory"
+            <DataTemplate x:Key="SupplyReadyToUseTemplate">
+                <StackPanel Orientation="Horizontal" >
+
+                    <Label Content="{Binding Name}" Width="120" VerticalAlignment="Center" BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"/>
+                    <Label Content="{Binding PurchasedVendor}" Margin="2 0 0 0"  Width="130" VerticalAlignment="Center" BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"/>
+                    <Label Content="{Binding Quantity}"        Margin="2 0 0 0"  Width="50" VerticalAlignment="Center" BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"/>
+                    <materialDesign:PackIcon Foreground="#00CE46" VerticalAlignment="Center" Margin="5 5 1 5" Height="18" Width="18" Kind="ArchiveCheckOutline" />
+                    <Label Foreground="#00CE46" Content="Ready to use" Width="70" VerticalAlignment="Center"  Style="{StaticResource Header3}" FontFamily="Roboto"/>
+                    <Image Source="{Binding ImagePath}" Margin="1 0 0 0"   Height="45" />
+
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="SupplyOutOfStockTemplate">
+                <StackPanel Orientation="Horizontal" >
+
+                    <Label Content="{Binding Name}" Width="120" VerticalAlignment="Center" BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"/>
+                    <Label Content="{Binding PurchasedVendor}" Margin="2 0 0 0"  Width="130" VerticalAlignment="Center" BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"/>
+                    <Label Content="{Binding Quantity}"        Margin="2 0 0 0"  Width="50" VerticalAlignment="Center" BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"/>
+                    <materialDesign:PackIcon Foreground="#FF3232" VerticalAlignment="Center" Margin="5 5 1 5" Height="18" Width="18" Kind="ArchiveCancelOutline" />
+                    <Label Foreground="#FF3232" Content="Out of stock" Width="70" VerticalAlignment="Center"  Style="{StaticResource Header3}" FontFamily="Roboto"/>
+                    <Image Source="{Binding ImagePath}" Margin="1 0 0 0"   Height="45" />
+
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="SupplyLowOnStockTemplate">
+                <StackPanel Orientation="Horizontal" >
+
+                    <Label Content="{Binding Name}" Width="120" VerticalAlignment="Center" BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"/>
+                    <Label Content="{Binding PurchasedVendor}" Margin="2 0 0 0"  Width="130" VerticalAlignment="Center" BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"/>
+                    <Label Content="{Binding Quantity}"        Margin="2 0 0 0"  Width="50" VerticalAlignment="Center" BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"/>
+                    <materialDesign:PackIcon Foreground="#FFA500" VerticalAlignment="Center" Margin="5 5 1 5" Height="18" Width="18" Kind="ArchiveAlertOutline" />
+                    <Label Foreground="#FFA500" Content="Low on stock" Width="70" VerticalAlignment="Center"  Style="{StaticResource Header3}" FontFamily="Roboto"/>
+                    <Image Source="{Binding ImagePath}" Margin="1 0 0 0"   Height="45" />
+
+                </StackPanel>
+            </DataTemplate>
+
+            <viewsDir:AssetTamplateSelector x:Key="dataTemplateSelectorDirectory"
               AssetAvailableTemp="{StaticResource AssetAvailableTemplate}"
               AssetUnAvailableTemp="{StaticResource AssetUnAvailableTemplate}" />
-            
+
+            <viewsDir:SupplyTamplateSelector x:Key="supplydataTemplateSelectorDirectory"
+              SupplyReadyToUseTemp="{StaticResource SupplyReadyToUseTemplate}"
+              SupplyOutOfStockTemp="{StaticResource SupplyOutOfStockTemplate}" 
+              SupplyLowOnStockTemp="{StaticResource SupplyLowOnStockTemplate}" />
+
 
         </ResourceDictionary>
     </Application.Resources>

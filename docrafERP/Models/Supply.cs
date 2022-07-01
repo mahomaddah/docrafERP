@@ -25,6 +25,8 @@ namespace docrafERP.Models
         public string StockStatus { get; set; }
         public Supply()
         {
+            //Low on stock
+            
             StockStatus = "Ready to use";
             ImagePath = @"/UIassets/image 11.png";
         }

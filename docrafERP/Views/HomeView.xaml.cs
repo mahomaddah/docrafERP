@@ -40,7 +40,6 @@ namespace docrafERP
         {
             InitializeComponent();
             SingletoneHomeView.Instance.homeView = this;
-
             GetData();
         }
 

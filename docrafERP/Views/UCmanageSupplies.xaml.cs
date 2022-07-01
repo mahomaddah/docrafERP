@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,25 @@ namespace docrafERP.Views
     /// </summary>
     public partial class UCmanageSupplies : UserControl
     {
+        public void RefreshAssetsListViewFromList()
+        {
+
+            LVsupplies.ItemsSource = SingletoneHomeView.Instance.homeView.Supplies;
+            ICollectionView view = CollectionViewSource.GetDefaultView(LVsupplies.ItemsSource);
+            view.Refresh();
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            RefreshAssetsListViewFromList();
+        }
+
+
+        private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+
+        }
+
         public UCmanageSupplies()
         {
             InitializeComponent();
@@ -57,5 +77,6 @@ namespace docrafERP.Views
                 SingletoneHomeView.Instance.homeView.bringTheUC("Edit Supply");
             }
         }
+
     }
 }
