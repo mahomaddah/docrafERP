@@ -19,6 +19,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using MessagingToolkit.QRCode.Codec;
 using docrafERP.Models;
+using System.Drawing.Printing;
 
 namespace docrafERP.Views
 {
@@ -151,11 +152,16 @@ namespace docrafERP.Views
 
         private void PrintQRcodeBTn(object sender, MouseButtonEventArgs e)
         {
-            //string path = Environment.CurrentDirectory + "\\tempQRimage.png";
-            //lastQrimage.Save(path, ImageFormat.Png);
-        
-            //System.Threading.Thread.Sleep(1000);
-            //SingletoneHomeView.Instance.homeView.issueDocumentsUC.printDoc(path);
+            PrintDocument pd = new PrintDocument();
+            pd.PrintPage += PrintPage;
+            pd.Print();
+        }
+
+        private void PrintPage(object o, PrintPageEventArgs e)
+        {
+            System.Drawing.Image img = lastQrimage;
+            System.Drawing.Point loc = new System.Drawing.Point(100, 100);
+            e.Graphics.DrawImage(img, loc);
         }
 
         private void QRwhatsappBtn(object sender, MouseButtonEventArgs e)
@@ -176,7 +182,7 @@ namespace docrafERP.Views
             {
                 if (lastQrimage != null)
                 {
-                    lastQrimage.Save(string.Concat(saveFileDialog.FileName, ".Png"), ImageFormat.Png);                 
+                    lastQrimage.Save(string.Concat(saveFileDialog.FileName, ".jpeg"), ImageFormat.Png);                 
                 }
             }
             else MessageBox.Show("Could not save...");
