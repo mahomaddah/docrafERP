@@ -17,14 +17,24 @@ namespace docrafERP.DataAccessLayer
 
         public DataService()
         {
+            //DESKTOP-O66ATKR\\SQLEXPRESS //possible username : DESKTOP-O66ATKR\\1
             string conString = "Server=MAHOLAPTOP\\SQLEXPRESS;Database=docrafERPDB;User Id=abcd;Password=abcd;";
+            conString = "Server=DESKTOP-O66ATKR\\SQLEXPRESS;Database=docrafERPDB;Trusted_Connection=True;"; // for trusted now
 
             Connection = new SqlConnection(conString);
 
-            if (Connection.State== ConnectionState.Closed)
+            try
             {
-                Connection.Open();
+                if (Connection.State == ConnectionState.Closed)
+                {
+                    Connection.Open();
+                }
             }
+            catch
+            {
+                System.Windows.MessageBox.Show("Could not connect to the Database server.");   
+            }
+
         }
 
         #region AssetDataService:
