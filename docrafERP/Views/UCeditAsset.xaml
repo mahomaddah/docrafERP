@@ -9,66 +9,74 @@
              mc:Ignorable="d" 
              d:DesignHeight="550" d:DesignWidth="800" IsVisibleChanged="UserControl_IsVisibleChanged">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="99*"/>
-            <ColumnDefinition Width="61*"/>
-        </Grid.ColumnDefinitions>
+        <StackPanel Margin="0 -47 0 0">
+            <TabControl Style="{StaticResource Header2}"  Background="Transparent" Foreground="#979797" DockPanel.Dock="Left"  FontWeight="Bold"  FontFamily="Roboto"   BorderBrush="{x:Null}" SelectionChanged="TabControl_SelectionChanged">
 
-        <Grid Grid.Column="1" Margin="30 0 0 0">
-            <StackPanel>
-                <Image x:Name="AssetImage" Source="/UIassets/image 14.png" Width="220" Height="220" Margin="0 0 0 5"/>
-                <Label Content="Related Documents" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header1}" Margin="0 0 0 5"  />
-                <StackPanel Margin="0 0 20 0">
-                    <ListView Name="LVAssetDocs" Height="236"  BorderThickness="2" BorderBrush="#0DCAF2" >
-                        <ListViewItem Content="Purchase Request.pdf" Margin="1"  BorderThickness="1" BorderBrush="#0DCAF2" />
-                        <ListViewItem Content="Purchase Order.pdf" Margin="1" BorderThickness="1" BorderBrush="#0DCAF2" />
-                        <ListViewItem Content="AIR.pdf" Margin="1"  BorderThickness="1" BorderBrush="#0DCAF2" />
-                        <ListViewItem Content="Invoice.pdf" Margin="1" BorderThickness="1" BorderBrush="#0DCAF2" />
-                        <ListViewItem Content="ReceivingDocDR.Madona.pdf" Margin="1"  BorderThickness="1" BorderBrush="#0DCAF2" />
-                        <ListViewItem Content="Warrant.pdf" Margin="1" BorderThickness="1" BorderBrush="#0DCAF2" />
-                    </ListView>
-                    <StackPanel Orientation="Horizontal" >
-                        <materialDesign:PackIcon Height="27"  Width="27" Kind="FileDocumentAdd" Margin="2 6 0 0" MouseDown="AddDocBtn">
-                            <materialDesign:PackIcon.Foreground>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#0DCAF2" Offset="0"/>
-                                </LinearGradientBrush>
-                            </materialDesign:PackIcon.Foreground>
-                        </materialDesign:PackIcon>
-                        <materialDesign:PackIcon Height="27"  Width="27" Kind="FileDocumentDelete" Margin="2 6 0 0" MouseDown="DeleteDocBtn">
-                            <materialDesign:PackIcon.Foreground>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#0DCAF2" Offset="0"/>
-                                </LinearGradientBrush>
-                            </materialDesign:PackIcon.Foreground>
-                        </materialDesign:PackIcon>
-                        <materialDesign:PackIcon Height="27"  Width="27" Kind="ContentSave" Margin="120 6 0 0" MouseDown="SavetoAssetBtn">
-                            <materialDesign:PackIcon.Foreground>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#0DCAF2" Offset="0"/>
-                                </LinearGradientBrush>
-                            </materialDesign:PackIcon.Foreground>
-                        </materialDesign:PackIcon>
+                <TabItem  FontSize="14" Style="{StaticResource TabItemStyle}"  Name="TabAssetDetails" Foreground="#979797" Background="White" FontWeight="Bold" Header="Asset Details"  >
+                    <StackPanel>
 
-                        <materialDesign:PackIcon Height="27"  Width="27" Kind="SignOut" Margin="2 6 0 0" MouseDown="BacktoAssetBtn">
-                            <materialDesign:PackIcon.Foreground>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#0DCAF2" Offset="0"/>
-                                </LinearGradientBrush>
-                            </materialDesign:PackIcon.Foreground>
-                        </materialDesign:PackIcon>
-                    </StackPanel>
-                </StackPanel>
-            </StackPanel>
-        </Grid>
+                        <ProgressBar Margin="0 3 0 12" Value="15"  Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="99*"/>
+                                <ColumnDefinition Width="61*"/>
+                            </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0">
-            <StackPanel>
+                            <Grid Grid.Column="1" Margin="30 0 0 0">
+                                <StackPanel>
+                                    <Image x:Name="AssetImage" Source="/UIassets/image 14.png" Width="220" Height="220" Margin="0 0 0 5"/>
+                                    <Label Content="Related Documents" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header1}" Margin="0 0 0 5"  />
+                                    <StackPanel Margin="0 0 20 0">
+                                        <ListView   Style="{StaticResource Header2}" Name="LVAssetDocs" Height="236"  BorderThickness="2" BorderBrush="#0DCAF2" >
+                                            <ListViewItem Content="Purchase Request.pdf" Margin="1"  BorderThickness="1" BorderBrush="#0DCAF2" />
+                                            <ListViewItem Content="Purchase Order.pdf" Margin="1" BorderThickness="1" BorderBrush="#0DCAF2" />
+                                            <ListViewItem Content="AIR.pdf" Margin="1"  BorderThickness="1" BorderBrush="#0DCAF2" />
+                                            <ListViewItem Content="Invoice.pdf" Margin="1" BorderThickness="1" BorderBrush="#0DCAF2" />
+                                            <ListViewItem Content="ReceivingDocDR.Madona.pdf" Margin="1"  BorderThickness="1" BorderBrush="#0DCAF2" />
+                                            <ListViewItem Content="Warrant.pdf" Margin="1" BorderThickness="1" BorderBrush="#0DCAF2" />
+                                        </ListView>
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,-9,0" >
+                                            <materialDesign:PackIcon Height="27"  Width="27" Kind="FileDocumentAdd" Margin="2 6 0 0" MouseDown="AddDocBtn">
+                                                <materialDesign:PackIcon.Foreground>
+                                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                        <GradientStop Color="#0DCAF2" Offset="0"/>
+                                                    </LinearGradientBrush>
+                                                </materialDesign:PackIcon.Foreground>
+                                            </materialDesign:PackIcon>
+                                            <materialDesign:PackIcon Height="27"  Width="27" Kind="FileDocumentDelete" Margin="2 6 0 0" MouseDown="DeleteDocBtn">
+                                                <materialDesign:PackIcon.Foreground>
+                                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                        <GradientStop Color="#0DCAF2" Offset="0"/>
+                                                    </LinearGradientBrush>
+                                                </materialDesign:PackIcon.Foreground>
+                                            </materialDesign:PackIcon>
+                                            <materialDesign:PackIcon Height="27"  Width="27" Kind="ContentSave" Margin="120 6 0 0" MouseDown="SavetoAssetBtn">
+                                                <materialDesign:PackIcon.Foreground>
+                                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                        <GradientStop Color="#0DCAF2" Offset="0"/>
+                                                    </LinearGradientBrush>
+                                                </materialDesign:PackIcon.Foreground>
+                                            </materialDesign:PackIcon>
 
-                <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
-                    <Label Content="Device" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
-                    <TextBox VerticalAlignment="Center" x:Name="TbDevice"
-                 FontWeight="Normal"
+                                            <materialDesign:PackIcon Height="27"  Width="27" Kind="SignOut" Margin="2 6 0 0" MouseDown="BacktoAssetBtn">
+                                                <materialDesign:PackIcon.Foreground>
+                                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                        <GradientStop Color="#0DCAF2" Offset="0"/>
+                                                    </LinearGradientBrush>
+                                                </materialDesign:PackIcon.Foreground>
+                                            </materialDesign:PackIcon>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+
+                            <Grid Grid.Column="0">
+                                <StackPanel>
+
+                                    <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
+                                        <Label Content="Device" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
+                                        <TextBox VerticalAlignment="Center" x:Name="TbDevice"
+                             FontWeight="Normal"
                             Width="330"
                             Margin="0 0 0 0"
                             Style="{StaticResource MaterialDesignFilledTextBox}"
@@ -83,11 +91,11 @@
                             BorderBrush="#0DCAF2"
                             FontFamily="Roboto"
                             FontSize="12px" CaretBrush="#FF07AD40"/>
-                </StackPanel>
+                                    </StackPanel>
 
-                <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
-                    <Label Content="Owner/Location" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
-                    <TextBox VerticalAlignment="Center" x:Name="TbLocation"
+                                    <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
+                                        <Label Content="Owner/Location" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
+                                        <TextBox VerticalAlignment="Center" x:Name="TbLocation"
                  FontWeight="Normal"
                             Width="330"
                             Margin="0 0 0 0"
@@ -104,10 +112,10 @@
                             BorderBrush="#0DCAF2"
                             FontFamily="Roboto"
                             FontSize="12px" CaretBrush="#FF07AD40"/>
-                </StackPanel>
-                <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
-                    <Label Content="Status" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
-                    <TextBox VerticalAlignment="Center" x:Name="TbStatus"
+                                    </StackPanel>
+                                    <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
+                                        <Label Content="Status" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
+                                        <TextBox VerticalAlignment="Center" x:Name="TbStatus"
                  FontWeight="Normal"
                             Width="330"
                             Margin="0 0 0 0"
@@ -124,11 +132,11 @@
                             BorderBrush="#0DCAF2"
                             FontFamily="Roboto"
                             FontSize="12px" CaretBrush="#FF07AD40"/>
-                </StackPanel>
+                                    </StackPanel>
 
-                <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
-                    <Label Content="Serial Number" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
-                    <TextBox VerticalAlignment="Center" x:Name="TBserial"
+                                    <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
+                                        <Label Content="Serial Number" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
+                                        <TextBox VerticalAlignment="Center" x:Name="TBserial"
                  FontWeight="Normal"
                             Width="330"
                             Margin="0 0 0 0"
@@ -145,12 +153,12 @@
                             BorderBrush="#0DCAF2"
                             FontFamily="Roboto"
                             FontSize="12px" CaretBrush="#FF07AD40" />
-                </StackPanel>
+                                    </StackPanel>
 
-                <ProgressBar Margin="0 10 0 10" Value="95.1" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
-                <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
-                    <Label Content="Date Received" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
-                    <TextBox VerticalAlignment="Center" Name="TbDate"
+                                    <ProgressBar Margin="0 10 0 10" Value="95.1" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
+                                    <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
+                                        <Label Content="Date Received" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
+                                        <TextBox VerticalAlignment="Center" Name="TbDate"
                  FontWeight="Normal"
                             Width="330"
                             Margin="0 0 0 0"
@@ -167,11 +175,11 @@
                             BorderBrush="#0DCAF2"
                             FontFamily="Roboto"
                             FontSize="12px" CaretBrush="#FF07AD40"/>
-                </StackPanel>
+                                    </StackPanel>
 
-                <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
-                    <Label Content="Purchased Vendor" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header3}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
-                    <TextBox VerticalAlignment="Center" x:Name="TBvendor"
+                                    <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
+                                        <Label Content="Purchased Vendor" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header3}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
+                                        <TextBox VerticalAlignment="Center" x:Name="TBvendor"
                  FontWeight="Normal"
                             Width="330"
                             Margin="0 0 0 0"
@@ -188,10 +196,10 @@
                             BorderBrush="#0DCAF2"
                             FontFamily="Roboto"
                             FontSize="12px" CaretBrush="#FF07AD40"/>
-                </StackPanel>
-                <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
-                    <Label Content="Purchase Price" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
-                    <TextBox VerticalAlignment="Center" Name="TBPrice"
+                                    </StackPanel>
+                                    <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
+                                        <Label Content="Purchase Price" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
+                                        <TextBox VerticalAlignment="Center" Name="TBPrice"
                  FontWeight="Normal"
                             Width="330"
                             Margin="0 0 0 0"
@@ -208,11 +216,11 @@
                             BorderBrush="#0DCAF2"
                             FontFamily="Roboto"
                             FontSize="12px" CaretBrush="#FF07AD40"/>
-                </StackPanel>
+                                    </StackPanel>
 
-                <StackPanel Margin="0,2,46,2" Orientation="Horizontal">
-                    <Label Content="Barcode" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
-                    <TextBox x:Name="EncryptionKeyTB" VerticalAlignment="Center" 
+                                    <StackPanel Margin="0,2,40,2" Orientation="Horizontal">
+                                        <Label Content="Barcode" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
+                                        <TextBox x:Name="EncryptionKeyTB" VerticalAlignment="Center" 
                  FontWeight="Normal"
                             Width="194"
                             Margin="0 0 0 0"
@@ -229,67 +237,133 @@
                             BorderBrush="#0DCAF2"
                             FontFamily="Roboto"
                             FontSize="12px" CaretBrush="#FF07AD40"  Text="73960856467"/>
-                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="0 10 0 10">
+                                        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="0 10 0 10">
 
-                        <materialDesign:PackIcon HorizontalAlignment="Left" Height="35"  Width="35" Kind="ForeignKey" Margin="3 10 0 0" MouseDown="GeneradeRandomBtn">
-                            <materialDesign:PackIcon.Foreground>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#0DCAF2" Offset="0"/>
-                                </LinearGradientBrush>
-                            </materialDesign:PackIcon.Foreground>
-                        </materialDesign:PackIcon>
-                        <materialDesign:PackIcon HorizontalAlignment="Left" Height="35"  Width="35" Kind="ContentCopy" Margin="2 10 0 0" MouseDown="copyToCLipboardBtn" >
-                            <materialDesign:PackIcon.Foreground>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#0DCAF2" Offset="0"/>
-                                </LinearGradientBrush>
-                            </materialDesign:PackIcon.Foreground>
-                        </materialDesign:PackIcon>
-                        <materialDesign:PackIcon HorizontalAlignment="Left" Height="35"  Width="35" Kind="BarcodeScan" Margin="2 10 0 0" MouseDown="ScanBarconeBtn">
-                            <materialDesign:PackIcon.Foreground>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#0DCAF2" Offset="0"/>
-                                </LinearGradientBrush>
-                            </materialDesign:PackIcon.Foreground>
-                        </materialDesign:PackIcon>
+                                            <materialDesign:PackIcon HorizontalAlignment="Left" Height="35"  Width="35" Kind="ForeignKey" Margin="3 10 0 0" MouseDown="GeneradeRandomBtn">
+                                                <materialDesign:PackIcon.Foreground>
+                                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                        <GradientStop Color="#0DCAF2" Offset="0"/>
+                                                    </LinearGradientBrush>
+                                                </materialDesign:PackIcon.Foreground>
+                                            </materialDesign:PackIcon>
+                                            <materialDesign:PackIcon HorizontalAlignment="Left" Height="35"  Width="35" Kind="ContentCopy" Margin="2 10 0 0" MouseDown="copyToCLipboardBtn" >
+                                                <materialDesign:PackIcon.Foreground>
+                                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                        <GradientStop Color="#0DCAF2" Offset="0"/>
+                                                    </LinearGradientBrush>
+                                                </materialDesign:PackIcon.Foreground>
+                                            </materialDesign:PackIcon>
+                                            <materialDesign:PackIcon HorizontalAlignment="Left" Height="35"  Width="35" Kind="BarcodeScan" Margin="2 10 0 0" MouseDown="ScanBarconeBtn">
+                                                <materialDesign:PackIcon.Foreground>
+                                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                        <GradientStop Color="#0DCAF2" Offset="0"/>
+                                                    </LinearGradientBrush>
+                                                </materialDesign:PackIcon.Foreground>
+                                            </materialDesign:PackIcon>
+                                        </StackPanel>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel Margin="102 0 0 0" Orientation="Vertical"  HorizontalAlignment="Left" >
+                                            <Label Foreground="Gray" Style="{StaticResource Header3}" Content="Serial code for printing" HorizontalAlignment="Center" VerticalAlignment="Top" MaxWidth="130"/>
+                                            <Image x:Name="QRcodeImage" Source="/UIassets/image 15.png" HorizontalAlignment="Center"  Width="110" Height="95"/>
+
+                                        </StackPanel>
+                                        <StackPanel Margin="0 30 0 0">
+                                            <materialDesign:PackIcon Height="27"  Width="27" Kind="ContentSave" Margin="2 0 0 0" MouseDown="QRSaveAspicBtn">
+                                                <materialDesign:PackIcon.Foreground>
+                                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                        <GradientStop Color="#0DCAF2" Offset="0"/>
+                                                    </LinearGradientBrush>
+                                                </materialDesign:PackIcon.Foreground>
+                                            </materialDesign:PackIcon>
+
+                                            <materialDesign:PackIcon Height="27"  Width="27" Kind="Whatsapp" Margin="2 6 0 0" MouseDown="QRwhatsappBtn">
+                                                <materialDesign:PackIcon.Foreground>
+                                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                        <GradientStop Color="#0DCAF2" Offset="0"/>
+                                                    </LinearGradientBrush>
+                                                </materialDesign:PackIcon.Foreground>
+                                            </materialDesign:PackIcon>
+                                            <materialDesign:PackIcon Height="27"  Width="27" Kind="Barcode" Margin="2 6 0 0" MouseDown="PrintQRcodeBTn">
+                                                <materialDesign:PackIcon.Foreground>
+                                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                        <GradientStop Color="#0DCAF2" Offset="0"/>
+                                                    </LinearGradientBrush>
+                                                </materialDesign:PackIcon.Foreground>
+                                            </materialDesign:PackIcon>
+                                        </StackPanel>
+                                    </StackPanel>
+
+                                </StackPanel>
+                            </Grid>
+
+                        </Grid>
+
+
                     </StackPanel>
-                </StackPanel>
+                </TabItem>
+                <TabItem FontSize="14" Foreground="#979797" Background="White"   Style="{StaticResource TabItemStyle}" Margin="1 0 -4 0" Name="TabDepreciation" Header="Depreciation"  FontWeight="Bold">
+                    <StackPanel>
 
-                <StackPanel Orientation="Horizontal">
-                    <StackPanel Margin="102 0 0 0" Orientation="Vertical"  HorizontalAlignment="Left" >
-                        <Label Foreground="Gray" Style="{StaticResource Header3}" Content="Serial code for printing" HorizontalAlignment="Center" VerticalAlignment="Top" MaxWidth="130"/>
-                        <Image x:Name="QRcodeImage" Source="/UIassets/image 15.png" HorizontalAlignment="Center"  Width="110" Height="95"/>
+                        <ProgressBar Margin="0 3 0 12" Value="29.5" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
+
+
+
+                        <StackPanel  Margin="5 5 5 10" Orientation="Horizontal">
+
+                            <TextBox Width="180"  VerticalAlignment="Center" x:Name="SalvageValueTB"
+                            Margin="0 5 0 5"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            materialDesign:HintAssist.Hint="Salvage Value"
+                            materialDesign:HintAssist.HelperText="The value for the end of the lifespan"
+                          
+                            materialDesign:TextFieldAssist.PrefixText="₱"
+                            materialDesign:TextFieldAssist.HasClearButton="True"
+                            materialDesign:TextFieldAssist.TextBoxViewMargin="7"
+                            HorizontalAlignment="Left"
+                            AcceptsReturn="True"
+                            TextWrapping="Wrap"
+                            MaxWidth="400"
+                            Foreground="#000009"
+                            SelectionBrush="#07AD40"
+                            BorderBrush="#0DCAF2"
+                            FontFamily="Roboto"
+                            FontSize="14" CaretBrush="#FF07AD40"/>
+
+                            
+                        </StackPanel>
+
+                        <ProgressBar Margin="0 15 0 0" Value="56.5" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
+
+                        <StackPanel Margin="0 5 0 2" Orientation="Vertical">
+                            <Label FontWeight="DemiBold" Width="119" Content="Asset Life (months)"  Foreground="#0DCAF2"  Style="{StaticResource Header2}" VerticalAlignment="Center"  Margin="0 0 2 0"   />
+                            <Slider Margin="2 10 2 10"
+                              Value="31"
+                              Minimum="1"
+                              Maximum="300"
+                              Style="{StaticResource MaterialDesignDiscreteSlider}"
+                              TickFrequency="{Binding DiscreteHorizontal.TickFrequency}"
+                              TickPlacement="TopLeft"
+                              SelectionStart="24"
+                              SelectionEnd="60"
+                              materialDesign:HintAssist.HelperText="Select product lifespan"
+                              IsSelectionRangeEnabled="True" />
+                            <Label Content="Depreciation yearly stats:" Width="180" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header3}" HorizontalAlignment="Left" Margin="0 0 2 0"   />
+
+                            <ProgressBar Margin="0 4 0 0" Value="15.5" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
+                            
+                            
+                        </StackPanel>
+
 
                     </StackPanel>
-                    <StackPanel Margin="0 30 0 0">
-                        <materialDesign:PackIcon Height="27"  Width="27" Kind="ContentSave" Margin="2 0 0 0" MouseDown="QRSaveAspicBtn">
-                            <materialDesign:PackIcon.Foreground>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#0DCAF2" Offset="0"/>
-                                </LinearGradientBrush>
-                            </materialDesign:PackIcon.Foreground>
-                        </materialDesign:PackIcon>
 
-                        <materialDesign:PackIcon Height="27"  Width="27" Kind="Whatsapp" Margin="2 6 0 0" MouseDown="QRwhatsappBtn">
-                            <materialDesign:PackIcon.Foreground>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#0DCAF2" Offset="0"/>
-                                </LinearGradientBrush>
-                            </materialDesign:PackIcon.Foreground>
-                        </materialDesign:PackIcon>
-                        <materialDesign:PackIcon Height="27"  Width="27" Kind="Barcode" Margin="2 6 0 0" MouseDown="PrintQRcodeBTn">
-                            <materialDesign:PackIcon.Foreground>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#0DCAF2" Offset="0"/>
-                                </LinearGradientBrush>
-                            </materialDesign:PackIcon.Foreground>
-                        </materialDesign:PackIcon>
-                    </StackPanel>
-                </StackPanel>
-
-            </StackPanel>
-        </Grid>
-
+                </TabItem>
+                
+            </TabControl>
+            
+        </StackPanel>
     </Grid>
 
 </UserControl>

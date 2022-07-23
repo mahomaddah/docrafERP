@@ -242,6 +242,9 @@ namespace docrafERP.Views
             SingletoneHomeView.Instance.homeView.bringTheUC("Manage Assets");
         }
 
-      
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
