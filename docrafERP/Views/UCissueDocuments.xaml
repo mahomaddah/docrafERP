@@ -18,7 +18,7 @@
                         <GradientStop Color="#FFD1CECE" Offset="1"/>
                     </LinearGradientBrush>
                 </ListView.BorderBrush>
-
+                
            
                     <Label Width="250" VerticalAlignment="Center"
                      BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"

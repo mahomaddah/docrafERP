@@ -95,6 +95,7 @@
     <Compile Include="DataAccessLayer\DataService.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Asset.cs" />
+    <Compile Include="Models\ProductTypeCodes.cs" />
     <Compile Include="Models\PurchaseRequest.cs" />
     <Compile Include="Models\Supply.cs" />
     <Compile Include="Views\AssetTamplateSelector.cs" />

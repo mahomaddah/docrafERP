@@ -24,6 +24,9 @@ namespace docrafERP.Views
     {
         public void RefreshAssetsListViewFromList()
         {
+            //Asset Status :  + Requested 
+
+            //PR Status: 0 , Requested , Accounting Approved , Director Approved ( PO linked ) ,Ordered, Accepting by SM, Available 
 
             PurchaseRequestsLV.ItemsSource = SingletoneHomeView.Instance.homeView.PurchaseRequests;
             ICollectionView view = CollectionViewSource.GetDefaultView(PurchaseRequestsLV.ItemsSource);
