@@ -30,13 +30,28 @@ namespace docrafERP.Views
     {
         public Asset EditingAsset { get; set; }
         public bool ComeForAdding { get; set; }
-
+        public List<AssetValueGauge> AssetGauge { get; private set; }
+        public List<AssetValueGauge> valuePerYear { get; private set; }
+        public List<YearDepreciation> YearsDepreciation { get; private set; }
         Bitmap lastQrimage;
         public UCeditAsset()
         {
+            DataContext = this;
+
+            YearsDepreciation = new List<YearDepreciation> { new YearDepreciation { BookedValue= "$960.40" , AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2022" } , new YearDepreciation { BookedValue = "$960.40", AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2023" },new YearDepreciation { BookedValue = "$960.40", AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2022" }, new YearDepreciation { BookedValue = "$960.40", AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2023" }, new YearDepreciation { BookedValue = "$960.40", AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2022" }, new YearDepreciation { BookedValue = "$960.40", AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2023" }, new YearDepreciation { BookedValue = "$960.40", AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2022" }, new YearDepreciation { BookedValue = "$960.40", AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2023" } };
+
+            int c = 0;      
+            c = Convert.ToInt32(Convert.ToInt32(460)/10+1 / ((1 + Convert.ToInt32(1200))));
+            AssetGauge = new List<AssetValueGauge> { new AssetValueGauge(98, "Net Value to Depreciable Cost"), new AssetValueGauge(290, "Asset life left") , new AssetValueGauge(c, "Salvage Value to Brand new price") };
+            
+            valuePerYear = new List<AssetValueGauge> { new AssetValueGauge(1200, "2022"), new AssetValueGauge(1100, "2023"), new AssetValueGauge(1000, "2024"), new AssetValueGauge(999, "2025"), new AssetValueGauge(850, "2026"), new AssetValueGauge(700, "2027"), new AssetValueGauge(600, "2028"), new AssetValueGauge(500, "2029"), new AssetValueGauge(450, "2030"), new AssetValueGauge(350, "2031"), new AssetValueGauge(200, "2032"), new AssetValueGauge(150, "2033"), new AssetValueGauge(100, "2034"), new AssetValueGauge(50, "2035"), new AssetValueGauge(30, "2036"), new AssetValueGauge(20, "2037"), new AssetValueGauge(2, "2038") };
+
+
             EditingAsset = new Asset();
             InitializeComponent();
             GetNewCode();
+
+
         }
         
         private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -244,7 +259,30 @@ namespace docrafERP.Views
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+          
+        }
+
+        private void TypeCodeTB_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+        
+
+        private void TypeCodeTB_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            List<string> searchedList = ProductTypeCodes.ProductTypeAccountCodes.FindAll(x=>x.Contains(TypeCodeTB.Text)).ToList();
+            if (searchedList != null && searchedList.Count!=0)
+            {
+                TypeCodeTB.IsDropDownOpen = true;
+                TypeCodeTB.ItemsSource = searchedList;
+            }
+            else
+            {
+                TypeCodeTB.IsDropDownOpen = false;
+            }
 
         }
+
     }
 }

@@ -40,6 +40,9 @@
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
     </Reference>
+    <Reference Include="De.TorstenMandelkow.MetroChart, Version=0.9.5818.20693, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\ModernUICharts.WPF.Beta.0.9.1\lib\De.TorstenMandelkow.MetroChart.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignColors, Version=2.0.6.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>packages\MaterialDesignColors.2.0.6\lib\net452\MaterialDesignColors.dll</HintPath>
     </Reference>
@@ -99,6 +102,7 @@
     <Compile Include="Models\PurchaseRequest.cs" />
     <Compile Include="Models\Supply.cs" />
     <Compile Include="Views\AssetTamplateSelector.cs" />
+    <Compile Include="Views\AssetValueGauge.cs" />
     <Compile Include="Views\PRTamplateSelector.cs" />
     <Compile Include="Views\SingletoneHomeView.cs" />
     <Compile Include="Views\SupplyTamplateSelector.cs" />
@@ -126,6 +130,7 @@
     <Compile Include="Views\UCSettings.xaml.cs">
       <DependentUpon>UCSettings.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\YearDepreciation.cs" />
     <Page Include="Views\UCeditAsset.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
