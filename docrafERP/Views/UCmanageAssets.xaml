@@ -22,30 +22,178 @@
                 
                 <DockPanel >
                     <Label DockPanel.Dock="Left" Margin="0 0 0 0" FontSize="20" Foreground="{StaticResource PrimaryHueMidBrush}" Content="Assets:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                <ListBox  MaxWidth="650"  Height="45" MinWidth="100" DockPanel.Dock="Right" Name="AssetFilterSLB" Margin="20 0 5 0" HorizontalAlignment="Right" HorizontalContentAlignment="Right"
+                <ListBox  MaxWidth="650"  Height="43" MinWidth="100" DockPanel.Dock="Right" Name="AssetFilterSLB" Margin="20 0 5 0" HorizontalAlignment="Right" HorizontalContentAlignment="Right"
                     Style="{StaticResource MaterialDesignFilterChipPrimaryOutlineListBox}"   Width="600" >
+                   
 
-                        <ListBoxItem
-                        Content="Account Code"
-                        IsSelected="True"/>
-                        
-                        <ListBoxItem                     
-                        Content="Serial Number"/>
+                    <ListBoxItem 
+                      
+                       IsSelected="True">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:Badged>
+                                <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="CategoryOutline"
+                                    
+                                    />
+                            </materialDesign:Badged>
+                            <TextBlock Text="Account Code" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+                           
+                        </StackPanel>
+                    </ListBoxItem>
 
-                    <ListBoxItem                     
-                        Content="Brand"/>
+                    <ListBoxItem 
+                  
+                       IsSelected="True">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:Badged>
+                                <materialDesign:PackIcon
+                                     
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="PersonOutline"
+                                    
+                                    />
+                            </materialDesign:Badged>
+                            <TextBlock Text="Custodian" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                        </StackPanel>
+                    </ListBoxItem>
+
+                    <ListBoxItem>
                         
-                    <ListBoxItem                     
-                        Content="Serial Number"/>
-                    <ListBoxItem                     
-                        Content="Serial Number"/>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:Badged>
+                                <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="Calendar"
+                                    
+                                    />
+                            </materialDesign:Badged>
+                            <TextBlock Text="This Year" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                        </StackPanel>
+                    </ListBoxItem>
+
+                    <ListBoxItem>
+
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:Badged>
+                                <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="ClipboardCheck"
+                                    
+                                    />
+                            </materialDesign:Badged>
+                            <TextBlock Text="Status is Available" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                        </StackPanel>
+                    </ListBoxItem>
+
                     <ListBoxItem
-                        Content="Earth" />
-                        <ListBoxItem
-                        IsEnabled="False"
-                        Content="Pluto" />
+                        Content="Status is Director Approved" />
 
-                    </ListBox>
+                    <ListBoxItem
+                        Content="Status is Accounting Approved" />
+
+                    <ListBoxItem
+                        Content="Price is less than $1000" />
+
+                    <ListBoxItem>
+
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:Badged>
+                                <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="Barcode"
+                                    
+                                    />
+                            </materialDesign:Badged>
+                            <TextBlock Text="Serial Number" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                        </StackPanel>
+                    </ListBoxItem>
+          
+
+                    <ListBoxItem                     
+                        Content="Brand"  IsSelected="True"/>
+                        
+             
+
+                    <ListBoxItem>
+
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:Badged>
+                                <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="Dollar"
+                                    
+                                    />
+                            </materialDesign:Badged>
+                            <TextBlock Text="Price" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem>
+
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:Badged>
+                                <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="HospitalLocation"
+                                    
+                                    />
+                            </materialDesign:Badged>
+                            <TextBlock Text="Location" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                        </StackPanel>
+                    </ListBoxItem>
+                    
+
+      
+                   
+                    <ListBoxItem
+                        IsEnabled="False"
+                        Content="Vendor" />
+
+                    <ListBoxItem
+                        Content="Status is Requested" />
+
+                    <ListBoxItem
+                        Content="Status is Ordered" />
+                    <ListBoxItem
+                        Content="Status is Accepting by SM" />
+                    <ListBoxItem
+                        Content="this month" />
+
+
+                </ListBox>
                 </DockPanel>
 
 

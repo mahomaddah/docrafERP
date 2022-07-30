@@ -370,6 +370,7 @@
                                 <StackPanel Margin="0 5 0 2" Orientation="Vertical">
                                     <Label FontWeight="DemiBold" Width="119" Content="Asset Life (months)"  Foreground="#0DCAF2"  Style="{StaticResource Header2}" VerticalAlignment="Center"  Margin="0 0 2 0"   />
                                     <Slider Margin="2 5 2 5"
+                                     
                                       Value="31"
                                       Minimum="1"
                                       Maximum="300"
