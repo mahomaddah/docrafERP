@@ -10,7 +10,7 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Cyan.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.LightGreen.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.green.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
 
@@ -92,37 +92,24 @@
                 </Setter>
             </Style>
 
-           
+      
+
 
 
             <DataTemplate x:Key="AssetAvailableTemplate">
                 <StackPanel  Orientation="Horizontal">
-
-                    <Label Width="150" VerticalAlignment="Center"
-                        BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
-                        Content="{Binding Device}" />
-                    <Label Width="100" VerticalAlignment="Center"
-                        BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
-                        Content="{Binding OwnerOrLocation}" />
-                    <materialDesign:PackIcon Kind="ClipboardCheck" Foreground="#00CE46" VerticalAlignment="Center" Margin="15 5 1 5" Height="18" Width="18" />
-                    <Label Content="Available" Width="65"  Foreground="#00CE46" VerticalAlignment="Center"  Margin="0 5 0 0"  Style="{StaticResource Header3}" FontFamily="Roboto" />
-                    <Image Source="{Binding ImagePath}" Margin="35 0 0 0"   Height="45" />
+                    <materialDesign:PackIcon Kind="ClipboardCheck" Foreground="#00CE46"  Margin="0 0 0 0" Height="18" Width="18" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+                    <Label Content="Available" Width="100" FontWeight="Bold"  Foreground="#00CE46" VerticalAlignment="Center" HorizontalAlignment="Center"   Margin="0 0 0 0" FontSize="11" Style="{StaticResource Header3}" FontFamily="Roboto" />
+                    <Image Source="{Binding ImagePath}" Margin="0 0 0 0"   Height="35" HorizontalAlignment="Center" VerticalAlignment="Center"  />
 
                 </StackPanel>
             </DataTemplate>
 
             <DataTemplate x:Key="AssetUnAvailableTemplate">
                 <StackPanel  Orientation="Horizontal">
-
-                    <Label Width="150" VerticalAlignment="Center"
-                        BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
-                        Content="{Binding Device}" />
-                    <Label Width="100" VerticalAlignment="Center"
-                        BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
-                        Content="{Binding OwnerOrLocation}" />
-                    <materialDesign:PackIcon Kind="ClipboardOff" Foreground="#FF3232" VerticalAlignment="Center" Margin="15 5 1 5" Height="18" Width="18" />
-                    <Label Content="Unavailable" Width="65" Foreground="#FF3232" VerticalAlignment="Center"  Margin="0 5 0 0"  Style="{StaticResource Header3}" FontFamily="Roboto" />
-                    <Image Source="{Binding ImagePath}" Margin="35 0 0 0"   Height="45" />
+                    <materialDesign:PackIcon Kind="ClipboardOff" Foreground="#FF3232"  Margin="0 0 0 0" Height="18" Width="18" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+                    <Label Content="Unavailable" FontWeight="Bold" Width="100" Foreground="#FF3232" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="0 0 0 0"  FontSize="11"  Style="{StaticResource Header3}" FontFamily="Roboto" />
+                    <Image Source="{Binding ImagePath}" Margin="0 0 0 0"   Height="35" HorizontalAlignment="Center" VerticalAlignment="Center"  />
 
                 </StackPanel>
             </DataTemplate>

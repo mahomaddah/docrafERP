@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,16 +18,23 @@ using System.Windows.Shapes;
 
 namespace docrafERP.Views
 {
+
+
     /// <summary>
     /// UCmanageAssets.xaml etkileşim mantığı
     /// </summary>
     public partial class UCmanageAssets : UserControl
     {
+        public List<Asset> AssetsForListview { get; set; }
+        public List<string> Foods { get; set; }
         public void RefreshAssetsListViewFromList()
         {
-
-            LVassets.ItemsSource = SingletoneHomeView.Instance.homeView.Assets.ToList();
-            ICollectionView view = CollectionViewSource.GetDefaultView(LVassets.ItemsSource);
+            DataContext = this;
+            Foods = new List<string>();
+            SingletoneHomeView.Instance.homeView.Assets.ForEach(x => Foods.Add(x.OwnerOrLocation));
+            AssetsForListview = SingletoneHomeView.Instance.homeView.Assets.ToList();
+            AssetGridView.ItemsSource = AssetsForListview;
+            ICollectionView view = CollectionViewSource.GetDefaultView(AssetGridView.ItemsSource);
             view.Refresh();
         }
 
@@ -37,17 +45,18 @@ namespace docrafERP.Views
 
         public UCmanageAssets()
         {
+
             InitializeComponent();
         }
 
         private void AssetDeleteBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (LVassets.SelectedIndex != -1)
+            if (AssetGridView.SelectedIndex != -1)
             {
                 var dialog = MessageBox.Show("Are you sure to delete the item ?","Delete?", MessageBoxButton.YesNo);
                 if(dialog== MessageBoxResult.Yes)
                 {
-                    var tempAsset = ((Asset)LVassets.SelectedItem);
+                    var tempAsset = ((Asset)AssetGridView.SelectedItem);
                     SingletoneHomeView.Instance.homeView.Assets.Remove(tempAsset);
                     //database ... 
                     new DataAccessLayer.DataService().DeleteAsset(tempAsset);
@@ -60,7 +69,7 @@ namespace docrafERP.Views
 
         private void AssetEditBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (LVassets.SelectedIndex == -1)
+            if (AssetGridView.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select an item first....");
             }
@@ -79,15 +88,17 @@ namespace docrafERP.Views
 
         private void ItemSelected(object sender, MouseButtonEventArgs e)
         {
-            if (LVassets.SelectedIndex != -1)
+            if (AssetGridView.SelectedIndex != -1)
                 EditAsset();
         }
         void EditAsset()
         {
-            var tempAsset = ((Asset)LVassets.SelectedItem);
+            var tempAsset = ((Asset)AssetGridView.SelectedItem);
             SingletoneHomeView.Instance.homeView.editAssetUC.EditingAsset = tempAsset;
             SingletoneHomeView.Instance.homeView.editAssetUC.ComeForAdding = false;
             SingletoneHomeView.Instance.homeView.bringTheUC("Edit Asset");
         }
+
     }
+
 }

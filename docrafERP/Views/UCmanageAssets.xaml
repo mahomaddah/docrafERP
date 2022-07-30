@@ -6,33 +6,236 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"      
              xmlns:local="clr-namespace:docrafERP.Views"
              xmlns:Models="clr-namespace:docrafERP.Models" x:Class="docrafERP.Views.UCmanageAssets"
-             mc:Ignorable="d"        
+             mc:Ignorable="d"
+             xmlns:domain="docrafERP.Views.UCmanageAssets" 
              d:DesignHeight="550" d:DesignWidth="800" Loaded="UserControl_Loaded">
     <Grid>
 
         <StackPanel>
-            <StackPanel Margin="0 5 0 10" Orientation="Horizontal">
-                <materialDesign:PackIcon Height="23" Width="23"  Margin="0 0 5 0" Kind="ClipboardCheck" Foreground="#00CE46"/>
-                <Label  Content="Available" Style="{StaticResource Header2}" FontFamily="Roboto" Foreground="#00CE46"/>
-                <materialDesign:PackIcon Height="23" Width="23"  Margin="150 0 5 0" Kind="ClipboardOff" Foreground="#FF3232"/>
-                <Label Content="Unavailable" Style="{StaticResource Header2}" FontFamily="Roboto" Foreground="#FF3232"/>
+            <StackPanel Margin="0 3 0 7" Orientation="Horizontal">
+                <materialDesign:PackIcon Height="18" Width="18"  Margin="3 0 0 0" Kind="ClipboardCheck" Foreground="#00CE46"/>
+                <Label  Content="Available" Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#00CE46"/>
+                <materialDesign:PackIcon Height="18" Width="18"  Margin="50 0 0 0" Kind="ClipboardOff" Foreground="#FF3232"/>
+                <Label Content="Unavailable" Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#FF3232"/>
             </StackPanel>
-
-            <Label Margin="0 5 0 0" Style="{StaticResource Header1}" Foreground="#000008" Content="Products" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30.5" />
-            <ProgressBar Margin="0 0 0 10" Value="8.7" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
-
-            <ListView  ItemTemplateSelector="{StaticResource dataTemplateSelectorDirectory}" MouseDoubleClick="ItemSelected" Height="305" x:Name="LVassets" VerticalAlignment="Center">
-                <ListView.BorderBrush>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black" Offset="0"/>
-                        <GradientStop Color="#FFD1CECE" Offset="1"/>
-                    </LinearGradientBrush>
-                </ListView.BorderBrush>
+          
                 
-            </ListView>
+                <DockPanel >
+                    <Label DockPanel.Dock="Left" Margin="0 0 0 0" FontSize="20" Foreground="{StaticResource PrimaryHueMidBrush}" Content="Assets:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <ListBox  MaxWidth="650"  Height="45" MinWidth="100" DockPanel.Dock="Right" Name="AssetFilterSLB" Margin="20 0 5 0" HorizontalAlignment="Right" HorizontalContentAlignment="Right"
+                    Style="{StaticResource MaterialDesignFilterChipPrimaryOutlineListBox}"   Width="600" >
 
-            <Line Stretch="Fill" Margin="0,5,0,0" HorizontalAlignment="Left" Width="442" Stroke="DarkGray" X2="1" Opacity="0.4" />
-            <StackPanel Orientation="Horizontal" Margin="0 10 10 10">
+                        <ListBoxItem
+                        Content="Account Code"
+                        IsSelected="True"/>
+                        
+                        <ListBoxItem                     
+                        Content="Serial Number"/>
+
+                    <ListBoxItem                     
+                        Content="Brand"/>
+                        
+                    <ListBoxItem                     
+                        Content="Serial Number"/>
+                    <ListBoxItem                     
+                        Content="Serial Number"/>
+                    <ListBoxItem
+                        Content="Earth" />
+                        <ListBoxItem
+                        IsEnabled="False"
+                        Content="Pluto" />
+
+                    </ListBox>
+                </DockPanel>
+
+
+            <ProgressBar Margin="0 0 0 2" Value="9.5" Height="1.5" Background="#F1F1F1" Foreground="{StaticResource PrimaryHueLightBrush}" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
+            <ProgressBar Margin="0 0 0 10" Value="99" Height="2" Background="#F1F1F1" Foreground="{StaticResource PrimaryHueLightBrush}" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
+
+            <!--RowStyle="{StaticResource CenteredDataGrdidClm}"-->
+            
+            <DataGrid 
+              x:Name="AssetGridView"
+              MouseDoubleClick="ItemSelected" Height="380"
+              Background="Transparent"
+              ItemsSource="{Binding Path = AssetsForListview}"
+              CanUserAddRows="False"
+              AutoGenerateColumns="False"
+              ColumnHeaderHeight="60"
+              BorderThickness="0.8"
+              Margin="0 2 -15 8"
+              BorderBrush="#0DCAF2"
+              HeadersVisibility="All">
+
+                <DataGrid.Columns>
+                   
+                    <DataGridCheckBoxColumn
+                        
+                      Binding="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged}"
+                      ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}"
+                      EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}">
+                        <DataGridCheckBoxColumn.Header>
+                            <Border
+                                
+                                Background="Transparent"
+                                >
+                                
+                                <CheckBox/>
+                            </Border>
+                        </DataGridCheckBoxColumn.Header>
+                        <DataGridCheckBoxColumn.HeaderStyle>
+                            <Style
+                                  TargetType="{x:Type DataGridColumnHeader}"
+                                  BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+                                <Setter
+                                Property="HorizontalContentAlignment"
+                                Value="Center" />
+                                <Setter Property="FontWeight" Value="SemiBold" />
+                                <Setter Property="Foreground" Value="#0DCAF2"/>
+                            </Style>
+                        </DataGridCheckBoxColumn.HeaderStyle>
+                    </DataGridCheckBoxColumn>
+
+                    <DataGridTextColumn
+                       
+                      Binding="{Binding Device}"
+                      Header="Asset"
+                      ElementStyle="{StaticResource MaterialDesignDataGridTextColumnStyle}"
+                      
+                      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" 
+                     
+
+                      >
+                        <DataGridTextColumn.HeaderStyle>
+                            <Style
+                                
+                                  TargetType="{x:Type DataGridColumnHeader}"
+                                  BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+                                <Setter
+                                Property="HorizontalContentAlignment"
+                                Value="Center" />
+                                <Setter Property="FontWeight" Value="SemiBold" />
+                                <Setter Property="Foreground" Value="#0DCAF2"/>
+                            </Style>
+                        </DataGridTextColumn.HeaderStyle>
+                    </DataGridTextColumn>
+                       
+                            <!-- if you want to use the pop up style (MaterialDesignDataGridTextColumnPopupEditingStyle), you must use MaterialDataGridTextColumn -->
+
+                    <materialDesign:DataGridComboBoxColumn
+                      Header="Location"
+                      IsEditable="True"
+                    
+                      SelectedValueBinding="{Binding OwnerOrLocation}"
+                      ItemsSourceBinding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.Foods}">
+                        <!--Setting the editing element style allows access to all of the combo box's properties
+                      <materialDesign:MaterialDataGridComboBoxColumn.EditingElementStyle>
+                          <Style TargetType="ComboBox" BasedOn="{StaticResource {ComponentResourceKey TypeInTargetAssembly={x:Type ComboBox}, ResourceId=MaterialDataGridComboBoxColumnEditingStyle}}" >
+                              <Setter Property="IsEditable" Value="True" />
+                          </Style>
+                      </materialDesign:MaterialDataGridComboBoxColumn.EditingElementStyle>
+                      -->
+                        <materialDesign:DataGridComboBoxColumn.HeaderStyle>
+                            <Style  BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}"   TargetType="{x:Type DataGridColumnHeader}">
+                                
+                                <Setter Property="FontWeight" Value="SemiBold" />
+                                <Setter Property="Foreground" Value="#0DCAF2"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            </Style>
+                        </materialDesign:DataGridComboBoxColumn.HeaderStyle>
+                           
+
+                    </materialDesign:DataGridComboBoxColumn>
+                    
+                   
+                    <!-- set a max length to get an indicator in the editor -->
+                  
+                    <materialDesign:DataGridTextColumn
+                      Binding="{Binding PurchasePrice}"
+                      Header="Price"
+                     
+                      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
+                        <DataGridTextColumn.HeaderStyle>
+                            <Style
+                          TargetType="{x:Type DataGridColumnHeader}"
+                          BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+                                <Setter
+                          Property="HorizontalContentAlignment"
+                          Value="Center" />
+                                <Setter
+                          Property="ContentTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate>
+                                            <TextBlock
+                                             
+                                              TextWrapping="Wrap"
+                                              Text="{Binding}"
+                                              TextAlignment="Center" />
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                
+                                <Setter Property="FontWeight" Value="SemiBold" />
+                                
+                                <Setter Property="Foreground" Value="#0DCAF2"/>
+
+                               
+                            </Style>
+                        </DataGridTextColumn.HeaderStyle>
+                        <DataGridTextColumn.ElementStyle>
+                            <Style
+                          TargetType="{x:Type TextBlock}"
+                          BasedOn="{StaticResource MaterialDesignDataGridTextColumnStyle}">
+                           
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </materialDesign:DataGridTextColumn>
+                    <!-- use custom combo box column to get better combos. Use ItemsSourceBinding as your binding template to be applied to each combo -->
+
+                    <DataGridTemplateColumn
+                        Header="    Status                  Image"
+                        CellTemplateSelector="{StaticResource dataTemplateSelectorDirectory}"
+                       
+                     >
+                        <DataGridTemplateColumn.HeaderStyle>
+                            <Style
+                                  TargetType="{x:Type DataGridColumnHeader}"
+                                  BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+                                <Setter
+                                Property="HorizontalContentAlignment"
+                                Value="Center" />
+                                <Setter Property="FontWeight" Value="SemiBold" />
+                                <Setter Property="Foreground" Value="#0DCAF2"/>
+
+                            </Style>
+                        </DataGridTemplateColumn.HeaderStyle>
+                    </DataGridTemplateColumn>
+                    
+                    <DataGridTextColumn
+                      Header="Date Received"
+                        Width="116"
+                      ElementStyle="{StaticResource MaterialDesignDataGridTextColumnStyle}"
+                      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}">
+                        <DataGridTextColumn.Binding>
+                            <Binding
+                              Path="DateReceived">
+                            </Binding>
+                        </DataGridTextColumn.Binding>
+                        <DataGridTextColumn.HeaderStyle>
+                            <Style  BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}"   TargetType="{x:Type DataGridColumnHeader}">
+                                <Setter Property="FontWeight" Value="SemiBold" />
+                                <Setter Property="Foreground" Value="#0DCAF2"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.HeaderStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+      
+
+            <Line  Stretch="Fill" Margin="0,5,0,0" HorizontalAlignment="Center" Width="442" Stroke="DarkGray" X2="1" Opacity="0.4" />
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0 10 10 1">
                 <Button
                   Width="142"
                   x:Name="MobieDeleteBtn"
@@ -58,9 +261,9 @@
                   IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Click="AssetAddBtn_Click" />
             </StackPanel>
 
-            <Label x:Name="LabelLisans" Margin="0 5 0 0" Style="{StaticResource Header1}" Foreground="#000008" Content="License" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30.5" />
-            <ProgressBar Margin="0 0 0 5" Value="8" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
-            <Label  Style="{StaticResource Header4}" Margin="0 5 0 0" Foreground="DarkGray" Content="ERP Desktop, valid until 22.06. 2030" HorizontalAlignment="Left" VerticalAlignment="Top" Height="42.5" />
+            <!--<Label x:Name="LabelLisans" FontWeight="Normal"  Margin="0 0 0 0" Style="{StaticResource Header3}" Foreground="#000008" Content="License" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30.5" />
+            <ProgressBar Margin="0 0 0 1" Value="8" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
+            <Label  Style="{StaticResource Header4}" Margin="0 5 0 0" Foreground="DarkGray" Content="ERP Desktop, valid until 22.06. 2030" HorizontalAlignment="Left" VerticalAlignment="Top" Height="42.5" />-->
         </StackPanel>
 
     </Grid>
