@@ -26,26 +26,34 @@ namespace docrafERP.Views
     public partial class UCmanageAssets : UserControl
     {
         public List<Asset> AssetsForListview { get; set; }
-        public List<string> Foods { get; set; }
-        public void RefreshAssetsListViewFromList()
+        public List<string> Locations { get; set; }
+        public List<string> SearchBarSuggestions { get; set; }
+
+        public void RefreshAssetsListViewFromViewModel()
         {
             DataContext = this;
-            Foods = new List<string>();
-            SingletoneHomeView.Instance.homeView.Assets.ForEach(x => Foods.Add(x.OwnerOrLocation));
+            Locations = new List<string>();
+            SingletoneHomeView.Instance.homeView.Assets.ForEach(x => Locations.Add(x.OwnerOrLocation));
             AssetsForListview = SingletoneHomeView.Instance.homeView.Assets.ToList();
             AssetGridView.ItemsSource = AssetsForListview;
+            //refreshLisView(AssetsForListview);
+        }
+
+        public void refreshLisView(List<Asset> ItemSource)
+        {
+            AssetGridView.ItemsSource = ItemSource;
             ICollectionView view = CollectionViewSource.GetDefaultView(AssetGridView.ItemsSource);
             view.Refresh();
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            RefreshAssetsListViewFromList();
+            RefreshAssetsListViewFromViewModel();
         }
 
         public UCmanageAssets()
         {
-
+            SearchBarSuggestions = new List<string>();
             InitializeComponent();
         }
 
@@ -61,7 +69,7 @@ namespace docrafERP.Views
                     //database ... 
                     new DataAccessLayer.DataService().DeleteAsset(tempAsset);
                     // reload list view
-                    RefreshAssetsListViewFromList();
+                    RefreshAssetsListViewFromViewModel();
                 }
             }
                
@@ -99,6 +107,87 @@ namespace docrafERP.Views
             SingletoneHomeView.Instance.homeView.bringTheUC("Edit Asset");
         }
 
+        void reloadFromSearchingMode()
+        {
+            if (SearchSnackBar.IsActive)
+            {
+                //error is over...
+                SearchSnackBar.IsActive = false;
+                SearchBarTB.Foreground = new SolidColorBrush(Colors.White);
+            }
+
+
+            if (SearchBarTB.Text == null || SearchBarTB.Text.Length <= 1)
+            {
+                //not searching
+
+                SearchBarTB.IsDropDownOpen = false;
+                AssetGridView.ItemsSource = AssetsForListview;
+                AssetGridView.Visibility = Visibility.Visible;
+
+            }
+        }
+
+        private void SearchBarTB_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            reloadFromSearchingMode();
+
+            if (SearchBarTB.Text != null && SearchBarTB.Text.Length != 0 && e.Text != string.Empty)
+            {
+                
+                List<Asset> searchedList = new List<Asset>();
+
+                try
+                {
+                    searchedList = SingletoneHomeView.Instance.homeView.Assets.FindAll(y => y.Device.ToLower().Contains(SearchBarTB.Text.ToLower()));
+                }
+                catch
+                {
+
+                }
+
+                if (searchedList != null && searchedList.Count != 0)
+                {
+                    AssetGridView.ItemsSource = searchedList;
+
+                    SearchBarSuggestions.Clear();
+                    searchedList.ForEach(x => SearchBarSuggestions.Add(x.Device));
+
+                    SearchBarTB.ItemsSource = SearchBarSuggestions;
+
+
+                    AssetGridView.Visibility = Visibility.Visible;
+                    
+
+                }
+                else
+                {
+                    //255,51,51
+                    SearchBarTB.Foreground = new SolidColorBrush(Color.FromRgb(255, 7, 174));
+                    SearchBarTB.IsDropDownOpen = false;
+                    
+                    AssetGridView.Visibility = Visibility.Hidden;
+                    SearchSnackBar.IsActive = true;
+                    //not found searching 
+
+                }
+            }
+
+        }
+
+        private void SearchBarTB_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key== Key.Back)
+            {
+                reloadFromSearchingMode();
+            }
+        }
+
+        private void SearchBarTB_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (SearchBarTB.Text == null || SearchBarTB.Text.Length <= 1)
+                reloadFromSearchingMode();
+        }
     }
 
 }

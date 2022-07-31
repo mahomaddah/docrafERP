@@ -9,22 +9,51 @@
              mc:Ignorable="d"
              xmlns:domain="docrafERP.Views.UCmanageAssets" 
              d:DesignHeight="550" d:DesignWidth="800" Loaded="UserControl_Loaded">
-    <Grid>
+
+    <Grid Margin="-6 0 0 0">
 
         <StackPanel>
+            <DockPanel Name="SearchBar" Margin="0 -160 70 0">
+                <Grid HorizontalAlignment="Right" >
+                    <ComboBox Name="SearchBarTB"
+
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                        materialDesign:HintAssist.Hint="Search..."
+                        materialDesign:HintAssist.HelperText="Note: Use the Search field in finding by Barcode scanner or RFID reader..."
+                        materialDesign:TextFieldAssist.HasClearButton="True"
+                        materialDesign:HintAssist.HelperTextFontSize="8.3"                       
+                        IsDropDownOpen="False"
+                        MaxDropDownHeight="0"
+                        IsEditable="True"
+                        Foreground="White"
+                        Background="#07AEFF"
+                        BorderBrush="White"
+                        materialDesign:HintAssist.Foreground="White"
+                        materialDesign:HintAssist.Background="#07AEFF"
+                        BorderThickness="3"
+                        Padding="4"
+                        Height="35"
+                        FontSize="16"
+                        FontWeight="DemiBold"
+                        Margin="3"
+  
+                        Width="300" PreviewTextInput="SearchBarTB_PreviewTextInput" MouseLeave="SearchBarTB_MouseLeave" PreviewKeyDown="SearchBarTB_PreviewKeyDown"/>
+                </Grid>
+            </DockPanel>
+
             <StackPanel Margin="0 3 0 7" Orientation="Horizontal">
                 <materialDesign:PackIcon Height="18" Width="18"  Margin="3 0 0 0" Kind="ClipboardCheck" Foreground="#00CE46"/>
                 <Label  Content="Available" Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#00CE46"/>
                 <materialDesign:PackIcon Height="18" Width="18"  Margin="50 0 0 0" Kind="ClipboardOff" Foreground="#FF3232"/>
                 <Label Content="Unavailable" Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#FF3232"/>
             </StackPanel>
-          
-                
-                <DockPanel >
-                    <Label DockPanel.Dock="Left" Margin="0 0 0 0" FontSize="20" Foreground="{StaticResource PrimaryHueMidBrush}" Content="Assets:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                <ListBox  MaxWidth="650"  Height="43" MinWidth="100" DockPanel.Dock="Right" Name="AssetFilterSLB" Margin="20 0 5 0" HorizontalAlignment="Right" HorizontalContentAlignment="Right"
+
+
+            <DockPanel >
+                <Label DockPanel.Dock="Left" Margin="0 0 0 0" FontSize="20" Foreground="{StaticResource PrimaryHueMidBrush}" Content="Assets:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <ListBox  MaxWidth="520"  Height="80" MinWidth="100" DockPanel.Dock="Right" Name="AssetFilterSLB" Margin="20 -35 -15 0" HorizontalAlignment="Right" HorizontalContentAlignment="Right"
                     Style="{StaticResource MaterialDesignFilterChipPrimaryOutlineListBox}"   Width="600" >
-                   
+
 
                     <ListBoxItem 
                       
@@ -42,7 +71,7 @@
                                     />
                             </materialDesign:Badged>
                             <TextBlock Text="Account Code" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
-                           
+
                         </StackPanel>
                     </ListBoxItem>
 
@@ -67,7 +96,7 @@
                     </ListBoxItem>
 
                     <ListBoxItem>
-                        
+
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:Badged>
                                 <materialDesign:PackIcon
@@ -95,6 +124,25 @@
                                      Width="18"
                                      Height="18"
                                      Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="Dollar"
+                                    
+                                    />
+                            </materialDesign:Badged>
+                            <TextBlock Text="Price" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                        </StackPanel>
+                    </ListBoxItem>
+
+                    <ListBoxItem>
+
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:Badged>
+                                <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
                                      Kind="ClipboardCheck"
                                     
                                     />
@@ -108,10 +156,12 @@
                         Content="Status is Director Approved" />
 
                     <ListBoxItem
-                        Content="Status is Accounting Approved" />
+                        Content="Price is less than $1000" />
 
                     <ListBoxItem
-                        Content="Price is less than $1000" />
+                        Content="Status is Accounting Approved" />
+
+
 
                     <ListBoxItem>
 
@@ -131,31 +181,14 @@
 
                         </StackPanel>
                     </ListBoxItem>
-          
+
 
                     <ListBoxItem                     
                         Content="Brand"  IsSelected="True"/>
-                        
-             
 
-                    <ListBoxItem>
 
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:Badged>
-                                <materialDesign:PackIcon
-                                    
-                                     Margin="1 0 5 0"
-                                     Width="18"
-                                     Height="18"
-                                     Foreground="{StaticResource PrimaryHueMidBrush}"
-                                     Kind="Dollar"
-                                    
-                                    />
-                            </materialDesign:Badged>
-                            <TextBlock Text="Price" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
 
-                        </StackPanel>
-                    </ListBoxItem>
+
                     <ListBoxItem>
 
                         <StackPanel Orientation="Horizontal">
@@ -174,10 +207,10 @@
 
                         </StackPanel>
                     </ListBoxItem>
-                    
 
-      
-                   
+
+
+
                     <ListBoxItem
                         IsEnabled="False"
                         Content="Vendor" />
@@ -194,14 +227,14 @@
 
 
                 </ListBox>
-                </DockPanel>
+            </DockPanel>
 
 
             <ProgressBar Margin="0 0 0 2" Value="9.5" Height="1.5" Background="#F1F1F1" Foreground="{StaticResource PrimaryHueLightBrush}" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
             <ProgressBar Margin="0 0 0 10" Value="99" Height="2" Background="#F1F1F1" Foreground="{StaticResource PrimaryHueLightBrush}" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
 
             <!--RowStyle="{StaticResource CenteredDataGrdidClm}"-->
-            
+
             <DataGrid 
               x:Name="AssetGridView"
               MouseDoubleClick="ItemSelected" Height="380"
@@ -216,7 +249,7 @@
               HeadersVisibility="All">
 
                 <DataGrid.Columns>
-                   
+
                     <DataGridCheckBoxColumn
                         
                       Binding="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged}"
@@ -227,7 +260,7 @@
                                 
                                 Background="Transparent"
                                 >
-                                
+
                                 <CheckBox/>
                             </Border>
                         </DataGridCheckBoxColumn.Header>
@@ -267,15 +300,15 @@
                             </Style>
                         </DataGridTextColumn.HeaderStyle>
                     </DataGridTextColumn>
-                       
-                            <!-- if you want to use the pop up style (MaterialDesignDataGridTextColumnPopupEditingStyle), you must use MaterialDataGridTextColumn -->
+
+                    <!-- if you want to use the pop up style (MaterialDesignDataGridTextColumnPopupEditingStyle), you must use MaterialDataGridTextColumn -->
 
                     <materialDesign:DataGridComboBoxColumn
                       Header="Location"
                       IsEditable="True"
                     
                       SelectedValueBinding="{Binding OwnerOrLocation}"
-                      ItemsSourceBinding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.Foods}">
+                      ItemsSourceBinding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.Locations}">
                         <!--Setting the editing element style allows access to all of the combo box's properties
                       <materialDesign:MaterialDataGridComboBoxColumn.EditingElementStyle>
                           <Style TargetType="ComboBox" BasedOn="{StaticResource {ComponentResourceKey TypeInTargetAssembly={x:Type ComboBox}, ResourceId=MaterialDataGridComboBoxColumnEditingStyle}}" >
@@ -285,19 +318,19 @@
                       -->
                         <materialDesign:DataGridComboBoxColumn.HeaderStyle>
                             <Style  BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}"   TargetType="{x:Type DataGridColumnHeader}">
-                                
+
                                 <Setter Property="FontWeight" Value="SemiBold" />
                                 <Setter Property="Foreground" Value="#0DCAF2"/>
                                 <Setter Property="HorizontalContentAlignment" Value="Center" />
                             </Style>
                         </materialDesign:DataGridComboBoxColumn.HeaderStyle>
-                           
+
 
                     </materialDesign:DataGridComboBoxColumn>
-                    
-                   
+
+
                     <!-- set a max length to get an indicator in the editor -->
-                  
+
                     <materialDesign:DataGridTextColumn
                       Binding="{Binding PurchasePrice}"
                       Header="Price"
@@ -322,19 +355,19 @@
                                         </DataTemplate>
                                     </Setter.Value>
                                 </Setter>
-                                
+
                                 <Setter Property="FontWeight" Value="SemiBold" />
-                                
+
                                 <Setter Property="Foreground" Value="#0DCAF2"/>
 
-                               
+
                             </Style>
                         </DataGridTextColumn.HeaderStyle>
                         <DataGridTextColumn.ElementStyle>
                             <Style
                           TargetType="{x:Type TextBlock}"
                           BasedOn="{StaticResource MaterialDesignDataGridTextColumnStyle}">
-                           
+
                             </Style>
                         </DataGridTextColumn.ElementStyle>
                     </materialDesign:DataGridTextColumn>
@@ -358,7 +391,7 @@
                             </Style>
                         </DataGridTemplateColumn.HeaderStyle>
                     </DataGridTemplateColumn>
-                    
+
                     <DataGridTextColumn
                       Header="Date Received"
                         Width="116"
@@ -380,10 +413,10 @@
                 </DataGrid.Columns>
             </DataGrid>
 
-      
+
 
             <Line  Stretch="Fill" Margin="0,5,0,0" HorizontalAlignment="Center" Width="442" Stroke="DarkGray" X2="1" Opacity="0.4" />
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0 10 10 1">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="4 8 10 0">
                 <Button
                   Width="142"
                   x:Name="MobieDeleteBtn"
@@ -413,6 +446,26 @@
             <ProgressBar Margin="0 0 0 1" Value="8" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
             <Label  Style="{StaticResource Header4}" Margin="0 5 0 0" Foreground="DarkGray" Content="ERP Desktop, valid until 22.06. 2030" HorizontalAlignment="Left" VerticalAlignment="Top" Height="42.5" />-->
         </StackPanel>
+
+        <materialDesign:Snackbar
+              x:Name="SearchSnackBar"
+              Message="                         Your search did not match any item..."
+              IsActive="False"
+              Foreground="White"
+              FontFamily="ROBOTO"        
+              Width="445"
+              Height="180"
+         >
+            <materialDesign:Snackbar.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+
+
+                    <GradientStop Color="{StaticResource Primary600}"  Offset="0.80"/>
+                    <GradientStop Color="#FF07AEFF" Offset="0.26"/>
+                    
+                </LinearGradientBrush>
+            </materialDesign:Snackbar.Background>
+        </materialDesign:Snackbar>
 
     </Grid>
 </UserControl>

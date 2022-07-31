@@ -226,7 +226,7 @@ namespace docrafERP.Views
 
                     new DataAccessLayer.DataService().InsertAsset(EditingAsset);
                     SingletoneHomeView.Instance.homeView.Assets.Add(EditingAsset);
-                    SingletoneHomeView.Instance.homeView.manageAssetsUC.RefreshAssetsListViewFromList();
+                    SingletoneHomeView.Instance.homeView.manageAssetsUC.RefreshAssetsListViewFromViewModel();
                 }
                 else
                 {
@@ -243,7 +243,7 @@ namespace docrafERP.Views
                     SingletoneHomeView.Instance.homeView.Assets.Remove(SingletoneHomeView.Instance.homeView.Assets.Find(x => x.AssetID == EditingAsset.AssetID));
                     SingletoneHomeView.Instance.homeView.Assets.Add(EditingAsset);
 
-                    SingletoneHomeView.Instance.homeView.manageAssetsUC.RefreshAssetsListViewFromList();
+                    SingletoneHomeView.Instance.homeView.manageAssetsUC.RefreshAssetsListViewFromViewModel();
                 }
 
                 SingletoneHomeView.Instance.homeView.bringTheUC("Manage Assets");
@@ -276,6 +276,7 @@ namespace docrafERP.Views
             {
                 TypeCodeTB.IsDropDownOpen = true;
                 TypeCodeTB.ItemsSource = searchedList;
+                
             }
             else
             {
