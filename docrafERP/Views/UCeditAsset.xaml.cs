@@ -285,5 +285,19 @@ namespace docrafERP.Views
 
         }
 
+        private void AssetImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+           
+            System.Windows.Forms.OpenFileDialog openFile = new System.Windows.Forms.OpenFileDialog();
+            openFile.Filter = "PNG|*.png|JPEG|*.jpeg";
+            openFile.FileName = EditingAsset.Barcode+"AssetImage";
+            System.Windows.Forms.DialogResult dialog = openFile.ShowDialog();
+            if (dialog == System.Windows.Forms.DialogResult.OK)
+            {
+                AssetImage.Source = new BitmapImage(new Uri(openFile.FileName));
+
+            }
+            //else MessageBox.Show("Could not Set the image...");
+        }
     }
 }
