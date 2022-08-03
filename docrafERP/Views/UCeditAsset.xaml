@@ -586,10 +586,61 @@
                                 </materialDesign:Flipper.BackContent>
                             </materialDesign:Flipper>
                         </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Margin="80 0 0 0" Orientation="Vertical">
+                                <StackPanel Margin="0 5 0 10" Orientation="Horizontal">
+                                    <Label Content="Condition" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header1}" VerticalAlignment="Center" Width="110" Margin="0 0 2 0"   />
+                                    <ComboBox VerticalAlignment="Center" x:Name="TbAssetCondation"
+                                        FontWeight="Normal"
+                                        Width="100"
+                                        Margin="0 0 0 0"
+                                        Padding="15"
+                                        materialDesign:HintAssist.HelperTextFontSize="5"
+                                        Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                            
+                                        HorizontalAlignment="Left"
+                                        IsEditable="True"
+                                        MaxWidth="400"
+                                        
+                                        materialDesign:HintAssist.Hint="e.g. Fair"
+                                        Foreground="#000009"
+                                        HorizontalContentAlignment="Center"
+                                        BorderBrush="#0DCAF2"
+                                        FontFamily="Roboto"
+                                        FontSize="12px">
+                                        <ComboBoxItem Content="New" IsSelected="True"  ></ComboBoxItem>
+                                        <ComboBoxItem Content="Good"  ></ComboBoxItem>
+                                        <ComboBoxItem Content="Fair"  ></ComboBoxItem>
+                                        <ComboBoxItem Content="Poor"  ></ComboBoxItem>
+                                    </ComboBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Width="110"  Content="Date Audited" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header1}" Margin="0 10 0 5"  />
+                                    <Label HorizontalContentAlignment="Center" HorizontalAlignment="Center" Width="100" Name="DateAuditedContantLB"  Content="Never"  FontWeight="Medium" Foreground="#0DCAF2" Style="{StaticResource Header1}" Margin="0 10 0 5"  />
+                                </StackPanel>
+                            </StackPanel>
 
-                        <Label  Content="Condition" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header1}" Margin="0 10 0 5"  />
-                        <Label  Content="Date Audited" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header1}" Margin="0 10 0 5"  />
-                        <Label  Content="Description" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header1}" Margin="0 10 0 5"  />
+                            <StackPanel Margin="50 0 0 17" >
+                              
+
+                                    <TextBox DockPanel.Dock="Left" Margin="0 3 10 0"
+                                             Height="100"
+                                             Width="290"
+                                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                        VerticalAlignment="Top"
+                                      
+                                       HorizontalAlignment="Right"
+                                             
+                                        MaxLength="120"
+                                        AcceptsReturn="True"
+                                        AcceptsTab="True"
+                                        VerticalScrollBarVisibility="Auto"
+                                        materialDesign:HintAssist.Hint="Enter Description" />     
+                              
+                            </StackPanel>
+                         
+                        </StackPanel>
+                       
                     </StackPanel>
                 </TabItem>
 
