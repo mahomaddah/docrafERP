@@ -126,12 +126,41 @@
                                         IsEditable="True"
                                         MaxWidth="400"
                             
-                                        materialDesign:HintAssist.Hint="on repair"
+                                        materialDesign:HintAssist.Hint="On Repair..."
                                         Foreground="#000009"
                                        
                                         BorderBrush="#0DCAF2"
                                         FontFamily="Roboto"
-                                        FontSize="12px"/>
+                                        FontSize="12px">
+                                            <ComboBoxItem Content="Requested">
+                                                
+                                            </ComboBoxItem>
+                                            <ComboBoxItem Content="Accounting Approved">
+
+                                            </ComboBoxItem>
+                                            <ComboBoxItem Content="Director Approved ( PO linked )">
+
+                                            </ComboBoxItem>
+                                            <ComboBoxItem Content="Ordered">
+
+                                            </ComboBoxItem>
+                                            <ComboBoxItem Content="Accepting by SM">
+
+                                            </ComboBoxItem>
+                                            <ComboBoxItem Content="Available">
+
+                                            </ComboBoxItem>
+                                            <ComboBoxItem Content="UnAvailable">
+
+                                            </ComboBoxItem>
+                                            <ComboBoxItem Content="In Storage">
+
+                                            </ComboBoxItem>
+                                            <ComboBoxItem Content="Out For Repair">
+
+                                            </ComboBoxItem>
+                                
+                                        </ComboBox>
                                     </StackPanel>
 
                                     <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
