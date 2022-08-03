@@ -96,23 +96,23 @@
 
                                     <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
                                         <Label Content="Location" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
-                                        <TextBox VerticalAlignment="Center" x:Name="TbLocation"
+                                        <ComboBox VerticalAlignment="Center" x:Name="TbLocation"
                                         FontWeight="Normal"
+                                        IsEditable="True"
                                         Width="330"
                                         Margin="0 0 0 0"
-                                        Style="{StaticResource MaterialDesignFilledTextBox}"
+                                        Style="{StaticResource MaterialDesignFilledComboBox}"
                             
                                         HorizontalAlignment="Left"
-                                        AcceptsReturn="True"
-                                        TextWrapping="Wrap"
+                                       
                                         MaxWidth="400"
                             
                                         materialDesign:HintAssist.Hint="Please enter the Device location..."
                                         Foreground="#000009"
-                                        SelectionBrush="#07AD40"
+                                        
                                         BorderBrush="#0DCAF2"
                                         FontFamily="Roboto"
-                                        FontSize="12px" CaretBrush="#FF07AD40"/>
+                                        FontSize="12px" />
                                     </StackPanel>
                                     <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
                                         <Label Content="Status" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
@@ -176,7 +176,7 @@
 
                                     <ProgressBar Margin="0 10 0 10" Value="95.1" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
                                     <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
-                                        <Label Content="Date Received" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
+                                        <Label Content="Date Received" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header3}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
                                         <DatePicker Margin="0 -4 0 0" VerticalAlignment="Center" Name="TbDate"
                                         FontWeight="Normal"
                                         Width="330"
@@ -195,10 +195,10 @@
                                     </StackPanel>
 
                                     <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
-                                        <Label Content="Purchased Vendor" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header3}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
+                                        <Label Content="Purchased Info" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header3}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
                                         <TextBox VerticalAlignment="Center" x:Name="TBvendor"
                                     FontWeight="Normal"
-                                    Width="330"
+                                    Width="160"
                                     Margin="0 0 0 0"
                                     Style="{StaticResource MaterialDesignFilledTextBox}"
                             
@@ -207,21 +207,18 @@
                                     TextWrapping="Wrap"
                                     MaxWidth="400"
                             
-                                    materialDesign:HintAssist.Hint="https://www.lazada.com.ph/"
+                                    materialDesign:HintAssist.Hint="Purchased Vendor..."
                                     Foreground="#000009"
                                     SelectionBrush="#07AD40"
                                     BorderBrush="#0DCAF2"
                                     FontFamily="Roboto"
                                     FontSize="12px" CaretBrush="#FF07AD40"/>
-                                    </StackPanel>
-                                    <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
-                                        <Label Content="Purchase Price" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
                                         <TextBox VerticalAlignment="Center" Name="TBPrice"
                                         FontWeight="Normal"
-                                        Width="330"
+                                        Width="160"
                                         materialDesign:TextFieldAssist.PrefixText="₱"
                                         
-                                        Margin="0 0 0 0"
+                                        Margin="10 0 0 0"
                                         Style="{StaticResource MaterialDesignFilledTextBox}"
                             
                                         HorizontalAlignment="Left"
@@ -229,7 +226,47 @@
                                         TextWrapping="Wrap"
                                         MaxWidth="400"
                             
-                                        materialDesign:HintAssist.Hint="₱23,999.00"
+                                        materialDesign:HintAssist.Hint="Purchase ₱rice..."
+                                        Foreground="#000009"
+                                        SelectionBrush="#07AD40"
+                                        BorderBrush="#0DCAF2"
+                                        FontFamily="Roboto"
+                                        FontSize="12px" CaretBrush="#FF07AD40"/>
+                                    </StackPanel>
+                                    <StackPanel Margin="0 5 0 2" Orientation="Horizontal">
+                                        <Label Content="Purchased Model" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header3}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
+                                        <TextBox VerticalAlignment="Center" x:Name="TBBrand"
+                                    FontWeight="Normal"
+                                    Width="160"
+                                    Margin="0 0 0 0"
+                                    Style="{StaticResource MaterialDesignFilledTextBox}"
+                            
+                                    HorizontalAlignment="Left"
+                                    AcceptsReturn="True"
+                                    TextWrapping="Wrap"
+                                    MaxWidth="400"
+                            
+                                    materialDesign:HintAssist.Hint="Purchased Brand..."
+                                    Foreground="#000009"
+                                    SelectionBrush="#07AD40"
+                                    BorderBrush="#0DCAF2"
+                                    FontFamily="Roboto"
+                                    FontSize="12px" CaretBrush="#FF07AD40"/>
+
+                                        <TextBox VerticalAlignment="Center" Name="TBManufacturer"
+                                        FontWeight="Normal"
+                                        Width="160"
+                                        materialDesign:TextFieldAssist.PrefixText="₱"
+                                        
+                                        Margin="10 0 0 0"
+                                        Style="{StaticResource MaterialDesignFilledTextBox}"
+                            
+                                        HorizontalAlignment="Left"
+                                        AcceptsReturn="True"
+                                        TextWrapping="Wrap"
+                                        MaxWidth="400"
+                            
+                                        materialDesign:HintAssist.Hint="Manufacturer..."
                                         Foreground="#000009"
                                         SelectionBrush="#07AD40"
                                         BorderBrush="#0DCAF2"
@@ -282,7 +319,7 @@
                                         </StackPanel>
                                     </StackPanel>
 
-                                    <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal" Margin="0 -3 0 0">
                                         <StackPanel Margin="102 0 0 0" Orientation="Vertical"  HorizontalAlignment="Left" >
                                             <Label Foreground="Gray" Style="{StaticResource Header3}" Content="Serial code for printing" HorizontalAlignment="Center" VerticalAlignment="Top" MaxWidth="130"/>
                                             <Image x:Name="QRcodeImage" Source="/UIassets/image 15.png" HorizontalAlignment="Center"  Width="110" Height="95"/>
