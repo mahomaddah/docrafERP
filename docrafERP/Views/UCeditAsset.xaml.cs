@@ -131,7 +131,7 @@ namespace docrafERP.Views
                 bitmapimage.StreamSource = memory;
                 bitmapimage.CacheOption = BitmapCacheOption.OnLoad;
                 bitmapimage.EndInit();
-
+             
                 return bitmapimage;
             }
         }
@@ -140,6 +140,7 @@ namespace docrafERP.Views
         {
             Clipboard.SetText(EncryptionKeyTB.Text.ToString());
             MessageBox.Show("Test: Copied to clipboard...");
+         
         }
 
 
@@ -294,8 +295,9 @@ namespace docrafERP.Views
             System.Windows.Forms.DialogResult dialog = openFile.ShowDialog();
             if (dialog == System.Windows.Forms.DialogResult.OK)
             {
+               var image= System.Drawing.Image.FromFile(openFile.FileName);
                 AssetImage.Source = new BitmapImage(new Uri(openFile.FileName));
-
+                new DataAccessLayer.DataService().InsertImage(image);
             }
             //else MessageBox.Show("Could not Set the image...");
         }

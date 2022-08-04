@@ -348,7 +348,7 @@
                                         </StackPanel>
                                     </StackPanel>
 
-                                    <StackPanel Orientation="Horizontal" Margin="0 -3 0 0">
+                                    <StackPanel Orientation="Horizontal" Margin="0 -6 0 0">
                                         <StackPanel Margin="102 0 0 0" Orientation="Vertical"  HorizontalAlignment="Left" >
                                             <Label Foreground="Gray" Style="{StaticResource Header3}" Content="Serial code for printing" HorizontalAlignment="Center" VerticalAlignment="Top" MaxWidth="130"/>
                                             <Image x:Name="QRcodeImage" Source="/UIassets/image 15.png" HorizontalAlignment="Center"  Width="110" Height="95"/>

@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using Dapper;
 using docrafERP.Models;
 using System.Data.SqlClient;
+using System.Windows.Media.Imaging;
+using System.Drawing;
+using System.IO;
 
 namespace docrafERP.DataAccessLayer
 {
@@ -18,8 +21,8 @@ namespace docrafERP.DataAccessLayer
         public DataService()
         {
             //DESKTOP-O66ATKR\\SQLEXPRESS //possible username : DESKTOP-O66ATKR\\1
-          string conString = "Server=MAHOLAPTOP\\SQLEXPRESS;Database=docrafERPDB;User Id=abcd;Password=abcd;";  //ME
-     //    conString = "Server=DESKTOP-O66ATKR\\SQLEXPRESS;Database=docrafERPDB;Trusted_Connection=True;";      //BUTCH
+            string conString = "Server=MAHOLAPTOP\\SQLEXPRESS;Database=docrafERPDB;User Id=abcd;Password=abcd;";  //ME
+                                                                                                                  //    conString = "Server=DESKTOP-O66ATKR\\SQLEXPRESS;Database=docrafERPDB;Trusted_Connection=True;";      //BUTCH
 
 
             Connection = new SqlConnection(conString);
@@ -33,7 +36,7 @@ namespace docrafERP.DataAccessLayer
             }
             catch
             {
-                System.Windows.MessageBox.Show("Could not connect to the Database server.");   
+                System.Windows.MessageBox.Show("Could not connect to the Database server.");
             }
 
         }
@@ -53,20 +56,20 @@ namespace docrafERP.DataAccessLayer
 
         public void InsertAsset(Asset asset)
         {
-           // string query = @"INSERT INTO [dbo].[ASSET]([PurchaseRequestID],[DocumentsFolderPath],[ImagePath],[RemarksJson],[Device],[OwnerOrLocation],[Status],[SerialNumber],[DateReceived],[PurchasedVendor],[PurchasePrice],[Barcode]) VALUES ( @PurchaseRequestID,@DocumentsFolderPath,@ImagePath,@RemarksJson,@Device,@OwnerOrLocation,@Status,@SerialNumber,@DateReceived,@PurchasedVendor,@PurchasePrice,@Barcode)";
-           string query = @"INSERT INTO [dbo].[ASSET]([PurchaseRequestID],[DocumentsFolderPath],[ImagePath],[RemarksJson],[Device],[OwnerOrLocation],[Status],[SerialNumber],[DateReceived],[PurchasedVendor],[PurchasePrice],[Barcode]) VALUES ( "+asset.PurchaseRequetID+",'"+asset.DocumentsFolderPath+"','"+asset.ImagePath+ "','" + asset.RemarksJson + "','" + asset.Device + "','" + asset.OwnerOrLocation + "','" + asset.Status + "','" + asset.SerialNumber + "','" + asset.DateReceived + "','" + asset.PurchasedVendor + "','" + asset.PurchasePrice + "','" + asset.Barcode + "')";
-           Connection.Execute(query);
+            // string query = @"INSERT INTO [dbo].[ASSET]([PurchaseRequestID],[DocumentsFolderPath],[ImagePath],[RemarksJson],[Device],[OwnerOrLocation],[Status],[SerialNumber],[DateReceived],[PurchasedVendor],[PurchasePrice],[Barcode]) VALUES ( @PurchaseRequestID,@DocumentsFolderPath,@ImagePath,@RemarksJson,@Device,@OwnerOrLocation,@Status,@SerialNumber,@DateReceived,@PurchasedVendor,@PurchasePrice,@Barcode)";
+            string query = @"INSERT INTO [dbo].[ASSET]([PurchaseRequestID],[DocumentsFolderPath],[ImagePath],[RemarksJson],[Device],[OwnerOrLocation],[Status],[SerialNumber],[DateReceived],[PurchasedVendor],[PurchasePrice],[Barcode]) VALUES ( " + asset.PurchaseRequetID + ",'" + asset.DocumentsFolderPath + "','" + asset.ImagePath + "','" + asset.RemarksJson + "','" + asset.Device + "','" + asset.OwnerOrLocation + "','" + asset.Status + "','" + asset.SerialNumber + "','" + asset.DateReceived + "','" + asset.PurchasedVendor + "','" + asset.PurchasePrice + "','" + asset.Barcode + "')";
+            Connection.Execute(query);
         }
 
         public void DeleteAsset(Asset asset)
         {
-            string query = @"DELETE FROM [dbo].[ASSET] WHERE AssetID = "+asset.AssetID;
+            string query = @"DELETE FROM [dbo].[ASSET] WHERE AssetID = " + asset.AssetID;
             Connection.Execute(query);
         }
 
         public void UpdateAsset(Asset asset)
         {
-            string query = @"UPDATE [dbo].[ASSET] SET [PurchaseRequestID] = "+ asset.PurchaseRequetID+ " ,[DocumentsFolderPath] = '" + asset.DocumentsFolderPath + "',[ImagePath] = '" + asset.ImagePath + "',[RemarksJson] = '" + asset.RemarksJson + "' ,[Device] = '" + asset.Device + "',[OwnerOrLocation] = '" + asset.OwnerOrLocation + "',[Status] = '" + asset.Status + "' ,[SerialNumber] = '" + asset.SerialNumber + "' ,[DateReceived] = '" + asset.DateReceived + "',[PurchasedVendor] = '" + asset.PurchasedVendor + "',[PurchasePrice] = '" + asset.PurchasePrice + "',[Barcode] = '" + asset.Barcode + "' WHERE AssetID = " + asset.AssetID;
+            string query = @"UPDATE [dbo].[ASSET] SET [PurchaseRequestID] = " + asset.PurchaseRequetID + " ,[DocumentsFolderPath] = '" + asset.DocumentsFolderPath + "',[ImagePath] = '" + asset.ImagePath + "',[RemarksJson] = '" + asset.RemarksJson + "' ,[Device] = '" + asset.Device + "',[OwnerOrLocation] = '" + asset.OwnerOrLocation + "',[Status] = '" + asset.Status + "' ,[SerialNumber] = '" + asset.SerialNumber + "' ,[DateReceived] = '" + asset.DateReceived + "',[PurchasedVendor] = '" + asset.PurchasedVendor + "',[PurchasePrice] = '" + asset.PurchasePrice + "',[Barcode] = '" + asset.Barcode + "' WHERE AssetID = " + asset.AssetID;
             Connection.Execute(query);
         }
         #endregion
@@ -91,8 +94,8 @@ namespace docrafERP.DataAccessLayer
         }
 
         public void InsertSupply(Supply supply)
-        {        
-            string query = @"INSERT INTO [dbo].[SUPPLY]([PurchaseRequestID],[DocumentsFolderPath],[ImagePath],[RemarksJson],[Name],[StockStatus],[Quantity],[LotNumber],[ExpirationDate],[PurchasedVendor],[PurchasePrice],[Barcode]) VALUES ( " + supply.PurchaseRequetID + ",'" + supply.DocumentsFolderPath + "','" + supply.ImagePath + "','" + supply.RemarksJson + "','" + supply.Name + "','" + supply.StockStatus + "','"+supply.Quantity+"','" + supply.LotNumber+ "','" + supply.ExpirationDate + "','" + supply.PurchasedVendor + "','" + supply.PurchasePrice + "','" + supply.Barcode + "')";
+        {
+            string query = @"INSERT INTO [dbo].[SUPPLY]([PurchaseRequestID],[DocumentsFolderPath],[ImagePath],[RemarksJson],[Name],[StockStatus],[Quantity],[LotNumber],[ExpirationDate],[PurchasedVendor],[PurchasePrice],[Barcode]) VALUES ( " + supply.PurchaseRequetID + ",'" + supply.DocumentsFolderPath + "','" + supply.ImagePath + "','" + supply.RemarksJson + "','" + supply.Name + "','" + supply.StockStatus + "','" + supply.Quantity + "','" + supply.LotNumber + "','" + supply.ExpirationDate + "','" + supply.PurchasedVendor + "','" + supply.PurchasePrice + "','" + supply.Barcode + "')";
             Connection.Execute(query);
         }
 
@@ -115,7 +118,7 @@ namespace docrafERP.DataAccessLayer
 
         public PurchaseRequest GetPurchaseRequest(PurchaseRequest purchaseRequestID)
         {
-            string query = "SELECT * FROM [docrafERPDB].[dbo].[PurchaseRequest] WHERE [PurchaseRequetID] = "+purchaseRequestID.PurchaseRequetID;
+            string query = "SELECT * FROM [docrafERPDB].[dbo].[PurchaseRequest] WHERE [PurchaseRequetID] = " + purchaseRequestID.PurchaseRequetID;
             return Connection.Query<PurchaseRequest>(query).ToList().FirstOrDefault();
         }
 
@@ -127,7 +130,7 @@ namespace docrafERP.DataAccessLayer
 
         public void InsertPurchaseRequest(PurchaseRequest purchaseRequest)
         {
-            string query = @"INSERT INTO [dbo].[PurchaseRequest]([ProductName],[IssuedDate],[IsApproved],[PRdocumentPath])VALUES('"+ purchaseRequest.ProductName+ "','"+ purchaseRequest.IssuedDate+ "','"+ purchaseRequest.IsApproved+ "','"+ purchaseRequest.PRdocumentPath+ "')";
+            string query = @"INSERT INTO [dbo].[PurchaseRequest]([ProductName],[IssuedDate],[IsApproved],[PRdocumentPath])VALUES('" + purchaseRequest.ProductName + "','" + purchaseRequest.IssuedDate + "','" + purchaseRequest.IsApproved + "','" + purchaseRequest.PRdocumentPath + "')";
             Connection.Execute(query);
         }
 
@@ -139,5 +142,69 @@ namespace docrafERP.DataAccessLayer
 
         #endregion
 
+        #region ImageDataService:
+
+        public void InsertImage(System.Drawing.Image image)
+        {
+            byte[] buf = ConvertImageToBytes(image);
+        //    string query = @"INSERT INTO [dbo].[Image] ([Data]) VALUES('" + buf + "')"; // SELECT SCOPE_IDENTITY()
+        //                   //INSERT INTO [dbo].[Image] (DATA) VALUES (12345)
+        ////    Connection.Execute(query);
+
+
+            using (SqlConnection Conn = new SqlConnection("Server=MAHOLAPTOP\\SQLEXPRESS;Database=docrafERPDB;User Id=abcd;Password=abcd;"))
+            {
+                Conn.Open();
+
+                byte[] b = ConvertImageToBytes(image);
+                string sql = "INSERT INTO [dbo].[Image] ([Data]) VALUES (@imagebinary)";
+
+                SqlCommand cmd = new SqlCommand(sql, Conn);
+                SqlParameter param = cmd.Parameters.Add("@imagebinary", SqlDbType.VarBinary);
+                param.Value = b;
+
+                cmd.ExecuteNonQuery();
+             
+            }
+
+
+        }
+
+        byte[] ConvertImageToBytes(Image image)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                return ms.ToArray();
+            }
+        }
+
+        Image ConvertBufferToImage(byte[] buffer)
+        {
+            using (MemoryStream ms = new MemoryStream()) 
+            {
+                return Image.FromStream(ms);
+            }
+
+        }
+
+
+        BitmapImage BitmapToImageSource(Bitmap bitmap)
+        {
+            using (MemoryStream memory = new MemoryStream())
+            {
+                bitmap.Save(memory, System.Drawing.Imaging.ImageFormat.Bmp);
+                memory.Position = 0;
+                BitmapImage bitmapimage = new BitmapImage();
+                bitmapimage.BeginInit();
+                bitmapimage.StreamSource = memory;
+                bitmapimage.CacheOption = BitmapCacheOption.OnLoad;
+                bitmapimage.EndInit();
+
+                return bitmapimage;
+            }
+        }
+
+        #endregion
     }
 }
