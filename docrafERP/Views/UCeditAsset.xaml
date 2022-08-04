@@ -28,13 +28,18 @@
                                     <Image  x:Name="AssetImage" Source="/UIassets/image 14.png" Width="220" Height="220" Margin="0 0 0 5" MouseDown="AssetImage_MouseDown"/>
                                     <Label Content="Related Documents" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header1}" Margin="0 0 0 5"  />
                                     <StackPanel Margin="0 0 20 0">
-                                        <ListView   Style="{StaticResource Header2}" Name="LVAssetDocs" Height="236"  BorderThickness="2" BorderBrush="#0DCAF2" >
-                                            <ListViewItem Content="Purchase Request.pdf" Margin="1"  BorderThickness="1" BorderBrush="#0DCAF2" />
+                                        <ListView  Style="{StaticResource Header2}" Name="LVAssetDocs" Height="236"  BorderThickness="2" BorderBrush="#0DCAF2" MouseDoubleClick="LVAssetDocs_MouseDoubleClick"
+                                                    >
+                                        
+                                            <ListViewItem Content="Purchase Request.pdf" Selected="ListViewItem_Selected"  />
                                             <ListViewItem Content="Purchase Order.pdf" Margin="1" BorderThickness="1" BorderBrush="#0DCAF2" />
                                             <ListViewItem Content="AIR.pdf" Margin="1"  BorderThickness="1" BorderBrush="#0DCAF2" />
                                             <ListViewItem Content="Invoice.pdf" Margin="1" BorderThickness="1" BorderBrush="#0DCAF2" />
                                             <ListViewItem Content="ReceivingDocDR.Madona.pdf" Margin="1"  BorderThickness="1" BorderBrush="#0DCAF2" />
                                             <ListViewItem Content="Warrant.pdf" Margin="1" BorderThickness="1" BorderBrush="#0DCAF2" />
+
+
+
                                         </ListView>
                                         <StackPanel Orientation="Horizontal" Margin="0,0,-9,0" >
                                             <materialDesign:PackIcon Height="27"  Width="27" Kind="FileDocumentAdd" Margin="2 6 0 0" MouseDown="AddDocBtn">

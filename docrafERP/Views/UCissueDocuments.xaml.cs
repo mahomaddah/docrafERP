@@ -32,7 +32,8 @@ namespace docrafERP.Views
 
         string getSamplePdfPath(string SelectedItem)
         {
-            string returning= Environment.CurrentDirectory + @"\sampleForms\";
+            string returning = Environment.CurrentDirectory + @"\sampleForms\";
+       
             if (SelectedItem.Contains("ICS"))
             {
                 returning += "ICS" + ".pdf";

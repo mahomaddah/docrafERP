@@ -26,6 +26,8 @@ namespace docrafERP
         public List<Asset> Assets { get; set; }
         public List<Supply> Supplies { get; set; }
         public List<PurchaseRequest> PurchaseRequests { get; set; }
+        public List<ImageModel> Images { get; set; }
+        public List<AssetDocument> AssetDocuments { get; set; }
 
         public void GetData()
         {
@@ -34,6 +36,8 @@ namespace docrafERP
             Assets = dataService.GetAllAssets();
             Supplies = dataService.GetAllSupplies();
             PurchaseRequests = dataService.GetAllPurchaseRequests();
+            AssetDocuments= dataService.GetAllAssetDocuments();
+            Images= dataService.GetAllImages();
         }
 
         public HomeView()

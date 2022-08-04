@@ -22,7 +22,7 @@ namespace docrafERP.DataAccessLayer
         {
             //DESKTOP-O66ATKR\\SQLEXPRESS //possible username : DESKTOP-O66ATKR\\1
             string conString = "Server=MAHOLAPTOP\\SQLEXPRESS;Database=docrafERPDB;User Id=abcd;Password=abcd;";  //ME
-                                                                                                                  //    conString = "Server=DESKTOP-O66ATKR\\SQLEXPRESS;Database=docrafERPDB;Trusted_Connection=True;";      //BUTCH
+            //    conString = "Server=DESKTOP-O66ATKR\\SQLEXPRESS;Database=docrafERPDB;Trusted_Connection=True;";      //BUTCH
 
 
             Connection = new SqlConnection(conString);
@@ -38,6 +38,20 @@ namespace docrafERP.DataAccessLayer
             {
                 System.Windows.MessageBox.Show("Could not connect to the Database server.");
             }
+
+        }
+
+        public List<AssetDocument> GetAllAssetDocuments()
+        {
+            string query = "SELECT * FROM [docrafERPDB].[dbo].[AssetDocument]";
+            return Connection.Query<AssetDocument>(query).ToList();
+        }
+
+        public List<ImageModel> GetAllImages()
+        {
+            string query = "SELECT * FROM [docrafERPDB].[dbo].[Image]";
+            return Connection.Query<ImageModel>(query).ToList();
+
 
         }
 
@@ -144,28 +158,29 @@ namespace docrafERP.DataAccessLayer
 
         #region ImageDataService:
 
-        public void InsertImage(System.Drawing.Image image)
+        public void InsertImage(System.Drawing.Image image , AssetDocument assetDocument)
         {
-            byte[] buf = ConvertImageToBytes(image);
-        //    string query = @"INSERT INTO [dbo].[Image] ([Data]) VALUES('" + buf + "')"; // SELECT SCOPE_IDENTITY()
-        //                   //INSERT INTO [dbo].[Image] (DATA) VALUES (12345)
-        ////    Connection.Execute(query);
 
+            int insertedID = 0;
 
-            using (SqlConnection Conn = new SqlConnection("Server=MAHOLAPTOP\\SQLEXPRESS;Database=docrafERPDB;User Id=abcd;Password=abcd;"))
+            using (var Conn = Connection)
             {
-                Conn.Open();
-
-                byte[] b = ConvertImageToBytes(image);
-                string sql = "INSERT INTO [dbo].[Image] ([Data]) VALUES (@imagebinary)";
+           
+                byte[] buffer = ConvertImageToBytes(image);
+                string sql = "INSERT INTO [dbo].[Image] ([Data]) OUTPUT Inserted.ImageID VALUES (@imagebinary)";
 
                 SqlCommand cmd = new SqlCommand(sql, Conn);
                 SqlParameter param = cmd.Parameters.Add("@imagebinary", SqlDbType.VarBinary);
-                param.Value = b;
+                param.Value = buffer;
 
-                cmd.ExecuteNonQuery();
-             
+                insertedID = (int)cmd.ExecuteScalar();
+
+                // Image Has uploaded.... 
+                string query = @"INSERT INTO [dbo].[AssetDocument]([FileID],[Name],[FileType],[AssetID],[DocumnetType],[AdminID],[IsImage]) VALUES (" + insertedID + ",'" + assetDocument.Name + "','" + assetDocument.FileType + "'," + assetDocument.AssetID + ",'" + assetDocument.DocumentType + "'," + assetDocument.AdminID + ",1)";
+                Connection.Execute(query);
             }
+
+       
 
 
         }

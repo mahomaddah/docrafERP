@@ -34,12 +34,16 @@ namespace docrafERP.Views
         public List<AssetValueGauge> valuePerYear { get; private set; }
         public List<YearDepreciation> YearsDepreciation { get; private set; }
         Bitmap lastQrimage;
+        public List<AssetDocument> AssetDocuments { get; set; }
+        public List<string> AssetDocumentforLV { get; set; }
+
         public UCeditAsset()
         {
             DataContext = this;
-
+            AssetDocumentforLV = new List<string>();
             YearsDepreciation = new List<YearDepreciation> { new YearDepreciation { BookedValue= "$960.40" , AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2022" } , new YearDepreciation { BookedValue = "$960.40", AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2023" },new YearDepreciation { BookedValue = "$960.40", AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2022" }, new YearDepreciation { BookedValue = "$960.40", AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2023" }, new YearDepreciation { BookedValue = "$960.40", AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2022" }, new YearDepreciation { BookedValue = "$960.40", AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2023" }, new YearDepreciation { BookedValue = "$960.40", AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2022" }, new YearDepreciation { BookedValue = "$960.40", AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2023" } };
-
+            AssetDocuments = new List<AssetDocument>();
+            
             int c = 0;      
             c = Convert.ToInt32(Convert.ToInt32(460)/10+1 / ((1 + Convert.ToInt32(1200))));
             AssetGauge = new List<AssetValueGauge> { new AssetValueGauge(98, "Net Value to Depreciable Cost"), new AssetValueGauge(290, "Asset life left") , new AssetValueGauge(c, "Salvage Value to Brand new price") };
@@ -65,9 +69,23 @@ namespace docrafERP.Views
                 else
                 {
                     SingletoneHomeView.Instance.homeView.LabelMainBlueTittleOnTop.Content = "Edit Asset";
+                    AssetDocuments = SingletoneHomeView.Instance.homeView.AssetDocuments.FindAll(x => (x.IsImage == false) && (x.AssetID == EditingAsset.AssetID));
+                    AssetDocuments.ForEach(x =>AssetDocumentforLV.Add(x.Name));
+                    try
+                    {
+                        var assetImageDoc = SingletoneHomeView.Instance.homeView.AssetDocuments.Find(doc => doc.AssetID == EditingAsset.AssetID && doc.IsImage == true);
+                        if (assetImageDoc != null)
+                        {
+                            var assetImage = SingletoneHomeView.Instance.homeView.Images.Find(im => im.ImageID == assetImageDoc.FileID);
+                            if(assetImage!=null)
+                            AssetImage.Source = assetImage.Image;
+                        }
+                       
+
+                        } catch { }
                 }
                 //update data from object            
-                // try { AssetImage.Source = EditingAsset.ImagePath } catch { } // for image ...
+       
                 TbDevice.Text = EditingAsset.Device;
                 TbLocation.Text = EditingAsset.OwnerOrLocation;
                 TbDate.Text = EditingAsset.DateReceived;
@@ -119,6 +137,7 @@ namespace docrafERP.Views
             QRcodeImage.Source = BitmapToImageSource(lastQrimage);
         }
 
+       
 
         BitmapImage BitmapToImageSource(Bitmap bitmap)
         {
@@ -194,12 +213,62 @@ namespace docrafERP.Views
 
         private void AddDocBtn(object sender, MouseButtonEventArgs e)
         {
+            System.Windows.Forms.OpenFileDialog openFile = new System.Windows.Forms.OpenFileDialog();
             
+            
+
+
+            System.Windows.Forms.DialogResult dialog = openFile.ShowDialog();
+            if (dialog == System.Windows.Forms.DialogResult.OK)
+            {
+              
+                FileInfo fileInfo = new FileInfo(openFile.FileName);
+                LVAssetDocs.Items.Add(fileInfo.Name);
+                //save file info latter....
+
+
+
+                try
+                {
+                    //new DataAccessLayer.DataService().InsertImage(image, new AssetDocument { AdminID = 1, AssetID = EditingAsset.AssetID, DocumentType = "AssetImage", IsImage = true, FileType = ".png", Name = openFile.FileName });
+                    //EditingAsset.ImagePath = openFile.FileName;
+                    //new DataAccessLayer.DataService().UpdateAsset(EditingAsset);
+
+                    //SingletoneHomeView.Instance.homeView.Assets.Remove(SingletoneHomeView.Instance.homeView.Assets.Find(x => x.AssetID == EditingAsset.AssetID));
+                    //SingletoneHomeView.Instance.homeView.Assets.Add(EditingAsset);
+
+                    //SingletoneHomeView.Instance.homeView.manageAssetsUC.RefreshAssetsListViewFromViewModel();
+
+                }
+                catch
+                {
+                   // MessageBox.Show("Could not upload to database...");
+                }
+
+            }
+        }
+
+        private void LVAssetDocs_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (LVAssetDocs.SelectedItem != null)
+            {
+                try { Process.Start(Environment.CurrentDirectory + @"\sampleForms\PO.pdf"); } catch { }
+                
+            }
         }
 
         private void DeleteDocBtn(object sender, MouseButtonEventArgs e)
         {
-
+            if (LVAssetDocs.SelectedItem != null)
+            {
+                var dialog = MessageBox.Show("By deleting an Evidence Notification will go to the Director and the History of who deleted what file will be stored in the database forever?", "Delete?", MessageBoxButton.YesNo);
+                if (dialog == MessageBoxResult.Yes)
+                {
+                    LVAssetDocs.Items.Remove(LVAssetDocs.SelectedItem);
+                }
+               
+            }
+          
         }
 
         private void SavetoAssetBtn(object sender, MouseButtonEventArgs e)
@@ -296,10 +365,33 @@ namespace docrafERP.Views
             if (dialog == System.Windows.Forms.DialogResult.OK)
             {
                var image= System.Drawing.Image.FromFile(openFile.FileName);
-                AssetImage.Source = new BitmapImage(new Uri(openFile.FileName));
-                new DataAccessLayer.DataService().InsertImage(image);
+               AssetImage.Source = new BitmapImage(new Uri(openFile.FileName));
+                
+                  
+                try
+                {
+                    new DataAccessLayer.DataService().InsertImage(image, new AssetDocument { AdminID = 1, AssetID = EditingAsset.AssetID, DocumentType = "AssetImage", IsImage = true, FileType = ".png", Name = openFile.FileName });
+                    EditingAsset.ImagePath = openFile.FileName;
+                    new DataAccessLayer.DataService().UpdateAsset(EditingAsset);
+
+                    SingletoneHomeView.Instance.homeView.Assets.Remove(SingletoneHomeView.Instance.homeView.Assets.Find(x => x.AssetID == EditingAsset.AssetID));
+                    SingletoneHomeView.Instance.homeView.Assets.Add(EditingAsset);
+
+                    SingletoneHomeView.Instance.homeView.manageAssetsUC.RefreshAssetsListViewFromViewModel();
+
+                }
+                catch
+                {
+                    MessageBox.Show("Could not upload to database...");
+                }
+         
             }
             //else MessageBox.Show("Could not Set the image...");
+        }
+
+        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
