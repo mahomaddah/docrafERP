@@ -47,12 +47,16 @@ namespace docrafERP.DataAccessLayer
             return Connection.Query<AssetDocument>(query).ToList();
         }
 
+        public List<Personel> GetAllPersonels()
+        {
+            string query = "SELECT * FROM [docrafERPDB].[dbo].[Personel]";
+            return Connection.Query<Personel>(query).ToList();
+        }
+
         public List<ImageModel> GetAllImages()
         {
             string query = "SELECT * FROM [docrafERPDB].[dbo].[Image]";
             return Connection.Query<ImageModel>(query).ToList();
-
-
         }
 
         #region AssetDataService:

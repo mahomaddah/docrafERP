@@ -456,7 +456,7 @@
 
 
             <Line  Stretch="Fill" Margin="0,5,0,0" HorizontalAlignment="Center" Width="442" Stroke="DarkGray" X2="1" Opacity="0.4" />
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="4 8 10 0">
+            <StackPanel Name="EditAssetsBar" HorizontalAlignment="Center" Orientation="Horizontal" Margin="4 8 10 0">
                 <Button
                   Width="142"
                   x:Name="MobieDeleteBtn"

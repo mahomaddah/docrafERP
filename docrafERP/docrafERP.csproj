@@ -100,6 +100,7 @@
     <Compile Include="Models\Asset.cs" />
     <Compile Include="Models\AssetDocument.cs" />
     <Compile Include="Models\ImageModel.cs" />
+    <Compile Include="Models\Personel.cs" />
     <Compile Include="Models\ProductTypeCodes.cs" />
     <Compile Include="Models\PurchaseRequest.cs" />
     <Compile Include="Models\Supply.cs" />

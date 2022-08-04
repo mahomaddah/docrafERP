@@ -28,6 +28,8 @@ namespace docrafERP
         public List<PurchaseRequest> PurchaseRequests { get; set; }
         public List<ImageModel> Images { get; set; }
         public List<AssetDocument> AssetDocuments { get; set; }
+        public List<Personel> Personels { get; set; }
+        public Personel CurrentUser { get; set; }
 
         public void GetData()
         {
@@ -38,15 +40,99 @@ namespace docrafERP
             PurchaseRequests = dataService.GetAllPurchaseRequests();
             AssetDocuments= dataService.GetAllAssetDocuments();
             Images= dataService.GetAllImages();
+            Personels = dataService.GetAllPersonels();
         }
 
-        public HomeView()
+        public HomeView(Personel user)
         {
             InitializeComponent();
+            CurrentUser = new Personel { Role = "supply manager manager" ,Name = "Admin Mode" };
+
+            if (user != null)
+            {//for test modes
+                CurrentUser = user;
+            }
+            AccountNameLB.Content = CurrentUser.Name;
+
             SingletoneHomeView.Instance.homeView = this;
             GetData();
-        }
 
+            switch (CurrentUser.Role.ToLower())
+            {
+                case "employee": {
+
+                        MessageBox.Show("Welcome " + CurrentUser.Name + "...");
+                        SingletoneHomeView.Instance.homeView.manageAssetsUC.AssetGridView.IsManipulationEnabled = false;
+                        SingletoneHomeView.Instance.homeView.manageAssetsUC.AssetGridView.IsEnabled = false;
+                        SingletoneHomeView.Instance.homeView.editAssetUC.IsEnabled = false;
+                        SingletoneHomeView.Instance.homeView.editSupplyUC.IsEnabled = false;
+                        SingletoneHomeView.Instance.homeView.manageAssetsUC.EditAssetsBar.Visibility = Visibility.Hidden;
+                        SingletoneHomeView.Instance.homeView.manageSuppliesUC.SuppliesEditBar.Visibility = Visibility.Hidden;
+                        SingletoneHomeView.Instance.homeView.btn2.Visibility = Visibility.Collapsed;
+                        SingletoneHomeView.Instance.homeView.btn4.Visibility = Visibility.Collapsed;
+                        SingletoneHomeView.Instance.homeView.btn5.Visibility = Visibility.Collapsed;
+                        
+
+                        break; }
+                case "manager":
+                    {
+
+                        MessageBox.Show("Welcome Manager " + CurrentUser.Name + "...");
+
+                        SingletoneHomeView.Instance.homeView.manageAssetsUC.AssetGridView.IsEnabled = false;
+                        SingletoneHomeView.Instance.homeView.manageAssetsUC.EditAssetsBar.Visibility = Visibility.Hidden;
+                        SingletoneHomeView.Instance.homeView.editAssetUC.IsEnabled = false;
+                        SingletoneHomeView.Instance.homeView.editSupplyUC.IsEnabled = false;
+
+
+                        SingletoneHomeView.Instance.homeView.btn5.Visibility = Visibility.Collapsed;
+
+                        break;
+                    }
+                case "director":
+                    {
+
+                        MessageBox.Show("Welcome "+ "Director " +CurrentUser.Name + "...");
+
+                        SingletoneHomeView.Instance.homeView.manageSuppliesUC.LVsupplies.IsEnabled = false;
+                        SingletoneHomeView.Instance.homeView.manageSuppliesUC.SuppliesEditBar.Visibility = Visibility.Hidden;
+                        SingletoneHomeView.Instance.homeView.manageAssetsUC.EditAssetsBar.Visibility = Visibility.Hidden;
+                      
+                        SingletoneHomeView.Instance.homeView.editSupplyUC.IsEnabled = false;
+
+                        break;
+                    }
+                case "accounting manager":
+                    {
+                        MessageBox.Show("Welcome " + "Accounting Manager " + CurrentUser.Name + "...");
+
+                        SingletoneHomeView.Instance.homeView.manageSuppliesUC.LVsupplies.IsEnabled = false;
+                        SingletoneHomeView.Instance.homeView.manageAssetsUC.EditAssetsBar.Visibility = Visibility.Hidden;
+                        SingletoneHomeView.Instance.homeView.manageSuppliesUC.SuppliesEditBar.Visibility = Visibility.Hidden;
+                        SingletoneHomeView.Instance.homeView.editAssetUC.IsEnabled = false;
+                        SingletoneHomeView.Instance.homeView.editSupplyUC.IsEnabled = false;
+
+                        break;
+                    }
+                case "supply manager manager":
+                    {
+                        // cant aprove pr 
+                        MessageBox.Show("Welcome Supply Manager " + CurrentUser.Name + "...");
+
+                        break;
+                    }
+                default:
+                    {
+                        MessageBox.Show("Welcome Supply Manager " + CurrentUser.Name +"...");
+
+                        break;
+                    }
+
+            }
+
+  
+        }
+        
         
 
         #region WindowBasicButtons:
