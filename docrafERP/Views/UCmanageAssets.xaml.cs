@@ -139,7 +139,10 @@ namespace docrafERP.Views
 
                 try
                 {
-                    searchedList = SingletoneHomeView.Instance.homeView.Assets.FindAll(y => y.Device.ToLower().Contains(SearchBarTB.Text.ToLower()));
+                    //applied combo filters :
+                    //applied Property based filters : Serial Number , Asset Name , Location
+
+                    searchedList = SingletoneHomeView.Instance.homeView.Assets.FindAll(y => ( (FilterAssetName.IsSelected) && (y.Device.ToLower().Contains(SearchBarTB.Text.ToLower())) ) || ( (FilterSerialNumber.IsSelected) && (y.Barcode.ToLower().Contains(SearchBarTB.Text.ToLower())) ) || ((FilterPrice.IsSelected) && (y.PurchasePrice.ToLower().Contains(SearchBarTB.Text.ToLower()))) || ((FilterLocation.IsSelected) && (y.OwnerOrLocation.ToLower().Contains(SearchBarTB.Text.ToLower()))));
                 }
                 catch
                 {
@@ -151,7 +154,30 @@ namespace docrafERP.Views
                     AssetGridView.ItemsSource = searchedList;
 
                     SearchBarSuggestions.Clear();
-                    searchedList.ForEach(x => SearchBarSuggestions.Add(x.Device));
+                   
+
+                    foreach( var asset in searchedList)
+                    {
+                        if (FilterAssetName.IsSelected)
+                        {
+                            SearchBarSuggestions.Add(asset.Device);
+                        }
+
+                        if (FilterSerialNumber.IsSelected)
+                        {
+                            SearchBarSuggestions.Add(asset.Barcode);
+                        }
+
+                        if (FilterPrice.IsSelected)
+                        {
+                            SearchBarSuggestions.Add(asset.PurchasePrice);
+                        }
+
+                        if (FilterLocation.IsSelected)
+                        {
+                            SearchBarSuggestions.Add(asset.OwnerOrLocation);
+                        }
+                    }
 
                     SearchBarTB.ItemsSource = SearchBarSuggestions;
 

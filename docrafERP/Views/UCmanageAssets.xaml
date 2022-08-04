@@ -56,7 +56,8 @@
 
 
                     <ListBoxItem 
-                      
+                      x:Name="FilterAccountCode"
+                   
                        IsSelected="True">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:Badged>
@@ -76,7 +77,7 @@
                     </ListBoxItem>
 
                     <ListBoxItem 
-                  
+                     x:Name="FilterCustodian"
                        IsSelected="True">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:Badged>
@@ -95,7 +96,9 @@
                         </StackPanel>
                     </ListBoxItem>
 
-                    <ListBoxItem>
+                    <ListBoxItem
+                         x:Name="FilterThisYear"
+                        >
 
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:Badged>
@@ -114,7 +117,9 @@
                         </StackPanel>
                     </ListBoxItem>
 
-                    <ListBoxItem>
+                    <ListBoxItem
+                         x:Name="FilterPrice"
+                        >
 
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:Badged>
@@ -133,7 +138,31 @@
                         </StackPanel>
                     </ListBoxItem>
 
-                    <ListBoxItem>
+                    <ListBoxItem 
+                      x:Name="FilterAssetName"
+                   
+                       IsSelected="True">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:Badged>
+                                <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="Toolbox"
+                                    
+                                    />
+                            </materialDesign:Badged>
+                            <TextBlock Text="Asset Name" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                        </StackPanel>
+                    </ListBoxItem>
+                  
+
+                    <ListBoxItem
+                         x:Name="FilterStatusisAvailable"
+                        >
 
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:Badged>
@@ -153,17 +182,22 @@
                     </ListBoxItem>
 
                     <ListBoxItem
+                         x:Name="FilterStatusisDirectorApproved"
                         Content="Status is Director Approved" />
 
                     <ListBoxItem
+                         x:Name="FilterPriceislessthan1000"
                         Content="Price is less than $1000" />
 
                     <ListBoxItem
+                         x:Name="FilterStatusisAccountingApproved"
                         Content="Status is Accounting Approved" />
 
 
 
-                    <ListBoxItem>
+                    <ListBoxItem
+                         x:Name="FilterSerialNumber"
+                        >
 
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:Badged>
@@ -183,13 +217,14 @@
                     </ListBoxItem>
 
 
-                    <ListBoxItem                     
+                    <ListBoxItem
+                         x:Name="FilterBrand"
                         Content="Brand"  IsSelected="True"/>
 
 
-
-
-                    <ListBoxItem>
+                    <ListBoxItem
+                         x:Name="FilterLocation"
+                        >
 
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:Badged>
@@ -208,21 +243,26 @@
                         </StackPanel>
                     </ListBoxItem>
 
-
-
-
                     <ListBoxItem
+                         x:Name="FilterVendor"
                         IsEnabled="False"
                         Content="Vendor" />
 
                     <ListBoxItem
+                         x:Name="FilterStatusisRequested"
                         Content="Status is Requested" />
+                    
 
                     <ListBoxItem
+                         x:Name="FilterStatusisOrdered"
                         Content="Status is Ordered" />
+                    
                     <ListBoxItem
+                         x:Name="FilterStatusisAcceptingbySM"
                         Content="Status is Accepting by SM" />
+                    
                     <ListBoxItem
+                         x:Name="Filterthismonth"
                         Content="this month" />
 
                 
