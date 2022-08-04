@@ -22,6 +22,20 @@ namespace docrafERP.Models
         public string PurchasedVendor { get; set; }
         public string PurchasePrice { get; set; }
         public string Barcode { get; set; }
+        public int CustodianID { get; set; }
+        public string CustodianName { get; set; }
+        //private int custodianID;
+
+        //public int CustodianID
+        //{
+        //    get { return custodianID; }
+        //    set { custodianID = value;
+        //        try { DataAcc}
+        //    }
+        //}
+
+        // public Personel Custodian { get; set; }
+
 
         public Asset()
         {

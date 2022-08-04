@@ -77,7 +77,7 @@ namespace docrafERP.Views
 
                 //  WelcomeSnackBar.Message = new MaterialDesignThemes.Wpf.SnackbarMessage { Content = "hello" };
                 //   WelcomeSnackBar.IsActive = true;
-            
+                
 
                 this.Hide();
                 new HomeView(User).ShowDialog();
