@@ -143,7 +143,7 @@
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Row="0" Grid.Column="0" MouseDown="NavBarMove">
+        <Grid x:Name="logoPart" Grid.Row="0" Grid.Column="0" MouseDown="NavBarMove">
             <StackPanel Margin="19 5 10 0" Orientation="Horizontal">
                 <Image Stretch="UniformToFill" Source="/UIassets/RAF_LOGO-removebg-preview 1.png"  Width="120" Height="110" />
                 <StackPanel Margin="0 35 0 0" >

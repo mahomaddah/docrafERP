@@ -214,6 +214,39 @@ namespace docrafERP.Views
             if (SearchBarTB.Text == null || SearchBarTB.Text.Length <= 1)
                 reloadFromSearchingMode();
         }
+
+        private void PrintAssetBtn_Click(object sender, RoutedEventArgs e)
+        {
+            
+            PrintDialog dialog = new PrintDialog();
+          
+
+     
+            Visual visual = AssetGridView;
+            Visual logo = SingletoneHomeView.Instance.homeView.logoPart;
+
+
+
+            //var stak = new StackPanel { };
+            //stak.Orientation = Orientation.Vertical;
+            //stak.Children.Add(SingletoneHomeView.Instance.homeView.logoPart);
+            //stak.Children.Add(AssetGridView);
+
+            //Visual Goal = stak; 
+
+
+            // System.Windows.Media.Geometry.Combine(, visual, GeometryCombineMode.Union, visualGoal)
+
+
+            //   VisualCollection visuals = new VisualCollection(AssetGridView);
+
+            //  visuals.Add(SingletoneHomeView.Instance.homeView.logoPart);
+
+            dialog.PrintVisual( visual, "");
+          
+
+
+        }
     }
 
 }
