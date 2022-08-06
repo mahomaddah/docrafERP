@@ -114,7 +114,7 @@ namespace docrafERP.Views
 
         private void DeleteTreeItem(object sender, RoutedEventArgs e)
         {
-  
+            
             if (InventoryTree.SelectedItem!=null)
                 InventoryTree.Items.Remove((TreeViewItem)InventoryTree.SelectedItem);
         }

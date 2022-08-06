@@ -97,11 +97,11 @@
                         HorizontalAlignment="Right"
                         VerticalAlignment="Bottom"> 
                                         <StackPanel
-                      Orientation="Horizontal">
+                          Orientation="Horizontal">
                                             <Button
                                                Click="AddNewTreeItem"
-                        ToolTip="Add an item"
-                        Command="{Binding AddCommand}">
+                          ToolTip="Add an item"
+                          Command="{Binding AddCommand}">
                                                 <Path
                           Data="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"
                           Stretch="Uniform"
@@ -110,8 +110,8 @@
                           Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" />
                                             </Button>
                                             <Button
-                        ToolTip="Remove selected item"
-                        Command="{Binding RemoveSelectedItemCommand}" Click="DeleteTreeItem">
+                          ToolTip="Remove selected item"
+                          Command="{Binding RemoveSelectedItemCommand}" Click="DeleteTreeItem">
                                                 <Path
                           Data="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z"
                           Stretch="Uniform"
@@ -119,6 +119,7 @@
                           Height="15"
                           Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" />
                                             </Button>
+
                         </StackPanel>
                     </materialDesign:PopupBox>
                 </StackPanel>

@@ -7,6 +7,17 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="550" d:DesignWidth="800" Loaded="UserControl_Loaded">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.DialogHost.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+
     <Grid>
         <StackPanel >
             <StackPanel>
@@ -48,6 +59,7 @@
                   Content="Edit"     
                   IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="Edit_click"  />
                     <Button
+                        
                   Margin="10 0 0 0"
                   Width="110"
                  
@@ -79,7 +91,7 @@
         <Grid HorizontalAlignment="Right">
             <Image Source="/UIassets/image 16.png" Margin="25,96,42,80"/>
 
-            
+          
         </Grid>
 
     </Grid>

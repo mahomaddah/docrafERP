@@ -7,68 +7,72 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="550" d:DesignWidth="800" IsVisibleChanged="UserControl_IsVisibleChanged">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="99*"/>
-            <ColumnDefinition Width="61*"/>
-        </Grid.ColumnDefinitions>
+    <StackPanel Margin="0 -47 0 0">
+        <TabControl Style="{StaticResource Header2}"  Background="Transparent" Foreground="#979797" DockPanel.Dock="Left"  FontWeight="Bold"  FontFamily="Roboto"   BorderBrush="{x:Null}">
 
-        <Grid Grid.Column="1" Margin="30 0 0 0">
-            <StackPanel>
-                <Image Source="/UIassets/image 23.png" Width="220" Height="220" Margin="0 0 0 5"/>
-                <Label Content="Related Documents" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header1}" Margin="0 0 0 5"  />
-                <StackPanel Margin="0 0 20 0">
-                    <ListView Height="236"  BorderThickness="2" BorderBrush="#0DCAF2" >
-                        <ListViewItem Content="Purchase Request.pdf" Margin="1"  BorderThickness="1" BorderBrush="#0DCAF2" ></ListViewItem>
-                        <ListViewItem Content="Purchase Order.pdf" Margin="1" BorderThickness="1" BorderBrush="#0DCAF2" ></ListViewItem>
-                        <ListViewItem Content="AIR.pdf" Margin="1"  BorderThickness="1" BorderBrush="#0DCAF2" ></ListViewItem>
-                        <ListViewItem Content="Invoice.pdf" Margin="1" BorderThickness="1" BorderBrush="#0DCAF2" ></ListViewItem>
-                        <ListViewItem Content="ReceivingLabDoc.pdf" Margin="1"  BorderThickness="1" BorderBrush="#0DCAF2" ></ListViewItem>
-                        <ListViewItem Content="Warrant.pdf" Margin="1" BorderThickness="1" BorderBrush="#0DCAF2" ></ListViewItem>
-                    </ListView>
-                    <StackPanel Orientation="Horizontal" >
-                        <materialDesign:PackIcon Height="27"  Width="27" Kind="FileDocumentAdd" Margin="2 6 0 0" MouseDown="AddDocBtn">
-                            <materialDesign:PackIcon.Foreground>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#0DCAF2" Offset="0"/>
-                                </LinearGradientBrush>
-                            </materialDesign:PackIcon.Foreground>
-                        </materialDesign:PackIcon>
-                        <materialDesign:PackIcon Height="27"  Width="27" Kind="FileDocumentDelete" Margin="2 6 0 0" MouseDown="DeleteDocBtn">
-                            <materialDesign:PackIcon.Foreground>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#0DCAF2" Offset="0"/>
-                                </LinearGradientBrush>
-                            </materialDesign:PackIcon.Foreground>
-                        </materialDesign:PackIcon>
-                        <materialDesign:PackIcon Height="27"  Width="27" Kind="ContentSave" Margin="120 6 0 0" MouseDown="SavetoSupBtn">
-                            <materialDesign:PackIcon.Foreground>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#0DCAF2" Offset="0"/>
-                                </LinearGradientBrush>
-                            </materialDesign:PackIcon.Foreground>
-                        </materialDesign:PackIcon>
-                        
-                        <materialDesign:PackIcon Height="27"  Width="27" Kind="SignOut" Margin="2 6 0 0" MouseDown="BacktoSupBtn">
-                            <materialDesign:PackIcon.Foreground>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#0DCAF2" Offset="0"/>
-                                </LinearGradientBrush>
-                            </materialDesign:PackIcon.Foreground>
-                        </materialDesign:PackIcon>
-                        
-                        
-                    </StackPanel>
-                </StackPanel>
-            </StackPanel>
-        </Grid>
+            <TabItem  FontSize="14" Style="{StaticResource TabItemStyle}"   Foreground="#979797" Background="White" FontWeight="Bold" Header="Supply Details"  >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="99*"/>
+                        <ColumnDefinition Width="61*"/>
+                    </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0">
-            <StackPanel>
+                    <Grid Grid.Column="1" Margin="30 0 0 0">
+                        <StackPanel>
+                            <Image Source="/UIassets/image 21.png" Width="220" Height="220" Margin="0 0 0 5"/>
+                            <Label Content="Related Documents" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header1}" Margin="0 0 0 5"  />
+                            <StackPanel Margin="0 0 20 0">
+                                <ListView Height="236"  BorderThickness="2" BorderBrush="#0DCAF2" >
+                                    <ListViewItem Content="Purchase Request.pdf" Margin="1"  BorderThickness="1" BorderBrush="#0DCAF2" ></ListViewItem>
+                                    <ListViewItem Content="Purchase Order.pdf" Margin="1" BorderThickness="1" BorderBrush="#0DCAF2" ></ListViewItem>
+                                    <ListViewItem Content="AIR.pdf" Margin="1"  BorderThickness="1" BorderBrush="#0DCAF2" ></ListViewItem>
+                                    <ListViewItem Content="Invoice.pdf" Margin="1" BorderThickness="1" BorderBrush="#0DCAF2" ></ListViewItem>
+                                    <ListViewItem Content="ReceivingLabDoc.pdf" Margin="1"  BorderThickness="1" BorderBrush="#0DCAF2" ></ListViewItem>
+                                    <ListViewItem Content="Warrant.pdf" Margin="1" BorderThickness="1" BorderBrush="#0DCAF2" ></ListViewItem>
+                                </ListView>
+                                <StackPanel Orientation="Horizontal" >
+                                    <materialDesign:PackIcon Height="27"  Width="27" Kind="FileDocumentAdd" Margin="2 6 0 0" MouseDown="AddDocBtn">
+                                        <materialDesign:PackIcon.Foreground>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#0DCAF2" Offset="0"/>
+                                            </LinearGradientBrush>
+                                        </materialDesign:PackIcon.Foreground>
+                                    </materialDesign:PackIcon>
+                                    <materialDesign:PackIcon Height="27"  Width="27" Kind="FileDocumentDelete" Margin="2 6 0 0" MouseDown="DeleteDocBtn">
+                                        <materialDesign:PackIcon.Foreground>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#0DCAF2" Offset="0"/>
+                                            </LinearGradientBrush>
+                                        </materialDesign:PackIcon.Foreground>
+                                    </materialDesign:PackIcon>
+                                    <materialDesign:PackIcon Height="27"  Width="27" Kind="ContentSave" Margin="120 6 0 0" MouseDown="SavetoSupBtn">
+                                        <materialDesign:PackIcon.Foreground>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#0DCAF2" Offset="0"/>
+                                            </LinearGradientBrush>
+                                        </materialDesign:PackIcon.Foreground>
+                                    </materialDesign:PackIcon>
 
-                <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
-                    <Label Content="Name" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
-                    <TextBox VerticalAlignment="Center" Name="TbName"
+                                    <materialDesign:PackIcon Height="27"  Width="27" Kind="SignOut" Margin="2 6 0 0" MouseDown="BacktoSupBtn">
+                                        <materialDesign:PackIcon.Foreground>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#0DCAF2" Offset="0"/>
+                                            </LinearGradientBrush>
+                                        </materialDesign:PackIcon.Foreground>
+                                    </materialDesign:PackIcon>
+
+
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Grid.Column="0">
+                        <StackPanel>
+
+                            <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
+                                <Label Content="Name" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
+                                <TextBox VerticalAlignment="Center" Name="TbName"
                  FontWeight="Normal"
                             Width="330"
                             Margin="0 0 0 0"
@@ -85,11 +89,11 @@
                             BorderBrush="#0DCAF2"
                             FontFamily="Roboto"
                             FontSize="12px" CaretBrush="#FF07AD40"/>
-                </StackPanel>
+                            </StackPanel>
 
-                <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
-                    <Label Content="Purchase Price" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
-                    <TextBox VerticalAlignment="Center" x:Name="TbPrice"
+                            <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
+                                <Label Content="Purchase Price" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
+                                <TextBox VerticalAlignment="Center" x:Name="TbPrice"
                  FontWeight="Normal"
                             Width="330"
                             Margin="0 0 0 0"
@@ -106,12 +110,12 @@
                             BorderBrush="#0DCAF2"
                             FontFamily="Roboto"
                             FontSize="12px" CaretBrush="#FF07AD40"/>
-                </StackPanel>
-                <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
-                    <Label Content="Quantity" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
-                    <TextBox VerticalAlignment="Center" x:Name="TbQty"
-                 FontWeight="Normal"
-                            Width="330"
+                            </StackPanel>
+                            <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
+                                <Label Content="Quantity" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
+                                <TextBox VerticalAlignment="Center" x:Name="TbQty"
+                            FontWeight="Normal"
+                            Width="108"
                             Margin="0 0 0 0"
                             Style="{StaticResource MaterialDesignFilledTextBox}"
                             
@@ -126,13 +130,49 @@
                             BorderBrush="#0DCAF2"
                             FontFamily="Roboto"
                             FontSize="12px" CaretBrush="#FF07AD40"/>
-                </StackPanel>
+                            
+                                <TextBox VerticalAlignment="Center" Margin="10 0 0 0" x:Name="TbUnit"
+                            FontWeight="Normal"
+                            Width="121"
+                            Text="Kg"
+                            Style="{StaticResource MaterialDesignFilledTextBox}"
+                            
+                            HorizontalAlignment="Left"
+                            AcceptsReturn="True"
+                            TextWrapping="Wrap"
+                            MaxWidth="400"
+                            
+                            materialDesign:HintAssist.Hint="Unit of Meature"
+                            Foreground="#000009"
+                            SelectionBrush="#07AD40"
+                            BorderBrush="#0DCAF2"
+                            FontFamily="Roboto"
+                            FontSize="12px" CaretBrush="#FF07AD40"/>
 
-                <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
-                    <Label Content="Lot Number" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
-                    <TextBox VerticalAlignment="Center" x:Name="TbLotNum"
+                                <TextBox VerticalAlignment="Center" Margin="10 0 0 0" x:Name="TbSize"
+                            FontWeight="Normal"
+                            Width="80"
+                            Text="200"
+                            Style="{StaticResource MaterialDesignFilledTextBox}"
+                            
+                            HorizontalAlignment="Left"
+                            AcceptsReturn="True"
+                            TextWrapping="Wrap"
+                            MaxWidth="400"
+                            
+                            materialDesign:HintAssist.Hint="Size"
+                            Foreground="#000009"
+                            SelectionBrush="#07AD40"
+                            BorderBrush="#0DCAF2"
+                            FontFamily="Roboto"
+                            FontSize="12px" CaretBrush="#FF07AD40"/>
+                            </StackPanel>
+
+                            <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
+                                <Label Content="Lot Number" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
+                                <TextBox VerticalAlignment="Center" x:Name="TbLotNum"
                  FontWeight="Normal"
-                            Width="330"
+                            Width="240"
                             Margin="0 0 0 0"
                             Style="{StaticResource MaterialDesignFilledTextBox}"
                             
@@ -147,12 +187,29 @@
                             BorderBrush="#0DCAF2"
                             FontFamily="Roboto"
                             FontSize="12px" CaretBrush="#FF07AD40"/>
-                </StackPanel>
+                                <TextBox VerticalAlignment="Center" Margin="10 0 0 0" x:Name="AttributeSize"
+                            FontWeight="Normal"
+                            Width="80"
+                          
+                            Style="{StaticResource MaterialDesignFilledTextBox}"
+                            
+                            HorizontalAlignment="Left"
+                            AcceptsReturn="True"
+                            TextWrapping="Wrap"
+                            MaxWidth="400"
+                            
+                            materialDesign:HintAssist.Hint="Attribute"
+                            Foreground="#000009"
+                            SelectionBrush="#07AD40"
+                            BorderBrush="#0DCAF2"
+                            FontFamily="Roboto"
+                            FontSize="12px" CaretBrush="#FF07AD40"/>
+                            </StackPanel>
 
-                <ProgressBar Margin="0 10 0 10" Value="95.1" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
-                <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
-                    <Label Content="Expiration Date" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
-                    <TextBox VerticalAlignment="Center" Name="TbDate"
+                            <ProgressBar Margin="0 10 0 10" Value="95.1" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
+                            <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
+                                <Label Content="Expiration Date" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
+                                <TextBox VerticalAlignment="Center" Name="TbDate"
                  FontWeight="Normal"
                             Width="330"
                             Margin="0 0 0 0"
@@ -169,11 +226,11 @@
                             BorderBrush="#0DCAF2"
                             FontFamily="Roboto"
                             FontSize="12px" CaretBrush="#FF07AD40"/>
-                </StackPanel>
+                            </StackPanel>
 
-                <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
-                    <Label Content="Purchased Vendor" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header3}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
-                    <TextBox VerticalAlignment="Center" x:Name="TbVendor"
+                            <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
+                                <Label Content="Purchased Vendor" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header3}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
+                                <TextBox VerticalAlignment="Center" x:Name="TbVendor"
                  FontWeight="Normal"
                             Width="330"
                             Margin="0 0 0 0"
@@ -190,14 +247,14 @@
                             BorderBrush="#0DCAF2"
                             FontFamily="Roboto"
                             FontSize="12px" CaretBrush="#FF07AD40"/>
-                </StackPanel>
-                <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
-                    <Label Content="Enter or generate a new barcode for the product" FontWeight="Normal" Style="{StaticResource Header2}" VerticalAlignment="Center" Foreground="#FF07AD40" Margin="0 10 0 0"   />
-                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
+                                <Label Content="Enter or generate a new barcode for the product" FontWeight="Normal" Style="{StaticResource Header2}" VerticalAlignment="Center" Foreground="#FF07AD40" Margin="0 10 0 0"   />
+                            </StackPanel>
 
-                <StackPanel Margin="0,2,46,2" Orientation="Horizontal">
-                    <Label Content="Barcode" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
-                    <TextBox x:Name="EncryptionKeyTB" VerticalAlignment="Center"
+                            <StackPanel Margin="0,2,46,2" Orientation="Horizontal">
+                                <Label Content="Barcode" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
+                                <TextBox x:Name="EncryptionKeyTB" VerticalAlignment="Center"
                  FontWeight="Normal"
                             Width="194"
                             Margin="0 0 0 0"
@@ -214,65 +271,721 @@
                             BorderBrush="#0DCAF2"
                             FontFamily="Roboto"
                             FontSize="12px" CaretBrush="#FF07AD40" Text="036000291452"/>
-                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="0 10 0 10">
+                                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="0 10 0 10">
 
-                        <materialDesign:PackIcon HorizontalAlignment="Left" Height="35"  Width="35" Kind="ForeignKey" Margin="3 10 0 0" MouseDown="GeneradeRandomBtn">
-                            <materialDesign:PackIcon.Foreground>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#0DCAF2" Offset="0"/>
-                                </LinearGradientBrush>
-                            </materialDesign:PackIcon.Foreground>
-                        </materialDesign:PackIcon>
-                        <materialDesign:PackIcon HorizontalAlignment="Left" Height="35"  Width="35" Kind="ContentCopy" Margin="2 10 0 0" MouseDown="copyToCLipboardBtn" >
-                            <materialDesign:PackIcon.Foreground>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#0DCAF2" Offset="0"/>
-                                </LinearGradientBrush>
-                            </materialDesign:PackIcon.Foreground>
-                        </materialDesign:PackIcon>
-                        <materialDesign:PackIcon HorizontalAlignment="Left" Height="35"  Width="35" Kind="BarcodeScan" Margin="2 10 0 0" MouseDown="ScanBarconeBtn">
-                            <materialDesign:PackIcon.Foreground>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#0DCAF2" Offset="0"/>
-                                </LinearGradientBrush>
-                            </materialDesign:PackIcon.Foreground>
-                        </materialDesign:PackIcon>
+                                    <materialDesign:PackIcon HorizontalAlignment="Left" Height="35"  Width="35" Kind="ForeignKey" Margin="3 10 0 0" MouseDown="GeneradeRandomBtn">
+                                        <materialDesign:PackIcon.Foreground>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#0DCAF2" Offset="0"/>
+                                            </LinearGradientBrush>
+                                        </materialDesign:PackIcon.Foreground>
+                                    </materialDesign:PackIcon>
+                                    <materialDesign:PackIcon HorizontalAlignment="Left" Height="35"  Width="35" Kind="ContentCopy" Margin="2 10 0 0" MouseDown="copyToCLipboardBtn" >
+                                        <materialDesign:PackIcon.Foreground>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#0DCAF2" Offset="0"/>
+                                            </LinearGradientBrush>
+                                        </materialDesign:PackIcon.Foreground>
+                                    </materialDesign:PackIcon>
+                                    <materialDesign:PackIcon HorizontalAlignment="Left" Height="35"  Width="35" Kind="BarcodeScan" Margin="2 10 0 0" MouseDown="ScanBarconeBtn">
+                                        <materialDesign:PackIcon.Foreground>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#0DCAF2" Offset="0"/>
+                                            </LinearGradientBrush>
+                                        </materialDesign:PackIcon.Foreground>
+                                    </materialDesign:PackIcon>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel Margin="102 0 0 0" Orientation="Vertical"  HorizontalAlignment="Left" >
+                                    <Label Foreground="Gray" Style="{StaticResource Header3}" Content="Serial code for printing" HorizontalAlignment="Left" VerticalAlignment="Top" MaxWidth="130"/>
+                                    <Image x:Name="QRcodeImage" Source="/UIassets/image 15.png" HorizontalAlignment="Left"  Width="110" Height="95"/>
+
+                                </StackPanel>
+                                <StackPanel Margin="0 30 0 0">
+                                    <materialDesign:PackIcon Height="27"  Width="27" Kind="ContentSave" Margin="2 0 0 0" MouseDown="QRSaveAspicBtn">
+                                        <materialDesign:PackIcon.Foreground>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#0DCAF2" Offset="0"/>
+                                            </LinearGradientBrush>
+                                        </materialDesign:PackIcon.Foreground>
+                                    </materialDesign:PackIcon>
+
+                                    <materialDesign:PackIcon Height="27"  Width="27" Kind="Whatsapp" Margin="2 6 0 0" MouseDown="QRwhatsappBtn">
+                                        <materialDesign:PackIcon.Foreground>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#0DCAF2" Offset="0"/>
+                                            </LinearGradientBrush>
+                                        </materialDesign:PackIcon.Foreground>
+                                    </materialDesign:PackIcon>
+                                    <materialDesign:PackIcon Height="27"  Width="27" Kind="Barcode" Margin="2 6 0 0" MouseDown="PrintQRcodeBTn">
+                                        <materialDesign:PackIcon.Foreground>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#0DCAF2" Offset="0"/>
+                                            </LinearGradientBrush>
+                                        </materialDesign:PackIcon.Foreground>
+                                    </materialDesign:PackIcon>
+                                </StackPanel>
+                            </StackPanel>
+
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </TabItem>
+          
+            <!--Style="{StaticResource MaterialDesignCardFlipper}"-->
+            <TabItem FontSize="14" Foreground="#979797" Background="White"   Style="{StaticResource TabItemStyle}" Margin="1 0 -4 0" Header="Inventory Details"  FontWeight="Bold">
+                <StackPanel>
+                    <Label  Content="Assigned Program Details" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header1}" Margin="0 10 0 5"  />
+                    <ListBox Style="{StaticResource MaterialDesignFilterChipPrimaryOutlineListBox}"  Background="Transparent" Margin="-420 0 0 5"  Width="300"   Height="355" BorderThickness="2" BorderBrush="{StaticResource PrimaryHueDarkBrush}" >
+                        <ListBoxItem Background="Transparent" Style="{x:Null}" BorderThickness="1" BorderBrush="{StaticResource PrimaryHueDarkBrush}" Margin="10" >
+                            <StackPanel >
+
+                                <RadioButton Margin="0 0 0 4"
+                                 Foreground="{StaticResource PrimaryHueDarkBrush}"
+                                 Style="{StaticResource MaterialDesignUserForegroundRadioButton}"
+                                 />
+
+                                <materialDesign:Flipper Margin="30 -15 30 30"
+                            
+                                        materialDesign:ShadowAssist.ShadowDepth="Depth0">
+
+                                    <materialDesign:Flipper.FrontContent>
+
+                                        <Grid Height="290" Width="175">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition
+                                                     Height="160" />
+                                                <RowDefinition
+                                                     Height="*" />
+                                            </Grid.RowDefinitions>
+
+                                            <materialDesign:ColorZone Mode="PrimaryDark" VerticalAlignment="Stretch">
+
+                                                <materialDesign:PackIcon
+                                                                            
+                                                          Kind="AccountCircle"
+                                                        
+                                                          Height="128"
+                                                          Width="128"
+                                                        
+                                                          VerticalAlignment="Center"
+                                                          HorizontalAlignment="Center" >
+
+                                                    <materialDesign:PackIcon.Background>
+                                                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+
+
+                                                            <GradientStop Color="{StaticResource Primary600}"  Offset="0.80"/>
+                                                            <GradientStop Color="#FF07AEFF" Offset="0.26"/>
+
+                                                        </LinearGradientBrush>
+                                                    </materialDesign:PackIcon.Background>
+
+                                                </materialDesign:PackIcon>
+
+                                            </materialDesign:ColorZone>
+                                            <StackPanel x:Name="Contanets"
+                                                     Grid.Row="1"
+                                                     Margin="0 10 0 0"
+                                                     HorizontalAlignment="Center"
+                                                     VerticalAlignment="Center">
+                                                <StackPanel Orientation="Vertical" >
+
+                                                    <TextBlock Text="Butch Lee" Foreground="Gray" HorizontalAlignment="Center" FontWeight="Bold"  FontSize="15" Style="{StaticResource MaterialDesignSubtitle1TextBlock}" />
+                                                    <TextBlock Text="Program Manager" Foreground="Gray" HorizontalAlignment="Center" FontWeight="DemiBold"  Margin="1" FontSize="12" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" />
+                                                    <TextBlock Text="barack@obama.com" Foreground="Gray" HorizontalAlignment="Center" FontWeight="DemiBold" Margin="1" FontSize="12" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" />
+                                                    <TextBlock Text="05550877930" Foreground="Gray" HorizontalAlignment="Center" FontWeight="DemiBold" Margin="1" FontSize="12" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" />
+
+                                                </StackPanel>
+                                                <Button 
+                                                      Style="{StaticResource MaterialDesignFlatButton}"
+                                                      Command="{x:Static materialDesign:Flipper.FlipCommand}"
+                                                      Margin="0 2 0 0"
+                                                      Content="EDIT" />
+
+                                            </StackPanel>
+                                        </Grid>
+                                    </materialDesign:Flipper.FrontContent>
+
+                                    <materialDesign:Flipper.BackContent>
+                                        <Grid
+                                            Height="290" Width="175">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition
+                                                 Height="Auto" />
+                                                <RowDefinition
+                                             Height="*" />
+                                            </Grid.RowDefinitions>
+                                            <materialDesign:ColorZone
+                                          Mode="PrimaryMid"
+                                              Padding="6">
+                                                <StackPanel
+                                                 Orientation="Horizontal">
+                                                    <Button
+                                        Style="{StaticResource MaterialDesignToolForegroundButton}"
+                                        Command="{x:Static materialDesign:Flipper.FlipCommand}"
+                                        HorizontalAlignment="Left">
+                                                        <materialDesign:PackIcon
+                                          Kind="ArrowLeft"
+                                          HorizontalAlignment="Right" />
+                                                    </Button>
+                                                    <TextBlock
+                                        Margin="8 0 0 0"
+                                        VerticalAlignment="Center"
+                                        Text="EDIT USER" />
+                                                </StackPanel>
+                                            </materialDesign:ColorZone>
+                                            <Grid
+                                    Grid.Row="1"
+                                    Margin="0 6 0 0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Top"
+                                    Width="172">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                </Grid.RowDefinitions>
+                                                <TextBox
+                                      materialDesign:HintAssist.Hint="Name"
+                                      materialDesign:HintAssist.IsFloating="True"
+                                      Margin="0 12 0 0"
+                                      Text="Butch Lee" />
+                                                <TextBox
+                                      Grid.Row="1"
+                                      materialDesign:HintAssist.Hint="Email"
+                                      materialDesign:HintAssist.IsFloating="True"
+                                      Margin="0 12 0 0"
+                                      Text="madahzadeh18@gmail.com" />
+                                                <TextBox
+                                      Grid.Row="2"
+                                      materialDesign:HintAssist.Hint="Phone"
+                                      materialDesign:HintAssist.IsFloating="True"
+                                      Margin="0 12 0 0"
+                                      Text="05550877930" />
+                                                <StackPanel
+                                      Grid.Row="3"
+                                      Orientation="Horizontal"
+                                      Margin="0 12 0 0"
+                                      HorizontalAlignment="Right">
+                                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        Text="Assign" />
+                                                    <ToggleButton
+                                        Margin="8 0 0 0" />
+                                                </StackPanel>
+                                                <StackPanel
+                                      Grid.Row="4"
+                                      Orientation="Horizontal"
+                                      Margin="0 12 0 0"
+                                      HorizontalAlignment="Right">
+                                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        Text="DeActivate" />
+                                                    <ToggleButton
+                                        Margin="8 0 0 0" />
+                                                </StackPanel>
+                                            </Grid>
+                                        </Grid>
+                                    </materialDesign:Flipper.BackContent>
+
+                                </materialDesign:Flipper>
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem Background="Transparent" Style="{x:Null}" BorderThickness="1" BorderBrush="{StaticResource PrimaryHueDarkBrush}" Margin="10" >
+                            <StackPanel >
+
+                                <RadioButton Margin="0 0 0 4"
+                                 Foreground="{StaticResource PrimaryHueDarkBrush}"
+                                 Style="{StaticResource MaterialDesignUserForegroundRadioButton}"
+                                 />
+
+                                <materialDesign:Flipper Margin="30 -15 30 30"
+                            
+                                        materialDesign:ShadowAssist.ShadowDepth="Depth0">
+
+                                    <materialDesign:Flipper.FrontContent>
+
+                                        <Grid Height="290" Width="175">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition
+                                                     Height="160" />
+                                                <RowDefinition
+                                                     Height="*" />
+                                            </Grid.RowDefinitions>
+
+                                            <materialDesign:ColorZone Mode="PrimaryDark" VerticalAlignment="Stretch">
+
+                                                <materialDesign:PackIcon
+                                                                            
+                                                          Kind="AccountCircle"
+                                                        
+                                                          Height="128"
+                                                          Width="128"
+                                                        
+                                                          VerticalAlignment="Center"
+                                                          HorizontalAlignment="Center" >
+
+                                                    <materialDesign:PackIcon.Background>
+                                                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+
+
+                                                            <GradientStop Color="{StaticResource Primary600}"  Offset="0.80"/>
+                                                            <GradientStop Color="#FF07AEFF" Offset="0.26"/>
+
+                                                        </LinearGradientBrush>
+                                                    </materialDesign:PackIcon.Background>
+
+                                                </materialDesign:PackIcon>
+
+                                            </materialDesign:ColorZone>
+                                            <StackPanel 
+                                                     Grid.Row="1"
+                                                     Margin="0 10 0 0"
+                                                     HorizontalAlignment="Center"
+                                                     VerticalAlignment="Center">
+                                                <StackPanel Orientation="Vertical" >
+
+                                                    <TextBlock Text="Emplyee 2" Foreground="Gray" HorizontalAlignment="Center" FontWeight="Bold"  FontSize="15" Style="{StaticResource MaterialDesignSubtitle1TextBlock}" />
+                                                    <TextBlock Text="manager" Foreground="Gray" HorizontalAlignment="Center" FontWeight="DemiBold"  Margin="1" FontSize="12" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" />
+                                                    <TextBlock Text="barack@obama.com" Foreground="Gray" HorizontalAlignment="Center" FontWeight="DemiBold" Margin="1" FontSize="12" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" />
+                                                    <TextBlock Text="05550877930" Foreground="Gray" HorizontalAlignment="Center" FontWeight="DemiBold" Margin="1" FontSize="12" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" />
+
+                                                </StackPanel>
+                                                <Button 
+                                                      Style="{StaticResource MaterialDesignFlatButton}"
+                                                      Command="{x:Static materialDesign:Flipper.FlipCommand}"
+                                                      Margin="0 2 0 0"
+                                                      Content="EDIT" />
+
+                                            </StackPanel>
+                                        </Grid>
+                                    </materialDesign:Flipper.FrontContent>
+
+                                    <materialDesign:Flipper.BackContent>
+                                        <Grid
+                                            Height="290" Width="175">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition
+                                                 Height="Auto" />
+                                                <RowDefinition
+                                             Height="*" />
+                                            </Grid.RowDefinitions>
+                                            <materialDesign:ColorZone
+                                          Mode="PrimaryMid"
+                                              Padding="6">
+                                                <StackPanel
+                                                 Orientation="Horizontal">
+                                                    <Button
+                                        Style="{StaticResource MaterialDesignToolForegroundButton}"
+                                        Command="{x:Static materialDesign:Flipper.FlipCommand}"
+                                        HorizontalAlignment="Left">
+                                                        <materialDesign:PackIcon
+                                          Kind="ArrowLeft"
+                                          HorizontalAlignment="Right" />
+                                                    </Button>
+                                                    <TextBlock
+                                        Margin="8 0 0 0"
+                                        VerticalAlignment="Center"
+                                        Text="EDIT USER" />
+                                                </StackPanel>
+                                            </materialDesign:ColorZone>
+                                            <Grid
+                                    Grid.Row="1"
+                                    Margin="0 6 0 0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Top"
+                                    Width="172">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                </Grid.RowDefinitions>
+                                                <TextBox
+                                      materialDesign:HintAssist.Hint="Name"
+                                      materialDesign:HintAssist.IsFloating="True"
+                                      Margin="0 12 0 0"
+                                      Text="Employee 2" />
+                                                <TextBox
+                                      Grid.Row="1"
+                                      materialDesign:HintAssist.Hint="Email"
+                                      materialDesign:HintAssist.IsFloating="True"
+                                      Margin="0 12 0 0"
+                                      Text="madahzadeh18@gmail.com" />
+                                                <TextBox
+                                      Grid.Row="2"
+                                      materialDesign:HintAssist.Hint="Phone"
+                                      materialDesign:HintAssist.IsFloating="True"
+                                      Margin="0 12 0 0"
+                                      Text="05550877930" />
+                                                <StackPanel
+                                      Grid.Row="3"
+                                      Orientation="Horizontal"
+                                      Margin="0 12 0 0"
+                                      HorizontalAlignment="Right">
+                                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        Text="Assign" />
+                                                    <ToggleButton
+                                        Margin="8 0 0 0" />
+                                                </StackPanel>
+                                                <StackPanel
+                                      Grid.Row="4"
+                                      Orientation="Horizontal"
+                                      Margin="0 12 0 0"
+                                      HorizontalAlignment="Right">
+                                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        Text="DeActivate" />
+                                                    <ToggleButton
+                                        Margin="8 0 0 0" />
+                                                </StackPanel>
+                                            </Grid>
+                                        </Grid>
+                                    </materialDesign:Flipper.BackContent>
+
+                                </materialDesign:Flipper>
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem Background="Transparent" Style="{x:Null}" BorderThickness="1" BorderBrush="{StaticResource PrimaryHueDarkBrush}" Margin="10" >
+                            <StackPanel >
+
+                                <RadioButton Margin="0 0 0 4"
+                                 Foreground="{StaticResource PrimaryHueDarkBrush}"
+                                 Style="{StaticResource MaterialDesignUserForegroundRadioButton}"
+                                 />
+
+                                <materialDesign:Flipper Margin="30 -15 30 30"
+                            
+                                        materialDesign:ShadowAssist.ShadowDepth="Depth0">
+
+                                    <materialDesign:Flipper.FrontContent>
+
+                                        <Grid Height="290" Width="175">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition
+                                                     Height="160" />
+                                                <RowDefinition
+                                                     Height="*" />
+                                            </Grid.RowDefinitions>
+
+                                            <materialDesign:ColorZone Mode="PrimaryDark" VerticalAlignment="Stretch">
+
+                                                <materialDesign:PackIcon
+                                                                            
+                                                          Kind="AccountCircle"
+                                                        
+                                                          Height="128"
+                                                          Width="128"
+                                                        
+                                                          VerticalAlignment="Center"
+                                                          HorizontalAlignment="Center" >
+
+                                                    <materialDesign:PackIcon.Background>
+                                                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+
+
+                                                            <GradientStop Color="{StaticResource Primary600}"  Offset="0.80"/>
+                                                            <GradientStop Color="#FF07AEFF" Offset="0.26"/>
+
+                                                        </LinearGradientBrush>
+                                                    </materialDesign:PackIcon.Background>
+
+                                                </materialDesign:PackIcon>
+
+                                            </materialDesign:ColorZone>
+                                            <StackPanel
+                                                     Grid.Row="1"
+                                                     Margin="0 10 0 0"
+                                                     HorizontalAlignment="Center"
+                                                     VerticalAlignment="Center">
+                                                <StackPanel Orientation="Vertical" >
+
+                                                    <TextBlock Text="Manager 2" Foreground="Gray" HorizontalAlignment="Center" FontWeight="Bold"  FontSize="15" Style="{StaticResource MaterialDesignSubtitle1TextBlock}" />
+                                                    <TextBlock Text="Accounting manager" Foreground="Gray" HorizontalAlignment="Center" FontWeight="DemiBold"  Margin="1" FontSize="12" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" />
+                                                    <TextBlock Text="barack@obama.com" Foreground="Gray" HorizontalAlignment="Center" FontWeight="DemiBold" Margin="1" FontSize="12" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" />
+                                                    <TextBlock Text="05550877930" Foreground="Gray" HorizontalAlignment="Center" FontWeight="DemiBold" Margin="1" FontSize="12" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" />
+
+                                                </StackPanel>
+                                                <Button 
+                                                      Style="{StaticResource MaterialDesignFlatButton}"
+                                                      Command="{x:Static materialDesign:Flipper.FlipCommand}"
+                                                      Margin="0 2 0 0"
+                                                      Content="EDIT" />
+
+                                            </StackPanel>
+                                        </Grid>
+                                    </materialDesign:Flipper.FrontContent>
+
+                                    <materialDesign:Flipper.BackContent>
+                                        <Grid
+                                            Height="290" Width="175">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition
+                                                 Height="Auto" />
+                                                <RowDefinition
+                                             Height="*" />
+                                            </Grid.RowDefinitions>
+                                            <materialDesign:ColorZone
+                                          Mode="PrimaryMid"
+                                              Padding="6">
+                                                <StackPanel
+                                                 Orientation="Horizontal">
+                                                    <Button
+                                        Style="{StaticResource MaterialDesignToolForegroundButton}"
+                                        Command="{x:Static materialDesign:Flipper.FlipCommand}"
+                                        HorizontalAlignment="Left">
+                                                        <materialDesign:PackIcon
+                                          Kind="ArrowLeft"
+                                          HorizontalAlignment="Right" />
+                                                    </Button>
+                                                    <TextBlock
+                                        Margin="8 0 0 0"
+                                        VerticalAlignment="Center"
+                                        Text="EDIT USER" />
+                                                </StackPanel>
+                                            </materialDesign:ColorZone>
+                                            <Grid
+                                    Grid.Row="1"
+                                    Margin="0 6 0 0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Top"
+                                    Width="172">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                </Grid.RowDefinitions>
+                                                <TextBox
+                                      materialDesign:HintAssist.Hint="Name"
+                                      materialDesign:HintAssist.IsFloating="True"
+                                      Margin="0 12 0 0"
+                                      Text="Manager 2" />
+                                                <TextBox
+                                      Grid.Row="1"
+                                      materialDesign:HintAssist.Hint="Email"
+                                      materialDesign:HintAssist.IsFloating="True"
+                                      Margin="0 12 0 0"
+                                      Text="madahzadeh18@gmail.com" />
+                                                <TextBox
+                                      Grid.Row="2"
+                                      materialDesign:HintAssist.Hint="Phone"
+                                      materialDesign:HintAssist.IsFloating="True"
+                                      Margin="0 12 0 0"
+                                      Text="05550877930" />
+                                                <StackPanel
+                                      Grid.Row="3"
+                                      Orientation="Horizontal"
+                                      Margin="0 12 0 0"
+                                      HorizontalAlignment="Right">
+                                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        Text="Assign" />
+                                                    <ToggleButton
+                                        Margin="8 0 0 0" />
+                                                </StackPanel>
+                                                <StackPanel
+                                      Grid.Row="4"
+                                      Orientation="Horizontal"
+                                      Margin="0 12 0 0"
+                                      HorizontalAlignment="Right">
+                                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        Text="DeActivate" />
+                                                    <ToggleButton
+                                        Margin="8 0 0 0" />
+                                                </StackPanel>
+                                            </Grid>
+                                        </Grid>
+                                    </materialDesign:Flipper.BackContent>
+
+                                </materialDesign:Flipper>
+                            </StackPanel>
+                        </ListBoxItem>
+
+                    </ListBox>
+
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Margin="80 0 0 0" Orientation="Vertical">
+                            <StackPanel Margin="0 5 0 10" Orientation="Horizontal">
+                                <Label Content="categorie" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header1}" VerticalAlignment="Center" Width="110" Margin="0 0 2 0"   />
+                                <ComboBox VerticalAlignment="Center" x:Name="TbAssetCondation"
+                                        FontWeight="Normal"
+                                        Width="140"
+                                        Margin="0 0 0 0"
+                                        Padding="15"
+                                        materialDesign:HintAssist.HelperTextFontSize="5"
+                                        Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                            
+                                        HorizontalAlignment="Left"
+                                        IsEditable="True"
+                                        MaxWidth="400"
+                                        
+                                        materialDesign:HintAssist.Hint="type of supply"
+                                        Foreground="#000009"
+                                        HorizontalContentAlignment="Center"
+                                        BorderBrush="#0DCAF2"
+                                        FontFamily="Roboto"
+                                        FontSize="12px">
+                                    <ComboBoxItem Content="supply type 1" IsSelected="True"  ></ComboBoxItem>
+                                    <ComboBoxItem Content="supply type 2"  ></ComboBoxItem>
+                                    <ComboBoxItem Content="supply type electronics"  ></ComboBoxItem>
+                                    <ComboBoxItem Content="supply type 4"  ></ComboBoxItem>
+                                </ComboBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Width="110"  Content="Item code" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header1}" Margin="0 10 0 5"  />
+                                <Label HorizontalContentAlignment="Center" HorizontalAlignment="Center" Width="100"  Content="2354"  FontWeight="Medium" Foreground="#0DCAF2" Style="{StaticResource Header1}" Margin="0 10 0 5"  />
+                            </StackPanel>
+                        </StackPanel>
+
+                        <StackPanel Margin="50 -365 0 17" >
+                            <ComboBox VerticalAlignment="Center" 
+                                        FontWeight="Normal"
+                                        Width="289"
+                                        Margin="0 10 0 0"
+                                        Padding="8"
+                                        materialDesign:HintAssist.HelperTextFontSize="5"
+                                        Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                            
+                                        HorizontalAlignment="Left"
+                                        IsEditable="True"
+                                        MaxWidth="400"
+                                        
+                                        materialDesign:HintAssist.Hint="Inventory"
+                                        Foreground="#000009"
+                                        HorizontalContentAlignment="Center"
+                                        BorderBrush="#0DCAF2"
+                                        FontFamily="Roboto"
+                                        FontSize="12px">
+                                <ComboBoxItem Content="Inventory for Distribution" IsSelected="True"  ></ComboBoxItem>
+                                <ComboBoxItem Content="Inventory for Sell"  ></ComboBoxItem>
+                                <ComboBoxItem Content="Inventory for Consumption"  ></ComboBoxItem>
+                                <ComboBoxItem Content="Inventory for Manufacturing"  ></ComboBoxItem>
+                            </ComboBox>
+                            <TextBox DockPanel.Dock="Left" Margin="0 5 10 12"
+                                             Height="40"
+                                             Width="290"
+                                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                        VerticalAlignment="Top"
+                                       VerticalContentAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                             Padding="10"
+                                        MaxLength="20"
+                                        AcceptsReturn="True"
+                                        AcceptsTab="True"
+                                        VerticalScrollBarVisibility="Auto"
+                                        materialDesign:HintAssist.Hint="Enter Program's Name" />
+
+                            <TextBox DockPanel.Dock="Left" Margin="0 5 10 0"
+                                             Height="80"
+                                             Width="290"
+                                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                        VerticalAlignment="Top"
+                                      
+                                       HorizontalAlignment="Right"
+                                             
+                                        MaxLength="120"
+                                        AcceptsReturn="True"
+                                        AcceptsTab="True"
+                                        VerticalScrollBarVisibility="Auto"
+                                        materialDesign:HintAssist.Hint="Enter Program's Description" />
+                            <ComboBox VerticalAlignment="Center" 
+                                        FontWeight="Normal"
+                                        Width="289"
+                                        Margin="0 5 0 0"
+                                        Padding="8"
+                                        materialDesign:HintAssist.HelperTextFontSize="5"
+                                        Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                            
+                                        HorizontalAlignment="Left"
+                                        IsEditable="True"
+                                        MaxWidth="400"
+                                        
+                                        materialDesign:HintAssist.Hint="Location of Supply"
+                                        Foreground="#000009"
+                                        HorizontalContentAlignment="Center"
+                                        BorderBrush="#0DCAF2"
+                                        FontFamily="Roboto"
+                                        FontSize="12px">
+                                <ComboBoxItem Content="Location of Supply1" IsSelected="True"  ></ComboBoxItem>
+                                <ComboBoxItem Content="Location of Supply2"  ></ComboBoxItem>
+                    
+                            </ComboBox>
+
+
+
+
+                        </StackPanel>
+
                     </StackPanel>
+
+                </StackPanel>
+            </TabItem>
+
+            <TabItem FontSize="14" Foreground="#979797" Background="White"   Style="{StaticResource TabItemStyle}" Margin="1 0 -4 0" Header="Notes"  FontWeight="Bold">
+                <StackPanel Margin="15">
+
+                    <TextBox Margin="0 20 0 0"
+                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                        VerticalAlignment="Top"
+                        Height="150"
+                      
+                        MaxLength="120"
+                        AcceptsReturn="True"
+                        AcceptsTab="True"
+                        VerticalScrollBarVisibility="Auto"
+                        materialDesign:HintAssist.Hint="Enter notes" />
+                </StackPanel>
+            </TabItem>
+
+            <TabItem FontSize="14" Foreground="#979797" Background="White"   Style="{StaticResource TabItemStyle}" Margin="1 0 -4 0" Header="History"  FontWeight="Bold">
+                <StackPanel>
+                    <Label  Content="Related Documents" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header1}" Margin="0 10 0 5"  />
+
+                    <ListView   Style="{StaticResource Header2}" Name="LVAssetHistory" Height="505"  BorderThickness="2" BorderBrush="#0DCAF2" >
+                        <ListViewItem  Margin="1"  BorderThickness="1" BorderBrush="#0DCAF2" >
+                            <StackPanel Orientation="Horizontal">
+                                <Label Style="{StaticResource Header2}" Margin="0 0 15 0" Content="7/28/2022 3:20:03"></Label>
+                                <Label Style="{StaticResource Header2}" Content="Dr.Alex requested item"></Label>
+                            </StackPanel>
+                        </ListViewItem>
+
+                        <ListViewItem  Margin="1"  BorderThickness="1" BorderBrush="#0DCAF2" >
+                            <StackPanel Orientation="Horizontal">
+                                <Label Style="{StaticResource Header2}" Margin="0 0 15 0" Content="7/28/2022 3:20:03"></Label>
+                                <Label Style="{StaticResource Header2}" Content="Accounting M. Approved"></Label>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem  Margin="1"  BorderThickness="1" BorderBrush="#0DCAF2" >
+                            <StackPanel Orientation="Horizontal">
+                                <Label Style="{StaticResource Header2}" Margin="0 0 15 0" Content="7/28/2022 3:20:03"></Label>
+                                <Label Style="{StaticResource Header2}" Content="Director Barack Approved, PO linked"></Label>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem  Margin="1"  BorderThickness="1" BorderBrush="#0DCAF2" >
+                            <StackPanel Orientation="Horizontal">
+                                <Label Style="{StaticResource Header2}" Margin="0 0 15 0" Content="7/28/2022 3:20:03"></Label>
+                                <Label Style="{StaticResource Header2}" Content="Supply manager declared that is Vendor Dead"></Label>
+                            </StackPanel>
+                        </ListViewItem>
+
+
+                    </ListView>
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal">
-                    <StackPanel Margin="102 0 0 0" Orientation="Vertical"  HorizontalAlignment="Left" >
-                        <Label Foreground="Gray" Style="{StaticResource Header3}" Content="Serial code for printing" HorizontalAlignment="Left" VerticalAlignment="Top" MaxWidth="130"/>
-                        <Image x:Name="QRcodeImage" Source="/UIassets/image 15.png" HorizontalAlignment="Left"  Width="110" Height="95"/>
+            </TabItem>
 
-                    </StackPanel>
-                    <StackPanel Margin="0 30 0 0">
-                        <materialDesign:PackIcon Height="27"  Width="27" Kind="ContentSave" Margin="2 0 0 0" MouseDown="QRSaveAspicBtn">
-                            <materialDesign:PackIcon.Foreground>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#0DCAF2" Offset="0"/>
-                                </LinearGradientBrush>
-                            </materialDesign:PackIcon.Foreground>
-                        </materialDesign:PackIcon>
+        </TabControl>
 
-                        <materialDesign:PackIcon Height="27"  Width="27" Kind="Whatsapp" Margin="2 6 0 0" MouseDown="QRwhatsappBtn">
-                            <materialDesign:PackIcon.Foreground>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#0DCAF2" Offset="0"/>
-                                </LinearGradientBrush>
-                            </materialDesign:PackIcon.Foreground>
-                        </materialDesign:PackIcon>
-                        <materialDesign:PackIcon Height="27"  Width="27" Kind="Barcode" Margin="2 6 0 0" MouseDown="PrintQRcodeBTn">
-                            <materialDesign:PackIcon.Foreground>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#0DCAF2" Offset="0"/>
-                                </LinearGradientBrush>
-                            </materialDesign:PackIcon.Foreground>
-                        </materialDesign:PackIcon>
-                    </StackPanel>
-                </StackPanel>
+    </StackPanel>
 
-            </StackPanel>
-        </Grid>
-    </Grid>
 </UserControl>

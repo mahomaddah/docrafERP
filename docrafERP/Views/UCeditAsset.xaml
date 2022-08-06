@@ -290,7 +290,7 @@
                                         <TextBox VerticalAlignment="Center" Name="TBManufacturer"
                                         FontWeight="Normal"
                                         Width="160"
-                                        materialDesign:TextFieldAssist.PrefixText="₱"
+                                   
                                         
                                         Margin="10 0 0 0"
                                         Style="{StaticResource MaterialDesignFilledTextBox}"
