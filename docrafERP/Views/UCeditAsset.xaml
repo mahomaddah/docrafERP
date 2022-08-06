@@ -527,7 +527,7 @@
                 <TabItem FontSize="14" Foreground="#979797" Background="White"   Style="{StaticResource TabItemStyle}" Margin="1 0 -4 0" Header="Custodian Details"  FontWeight="Bold">
                     <StackPanel>
                         <Label  Content="Checked Out To" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header1}" Margin="0 10 0 5"  />
-                        <ListBox  Background="Transparent" Margin="-420 0 0 5" Style="{x:Null}" Width="300"   Height="355" BorderThickness="2" BorderBrush="{StaticResource PrimaryHueDarkBrush}" >
+                        <ListBox Style="{StaticResource MaterialDesignFilterChipPrimaryOutlineListBox}"  Background="Transparent" Margin="-420 0 0 5"  Width="300"   Height="355" BorderThickness="2" BorderBrush="{StaticResource PrimaryHueDarkBrush}" >
                             <ListBoxItem Background="Transparent" Style="{x:Null}" BorderThickness="1" BorderBrush="{StaticResource PrimaryHueDarkBrush}" Margin="10" >
                                 <StackPanel >
                                     
@@ -663,7 +663,7 @@
                                       HorizontalAlignment="Right">
                                                         <TextBlock
                                         VerticalAlignment="Center"
-                                        Text="Assing" />
+                                        Text="Assign" />
                                                         <ToggleButton
                                         Margin="8 0 0 0" />
                                                     </StackPanel>
@@ -820,7 +820,7 @@
                                       HorizontalAlignment="Right">
                                                         <TextBlock
                                         VerticalAlignment="Center"
-                                        Text="Assing" />
+                                        Text="Assign" />
                                                         <ToggleButton
                                         Margin="8 0 0 0" />
                                                     </StackPanel>
@@ -977,7 +977,7 @@
                                       HorizontalAlignment="Right">
                                                         <TextBlock
                                         VerticalAlignment="Center"
-                                        Text="Assing" />
+                                        Text="Assign" />
                                                         <ToggleButton
                                         Margin="8 0 0 0" />
                                                     </StackPanel>

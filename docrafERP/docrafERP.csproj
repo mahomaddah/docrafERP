@@ -127,6 +127,9 @@
     <Compile Include="Views\UCmanageSupplies.xaml.cs">
       <DependentUpon>UCmanageSupplies.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UCPersonnel.xaml.cs">
+      <DependentUpon>UCPersonnel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UCpurchaseRequests.xaml.cs">
       <DependentUpon>UCpurchaseRequests.xaml</DependentUpon>
     </Compile>
@@ -167,6 +170,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UCmanageSupplies.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UCPersonnel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -178,6 +178,7 @@ namespace docrafERP
             settingsUC.Visibility = Visibility.Hidden;
             purchaseRequestsUC.Visibility = Visibility.Hidden;
             issueDocumentsUC.Visibility = Visibility.Hidden;
+            managePersonnelUC.Visibility = Visibility.Hidden;
 
             //visible clicked one ( in dashboard one onley (5 UC for now ))
 
@@ -191,6 +192,7 @@ namespace docrafERP
                 case "Issue Documents": { issueDocumentsUC.Visibility = Visibility.Visible; break; }
                 case "Edit Asset": { editAssetUC.Visibility = Visibility.Visible; break; }
                 case "Edit Supply": { editSupplyUC.Visibility = Visibility.Visible; break; }
+                case "Manage Personnel": { managePersonnelUC.Visibility = Visibility.Visible; break; }
 
             }
         }
@@ -220,9 +222,13 @@ namespace docrafERP
             bringTheUC("Settings");
         }
 
+        private void personelsPanelClicked(object sender, MouseButtonEventArgs e)
+        {
+            bringTheUC("Manage Personnel");
+        }
 
         #endregion
 
-     
+
     }
 }

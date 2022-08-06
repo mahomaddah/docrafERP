@@ -98,7 +98,25 @@ namespace docrafERP.Views
             SingletoneHomeView.Instance.homeView.bringTheUC("Edit Supply");
         }
 
-       
+        private void AddNewTreeItem(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (InventoryTree.SelectedItem!=null)
+                ((TreeViewItem)InventoryTree.SelectedItem).Items.Add("new node");
+            }
+            catch
+            {
 
+            }
+           
+        }
+
+        private void DeleteTreeItem(object sender, RoutedEventArgs e)
+        {
+  
+            if (InventoryTree.SelectedItem!=null)
+                InventoryTree.Items.Remove((TreeViewItem)InventoryTree.SelectedItem);
+        }
     }
 }

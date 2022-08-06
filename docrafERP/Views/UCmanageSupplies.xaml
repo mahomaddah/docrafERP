@@ -7,13 +7,26 @@
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"  
              d:DesignHeight="550" d:DesignWidth="800" Loaded="UserControl_Loaded" IsVisibleChanged="UserControl_IsVisibleChanged">
+           
+            <UserControl.Resources>
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml"/>
+                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.PopupBox.xaml"/>
+                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml"/>
+                        <!-- throw in some extra colour for our floating action button -->
+                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/MaterialDesignColor.Green.Named.Primary.xaml"/>
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
+            </UserControl.Resources>
+
     <Grid>
         <StackPanel>
             <Line Stretch="Fill" Margin="0 4 0 0" Stroke="DarkGray" X2="1" Width="800" />
             <StackPanel Orientation="Horizontal" Margin="3 0 0 0">
-                <StackPanel Width="270" Margin="-17 40 10 0">
+                <StackPanel Width="270" Margin="-30 5 10 0">
 
-                    <TreeView Margin="0 1 2 0" Height="400" Width="240">
+                    <TreeView IsManipulationEnabled="True" Name="InventoryTree"  Margin="0 1 2 0" Height="auto" MinHeight="250" MaxHeight="450" Width="240">
                         <materialDesign:TreeViewAssist.AdditionalTemplate>
                             <DataTemplate>
                                 <materialDesign:ColorZone
@@ -27,7 +40,7 @@
                                   Margin="8 1 8 1"
                                   
                                   FontStyle="Italic"
-                                  Text="4 inventory and 8 programs" Background="#FF07AEFF" />
+                                  Text="4 inventory and 8 programs"  />
                                 </materialDesign:ColorZone>
                             </DataTemplate>
 
@@ -37,7 +50,6 @@
 
                             <TreeViewItem FontSize="12" FontWeight="SemiBold" Header="Inventory for Distribution" BorderBrush="#FF07AEFF" BorderThickness="1">
                                 <TreeViewItem
-                                  
                                       Header="Program 1"
                                       materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
                                 <TreeViewItem
@@ -74,8 +86,44 @@
 
                         </TreeViewItem>
                     </TreeView>
+
+                    <materialDesign:PopupBox
+  
+                        Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
+                        PlacementMode="LeftAndAlignMiddles"
+                        UnfurlOrientation="Horizontal"
+                        ToolTip="Manage items"
+                        Margin="0 0 10 10"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"> 
+                                        <StackPanel
+                      Orientation="Horizontal">
+                                            <Button
+                                               Click="AddNewTreeItem"
+                        ToolTip="Add an item"
+                        Command="{Binding AddCommand}">
+                                                <Path
+                          Data="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"
+                          Stretch="Uniform"
+                          Width="15"
+                          Height="15"
+                          Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" />
+                                            </Button>
+                                            <Button
+                        ToolTip="Remove selected item"
+                        Command="{Binding RemoveSelectedItemCommand}" Click="DeleteTreeItem">
+                                                <Path
+                          Data="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z"
+                          Stretch="Uniform"
+                          Width="15"
+                          Height="15"
+                          Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" />
+                                            </Button>
+                        </StackPanel>
+                    </materialDesign:PopupBox>
                 </StackPanel>
-                <StackPanel>
+                
+                <StackPanel Height="543" Width="545">
                     <StackPanel Margin="0 5 0 10" Orientation="Horizontal">
                         <materialDesign:PackIcon Height="23" Width="23"  Margin="0 0 5 0" Kind="ArchiveCheckOutline" Foreground="#00CE46"/>
                         <Label  Content="Ready to use" Style="{StaticResource Header2}" FontFamily="Roboto" Foreground="#00CE46"></Label>

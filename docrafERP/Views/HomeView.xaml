@@ -5,12 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:docrafERP"
         mc:Ignorable="d"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:views="clr-namespace:docrafERP.Views"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:views="clr-namespace:docrafERP.Views"
         ResizeMode="NoResize"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         Icon="/UIassets/Erpicon.ico"
         Title="MainWindow"  Height="701" Width="1152">
+    
     <Grid>
         <Grid.ColumnDefinitions>
             
@@ -55,6 +57,7 @@
             <views:UCmanageSupplies x:Name="manageSuppliesUC" Visibility="Hidden" />
             <views:UCeditAsset x:Name="editAssetUC" Visibility="Hidden" />
             <views:UCeditSupply x:Name="editSupplyUC" Visibility="Hidden" />
+            <views:UCPersonnel x:Name="managePersonnelUC" Visibility="Hidden"/>
             <views:UCSettings x:Name="settingsUC" Visibility="Hidden" />
             <views:UCissueDocuments x:Name="issueDocumentsUC" Visibility="Hidden" />
             <views:UCpurchaseRequests x:Name="purchaseRequestsUC" Visibility="Hidden" />
@@ -128,6 +131,16 @@
                         </materialDesign:PackIcon.Foreground>
                     </materialDesign:PackIcon>
                     <Label Margin="2 0 0 0"  Content="Issue Documents" FontSize="14px"  FontFamily="Roboto" ></Label>
+                </StackPanel>
+                <StackPanel x:Name="btn6"  Orientation="Horizontal" Margin="0 0 0 10"  MouseDown="personelsPanelClicked">
+                    <materialDesign:PackIcon Height="22"  Width="18" Kind="AccountAdd" >
+                        <materialDesign:PackIcon.Foreground>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#07AEFF" Offset="0"/>
+                            </LinearGradientBrush>
+                        </materialDesign:PackIcon.Foreground>
+                    </materialDesign:PackIcon>
+                    <Label Margin="2 0 0 0"  Content="Manage Personnel" FontSize="14px"  FontFamily="Roboto" ></Label>
                 </StackPanel>
                 <StackPanel x:Name="btn5"  Orientation="Horizontal" Margin="0 0 0 10"  MouseDown="settingsPanelClicked">
                     <materialDesign:PackIcon Height="22"  Width="18" Kind="Settings" >
