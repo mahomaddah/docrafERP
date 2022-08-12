@@ -39,7 +39,6 @@
                                             <ListViewItem Content="Warrant.pdf" Margin="1" BorderThickness="1" BorderBrush="#0DCAF2" />
 
 
-
                                         </ListView>
                                         <StackPanel Orientation="Horizontal" Margin="0,0,-9,0" >
                                             <materialDesign:PackIcon Height="27"  Width="27" Kind="FileDocumentAdd" Margin="2 6 0 0" MouseDown="AddDocBtn">

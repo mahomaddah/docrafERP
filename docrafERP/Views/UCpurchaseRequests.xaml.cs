@@ -66,39 +66,61 @@ namespace docrafERP.Views
 
         }
 
+        private void NewAssetPR(object sender, RoutedEventArgs e)
+        {
+            //assets edit panel    
+            SingletoneHomeView.Instance.homeView.editAssetUC.EditingAsset = new Asset { Status = "Requested" };
+            SingletoneHomeView.Instance.homeView.editAssetUC.ComeForAdding = true;
+            SingletoneHomeView.Instance.homeView.bringTheUC("Edit Asset");
+            var PR = new PurchaseRequest { IsApproved = false, IssuedDate = DateTime.Now.ToString(), ProductName = SingletoneHomeView.Instance.homeView.CurrentUser.Name };
+            new DataAccessLayer.DataService().InsertPurchaseRequest(PR);
+            SingletoneHomeView.Instance.homeView.PurchaseRequests.Add(PR);
+            RefreshAssetsListViewFromList();
+        }
+
+        private void NewSuppPR(object sender, RoutedEventArgs e)
+        {
+            //supply edit panel
+
+            SingletoneHomeView.Instance.homeView.editSupplyUC.EditingSupply = new Supply { StockStatus = "Requested" };
+            SingletoneHomeView.Instance.homeView.editSupplyUC.ComeForAdding = true;
+            SingletoneHomeView.Instance.homeView.bringTheUC("Edit Supply");
+
+            var PR = new PurchaseRequest { IsApproved = false, IssuedDate = DateTime.Now.ToString(), ProductName = SingletoneHomeView.Instance.homeView.CurrentUser.Name };
+            new DataAccessLayer.DataService().InsertPurchaseRequest(PR);
+            SingletoneHomeView.Instance.homeView.PurchaseRequests.Add(PR);
+            RefreshAssetsListViewFromList();
+        }
+
         private void Add_click(object sender, RoutedEventArgs e)
         {
-        
-            
-                var dialog = MessageBox.Show("Do you want to Request new Assets or supplies? \nnote: Yes: Assets \nNo: Supplies", "New Request?", MessageBoxButton.YesNoCancel);
-            if (dialog == MessageBoxResult.Yes)
-            {
-                //assets edit panel    
-                SingletoneHomeView.Instance.homeView.editAssetUC.EditingAsset = new Asset { Status = "Requested" };
-                SingletoneHomeView.Instance.homeView.editAssetUC.ComeForAdding = true;
-                SingletoneHomeView.Instance.homeView.bringTheUC("Edit Asset");
-                var PR = new PurchaseRequest { IsApproved = false, IssuedDate = DateTime.Now.ToString(), ProductName = SingletoneHomeView.Instance.homeView.CurrentUser.Name };
-                new DataAccessLayer.DataService().InsertPurchaseRequest(PR);
-                SingletoneHomeView.Instance.homeView.PurchaseRequests.Add(PR);
-                RefreshAssetsListViewFromList();
-            }
 
+            //    var dialog = MessageBox.Show("Do you want to Request new Assets or supplies? \nnote: Yes: Assets \nNo: Supplies", "New Request?", MessageBoxButton.YesNoCancel);
+            //if (dialog == MessageBoxResult.Yes)
+            //{
+            //    //assets edit panel    
+            //    SingletoneHomeView.Instance.homeView.editAssetUC.EditingAsset = new Asset { Status = "Requested" };
+            //    SingletoneHomeView.Instance.homeView.editAssetUC.ComeForAdding = true;
+            //    SingletoneHomeView.Instance.homeView.bringTheUC("Edit Asset");
+            //    var PR = new PurchaseRequest { IsApproved = false, IssuedDate = DateTime.Now.ToString(), ProductName = SingletoneHomeView.Instance.homeView.CurrentUser.Name };
+            //    new DataAccessLayer.DataService().InsertPurchaseRequest(PR);
+            //    SingletoneHomeView.Instance.homeView.PurchaseRequests.Add(PR);
+            //    RefreshAssetsListViewFromList();
+            //}
+            //else if (dialog == MessageBoxResult.No)
+            //{
+            //    //supply edit panel
 
+            //    SingletoneHomeView.Instance.homeView.editSupplyUC.EditingSupply = new Supply { StockStatus = "Requested" };
+            //    SingletoneHomeView.Instance.homeView.editSupplyUC.ComeForAdding = true;
+            //    SingletoneHomeView.Instance.homeView.bringTheUC("Edit Supply");
 
-            else if (dialog == MessageBoxResult.No)
-            {
-                //supply edit panel
+            //    var PR = new PurchaseRequest { IsApproved = false, IssuedDate = DateTime.Now.ToString(), ProductName = SingletoneHomeView.Instance.homeView.CurrentUser.Name };
+            //    new DataAccessLayer.DataService().InsertPurchaseRequest(PR);
+            //    SingletoneHomeView.Instance.homeView.PurchaseRequests.Add(PR);
+            //    RefreshAssetsListViewFromList();
 
-                SingletoneHomeView.Instance.homeView.editSupplyUC.EditingSupply = new Supply { StockStatus = "Requested" };
-                SingletoneHomeView.Instance.homeView.editSupplyUC.ComeForAdding = true;
-                SingletoneHomeView.Instance.homeView.bringTheUC("Edit Supply");
-
-                var PR = new PurchaseRequest { IsApproved = false, IssuedDate = DateTime.Now.ToString(), ProductName = SingletoneHomeView.Instance.homeView.CurrentUser.Name };
-                new DataAccessLayer.DataService().InsertPurchaseRequest(PR);
-                SingletoneHomeView.Instance.homeView.PurchaseRequests.Add(PR);
-                RefreshAssetsListViewFromList();
-
-            }
+            //}
 
         }
 
@@ -130,5 +152,7 @@ namespace docrafERP.Views
         {
             
         }
+
+      
     }
 }
