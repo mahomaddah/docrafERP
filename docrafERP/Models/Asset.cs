@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using docrafERP.Models;
 
 namespace docrafERP.Models
 {
@@ -24,6 +25,7 @@ namespace docrafERP.Models
         public string Barcode { get; set; }
         public int CustodianID { get; set; }
         public string CustodianName { get; set; }
+        public List<AssetMaintenance> AssetMaintenanceLogs { get; set; }
         //private int custodianID;
 
         //public int CustodianID
@@ -41,6 +43,8 @@ namespace docrafERP.Models
         {
             Status = "Available";
             ImagePath = @"/UIassets/image 9.png";
+            AssetMaintenanceLogs = new List<AssetMaintenance>();
         }
+
     }
 }

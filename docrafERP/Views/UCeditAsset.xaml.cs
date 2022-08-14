@@ -20,6 +20,7 @@ using System.IO;
 using MessagingToolkit.QRCode.Codec;
 using docrafERP.Models;
 using System.Drawing.Printing;
+using System.ComponentModel;
 
 namespace docrafERP.Views
 {
@@ -85,7 +86,7 @@ namespace docrafERP.Views
                         } catch { }
                 }
                 //update data from object            
-       
+                refreshMaintanceGV();
                 TbDevice.Text = EditingAsset.Device;
                 TbLocation.Text = EditingAsset.OwnerOrLocation;
                 TbDate.Text = EditingAsset.DateReceived;
@@ -392,6 +393,83 @@ namespace docrafERP.Views
         private void ListViewItem_Selected(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void WarantyOpenFIleDIalogButton(object sender, RoutedEventArgs e)
+        {
+
+            System.Windows.Forms.OpenFileDialog openFile = new System.Windows.Forms.OpenFileDialog();
+
+            openFile.FileName = "Warranty.pdf";
+            
+
+            System.Windows.Forms.DialogResult dialog = openFile.ShowDialog();
+            if (dialog == System.Windows.Forms.DialogResult.OK)
+            {
+                MessageBox.Show("File Succesfully Added to asset documents...");
+                WarantyBTN.Content = "Warranty.pdf";
+                FileInfo fileInfo = new FileInfo(openFile.FileName);
+                LVAssetDocs.Items.Add(fileInfo.Name);
+                //save file info latter....
+
+
+
+                try
+                {
+                    //new DataAccessLayer.DataService().InsertImage(image, new AssetDocument { AdminID = 1, AssetID = EditingAsset.AssetID, DocumentType = "AssetImage", IsImage = true, FileType = ".png", Name = openFile.FileName });
+                    //EditingAsset.ImagePath = openFile.FileName;
+                    //new DataAccessLayer.DataService().UpdateAsset(EditingAsset);
+
+                    //SingletoneHomeView.Instance.homeView.Assets.Remove(SingletoneHomeView.Instance.homeView.Assets.Find(x => x.AssetID == EditingAsset.AssetID));
+                    //SingletoneHomeView.Instance.homeView.Assets.Add(EditingAsset);
+
+                    //SingletoneHomeView.Instance.homeView.manageAssetsUC.RefreshAssetsListViewFromViewModel();
+
+                }
+                catch
+                {
+                    // MessageBox.Show("Could not upload to database...");
+                }
+
+            }
+
+
+
+        }
+
+        public List<AssetMaintenance> TempMaintenances { get; set; }
+
+        public void refreshMaintanceGV()
+        {
+            if (TempMaintenances == null)
+            {
+                TempMaintenances = EditingAsset.AssetMaintenanceLogs;
+            }
+            if (MainTanceDG.ItemsSource!= EditingAsset.AssetMaintenanceLogs)
+            MainTanceDG.ItemsSource = EditingAsset.AssetMaintenanceLogs;
+            ICollectionView view = CollectionViewSource.GetDefaultView(MainTanceDG.ItemsSource);
+            view.Refresh();
+        }
+
+        private void AddNewMaintance(object sender, RoutedEventArgs e)
+        {
+       
+            EditingAsset.AssetMaintenanceLogs.Add(new AssetMaintenance { MaintenanceStatus = "Not Active" });
+            refreshMaintanceGV();
+        }
+
+        private void DeleteMainTance(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (MainTanceDG.SelectedIndex != -1)
+                {
+                    EditingAsset.AssetMaintenanceLogs.Remove((AssetMaintenance)(MainTanceDG.SelectedItem));
+                    refreshMaintanceGV();
+                }
+            }
+            catch { }
+        
         }
     }
 }

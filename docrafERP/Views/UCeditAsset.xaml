@@ -9,6 +9,20 @@
              xmlns:chart="clr-namespace:De.TorstenMandelkow.MetroChart;assembly=De.TorstenMandelkow.MetroChart"
              mc:Ignorable="d" 
              d:DesignHeight="550" d:DesignWidth="800" IsVisibleChanged="UserControl_IsVisibleChanged">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.PopupBox.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml"/>
+                <!-- throw in some extra colour for our floating action button -->
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/MaterialDesignColor.Green.Named.Primary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+
     <Grid>
         <StackPanel Margin="0 -47 0 0">
             <TabControl Style="{StaticResource Header2}"  Background="Transparent" Foreground="#979797" DockPanel.Dock="Left"  FontWeight="Bold"  FontFamily="Roboto"   BorderBrush="{x:Null}" SelectionChanged="TabControl_SelectionChanged">
@@ -522,14 +536,219 @@
                     </Grid>
 
                 </TabItem>
-                <!--Style="{StaticResource MaterialDesignCardFlipper}"-->
+
+                <TabItem FontSize="14" Foreground="#979797" Background="White"   Style="{StaticResource TabItemStyle}" Margin="0,0,-3,0" Header="Maintenance"  FontWeight="Bold">
+                    <StackPanel>
+
+                        <Label  Content="Warranty" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header1}" Margin="0 10 0 5"  />
+
+                        <StackPanel Orientation="Horizontal">
+
+                            <TextBox materialDesign:HintAssist.Hint="Warranty Details..." Padding="10" Width="250" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  VerticalAlignment="Center" />
+
+                            <StackPanel Margin="20 0 0 0" Orientation="Horizontal">
+
+                                <Label Foreground="#0DCAF2" Content="Expiration Date :" FontWeight="Medium" Style="{StaticResource Header3}" VerticalAlignment="Top"  Margin="0 0 0 0"   />
+                                <DatePicker Margin="0 0 0 0" VerticalAlignment="Center" Name="WarantyDateTB"
+                                            
+                                        FontWeight="Normal"                                
+                                        Background="Transparent"
+                                        Style="{StaticResource MaterialDesignOutlinedDatePicker}"
+                                        HorizontalAlignment="Left"
+                                       
+                                        MaxWidth="200"
+                                        MinWidth="135"
+                                        materialDesign:HintAssist.Hint="01.08.2024"
+                                        Foreground="#000009"
+                                        
+                                        BorderBrush="#0DCAF2"
+                                        FontFamily="Roboto"
+                                        FontSize="12px"/>
+                            </StackPanel>
+
+                            <Button
+                              x:Name="WarantyBTN"
+                              Click="WarantyOpenFIleDIalogButton"
+                              Margin="25 2 2 2 "
+                              Style="{StaticResource MaterialDesignOutlinedDarkButton}"
+                              HorizontalContentAlignment="Center"
+                              Width="115"
+                              Content="Browse..."
+                       
+                              Height="49"
+                              IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                             />
+
+                        </StackPanel>
+
+                        <Label  Content="Asset Maintenance" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header1}" Margin="0 30 0 5"  />
+
+                        <ProgressBar Margin="0 2 0 20" Value="23" Height="2" Background="#F1F1F1" Foreground="{StaticResource PrimaryHueLightBrush}" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
+
+                        <DataGrid HorizontalAlignment="Left" Name="MainTanceDG" CanUserAddRows="False" AutoGenerateColumns="False" Background="Transparent" CanUserDeleteRows="True" ItemsSource="{Binding Path = TempMaintenances  ,Mode=TwoWay}" MaxHeight="285"  MinHeight="200" BorderThickness="2" Margin="2 10 2 10"  Width="720" BorderBrush="#0DCAF2" >
+
+                            <DataGrid.ColumnHeaderStyle>
+                               
+                                    <Style
+                                        
+                                         TargetType="{x:Type DataGridColumnHeader}"
+                                         BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+                                    <Setter Property="Width" Value="160">
+                                        
+                                    </Setter>
+                                        <Setter
+                                            Property="HorizontalContentAlignment"
+                                            Value="Center" />
+                                        <Setter Property="FontWeight" Value="SemiBold" />
+                                        <Setter Property="Foreground" Value="#0DCAF2"/>
+                                    <Setter Property="Background" Value="Transparent"></Setter>
+
+                                    </Style>
+                          
+                            </DataGrid.ColumnHeaderStyle>
+                            <DataGrid.CellStyle>
+                                <Style
+                                        
+                                         TargetType="{x:Type DataGridCell}"
+                                         BasedOn="{StaticResource MaterialDesignDataGridCell}">
+                                    <Setter Property="Width" Value="160">
+
+                                    </Setter>
+                                    <Setter
+                                            Property="HorizontalContentAlignment"
+                                            Value="Center" />
+                                    <Setter Property="FontWeight" Value="Light" />
+                                  
+                                    <Setter Property="Background" Value="Transparent"></Setter>
+
+                                </Style>
+                            </DataGrid.CellStyle>
+                            <DataGrid.RowStyle>
+                                <Style
+                                        
+                                         TargetType="{x:Type DataGridRow}"
+                                         BasedOn="{StaticResource MaterialDesignDataGridRow}">
+                           
+                                    <Setter
+                                            Property="HorizontalContentAlignment"
+                                            Value="Center" />
+                                    <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+                                    <Setter Property="FontWeight" Value="Light" />
+                                    <Setter Property="Padding" Value="10"></Setter>
+                                    <Setter Property="Background" Value="Transparent"></Setter>
+
+                                </Style>
+                            </DataGrid.RowStyle>
+                            <DataGrid.Columns >
+                           
+
+                                <DataGridTextColumn 
+                                    Width="160"
+                                    Binding="{Binding Title ,Mode=TwoWay}"
+                                    materialDesign:HintAssist.Hint="enter Title..."
+                                    Header="Title" />
+
+                                <DataGridTemplateColumn Width="160"
+                                    Header="Maintenance Status" >
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel>
+                                                <ComboBox SelectedIndex="0" SelectedItem="{Binding MaintenanceStatus ,Mode=TwoWay}" SelectedValue="Not Active">
+                                                    <ComboBoxItem
+                                                    Content="Not Active" />
+                                                    <ComboBoxItem
+                                                    Content="On Hold" />
+                                                    <ComboBoxItem
+                                                     Content="In progress" />
+                                                    <ComboBoxItem
+                                                     Content="Completed" />
+                                                    <ComboBoxItem
+                                                     Content="Cancelled" />
+                                                </ComboBox>
+
+
+                                            </StackPanel>
+                                        </DataTemplate>
+
+                                    </DataGridTemplateColumn.CellTemplate>
+
+
+
+                                </DataGridTemplateColumn>
+
+                                <DataGridTextColumn      Width="160"
+                                    Binding="{Binding Date ,Mode=TwoWay}"
+                                    Header="Due Date" />
+                                <DataGridTextColumn      Width="160"
+                                    Binding="{Binding Description ,Mode=TwoWay}"
+                                    Header="Description" />
+                                <DataGridTextColumn     Width="160"
+                                    Binding="{Binding MaintenanceBy ,Mode=TwoWay}"
+                                    Header="Maintenance By" />
+                                <DataGridTextColumn      Width="160"
+                                    Binding="{Binding Cost ,Mode=TwoWay}"
+                                    Header="Cost" />
+
+
+                                <DataGridTextColumn
+                                    Width="160"
+                                    
+                                    Binding="{Binding Frequency ,Mode=TwoWay}"
+                                    Header="Frequency day amount" />
+
+
+
+                            </DataGrid.Columns>
+                            
+                        </DataGrid>
+                        <materialDesign:PopupBox
+  
+                        Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
+                        PlacementMode="LeftAndAlignMiddles"
+                        UnfurlOrientation="Horizontal"
+                        ToolTip="Manage items"
+                        Margin="0 0 10 10"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom">
+                            <StackPanel
+                          Orientation="Horizontal">
+                                <Button
+                                      Click="AddNewMaintance"     
+                          ToolTip="Add an item"
+                          Command="{Binding AddCommand}">
+                                    <Path
+                          Data="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"
+                          Stretch="Uniform"
+                          Width="15"
+                          Height="15"
+                          Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" />
+                                </Button>
+                                <Button
+                                    Click="DeleteMainTance"
+                          ToolTip="Remove selected item"
+                          Command="{Binding RemoveSelectedItemCommand}" >
+                                    <Path
+                          Data="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z"
+                          Stretch="Uniform"
+                          Width="15"
+                          Height="15"
+                          Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" />
+                                </Button>
+
+                            </StackPanel>
+                        </materialDesign:PopupBox>
+                    </StackPanel>
+
+                </TabItem>
+
+
                 <TabItem FontSize="14" Foreground="#979797" Background="White"   Style="{StaticResource TabItemStyle}" Margin="1 0 -4 0" Header="Custodian Details"  FontWeight="Bold">
                     <StackPanel>
                         <Label  Content="Checked Out To" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header1}" Margin="0 10 0 5"  />
                         <ListBox Style="{StaticResource MaterialDesignFilterChipPrimaryOutlineListBox}"  Background="Transparent" Margin="-420 0 0 5"  Width="300"   Height="355" BorderThickness="2" BorderBrush="{StaticResource PrimaryHueDarkBrush}" >
                             <ListBoxItem Background="Transparent" Style="{x:Null}" BorderThickness="1" BorderBrush="{StaticResource PrimaryHueDarkBrush}" Margin="10" >
                                 <StackPanel >
-                                    
+
                                     <RadioButton Margin="0 0 0 4"
                                  Foreground="{StaticResource PrimaryHueDarkBrush}"
                                  Style="{StaticResource MaterialDesignUserForegroundRadioButton}"
@@ -538,9 +757,9 @@
                                     <materialDesign:Flipper Margin="30 -15 30 30"
                             
                                         materialDesign:ShadowAssist.ShadowDepth="Depth0">
-                                        
+
                                         <materialDesign:Flipper.FrontContent>
-                                            
+
                                             <Grid Height="290" Width="175">
                                                 <Grid.RowDefinitions>
                                                     <RowDefinition
@@ -560,7 +779,7 @@
                                                         
                                                           VerticalAlignment="Center"
                                                           HorizontalAlignment="Center" >
-                                                        
+
                                                         <materialDesign:PackIcon.Background>
                                                             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
 
@@ -570,9 +789,9 @@
 
                                                             </LinearGradientBrush>
                                                         </materialDesign:PackIcon.Background>
-                                                        
+
                                                     </materialDesign:PackIcon>
-                                                    
+
                                                 </materialDesign:ColorZone>
                                                 <StackPanel x:Name="Contanets"
                                                      Grid.Row="1"
@@ -580,19 +799,19 @@
                                                      HorizontalAlignment="Center"
                                                      VerticalAlignment="Center">
                                                     <StackPanel Orientation="Vertical" >
-                                                        
+
                                                         <TextBlock Text="Barack Obama" Foreground="Gray" HorizontalAlignment="Center" FontWeight="Bold"  FontSize="15" Style="{StaticResource MaterialDesignSubtitle1TextBlock}" />
                                                         <TextBlock Text="supply manager" Foreground="Gray" HorizontalAlignment="Center" FontWeight="DemiBold"  Margin="1" FontSize="12" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" />
                                                         <TextBlock Text="barack@obama.com" Foreground="Gray" HorizontalAlignment="Center" FontWeight="DemiBold" Margin="1" FontSize="12" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" />
                                                         <TextBlock Text="05550877930" Foreground="Gray" HorizontalAlignment="Center" FontWeight="DemiBold" Margin="1" FontSize="12" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" />
 
                                                     </StackPanel>
-                                                   <Button 
+                                                    <Button 
                                                       Style="{StaticResource MaterialDesignFlatButton}"
                                                       Command="{x:Static materialDesign:Flipper.FlipCommand}"
                                                       Margin="0 2 0 0"
                                                       Content="EDIT" />
-                                                    
+
                                                 </StackPanel>
                                             </Grid>
                                         </materialDesign:Flipper.FrontContent>
@@ -1075,7 +1294,7 @@
                     </StackPanel>
                 </TabItem>
 
-                <TabItem FontSize="14" Foreground="#979797" Background="White"   Style="{StaticResource TabItemStyle}" Margin="1 0 -4 0" Header="History"  FontWeight="Bold">
+                <TabItem FontSize="14" Foreground="#979797" Background="White"   Style="{StaticResource TabItemStyle}" Margin="0,0,-3,0" Header="History"  FontWeight="Bold">
                     <StackPanel>
                         <Label  Content="Related Documents" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header1}" Margin="0 10 0 5"  />
 
@@ -1111,6 +1330,7 @@
                     </StackPanel>
 
                 </TabItem>
+
 
             </TabControl>
 

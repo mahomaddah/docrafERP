@@ -117,7 +117,7 @@ namespace docrafERP
                 case "supply manager manager":
                     {
                         // cant aprove pr 
-                        MessageBox.Show("Welcome Supply Manager " + CurrentUser.Name + "...");
+                    //    MessageBox.Show("Welcome Supply Manager " + CurrentUser.Name + "...");
 
                         break;
                     }

@@ -99,6 +99,7 @@
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Asset.cs" />
     <Compile Include="Models\AssetDocument.cs" />
+    <Compile Include="Models\AssetMaintenance.cs" />
     <Compile Include="Models\ImageModel.cs" />
     <Compile Include="Models\Personel.cs" />
     <Compile Include="Models\ProductTypeCodes.cs" />

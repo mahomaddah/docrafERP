@@ -285,6 +285,7 @@
               AutoGenerateColumns="False"
               ColumnHeaderHeight="60"
               BorderThickness="0.8"
+                
               Margin="0 2 -15 8"
               BorderBrush="#0DCAF2"
               HeadersVisibility="All">
@@ -347,7 +348,7 @@
                     <materialDesign:DataGridComboBoxColumn
                       Header="Location"
                       IsEditable="True"
-                    
+                      
                       SelectedValueBinding="{Binding OwnerOrLocation}"
                       ItemsSourceBinding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.Locations}">
                         <!--Setting the editing element style allows access to all of the combo box's properties
