@@ -129,7 +129,7 @@
                                      Width="18"
                                      Height="18"
                                      Foreground="{StaticResource PrimaryHueMidBrush}"
-                                     Kind="Dollar"
+                                     Kind="Money"
                                     
                                     />
                             </materialDesign:Badged>
@@ -183,15 +183,68 @@
 
                     <ListBoxItem
                          x:Name="FilterStatusisDirectorApproved"
-                        Content="Status is Director Approved" />
+                        
+                        
+
+                    >
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:Badged>
+                                <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="AccountTieHat"
+                                    
+                                    />
+                            </materialDesign:Badged>
+                            <TextBlock Text="Status is Director Approved" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                        </StackPanel>
+                    </ListBoxItem>
 
                     <ListBoxItem
-                         x:Name="FilterPriceislessthan1000"
-                        Content="Price is less than $1000" />
+                         x:Name="FilterPriceislessthan1000us"
+                        >
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:Badged>
+                                <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="Money100"
+                                    
+                                    />
+                            </materialDesign:Badged>
+                            <TextBlock Text="Price is less than ₱50,000" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                        </StackPanel>
+
+                    </ListBoxItem>
 
                     <ListBoxItem
                          x:Name="FilterStatusisAccountingApproved"
-                        Content="Status is Accounting Approved" />
+                      >
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:Badged>
+                                <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="AccountCash"
+                                    
+                                    />
+                            </materialDesign:Badged>
+                            <TextBlock Text="Status is Accounting Approved" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                        </StackPanel>
+
+                    </ListBoxItem>
 
 
 
@@ -219,7 +272,23 @@
 
                     <ListBoxItem
                          x:Name="FilterBrand"
-                        Content="Brand"  IsSelected="True"/>
+                       IsSelected="True">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:Badged>
+                                <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="ShoppingOutline"
+                                    
+                                    />
+                            </materialDesign:Badged>
+                            <TextBlock Text="Brand" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                        </StackPanel>
+                    </ListBoxItem>
 
 
                     <ListBoxItem
@@ -246,24 +315,104 @@
                     <ListBoxItem
                          x:Name="FilterVendor"
                         IsEnabled="False"
-                        Content="Vendor" />
+                       >
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:Badged>
+                                <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="StoreCheckOutline"
+                                    
+                                    />
+                            </materialDesign:Badged>
+                            <TextBlock Text="Vendor" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                        </StackPanel>
+                    </ListBoxItem>
 
                     <ListBoxItem
                          x:Name="FilterStatusisRequested"
-                        Content="Status is Requested" />
+                      >
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:Badged>
+                                <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="AccountQuestionOutline"
+                                    
+                                    />
+                            </materialDesign:Badged>
+                            <TextBlock Text="Status is Requested" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                        </StackPanel>
+                    </ListBoxItem>
 
 
                     <ListBoxItem
                          x:Name="FilterStatusisOrdered"
-                        Content="Status is Ordered" />
+                        >
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:Badged>
+                                <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="AccountTieVoice"
+                                    
+                                    />
+                            </materialDesign:Badged>
+                            <TextBlock Text="Status is Ordered" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                        </StackPanel>
+                    </ListBoxItem>
 
                     <ListBoxItem
                          x:Name="FilterStatusisAcceptingbySM"
-                        Content="Status is Accepting by SM" />
+                        >
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:Badged>
+                                <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="AccountDetailsOutline"
+                                    
+                                    />
+                            </materialDesign:Badged>
+                            <TextBlock Text="Status is Accepting by SM" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                        </StackPanel>
+                    </ListBoxItem>
 
                     <ListBoxItem
                          x:Name="Filterthismonth"
-                        Content="this month" />
+                        >
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:Badged>
+                                <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="CalendarMonthOutline"
+                                    
+                                    />
+                            </materialDesign:Badged>
+                            <TextBlock Text="this month" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                        </StackPanel>
+                    </ListBoxItem>
 
 
                 </ListBox>
