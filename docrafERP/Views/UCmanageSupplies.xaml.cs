@@ -118,5 +118,35 @@ namespace docrafERP.Views
             if (InventoryTree.SelectedItem!=null)
                 InventoryTree.Items.Remove((TreeViewItem)InventoryTree.SelectedItem);
         }
+
+        private void SearchBarTB_MouseLeave(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void SearchBarTB_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void SearchBarTB_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+
+        }
+
+        private void SupplyPirntBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            List<string> HeadersToSkip = new List<string> { "StockStatus" , "ImagePath" , "SupplyID" , "RemarksJson" , "PurchaseRequetID" , "DocumentsFolderPath" ,"" };
+
+            if (HeadersToSkip.Contains( e.Column.Header.ToString()))
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }

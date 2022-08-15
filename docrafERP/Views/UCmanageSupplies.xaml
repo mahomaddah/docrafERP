@@ -21,7 +21,699 @@
             </UserControl.Resources>
 
     <Grid>
-        <StackPanel>
+
+        <Grid Margin="-6 0 0 0">
+
+            <StackPanel>
+                
+                <DockPanel Name="SearchBarSup" Margin="0 -160 70 0">
+                    <Grid HorizontalAlignment="Right" >
+                        <ComboBox Name="SupSearchBarTB"
+
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                        materialDesign:HintAssist.Hint="Search..."
+                        materialDesign:HintAssist.HelperText="Note: Use the Search field in finding by Barcode scanner or RFID reader..."
+                        materialDesign:TextFieldAssist.HasClearButton="True"
+                        materialDesign:HintAssist.HelperTextFontSize="8.3"                       
+                        IsDropDownOpen="False"
+                        MaxDropDownHeight="0"
+                        IsEditable="True"
+                        Foreground="White"
+                        Background="#07AEFF"
+                        BorderBrush="White"
+                        materialDesign:HintAssist.Foreground="White"
+                        materialDesign:HintAssist.Background="#07AEFF"
+                        BorderThickness="3"
+                        Padding="4"
+                        Height="35"
+                        FontSize="16"
+                        FontWeight="DemiBold"
+                        Margin="3"
+  
+                        Width="300" PreviewTextInput="SearchBarTB_PreviewTextInput" MouseLeave="SearchBarTB_MouseLeave" PreviewKeyDown="SearchBarTB_PreviewKeyDown"/>
+                    </Grid>
+                </DockPanel>
+
+                <StackPanel Margin="0 3 0 7" Orientation="Horizontal">
+                    <materialDesign:PackIcon Height="18" Width="18"  Margin="3 0 0 0" Kind="ArchiveCheckOutline" Foreground="#00CE46"/>
+                    <Label  Content="Ready to use" Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#00CE46"/>
+                    <materialDesign:PackIcon Height="18" Width="18"  Margin="3 0 0 0" Kind="ArchiveAlertOutline" Foreground="#FFA500"/>
+                    <Label Content="Low on stock" Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#FFA500"/>
+                    <materialDesign:PackIcon Height="18" Width="18"  Margin="3 0 0 0" Kind="ArchiveCancelOutline" Foreground="#FF3232"/>
+                    <Label Content="Out of stock" Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#FF3232"/>
+                </StackPanel>
+
+
+                <DockPanel >
+                   
+                  
+                        <Label DockPanel.Dock="Left" Margin="0 0 0 0" FontSize="20" Foreground="{StaticResource PrimaryHueMidBrush}" Content="Supplies:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                  
+
+                    <ListBox  MaxWidth="520"  Height="80" MinWidth="100" DockPanel.Dock="Right" Name="SupplyFilterSLB" Margin="20 -35 -15 0" HorizontalAlignment="Right" HorizontalContentAlignment="Right"
+                    Style="{StaticResource MaterialDesignFilterChipPrimaryOutlineListBox}"   Width="487" >
+
+
+                        <ListBoxItem 
+                      x:Name="FilterAccountCode"
+                   
+                       IsSelected="True">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:Badged>
+                                    <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="CategoryOutline"
+                                    
+                                    />
+                                </materialDesign:Badged>
+                                <TextBlock Text="Account Code" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem 
+                     x:Name="FilterCustodian"
+                       IsSelected="True">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:Badged>
+                                    <materialDesign:PackIcon
+                                     
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="PersonOutline"
+                                    
+                                    />
+                                </materialDesign:Badged>
+                                <TextBlock Text="Custodian" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem
+                         x:Name="FilterThisYear"
+                        >
+
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:Badged>
+                                    <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="Calendar"
+                                    
+                                    />
+                                </materialDesign:Badged>
+                                <TextBlock Text="This Year" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem
+                         x:Name="FilterPrice"
+                        >
+
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:Badged>
+                                    <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="Money"
+                                    
+                                    />
+                                </materialDesign:Badged>
+                                <TextBlock Text="Price" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem 
+                      x:Name="FilterAssetName"
+                   
+                       IsSelected="True">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:Badged>
+                                    <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="Toolbox"
+                                    
+                                    />
+                                </materialDesign:Badged>
+                                <TextBlock Text="Asset Name" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                            </StackPanel>
+                        </ListBoxItem>
+
+
+                        <ListBoxItem
+                         x:Name="FilterStatusisAvailable"
+                        >
+
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:Badged>
+                                    <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="ClipboardCheck"
+                                    
+                                    />
+                                </materialDesign:Badged>
+                                <TextBlock Text="Status is Available" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem
+                         x:Name="FilterStatusisDirectorApproved"
+                        
+                        
+
+                    >
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:Badged>
+                                    <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="AccountTieHat"
+                                    
+                                    />
+                                </materialDesign:Badged>
+                                <TextBlock Text="Status is Director Approved" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem
+                         x:Name="FilterPriceislessthan1000us"
+                        >
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:Badged>
+                                    <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="Money100"
+                                    
+                                    />
+                                </materialDesign:Badged>
+                                <TextBlock Text="Price is less than ₱50,000" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                            </StackPanel>
+
+                        </ListBoxItem>
+
+                        <ListBoxItem
+                         x:Name="FilterStatusisAccountingApproved"
+                      >
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:Badged>
+                                    <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="AccountCash"
+                                    
+                                    />
+                                </materialDesign:Badged>
+                                <TextBlock Text="Status is Accounting Approved" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                            </StackPanel>
+
+                        </ListBoxItem>
+
+
+
+                        <ListBoxItem
+                         x:Name="FilterSerialNumber"
+                        >
+
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:Badged>
+                                    <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="Barcode"
+                                    
+                                    />
+                                </materialDesign:Badged>
+                                <TextBlock Text="Serial Number" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                            </StackPanel>
+                        </ListBoxItem>
+
+
+                        <ListBoxItem
+                         x:Name="FilterBrand"
+                       IsSelected="True">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:Badged>
+                                    <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="ShoppingOutline"
+                                    
+                                    />
+                                </materialDesign:Badged>
+                                <TextBlock Text="Brand" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                            </StackPanel>
+                        </ListBoxItem>
+
+
+                        <ListBoxItem
+                         x:Name="FilterLocation"
+                        >
+
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:Badged>
+                                    <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="HospitalLocation"
+                                    
+                                    />
+                                </materialDesign:Badged>
+                                <TextBlock Text="Location" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem
+                         x:Name="FilterVendor"
+                        IsEnabled="False"
+                       >
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:Badged>
+                                    <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="StoreCheckOutline"
+                                    
+                                    />
+                                </materialDesign:Badged>
+                                <TextBlock Text="Vendor" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem
+                         x:Name="FilterStatusisRequested"
+                      >
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:Badged>
+                                    <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="AccountQuestionOutline"
+                                    
+                                    />
+                                </materialDesign:Badged>
+                                <TextBlock Text="Status is Requested" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                            </StackPanel>
+                        </ListBoxItem>
+
+
+                        <ListBoxItem
+                         x:Name="FilterStatusisOrdered"
+                        >
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:Badged>
+                                    <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="AccountTieVoice"
+                                    
+                                    />
+                                </materialDesign:Badged>
+                                <TextBlock Text="Status is Ordered" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem
+                         x:Name="FilterStatusisAcceptingbySM"
+                        >
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:Badged>
+                                    <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="AccountDetailsOutline"
+                                    
+                                    />
+                                </materialDesign:Badged>
+                                <TextBlock Text="Status is Accepting by SM" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem
+                         x:Name="Filterthismonth"
+                        >
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:Badged>
+                                    <materialDesign:PackIcon
+                                    
+                                     Margin="1 0 5 0"
+                                     Width="18"
+                                     Height="18"
+                                     Foreground="{StaticResource PrimaryHueMidBrush}"
+                                     Kind="CalendarMonthOutline"
+                                    
+                                    />
+                                </materialDesign:Badged>
+                                <TextBlock Text="this month" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+
+                            </StackPanel>
+                        </ListBoxItem>
+
+
+                    </ListBox>
+                </DockPanel>
+
+
+                <ProgressBar Margin="0 0 0 2" Value="9.5" Height="1.5" Background="#F1F1F1" Foreground="{StaticResource PrimaryHueLightBrush}" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
+                <ProgressBar Margin="0 0 0 10" Value="99" Height="2" Background="#F1F1F1" Foreground="{StaticResource PrimaryHueLightBrush}" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
+
+                <!--RowStyle="{StaticResource CenteredDataGrdidClm}"-->
+
+                <StackPanel    Margin="0 2 -15 8" Orientation="Horizontal">
+
+
+
+                    <DataGrid Margin="2 0 2 0"
+              x:Name="LVsupplies"
+              MouseDoubleClick="ItemSelected" Height="380"
+              Width="505"
+              Background="Transparent"
+              ItemsSource="{Binding Path = AssetsForListview}"
+              CanUserAddRows="False"
+              AutoGenerateColumns="True"
+              AutoGeneratingColumn="AutoGeneratingColumn"
+              ColumnHeaderHeight="60"
+              BorderThickness="0.8"
+                
+           
+              BorderBrush="#0DCAF2"
+              HeadersVisibility="All">
+
+                        <DataGrid.ColumnHeaderStyle>
+
+                            <Style
+                                        
+                                         TargetType="{x:Type DataGridColumnHeader}"
+                                         BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+
+
+                                <Setter Property="FontWeight" Value="SemiBold" />
+                                <Setter Property="Foreground" Value="#0DCAF2"/>
+                                <Setter Property="Background" Value="Transparent"></Setter>
+
+                            </Style>
+
+                        </DataGrid.ColumnHeaderStyle>
+
+                        <DataGrid.Columns>
+
+                            <DataGridCheckBoxColumn
+                        
+                      Binding="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged}"
+                      ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}"
+                      EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}">
+                                <DataGridCheckBoxColumn.Header>
+                                    <Border
+                                
+                                Background="Transparent"
+                                >
+
+                                        <CheckBox/>
+                                    </Border>
+                                </DataGridCheckBoxColumn.Header>
+                                <DataGridCheckBoxColumn.HeaderStyle>
+                                    <Style
+                                  TargetType="{x:Type DataGridColumnHeader}"
+                                  BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+                                        <Setter
+                                Property="HorizontalContentAlignment"
+                                Value="Center" />
+                                        <Setter Property="FontWeight" Value="SemiBold" />
+                                        <Setter Property="Foreground" Value="#0DCAF2"/>
+                                    </Style>
+                                </DataGridCheckBoxColumn.HeaderStyle>
+                            </DataGridCheckBoxColumn>
+
+
+
+
+
+
+                            <DataGridTemplateColumn
+                        Header="    Status                  Image"
+                        CellTemplateSelector="{StaticResource supplydataTemplateSelectorDirectory}"
+                       
+                     >
+                                <DataGridTemplateColumn.HeaderStyle>
+                                    <Style
+                                  TargetType="{x:Type DataGridColumnHeader}"
+                                  BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+                                        <Setter
+                                Property="HorizontalContentAlignment"
+                                Value="Center" />
+                                        <Setter Property="FontWeight" Value="SemiBold" />
+                                        <Setter Property="Foreground" Value="#0DCAF2"/>
+
+                                    </Style>
+                                </DataGridTemplateColumn.HeaderStyle>
+                            </DataGridTemplateColumn>
+
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+
+                    <StackPanel >
+                        <Border BorderThickness="0.8" BorderBrush="#0DCAF2"  Margin="2 0 -20 0" CornerRadius="5" Height="380">
+
+                            <StackPanel Width="270" Margin="-20 5 10 0">
+                                <TreeView IsManipulationEnabled="True" Name="InventoryTree"  Margin="0 1 2 -20"  MinHeight="250" MaxHeight="320" Width="200">
+                                    <materialDesign:TreeViewAssist.AdditionalTemplate>
+                                        <DataTemplate>
+                                            <materialDesign:ColorZone
+                                    Mode="PrimaryMid"
+                                     CornerRadius="6">
+
+                                                <TextBlock
+                                   Foreground="White"
+                                  
+                                  FontSize="11"
+                                  Margin="8 1 8 1"
+                                  
+                                  FontStyle="Italic"
+                                  Text="4 inventory and 8 programs"  />
+                                            </materialDesign:ColorZone>
+                                        </DataTemplate>
+
+                                    </materialDesign:TreeViewAssist.AdditionalTemplate>
+
+                                    <TreeViewItem FontSize="12"  Header="Inventory Tree"   BorderBrush="#FF07AEFF" BorderThickness="2">
+
+                                        <TreeViewItem FontSize="12" FontWeight="SemiBold" Header="Inventory for Distribution" BorderBrush="#FF07AEFF" BorderThickness="1">
+                                            <TreeViewItem
+                                      Header="Program 1"
+                                      materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
+                                            <TreeViewItem
+                                      Header="Help for ADHD"
+                                      materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
+                                            <TreeViewItem
+                                      Header="DOH aid Program"
+                                      materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
+                                            <TreeViewItem
+                                      Header="AIDS"
+                                      materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
+                                            <TreeViewItem
+                                      Header="Jupiter Program"
+                                      materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
+                                            <TreeViewItem
+                                      Header="Kill them all Program"
+                                      materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
+                                            <TreeViewItem
+                                      Header="Vac. Program"
+                                      materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
+                                            <TreeViewItem
+                                      Header="Install the Program"
+                                      materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
+                                        </TreeViewItem>
+                                        <TreeViewItem FontSize="12" FontWeight="Bold"  Header="Inventory for Sale"    materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}">
+
+                                        </TreeViewItem>
+                                        <TreeViewItem FontSize="12" FontWeight="Bold"  BorderBrush="#FF07AEFF" BorderThickness="1" Header="Inventory for Consumption"   materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}">
+
+                                        </TreeViewItem>
+                                        <TreeViewItem  FontSize="12" FontWeight="Bold"  BorderBrush="#FF07AEFF" BorderThickness="1" Header="Inventory for Manufacturing"   materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}">
+
+                                        </TreeViewItem>
+
+                                    </TreeViewItem>
+                                </TreeView>
+
+                                <materialDesign:PopupBox
+  
+                        Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
+                        PlacementMode="LeftAndAlignMiddles"
+                        UnfurlOrientation="Horizontal"
+                        ToolTip="Manage items"
+                        Margin="0 0 40 -20"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom">
+                                    <StackPanel
+                          Orientation="Horizontal">
+                                        <Button
+                                               Click="AddNewTreeItem"
+                          ToolTip="Add an item"
+                          Command="{Binding AddCommand}">
+                                            <Path
+                          Data="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"
+                          Stretch="Uniform"
+                          Width="15"
+                          Height="15"
+                          Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" />
+                                        </Button>
+                                        <Button
+                          ToolTip="Remove selected item"
+                          Command="{Binding RemoveSelectedItemCommand}" Click="DeleteTreeItem">
+                                            <Path
+                          Data="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z"
+                          Stretch="Uniform"
+                          Width="15"
+                          Height="15"
+                          Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" />
+                                        </Button>
+
+                                    </StackPanel>
+                                </materialDesign:PopupBox>
+
+                            </StackPanel>
+                            
+                        </Border>
+                      
+                    </StackPanel>
+
+                </StackPanel>
+
+
+
+                <Line  Stretch="Fill" Margin="0,5,0,0" HorizontalAlignment="Left" Width="442" Stroke="DarkGray" X2="1" Opacity="0.4" />
+                <StackPanel Name="SuppliesEditBar" HorizontalAlignment="Left" Orientation="Horizontal" Margin="4 8 10 0">
+                    <Button
+                  Width="109"
+                  x:Name="MobieDeleteBtn"
+                  Style="{StaticResource MaterialDesignOutlinedButton}"
+                  ToolTip="CLick to delete an Asset..."
+                  Content="Delete"     
+                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Click="SupplyDeleteBtn_Click" />
+                    <Button
+                  Margin="10 0 0 0"
+                  Width="109"
+                  x:Name="MobieEditBtn"
+                  Style="{StaticResource MaterialDesignOutlinedButton}"
+                  ToolTip="CLick to edit an Asset..."
+                  Content="Edit"     
+                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Click="SupplyEditBtn_Click" />
+
+                    <Button
+                  Margin="10 0 0 0"
+                  Width="109"
+                  x:Name="PrintAssetBtn"
+                  Style="{StaticResource MaterialDesignOutlinedButton}"
+                  ToolTip="Sort and filter your list  and click on print to make a document..."
+                  Content="Print"     
+                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Click="SupplyPirntBtn_Click" />
+
+
+                    <Button
+                  Margin="10 0 0 0"
+                  Width="109"
+                  x:Name="MobieAddBtn"
+                  Style="{StaticResource MaterialDesignOutlinedButton}"
+                  ToolTip="CLick to add a new Asset..."
+                  Content="Add New"     
+                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Click="SupplyAddBtn_Click" />
+                </StackPanel>
+
+                <!--<Label x:Name="LabelLisans" FontWeight="Normal"  Margin="0 0 0 0" Style="{StaticResource Header3}" Foreground="#000008" Content="License" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30.5" />
+            <ProgressBar Margin="0 0 0 1" Value="8" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
+            <Label  Style="{StaticResource Header4}" Margin="0 5 0 0" Foreground="DarkGray" Content="ERP Desktop, valid until 22.06. 2030" HorizontalAlignment="Left" VerticalAlignment="Top" Height="42.5" />-->
+            </StackPanel>
+
+            <materialDesign:Snackbar
+              x:Name="SearchSnackBar"
+              Message="                         Your search did not match any item..."
+              IsActive="False"
+              Foreground="White"
+              FontFamily="ROBOTO"        
+              Width="445"
+              Height="180"
+         >
+                <materialDesign:Snackbar.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+
+
+                        <GradientStop Color="{StaticResource Primary600}"  Offset="0.80"/>
+                        <GradientStop Color="#FF07AEFF" Offset="0.26"/>
+
+                    </LinearGradientBrush>
+                </materialDesign:Snackbar.Background>
+            </materialDesign:Snackbar>
+
+        </Grid>
+
+        <!--<StackPanel>
             <Line Stretch="Fill" Margin="0 4 0 0" Stroke="DarkGray" X2="1" Width="800" />
             <StackPanel Orientation="Horizontal" Margin="3 0 0 0">
                 <StackPanel Width="270" Margin="-30 5 10 0">
@@ -177,6 +869,6 @@
                 </StackPanel>
             </StackPanel>
 
-        </StackPanel>
+        </StackPanel>-->
     </Grid>
 </UserControl>
