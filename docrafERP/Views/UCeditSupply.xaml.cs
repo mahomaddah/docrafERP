@@ -213,7 +213,7 @@ namespace docrafERP.Views
 
                     new DataAccessLayer.DataService().InsertSupply(EditingSupply);
                     SingletoneHomeView.Instance.homeView.Supplies.Add(EditingSupply);
-                    SingletoneHomeView.Instance.homeView.manageSuppliesUC.RefreshAssetsListViewFromList();
+                    SingletoneHomeView.Instance.homeView.manageSuppliesUC.RefreshAssetsListViewFromViewModel();
                 }
                 else
                 {
@@ -230,7 +230,7 @@ namespace docrafERP.Views
                     SingletoneHomeView.Instance.homeView.Supplies.Remove(SingletoneHomeView.Instance.homeView.Supplies.Find(x => x.SupplyID == EditingSupply.SupplyID));
                     SingletoneHomeView.Instance.homeView.Supplies.Add(EditingSupply);
 
-                    SingletoneHomeView.Instance.homeView.manageSuppliesUC.RefreshAssetsListViewFromList();
+                    SingletoneHomeView.Instance.homeView.manageSuppliesUC.RefreshAssetsListViewFromViewModel();
                 }
             }
                 //save first 

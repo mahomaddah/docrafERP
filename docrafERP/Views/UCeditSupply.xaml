@@ -124,7 +124,7 @@
                             TextWrapping="Wrap"
                             MaxWidth="400"
                             
-                            materialDesign:HintAssist.Hint="21"
+                        
                             Foreground="#000009"
                             SelectionBrush="#07AD40"
                             BorderBrush="#0DCAF2"
@@ -171,7 +171,7 @@
                             <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
                                 <Label Content="Lot Number" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
                                 <TextBox VerticalAlignment="Center" x:Name="TbLotNum"
-                 FontWeight="Normal"
+                            FontWeight="Normal"
                             Width="240"
                             Margin="0 0 0 0"
                             Style="{StaticResource MaterialDesignFilledTextBox}"
@@ -181,7 +181,7 @@
                             TextWrapping="Wrap"
                             MaxWidth="400"
                             
-                            materialDesign:HintAssist.Hint="4CE0460B2MMLD0G"
+                            materialDesign:HintAssist.Hint="E.g. 4CE0460B2MMLD0G"
                             Foreground="#000009"
                             SelectionBrush="#07AD40"
                             BorderBrush="#0DCAF2"
@@ -209,23 +209,23 @@
                             <ProgressBar Margin="0 10 0 10" Value="95.1" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
                             <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
                                 <Label Content="Expiration Date" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
-                                <TextBox VerticalAlignment="Center" Name="TbDate"
-                 FontWeight="Normal"
-                            Width="330"
-                            Margin="0 0 0 0"
-                            Style="{StaticResource MaterialDesignFilledTextBox}"
-                            
-                            HorizontalAlignment="Left"
-                            AcceptsReturn="True"
-                            TextWrapping="Wrap"
-                            MaxWidth="400"
-                            Text="none"
-                            materialDesign:HintAssist.Hint="June 7, 2022"
-                            Foreground="#000009"
-                            SelectionBrush="#07AD40"
-                            BorderBrush="#0DCAF2"
-                            FontFamily="Roboto"
-                            FontSize="12px" CaretBrush="#FF07AD40"/>
+                             
+                                <DatePicker Margin="0 -4 0 0" VerticalAlignment="Center" Name="TbDate"
+                                        FontWeight="Normal"
+                                        Width="330"
+                                         Background="Transparent"
+                                        Style="{StaticResource MaterialDesignOutlinedDatePicker}"
+                                        HorizontalAlignment="Left"
+                                       
+                                        MaxWidth="400"
+                                            
+                                        materialDesign:HintAssist.Hint="enter expiration date..."
+                                        Foreground="#000009"
+                                        
+                                        BorderBrush="#0DCAF2"
+                                        FontFamily="Roboto"
+                                        FontSize="12px"/>
+
                             </StackPanel>
 
                             <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
@@ -241,7 +241,7 @@
                             TextWrapping="Wrap"
                             MaxWidth="400"
                             
-                            materialDesign:HintAssist.Hint="Apple Inc."
+                            materialDesign:HintAssist.Hint="Enter Vendor..."
                             Foreground="#000009"
                             SelectionBrush="#07AD40"
                             BorderBrush="#0DCAF2"

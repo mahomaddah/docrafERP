@@ -22,7 +22,22 @@ namespace docrafERP.Views
     /// </summary>
     public partial class UCmanageSupplies : UserControl
     {
-        public void RefreshAssetsListViewFromList()
+
+        public List<Supply> SuppliesForListview { get; set; }
+        public List<string> SearchBarSuggestions { get; set; }
+        public List<string> Projects { get; set; }
+
+        public void RefreshAssetsListViewFromViewModel()
+        {
+            DataContext = this;
+            Projects = new List<string>();
+            // SingletoneHomeView.Instance.homeView.Supplies.ForEach(x => Projects.Add(x.project));
+            SuppliesForListview = SingletoneHomeView.Instance.homeView.Supplies.ToList();
+            LVsupplies.ItemsSource = SuppliesForListview;
+            
+        }
+
+        public void refreshAssetsListViewFromList()
         {
 
             LVsupplies.ItemsSource = SingletoneHomeView.Instance.homeView.Supplies;
@@ -32,7 +47,7 @@ namespace docrafERP.Views
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            RefreshAssetsListViewFromList();
+            RefreshAssetsListViewFromViewModel();
         }
 
 
@@ -58,7 +73,7 @@ namespace docrafERP.Views
                     //database ... 
                     new DataAccessLayer.DataService().DeleteSupply(temp);
                     // reload list view
-                    RefreshAssetsListViewFromList();
+                    RefreshAssetsListViewFromViewModel();
                 }
             }
         }
