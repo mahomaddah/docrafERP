@@ -247,6 +247,26 @@ namespace docrafERP.Views
 
 
         }
+
+        private void AssetFilterSLB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {      
+
+        }
+
+
+
+        private void FilterAccountCodeSelected(object sender, RoutedEventArgs e)
+        {
+        //    MessageBox.Show("accountCodeSelected...");
+        }
+
+        private void FilterAccountCode_Unselected(object sender, RoutedEventArgs e)
+        {
+          //  MessageBox.Show("Bye...");
+        }
+
+
+
     }
 
 }

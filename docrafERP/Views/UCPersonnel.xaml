@@ -228,9 +228,9 @@
 
                             <RadioButton Margin="0 0 0 4"
                                  Foreground="{StaticResource PrimaryHueDarkBrush}"
-                                 Style="{StaticResource MaterialDesignUserForegroundRadioButton}"
-                                 />
+                                 Style="{StaticResource MaterialDesignUserForegroundRadioButton}"/>
 
+                            
                             <materialDesign:Flipper Margin="30 -15 30 30"
                             
                                         materialDesign:ShadowAssist.ShadowDepth="Depth0">

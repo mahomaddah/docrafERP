@@ -51,11 +51,13 @@
 
             <DockPanel >
                 <Label DockPanel.Dock="Left" Margin="0 0 0 0" FontSize="20" Foreground="{StaticResource PrimaryHueMidBrush}" Content="Assets:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                <ListBox  MaxWidth="520"  Height="80" MinWidth="100" DockPanel.Dock="Right" Name="AssetFilterSLB" Margin="20 -35 -15 0" HorizontalAlignment="Right" HorizontalContentAlignment="Right"
+                <ListBox SelectionChanged="AssetFilterSLB_SelectionChanged"  MaxWidth="520"  Height="80" MinWidth="100" DockPanel.Dock="Right" Name="AssetFilterSLB" Margin="20 -35 -15 0" HorizontalAlignment="Right" HorizontalContentAlignment="Right"
                     Style="{StaticResource MaterialDesignFilterChipPrimaryOutlineListBox}"   Width="600" >
 
 
                     <ListBoxItem 
+                      Selected="FilterAccountCodeSelected"
+                      Unselected="FilterAccountCode_Unselected"
                       x:Name="FilterAccountCode"
                    
                        IsSelected="True">
