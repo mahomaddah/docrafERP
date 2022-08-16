@@ -92,9 +92,12 @@
                 </Setter>
             </Style>
 
+            
+            
       
 
 
+            
 
             <DataTemplate x:Key="AssetAvailableTemplate">
                 <StackPanel  Orientation="Horizontal">
@@ -162,6 +165,49 @@
 
                 </StackPanel>
             </DataTemplate>
+
+            <DataTemplate x:Key="SMPersonelTemplate">
+                <StackPanel>
+
+
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="AMPersonelTemplate">
+                <StackPanel>
+
+
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="ManagerPersonelTemplate">
+                <StackPanel>
+
+
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="DirectorPersonelTemplate">
+                <StackPanel>
+
+
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="employeePersonelTemplate">
+                <StackPanel>
+
+
+                </StackPanel>
+            </DataTemplate>
+
+
+            <viewsDir:PersonelTemplateSelector x:Key="PersonelTemplateSelectorDirectory"
+              PersoneltempSM="{StaticResource SMPersonelTemplate}"
+              PersoneltempAM="{StaticResource AMPersonelTemplate}" 
+              PersoneltempManager="{StaticResource ManagerPersonelTemplate}" 
+              PersoneltempDirector="{StaticResource DirectorPersonelTemplate}" 
+              PersoneltempEmployee="{StaticResource employeePersonelTemplate}" />
 
             <viewsDir:AssetTamplateSelector x:Key="dataTemplateSelectorDirectory"
               AssetAvailableTemp="{StaticResource AssetAvailableTemplate}"
