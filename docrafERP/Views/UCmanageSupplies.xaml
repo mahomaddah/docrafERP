@@ -90,7 +90,7 @@
                                     
                                     />
                                 </materialDesign:Badged>
-                                <TextBlock Text="Account Code" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+                                <TextBlock Text="Item Code" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
 
                             </StackPanel>
                         </ListBoxItem>
@@ -110,7 +110,7 @@
                                     
                                     />
                                 </materialDesign:Badged>
-                                <TextBlock Text="Custodian" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+                                <TextBlock Text="Project Personnel" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
 
                             </StackPanel>
                         </ListBoxItem>
@@ -173,7 +173,7 @@
                                     
                                     />
                                 </materialDesign:Badged>
-                                <TextBlock Text="Asset Name" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+                                <TextBlock Text="Supply Name" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
 
                             </StackPanel>
                         </ListBoxItem>

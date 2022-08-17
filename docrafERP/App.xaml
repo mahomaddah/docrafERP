@@ -171,9 +171,14 @@
 
                     <StackPanel >
 
-                        <RadioButton Margin="0 0 0 4"
+                        <RadioButton
+                            
+                                                     
+                                 IsChecked="{Binding isEditing ,Mode=OneWayToSource}"
+                                 Margin="0 0 0 4"
                                  Foreground="{StaticResource PrimaryHueDarkBrush}"
-                                 Style="{StaticResource MaterialDesignUserForegroundRadioButton}"/>
+                                 Style="{StaticResource MaterialDesignUserForegroundRadioButton}"
+                        />
 
 
                         <materialDesign:Flipper Margin="30 -15 30 30"
@@ -641,11 +646,14 @@
             <DataTemplate x:Key="AMPersonelTemplate">
                 <materialDesign:Card   Background="Transparent" Height="330" Width="240" BorderThickness="1" BorderBrush="{StaticResource PrimaryHueDarkBrush}" Margin="10" >
 
-                    <StackPanel >
+                    <StackPanel>
 
-                        <RadioButton Margin="0 0 0 4"
-                                 Foreground="{StaticResource PrimaryHueDarkBrush}"
-                                 Style="{StaticResource MaterialDesignUserForegroundRadioButton}"/>
+                        <RadioButton
+                            
+                               IsChecked="{Binding isEditing ,Mode=OneWayToSource}"
+                               Margin="0 0 0 4"
+                               Foreground="{StaticResource PrimaryHueDarkBrush}"
+                               Style="{StaticResource MaterialDesignUserForegroundRadioButton}"/>
 
 
                         <materialDesign:Flipper Margin="30 -15 30 30"
@@ -1117,7 +1125,9 @@
 
                     <StackPanel>
 
-                        <RadioButton Margin="0 0 0 4"
+                        <RadioButton
+                               IsChecked="{Binding isEditing ,Mode=OneWayToSource}"
+                            Margin="0 0 0 4"
                                  Foreground="{StaticResource PrimaryHueDarkBrush}"
                                  Style="{StaticResource MaterialDesignUserForegroundRadioButton}"/>
 
@@ -1590,7 +1600,9 @@
 
                     <StackPanel >
 
-                        <RadioButton Margin="0 0 0 4"
+                        <RadioButton 
+                               IsChecked="{Binding isEditing ,Mode=OneWayToSource}"
+                            Margin="0 0 0 4"
                                  Foreground="{StaticResource PrimaryHueDarkBrush}"
                                  Style="{StaticResource MaterialDesignUserForegroundRadioButton}"/>
 
@@ -2064,7 +2076,9 @@
                         
                         <StackPanel >
 
-                            <RadioButton Margin="0 0 0 4"
+                            <RadioButton
+                                   IsChecked="{Binding isEditing ,Mode=OneWayToSource}"
+                                Margin="0 0 0 4"
                                  Foreground="{StaticResource PrimaryHueDarkBrush}"
                                  Style="{StaticResource MaterialDesignUserForegroundRadioButton}"/>
 

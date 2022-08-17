@@ -16,12 +16,25 @@ namespace docrafERP.Models
         public string Email { get; set; }
         public int PersonelPicID { get; set; }
 
+     
+        private bool iseditin;
+
+        public bool isEditing
+        {
+            get { return iseditin; }
+            set { iseditin = value; }
+        }
+
         private int typecode;
 
         public int PersonelTypeCode
         {
             get { typecode = getPersonalTypeIndex();  return typecode; }
             set { typecode = value; }
+        }
+        public Personel()
+        {
+            isEditing = false;
         }
 
         // public string Location { get; set; }

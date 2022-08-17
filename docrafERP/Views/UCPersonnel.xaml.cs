@@ -1,6 +1,7 @@
 ﻿using docrafERP.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,7 @@ namespace docrafERP.Views
     /// </summary>
     public partial class UCPersonnel : UserControl
     {
+        public Personel ManipulatingPerson { get; set; }
         public List<Personel> Personels { get; set; }
         public UCPersonnel()
         {
@@ -51,6 +53,7 @@ namespace docrafERP.Views
         {
             try
             {
+               
                 Personels.Remove(((Personel)LVpersonels.SelectedItem));
                 if (Personels.Count != 0)
                     LVpersonels.ItemsSource = Personels;
@@ -62,7 +65,21 @@ namespace docrafERP.Views
 
         private void Add_click(object sender, RoutedEventArgs e)
         {
-            
+            try 
+            {
+                ManipulatingPerson = new Personel { Role = "employee", Name = "new employee", MobileNumber = "", Email = "" };
+                Personels.Add(ManipulatingPerson);
+
+                LVpersonels.ItemsSource = Personels;
+                ICollectionView view = CollectionViewSource.GetDefaultView(LVpersonels.ItemsSource);
+                view.Refresh();
+                
+            }
+            catch
+            {
+
+            }
+          
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -72,7 +89,36 @@ namespace docrafERP.Views
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
+            try {
+                if (ManipulatingPerson != null)
+                {
 
+             
+                var item = SingletoneHomeView.Instance.homeView.Personels.Find(y => ((y.Name.Equals(ManipulatingPerson.Name)) || (y.PersonelID == ManipulatingPerson.PersonelID)));
+                if (item != null) 
+                {
+                    SingletoneHomeView.Instance.homeView.Personels.Remove(item);
+                    Personels.Clear();
+                    SingletoneHomeView.Instance.homeView.Personels.Add(ManipulatingPerson);
+                        Personels = SingletoneHomeView.Instance.homeView.Personels;
+                //  new DataAccessLayer.DataService().InsertPerson(ManipulatingPerson);
+                    LVpersonels.ItemsSource = Personels;
+                    ICollectionView view = CollectionViewSource.GetDefaultView(LVpersonels.ItemsSource);
+                    view.Refresh();
+                }
+                }
+
+
+            } catch { }
+          
+
+
+        }
+
+        private void LVpersonels_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show(LVpersonels.SelectedIndex.ToString()+"noting");
+            
         }
     }
 }
