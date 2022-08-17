@@ -1,4 +1,5 @@
-﻿using System;
+﻿using docrafERP.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,23 +21,44 @@ namespace docrafERP.Views
     /// </summary>
     public partial class UCPersonnel : UserControl
     {
+        public List<Personel> Personels { get; set; }
         public UCPersonnel()
         {
+            DataContext = this;
+
+            Personels = new List<Personel>();
+            this.IsVisibleChanged += UCPersonnel_IsVisibleChanged;
             InitializeComponent();
+            
+        }
+
+        private void UCPersonnel_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+          
+
+            
+
+            if(Visibility == Visibility.Visible)
+            {
+                
+                Personels = SingletoneHomeView.Instance.homeView.Personels.ToList();
+                if(Personels.Count!=0)
+                LVpersonels.ItemsSource = Personels;
+            }
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            try {
-                LVpersonels.Items.Remove(LVpersonels.SelectedItem);
-            } catch { }
-           
+            try
+            {
+                Personels.Remove(((Personel)LVpersonels.SelectedItem));
+                if (Personels.Count != 0)
+                    LVpersonels.ItemsSource = Personels;
+            }
+            catch { }
         }
 
-        private void Edit_click(object sender, RoutedEventArgs e)
-        {
-
-        }
+    
 
         private void Add_click(object sender, RoutedEventArgs e)
         {
@@ -44,6 +66,11 @@ namespace docrafERP.Views
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
         {
 
         }

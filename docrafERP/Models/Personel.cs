@@ -15,9 +15,40 @@ namespace docrafERP.Models
         public string MobileNumber { get; set; }
         public string Email { get; set; }
         public int PersonelPicID { get; set; }
-       // public string Location { get; set; }
 
+        private int typecode;
+
+        public int PersonelTypeCode
+        {
+            get { typecode = getPersonalTypeIndex();  return typecode; }
+            set { typecode = value; }
+        }
+
+        // public string Location { get; set; }
+
+        int getPersonalTypeIndex()
+        {
+            int i = 1; //employee
+            if (Role == "supply manager")
+            {
+                i = 0;
+            }
+            else if (Role == "accounting manager")
+            {
+                i = 2;
+            }
+            else if (Role == "director")
+            {
+                i = 3;
+            }
+            else if (Role == "manager")
+            {
+                i = 4;
+            }
+            return i;
+        }
 
 
     }
+
 }

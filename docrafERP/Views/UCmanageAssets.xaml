@@ -451,8 +451,7 @@
                         <DataGridCheckBoxColumn.Header>
                             <Border
                                 
-                                Background="Transparent"
-                                >
+                                Background="Transparent">
 
                                 <CheckBox/>
                             </Border>
