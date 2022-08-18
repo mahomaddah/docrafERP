@@ -66,6 +66,11 @@ namespace docrafERP.Views
                 if (ComeForAdding)
                 {
                     SingletoneHomeView.Instance.homeView.LabelMainBlueTittleOnTop.Content = "Add a new Asset";
+                    try
+                    {
+                        AssetImage.Source = new BitmapImage(new Uri(@"/UIassets/image 9.png"));
+                    }
+                    catch { }
                 }
                 else
                 {
@@ -84,6 +89,12 @@ namespace docrafERP.Views
                        
 
                         } catch { }
+                    try
+                    {
+                        AssetImage.Source = new BitmapImage(new Uri(EditingAsset.ImagePath));
+                    }
+                    catch { }
+
                 }
                 //update data from object            
                 refreshMaintanceGV();
@@ -298,6 +309,7 @@ namespace docrafERP.Views
                     new DataAccessLayer.DataService().InsertAsset(EditingAsset);
                     SingletoneHomeView.Instance.homeView.Assets.Add(EditingAsset);
                     SingletoneHomeView.Instance.homeView.manageAssetsUC.RefreshAssetsListViewFromViewModel();
+                   
                 }
                 else
                 {
@@ -307,7 +319,8 @@ namespace docrafERP.Views
                     //2.database
                     //3.MainWindow list 
                     //4.manage asset LV update
-
+             
+                  
                     new DataAccessLayer.DataService().UpdateAsset(EditingAsset);
 
               

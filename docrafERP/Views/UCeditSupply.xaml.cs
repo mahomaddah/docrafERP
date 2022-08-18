@@ -48,6 +48,13 @@ namespace docrafERP.Views
                 if (ComeForAdding)
                 {
                     SingletoneHomeView.Instance.homeView.LabelMainBlueTittleOnTop.Content = "Add a new Supply";
+                    try
+                    {
+                        SupImage.Source = new BitmapImage(new Uri(@"/UIassets/image 21.png"));
+                    
+                    }
+                    catch { }
+                  
                 }
                 else
                 {
@@ -55,6 +62,11 @@ namespace docrafERP.Views
                 }
                 //update data from object            
                 // try { AssetImage.Source = EditingAsset.ImagePath } catch { } // for image ...
+                try
+                {
+                    SupImage.Source = new BitmapImage(new Uri(EditingSupply.ImagePath));
+                }
+                catch { }
                 TbName.Text = EditingSupply.Name;
                 TbQty.Text = EditingSupply.Quantity;
                 TbDate.Text = EditingSupply.ExpirationDate;
@@ -237,6 +249,37 @@ namespace docrafERP.Views
                 SingletoneHomeView.Instance.homeView.bringTheUC("Manage Supplies");
         }
 
-      
+        private void SupImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            System.Windows.Forms.OpenFileDialog openFile = new System.Windows.Forms.OpenFileDialog();
+            openFile.Filter = "PNG|*.png|JPEG|*.jpeg";
+            openFile.FileName = EditingSupply.Barcode + "SupplyImage";
+            System.Windows.Forms.DialogResult dialog = openFile.ShowDialog();
+            if (dialog == System.Windows.Forms.DialogResult.OK)
+            {
+                var image = System.Drawing.Image.FromFile(openFile.FileName);
+                SupImage.Source = new BitmapImage(new Uri(openFile.FileName));
+
+
+                try
+                {//for now deactive to make diffretn table for image of supply for better optimuzation latter...
+                  //  new DataAccessLayer.DataService().InsertImage(image, new AssetDocument { AdminID = SingletoneHomeView.Instance.homeView.CurrentUser.PersonelID, AssetID = EditingSupply.SupplyID, DocumentType = "SupplyImage", IsImage = true, FileType = ".png", Name = openFile.FileName });
+                    EditingSupply.ImagePath = openFile.FileName;
+                    new DataAccessLayer.DataService().UpdateSupply(EditingSupply);
+
+                    SingletoneHomeView.Instance.homeView.Supplies.Remove(SingletoneHomeView.Instance.homeView.Supplies.Find(x => x.SupplyID == EditingSupply.SupplyID));
+                    SingletoneHomeView.Instance.homeView.Supplies.Add(EditingSupply);
+
+                    SingletoneHomeView.Instance.homeView.manageSuppliesUC.RefreshAssetsListViewFromViewModel();
+
+                }
+                catch
+                {
+                    MessageBox.Show("Could not upload to database...");
+                }
+
+            }
+            //else MessageBox.Show("Could not Set the image...");
+        }
     }
 }

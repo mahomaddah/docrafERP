@@ -19,7 +19,7 @@
 
                     <Grid Grid.Column="1" Margin="30 0 0 0">
                         <StackPanel>
-                            <Image Source="/UIassets/image 21.png" Width="220" Height="220" Margin="0 0 0 5"/>
+                            <Image Name="SupImage" Source="/UIassets/image 21.png" Width="220" Height="220" Margin="0 0 0 5" MouseDown="SupImage_MouseDown"/>
                             <Label Content="Related Documents" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header1}" Margin="0 0 0 5"  />
                             <StackPanel Margin="0 0 20 0">
                                 <ListView Height="236"  BorderThickness="2" BorderBrush="#0DCAF2" >
