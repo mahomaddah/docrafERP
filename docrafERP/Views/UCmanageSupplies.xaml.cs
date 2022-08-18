@@ -129,9 +129,11 @@ namespace docrafERP.Views
 
         private void DeleteTreeItem(object sender, RoutedEventArgs e)
         {
-            
-            if (InventoryTree.SelectedItem!=null)
-                InventoryTree.Items.Remove((TreeViewItem)InventoryTree.SelectedItem);
+            try {
+                if (InventoryTree.SelectedItem != null)
+                    InventoryTree.Items.Remove((TreeViewItem)InventoryTree.SelectedItem);
+            } catch { MessageBox.Show("Onley Director can delete a program..."); }
+       
         }
 
         private void SearchBarTB_MouseLeave(object sender, MouseEventArgs e)

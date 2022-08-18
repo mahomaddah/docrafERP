@@ -443,14 +443,136 @@
 
                 <!--RowStyle="{StaticResource CenteredDataGrdidClm}"-->
 
-                <StackPanel    Margin="0 2 -15 8" Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal"  Width="800" Margin="2 2 0 0" >
+
+
+                    <StackPanel >
+                        <Border BorderThickness="2" BorderBrush="#0DCAF2"   Margin="2" CornerRadius="5" Height="380">
+
+
+                            <materialDesign:Card >
+                                <StackPanel Orientation="Vertical">
+
+                                    <Expander ExpandDirection="Right"
+                                          HorizontalAlignment="Right" Height="376"
+                                            >
+                                        <Expander.Header>
+                                            <TextBlock
+                                                 Text="Inventory of Program 1"  Foreground="#0DCAF2" Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                                                   RenderTransformOrigin=".5,.5">
+                                                <TextBlock.LayoutTransform>
+                                                    <RotateTransform
+                                                        Angle="90" />
+                                                </TextBlock.LayoutTransform>
+                                            </TextBlock>
+                                        </Expander.Header>
+                                        <StackPanel
+                                              Orientation="Vertical"
+                                              TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
+                                                 Margin="24,8,24,16">
+                                            <TextBlock FontSize="9" FontWeight="Light"
+                                                     Text="Filter by an Inventory or Program..." />
+                                            <TextBlock />
+                                            <StackPanel Width="270" Margin="-20 5 10 0">
+                                                <TreeView IsManipulationEnabled="True" Name="InventoryTree"  Margin="0 1 2 -20"  MinHeight="250" MaxHeight="300" Width="200">
+                                                    <materialDesign:TreeViewAssist.AdditionalTemplate>
+                                                        <DataTemplate>
+                                                            <materialDesign:ColorZone
+                                                                           Mode="PrimaryMid"
+                                                                          CornerRadius="6">
+
+                                                                <TextBlock
+                                                                               Foreground="White"
+                                  
+                                                                       FontSize="11"
+                                                                        Margin="8 1 8 1"
+                                  
+                                                                       FontStyle="Italic"
+                                                                  Text="4 inventory and 8 programs"  />
+                                                            </materialDesign:ColorZone>
+                                                        </DataTemplate>
+
+                                                    </materialDesign:TreeViewAssist.AdditionalTemplate>
+
+                                                    <TreeViewItem FontSize="12"  Header="Inventory Tree"   BorderBrush="#FF07AEFF" BorderThickness="2">
+
+                                                        <TreeViewItem FontSize="12" FontWeight="SemiBold" Header="Inventory for Distribution" BorderBrush="#FF07AEFF" BorderThickness="1">
+                                                            <TreeViewItem
+                                      Header="Program 1"
+                                      materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
+
+                                                            <TreeViewItem
+                                      Header="Program 2"
+                                      materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
+                                                        </TreeViewItem>
+                                                        <TreeViewItem FontSize="12" FontWeight="Bold"  Header="Inventory for Sale"    materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}">
+
+                                                        </TreeViewItem>
+                                                        <TreeViewItem FontSize="12" FontWeight="Bold"  BorderBrush="#FF07AEFF" BorderThickness="1" Header="Inventory for Consumption"   materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}">
+
+                                                        </TreeViewItem>
+                                                        <TreeViewItem  FontSize="12" FontWeight="Bold"  BorderBrush="#FF07AEFF" BorderThickness="1" Header="Inventory for Manufacturing"   materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}">
+
+                                                        </TreeViewItem>
+
+                                                    </TreeViewItem>
+                                                </TreeView>
+
+                                                <materialDesign:PopupBox
+  
+                        Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
+                        PlacementMode="LeftAndAlignMiddles"
+                        UnfurlOrientation="Horizontal"
+                        ToolTip="Manage items"
+                        Margin="0 0 40 -20"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom">
+                                                    <StackPanel
+                          Orientation="Horizontal">
+                                                        <Button
+                                               Click="AddNewTreeItem"
+                          ToolTip="Add an item"
+                          Command="{Binding AddCommand}">
+                                                            <Path
+                          Data="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"
+                          Stretch="Uniform"
+                          Width="15"
+                          Height="15"
+                          Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" />
+                                                        </Button>
+                                                        <Button
+                          ToolTip="Remove selected item"
+                          Command="{Binding RemoveSelectedItemCommand}" Click="DeleteTreeItem">
+                                                            <Path
+                          Data="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z"
+                          Stretch="Uniform"
+                          Width="15"
+                          Height="15"
+                          Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" />
+                                                        </Button>
+
+                                                    </StackPanel>
+                                                </materialDesign:PopupBox>
+
+                                            </StackPanel>
+
+                                        </StackPanel>
+                                    </Expander>
+
+
+                                </StackPanel>
+                            </materialDesign:Card>
 
 
 
-                    <DataGrid Margin="2 0 2 0"
+                        </Border>
+
+                    </StackPanel>
+
+                    <DataGrid Margin="2 0 2 0" 
               x:Name="LVsupplies"
               MouseDoubleClick="ItemSelected" Height="380"
-              Width="505"
+              Width="670"
               Background="Transparent"
               ItemsSource="{Binding Path = AssetsForListview}"
               CanUserAddRows="False"
@@ -537,119 +659,13 @@
                     </DataGrid>
 
 
-                    <StackPanel >
-                        <Border BorderThickness="0.8" BorderBrush="#0DCAF2"  Margin="2 0 -20 0" CornerRadius="5" Height="380">
-
-                            <StackPanel Width="270" Margin="-20 5 10 0">
-                                <TreeView IsManipulationEnabled="True" Name="InventoryTree"  Margin="0 1 2 -20"  MinHeight="250" MaxHeight="320" Width="200">
-                                    <materialDesign:TreeViewAssist.AdditionalTemplate>
-                                        <DataTemplate>
-                                            <materialDesign:ColorZone
-                                    Mode="PrimaryMid"
-                                     CornerRadius="6">
-
-                                                <TextBlock
-                                   Foreground="White"
-                                  
-                                  FontSize="11"
-                                  Margin="8 1 8 1"
-                                  
-                                  FontStyle="Italic"
-                                  Text="4 inventory and 8 programs"  />
-                                            </materialDesign:ColorZone>
-                                        </DataTemplate>
-
-                                    </materialDesign:TreeViewAssist.AdditionalTemplate>
-
-                                    <TreeViewItem FontSize="12"  Header="Inventory Tree"   BorderBrush="#FF07AEFF" BorderThickness="2">
-
-                                        <TreeViewItem FontSize="12" FontWeight="SemiBold" Header="Inventory for Distribution" BorderBrush="#FF07AEFF" BorderThickness="1">
-                                            <TreeViewItem
-                                      Header="Program 1"
-                                      materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
-                                            <TreeViewItem
-                                      Header="Help for ADHD"
-                                      materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
-                                            <TreeViewItem
-                                      Header="DOH aid Program"
-                                      materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
-                                            <TreeViewItem
-                                      Header="AIDS"
-                                      materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
-                                            <TreeViewItem
-                                      Header="Jupiter Program"
-                                      materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
-                                            <TreeViewItem
-                                      Header="Kill them all Program"
-                                      materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
-                                            <TreeViewItem
-                                      Header="Vac. Program"
-                                      materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
-                                            <TreeViewItem
-                                      Header="Install the Program"
-                                      materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
-                                        </TreeViewItem>
-                                        <TreeViewItem FontSize="12" FontWeight="Bold"  Header="Inventory for Sale"    materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}">
-
-                                        </TreeViewItem>
-                                        <TreeViewItem FontSize="12" FontWeight="Bold"  BorderBrush="#FF07AEFF" BorderThickness="1" Header="Inventory for Consumption"   materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}">
-
-                                        </TreeViewItem>
-                                        <TreeViewItem  FontSize="12" FontWeight="Bold"  BorderBrush="#FF07AEFF" BorderThickness="1" Header="Inventory for Manufacturing"   materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}">
-
-                                        </TreeViewItem>
-
-                                    </TreeViewItem>
-                                </TreeView>
-
-                                <materialDesign:PopupBox
-  
-                        Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
-                        PlacementMode="LeftAndAlignMiddles"
-                        UnfurlOrientation="Horizontal"
-                        ToolTip="Manage items"
-                        Margin="0 0 40 -20"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Bottom">
-                                    <StackPanel
-                          Orientation="Horizontal">
-                                        <Button
-                                               Click="AddNewTreeItem"
-                          ToolTip="Add an item"
-                          Command="{Binding AddCommand}">
-                                            <Path
-                          Data="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"
-                          Stretch="Uniform"
-                          Width="15"
-                          Height="15"
-                          Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" />
-                                        </Button>
-                                        <Button
-                          ToolTip="Remove selected item"
-                          Command="{Binding RemoveSelectedItemCommand}" Click="DeleteTreeItem">
-                                            <Path
-                          Data="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z"
-                          Stretch="Uniform"
-                          Width="15"
-                          Height="15"
-                          Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" />
-                                        </Button>
-
-                                    </StackPanel>
-                                </materialDesign:PopupBox>
-
-                            </StackPanel>
-                            
-                        </Border>
-                      
-                    </StackPanel>
 
                 </StackPanel>
 
 
 
-                <Line  Stretch="Fill" Margin="0,5,0,0" HorizontalAlignment="Left" Width="442" Stroke="DarkGray" X2="1" Opacity="0.4" />
-                <StackPanel Name="SuppliesEditBar" HorizontalAlignment="Left" Orientation="Horizontal" Margin="4 8 10 0">
+                <Line  Stretch="Fill" Margin="0,5,0,0" HorizontalAlignment="Center" Width="442" Stroke="DarkGray" X2="1" Opacity="0.4" />
+                <StackPanel Name="SuppliesEditBar" HorizontalAlignment="Center" Orientation="Horizontal" Margin="4 8 10 0">
                     <Button
                   Width="109"
                   x:Name="MobieDeleteBtn"
@@ -713,162 +729,6 @@
 
         </Grid>
 
-        <!--<StackPanel>
-            <Line Stretch="Fill" Margin="0 4 0 0" Stroke="DarkGray" X2="1" Width="800" />
-            <StackPanel Orientation="Horizontal" Margin="3 0 0 0">
-                <StackPanel Width="270" Margin="-30 5 10 0">
-
-                    <TreeView IsManipulationEnabled="True" Name="InventoryTree"  Margin="0 1 2 0" Height="auto" MinHeight="250" MaxHeight="450" Width="240">
-                        <materialDesign:TreeViewAssist.AdditionalTemplate>
-                            <DataTemplate>
-                                <materialDesign:ColorZone
-                                    Mode="PrimaryMid"
-                                     CornerRadius="6">
-
-                                    <TextBlock
-                                   Foreground="White"
-                                  
-                                  FontSize="11"
-                                  Margin="8 1 8 1"
-                                  
-                                  FontStyle="Italic"
-                                  Text="4 inventory and 8 programs"  />
-                                </materialDesign:ColorZone>
-                            </DataTemplate>
-
-                        </materialDesign:TreeViewAssist.AdditionalTemplate>
-
-                        <TreeViewItem FontSize="12"  Header="Inventory Tree"   BorderBrush="#FF07AEFF" BorderThickness="2">
-
-                            <TreeViewItem FontSize="12" FontWeight="SemiBold" Header="Inventory for Distribution" BorderBrush="#FF07AEFF" BorderThickness="1">
-                                <TreeViewItem
-                                      Header="Program 1"
-                                      materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
-                                <TreeViewItem
-                                      Header="Help for ADHD"
-                                      materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
-                                <TreeViewItem
-                                      Header="DOH aid Program"
-                                      materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
-                                <TreeViewItem
-                                      Header="AIDS"
-                                      materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
-                                <TreeViewItem
-                                      Header="Jupiter Program"
-                                      materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
-                                <TreeViewItem
-                                      Header="Kill them all Program"
-                                      materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
-                                <TreeViewItem
-                                      Header="Vac. Program"
-                                      materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
-                                <TreeViewItem
-                                      Header="Install the Program"
-                                      materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
-                            </TreeViewItem>
-                            <TreeViewItem FontSize="12" FontWeight="Bold"  Header="Inventory for Sale"    materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}">
-                                
-                            </TreeViewItem>
-                            <TreeViewItem FontSize="12" FontWeight="Bold"  BorderBrush="#FF07AEFF" BorderThickness="1" Header="Inventory for Consumption"   materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}">
-
-                            </TreeViewItem>
-                            <TreeViewItem  FontSize="12" FontWeight="Bold"  BorderBrush="#FF07AEFF" BorderThickness="1" Header="Inventory for Manufacturing"   materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}">
-
-                            </TreeViewItem>
-
-                        </TreeViewItem>
-                    </TreeView>
-
-                    <materialDesign:PopupBox
-  
-                        Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
-                        PlacementMode="LeftAndAlignMiddles"
-                        UnfurlOrientation="Horizontal"
-                        ToolTip="Manage items"
-                        Margin="0 0 10 10"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Bottom"> 
-                                        <StackPanel
-                          Orientation="Horizontal">
-                                            <Button
-                                               Click="AddNewTreeItem"
-                          ToolTip="Add an item"
-                          Command="{Binding AddCommand}">
-                                                <Path
-                          Data="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"
-                          Stretch="Uniform"
-                          Width="15"
-                          Height="15"
-                          Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" />
-                                            </Button>
-                                            <Button
-                          ToolTip="Remove selected item"
-                          Command="{Binding RemoveSelectedItemCommand}" Click="DeleteTreeItem">
-                                                <Path
-                          Data="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z"
-                          Stretch="Uniform"
-                          Width="15"
-                          Height="15"
-                          Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" />
-                                            </Button>
-
-                        </StackPanel>
-                    </materialDesign:PopupBox>
-                </StackPanel>
-                
-                <StackPanel Height="543" Width="545">
-                    <StackPanel Margin="0 5 0 10" Orientation="Horizontal">
-                        <materialDesign:PackIcon Height="23" Width="23"  Margin="0 0 5 0" Kind="ArchiveCheckOutline" Foreground="#00CE46"/>
-                        <Label  Content="Ready to use" Style="{StaticResource Header2}" FontFamily="Roboto" Foreground="#00CE46"></Label>
-                        <materialDesign:PackIcon Height="23" Width="23"  Margin="65 0 5 0" Kind="ArchiveCancelOutline" Foreground="#FF3232"/>
-                        <Label Content="Out of stock" Style="{StaticResource Header2}" FontFamily="Roboto" Foreground="#FF3232"></Label>
-                        <materialDesign:PackIcon Height="23" Width="23"  Margin="65 0 5 0" Kind="ArchiveAlertOutline" Foreground="#FFA500"/>
-                        <Label Content="Low on stock" Style="{StaticResource Header2}" FontFamily="Roboto" Foreground="#FFA500"></Label>
-                    </StackPanel>
-
-                    <Label Margin="0 5 0 0" Style="{StaticResource Header1}" Foreground="#000008" Content="Supplies" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30.5" />
-                    <ProgressBar Margin="0 0 0 10" Value="8.7" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
-
-                    <ListView  ItemTemplateSelector="{StaticResource supplydataTemplateSelectorDirectory}"  MouseDoubleClick="ItemSelected" Height="305" x:Name="LVsupplies" VerticalAlignment="Center">
-                        <ListView.BorderBrush>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="Black" Offset="0"/>
-                                <GradientStop Color="#FFD1CECE" Offset="1"/>
-                            </LinearGradientBrush>
-                        </ListView.BorderBrush>
-
-
-                    </ListView>
-                    <Line Stretch="Fill" Margin="0,5,0,0" HorizontalAlignment="Left" Width="442" Stroke="DarkGray" X2="1" Opacity="0.4" />
-                    <StackPanel x:Name="SuppliesEditBar" Orientation="Horizontal" Margin="0 10 10 10">
-                        <Button
-                  Width="142"
-                  x:Name="MobieDeleteBtn"
-                  Style="{StaticResource MaterialDesignOutlinedButton}"
-                  ToolTip="CLick to delete an User..."
-                  Content="Delete"     
-                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="SupplyDeleteBtn_Click" />
-                        <Button
-                  Margin="10 0 0 0"
-                  Width="142"
-                  x:Name="MobieEditBtn"
-                  Style="{StaticResource MaterialDesignOutlinedButton}"
-                  ToolTip="CLick to edit an User..."
-                  Content="Edit"     
-                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="SupplyEditBtn_Click" />
-                        <Button
-                  Margin="10 0 0 0"
-                  Width="142"
-                  x:Name="MobieAddBtn"
-                  Style="{StaticResource MaterialDesignOutlinedButton}"
-                  ToolTip="CLick to add a new User..."
-                  Content="Add New"     
-                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Click="SupplyAddBtn_Click" />
-                    </StackPanel>
-                    <Label  Style="{StaticResource Header4}" Margin="0 5 0 0" Foreground="DarkGray" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="42.5" />
-                </StackPanel>
-            </StackPanel>
-
-        </StackPanel>-->
+   
     </Grid>
 </UserControl>

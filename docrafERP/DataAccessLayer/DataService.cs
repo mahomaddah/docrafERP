@@ -16,14 +16,14 @@ namespace docrafERP.DataAccessLayer
     public class DataService
     {
         public SqlConnection Connection { get; set; }
-        //server will be ip later server=192.168.1.39
+        //server will be ip later server=192.168.1.39hg
 
         public DataService()
         {
             //DESKTOP-O66ATKR\\SQLEXPRESS //possible username : DESKTOP-O66ATKR\\1
             string conString = "Server=MAHOLAPTOP\\SQLEXPRESS;Database=docrafERPDB;User Id=abcd;Password=abcd;";  //ME //making server localhost for not chaning
-         //   conString = "Server=DESKTOP-O66ATKR\\SQLEXPRESS;Database=docrafERPDB;Trusted_Connection=True;";      //BUTCH
-        // conString = "Server=localhost;Database=docrafERPDB;Trusted_Connection=True;";      //BUTCH PC
+        //   conString = "Server=DESKTOP-O66ATKR\\SQLEXPRESS;Database=docrafERPDB;Trusted_Connection=True;";      //BUTCH
+      // conString = "Server=localhost;Database=docrafERPDB;Trusted_Connection=True;";      //BUTCH PC
 
             Connection = new SqlConnection(conString);
 
