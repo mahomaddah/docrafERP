@@ -41,12 +41,19 @@ namespace docrafERP
             AssetDocuments= dataService.GetAllAssetDocuments();
             Images= dataService.GetAllImages();
             Personels = dataService.GetAllPersonels();
+
+            //Testing Document thing...
+
+            DocumentGanarator ris = new DocumentGanarator();
+            ris.GenradeRIS(new List<Supply> { Supplies.First() } ,CurrentUser , Personels.Find(x=>x.Role == "supply manager"));
         }
+
+        
 
         public HomeView(Personel user)
         {
             InitializeComponent();
-            CurrentUser = new Personel { Role = "supply manager manager" ,Name = "Admin Mode" };
+            CurrentUser = new Personel { Role = "supply manager", Name = "Admin Mode" };
 
             if (user != null)
             {//for test modes
@@ -114,7 +121,7 @@ namespace docrafERP
 
                         break;
                     }
-                case "supply manager manager":
+                case "supply manager":
                     {
                         // cant aprove pr 
                     //    MessageBox.Show("Welcome Supply Manager " + CurrentUser.Name + "...");
