@@ -15,7 +15,8 @@ namespace docrafERP.Models
         public void GenradeRIS(List<Supply> supplies , Personel ConsumingPerson , Personel SM )
         {
             Excel.Application excel = new Excel.Application();
-            Excel.Workbook sheet = excel.Workbooks.Open(@"C:\Users\asus\Desktop\SuppliesConsuming\Appendix 63 - Requisition and Issue Slip - RIS.xlsx");
+            string RISdocPath = Environment.CurrentDirectory + @"\sampleForms\Appendix 63 - Requisition and Issue Slip - RIS.xlsx";
+            Excel.Workbook sheet = excel.Workbooks.Open(RISdocPath);
             Excel.Worksheet worksheet = excel.ActiveSheet as Excel.Worksheet;
 
             // get data
@@ -62,7 +63,7 @@ namespace docrafERP.Models
             // worksheet.Shapes.AddPicture(@"C:\Users\asus\Desktop\SuppliesConsuming\logoDoh.png",Microsoft.Office.Core.MsoTriState.msoFalse,Microsoft.Office.Core.MsoTriState.msoTrue , 1, 3, 1, -1);
 
             //where to save (temp) as pdf
-            string pdfPath = @"C:\Users\asus\Desktop\SuppliesConsuming\RISFilled.pdf";
+            string pdfPath = Environment.CurrentDirectory + @"\sampleForms\RISFilled.pdf";
 
             if (System.IO.File.Exists(pdfPath))
             {
