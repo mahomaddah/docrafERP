@@ -42,10 +42,7 @@ namespace docrafERP
             Images= dataService.GetAllImages();
             Personels = dataService.GetAllPersonels();
 
-            //Testing Document thing...
-
-            DocumentGanarator ris = new DocumentGanarator();
-            ris.GenradeRIS(new List<Supply> { Supplies.First() } ,CurrentUser , Personels.Find(x=>x.Role == "supply manager"));
+        
         }
 
         
@@ -53,6 +50,7 @@ namespace docrafERP
         public HomeView(Personel user)
         {
             InitializeComponent();
+         //  this.WindowState = WindowState.Maximized;
             CurrentUser = new Personel { Role = "supply manager", Name = "Admin Mode" };
 
             if (user != null)

@@ -245,7 +245,7 @@
                                         <Label Content="Purchased Info" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header3}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
                                         <TextBox VerticalAlignment="Center" x:Name="TBvendor"
                                     FontWeight="Normal"
-                                    Width="160"
+                                    Width="184"
                                     Margin="0 0 0 0"
                                     Style="{StaticResource MaterialDesignFilledTextBox}"
                             
@@ -262,7 +262,7 @@
                                     FontSize="12px" CaretBrush="#FF07AD40"/>
                                         <TextBox VerticalAlignment="Center" Name="TBPrice"
                                         FontWeight="Normal"
-                                        Width="160"
+                                        Width="134"
                                         materialDesign:TextFieldAssist.PrefixText="₱"
                                         
                                         Margin="10 0 0 0"
@@ -284,7 +284,25 @@
                                         <Label Content="Purchased Model" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header3}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
                                         <TextBox VerticalAlignment="Center" x:Name="TBBrand"
                                     FontWeight="Normal"
-                                    Width="160"
+                                    Width="85"
+                                    Margin="0 0 14 0"
+                                    Style="{StaticResource MaterialDesignFilledTextBox}"
+                            
+                                    HorizontalAlignment="Left"
+                                    AcceptsReturn="True"
+                                    TextWrapping="Wrap"
+                                    MaxWidth="400"
+                            
+                                    materialDesign:HintAssist.Hint="Brand..."
+                                    Foreground="#000009"
+                                    SelectionBrush="#07AD40"
+                                    BorderBrush="#0DCAF2"
+                                    FontFamily="Roboto"
+                                    FontSize="12px" CaretBrush="#FF07AD40"/>
+    
+                             <TextBox VerticalAlignment="Center" x:Name="TBModel"
+                                    FontWeight="Normal"
+                                   Width="85"
                                     Margin="0 0 0 0"
                                     Style="{StaticResource MaterialDesignFilledTextBox}"
                             
@@ -293,7 +311,7 @@
                                     TextWrapping="Wrap"
                                     MaxWidth="400"
                             
-                                    materialDesign:HintAssist.Hint="Purchased Brand..."
+                                    materialDesign:HintAssist.Hint="Model..."
                                     Foreground="#000009"
                                     SelectionBrush="#07AD40"
                                     BorderBrush="#0DCAF2"
@@ -302,7 +320,7 @@
 
                                         <TextBox VerticalAlignment="Center" Name="TBManufacturer"
                                         FontWeight="Normal"
-                                        Width="160"
+                                        Width="133"
                                    
                                         
                                         Margin="10 0 0 0"
@@ -903,320 +921,7 @@
                                     </materialDesign:Flipper>
                                 </StackPanel>
                             </ListBoxItem>
-                            <ListBoxItem Background="Transparent" Style="{x:Null}" BorderThickness="1" BorderBrush="{StaticResource PrimaryHueDarkBrush}" Margin="10" >
-                                <StackPanel >
-
-                                    <RadioButton Margin="0 0 0 4"
-                                 Foreground="{StaticResource PrimaryHueDarkBrush}"
-                                 Style="{StaticResource MaterialDesignUserForegroundRadioButton}"
-                                 />
-
-                                    <materialDesign:Flipper Margin="30 -15 30 30"
-                            
-                                        materialDesign:ShadowAssist.ShadowDepth="Depth0">
-
-                                        <materialDesign:Flipper.FrontContent>
-
-                                            <Grid Height="290" Width="175">
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition
-                                                     Height="160" />
-                                                    <RowDefinition
-                                                     Height="*" />
-                                                </Grid.RowDefinitions>
-
-                                                <materialDesign:ColorZone Mode="PrimaryDark" VerticalAlignment="Stretch">
-
-                                                    <materialDesign:PackIcon
-                                                                            
-                                                          Kind="AccountCircle"
-                                                        
-                                                          Height="128"
-                                                          Width="128"
-                                                        
-                                                          VerticalAlignment="Center"
-                                                          HorizontalAlignment="Center" >
-
-                                                        <materialDesign:PackIcon.Background>
-                                                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-
-
-                                                                <GradientStop Color="{StaticResource Primary600}"  Offset="0.80"/>
-                                                                <GradientStop Color="#FF07AEFF" Offset="0.26"/>
-
-                                                            </LinearGradientBrush>
-                                                        </materialDesign:PackIcon.Background>
-
-                                                    </materialDesign:PackIcon>
-
-                                                </materialDesign:ColorZone>
-                                                <StackPanel 
-                                                     Grid.Row="1"
-                                                     Margin="0 10 0 0"
-                                                     HorizontalAlignment="Center"
-                                                     VerticalAlignment="Center">
-                                                    <StackPanel Orientation="Vertical" >
-
-                                                        <TextBlock Text="Emplyee 2" Foreground="Gray" HorizontalAlignment="Center" FontWeight="Bold"  FontSize="15" Style="{StaticResource MaterialDesignSubtitle1TextBlock}" />
-                                                        <TextBlock Text="manager" Foreground="Gray" HorizontalAlignment="Center" FontWeight="DemiBold"  Margin="1" FontSize="12" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" />
-                                                        <TextBlock Text="barack@obama.com" Foreground="Gray" HorizontalAlignment="Center" FontWeight="DemiBold" Margin="1" FontSize="12" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" />
-                                                        <TextBlock Text="05550877930" Foreground="Gray" HorizontalAlignment="Center" FontWeight="DemiBold" Margin="1" FontSize="12" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" />
-
-                                                    </StackPanel>
-                                                    <Button 
-                                                      Style="{StaticResource MaterialDesignFlatButton}"
-                                                      Command="{x:Static materialDesign:Flipper.FlipCommand}"
-                                                      Margin="0 2 0 0"
-                                                      Content="EDIT" />
-
-                                                </StackPanel>
-                                            </Grid>
-                                        </materialDesign:Flipper.FrontContent>
-
-                                        <materialDesign:Flipper.BackContent>
-                                            <Grid
-                                            Height="290" Width="175">
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition
-                                                 Height="Auto" />
-                                                    <RowDefinition
-                                             Height="*" />
-                                                </Grid.RowDefinitions>
-                                                <materialDesign:ColorZone
-                                          Mode="PrimaryMid"
-                                              Padding="6">
-                                                    <StackPanel
-                                                 Orientation="Horizontal">
-                                                        <Button
-                                        Style="{StaticResource MaterialDesignToolForegroundButton}"
-                                        Command="{x:Static materialDesign:Flipper.FlipCommand}"
-                                        HorizontalAlignment="Left">
-                                                            <materialDesign:PackIcon
-                                          Kind="ArrowLeft"
-                                          HorizontalAlignment="Right" />
-                                                        </Button>
-                                                        <TextBlock
-                                        Margin="8 0 0 0"
-                                        VerticalAlignment="Center"
-                                        Text="EDIT USER" />
-                                                    </StackPanel>
-                                                </materialDesign:ColorZone>
-                                                <Grid
-                                    Grid.Row="1"
-                                    Margin="0 6 0 0"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Top"
-                                    Width="172">
-                                                    <Grid.RowDefinitions>
-                                                        <RowDefinition />
-                                                        <RowDefinition />
-                                                        <RowDefinition />
-                                                        <RowDefinition />
-                                                        <RowDefinition />
-                                                    </Grid.RowDefinitions>
-                                                    <TextBox
-                                      materialDesign:HintAssist.Hint="Name"
-                                      materialDesign:HintAssist.IsFloating="True"
-                                      Margin="0 12 0 0"
-                                      Text="Employee 2" />
-                                                    <TextBox
-                                      Grid.Row="1"
-                                      materialDesign:HintAssist.Hint="Email"
-                                      materialDesign:HintAssist.IsFloating="True"
-                                      Margin="0 12 0 0"
-                                      Text="madahzadeh18@gmail.com" />
-                                                    <TextBox
-                                      Grid.Row="2"
-                                      materialDesign:HintAssist.Hint="Phone"
-                                      materialDesign:HintAssist.IsFloating="True"
-                                      Margin="0 12 0 0"
-                                      Text="05550877930" />
-                                                    <StackPanel
-                                      Grid.Row="3"
-                                      Orientation="Horizontal"
-                                      Margin="0 12 0 0"
-                                      HorizontalAlignment="Right">
-                                                        <TextBlock
-                                        VerticalAlignment="Center"
-                                        Text="Assign" />
-                                                        <ToggleButton
-                                        Margin="8 0 0 0" />
-                                                    </StackPanel>
-                                                    <StackPanel
-                                      Grid.Row="4"
-                                      Orientation="Horizontal"
-                                      Margin="0 12 0 0"
-                                      HorizontalAlignment="Right">
-                                                        <TextBlock
-                                        VerticalAlignment="Center"
-                                        Text="DeActivate" />
-                                                        <ToggleButton
-                                        Margin="8 0 0 0" />
-                                                    </StackPanel>
-                                                </Grid>
-                                            </Grid>
-                                        </materialDesign:Flipper.BackContent>
-
-                                    </materialDesign:Flipper>
-                                </StackPanel>
-                            </ListBoxItem>
-                            <ListBoxItem Background="Transparent" Style="{x:Null}" BorderThickness="1" BorderBrush="{StaticResource PrimaryHueDarkBrush}" Margin="10" >
-                                <StackPanel >
-
-                                    <RadioButton Margin="0 0 0 4"
-                                 Foreground="{StaticResource PrimaryHueDarkBrush}"
-                                 Style="{StaticResource MaterialDesignUserForegroundRadioButton}"
-                                 />
-
-                                    <materialDesign:Flipper Margin="30 -15 30 30"
-                            
-                                        materialDesign:ShadowAssist.ShadowDepth="Depth0">
-
-                                        <materialDesign:Flipper.FrontContent>
-
-                                            <Grid Height="290" Width="175">
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition
-                                                     Height="160" />
-                                                    <RowDefinition
-                                                     Height="*" />
-                                                </Grid.RowDefinitions>
-
-                                                <materialDesign:ColorZone Mode="PrimaryDark" VerticalAlignment="Stretch">
-
-                                                    <materialDesign:PackIcon
-                                                                            
-                                                          Kind="AccountCircle"
-                                                        
-                                                          Height="128"
-                                                          Width="128"
-                                                        
-                                                          VerticalAlignment="Center"
-                                                          HorizontalAlignment="Center" >
-
-                                                        <materialDesign:PackIcon.Background>
-                                                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-
-
-                                                                <GradientStop Color="{StaticResource Primary600}"  Offset="0.80"/>
-                                                                <GradientStop Color="#FF07AEFF" Offset="0.26"/>
-
-                                                            </LinearGradientBrush>
-                                                        </materialDesign:PackIcon.Background>
-
-                                                    </materialDesign:PackIcon>
-
-                                                </materialDesign:ColorZone>
-                                                <StackPanel
-                                                     Grid.Row="1"
-                                                     Margin="0 10 0 0"
-                                                     HorizontalAlignment="Center"
-                                                     VerticalAlignment="Center">
-                                                    <StackPanel Orientation="Vertical" >
-
-                                                        <TextBlock Text="Manager 2" Foreground="Gray" HorizontalAlignment="Center" FontWeight="Bold"  FontSize="15" Style="{StaticResource MaterialDesignSubtitle1TextBlock}" />
-                                                        <TextBlock Text="Accounting manager" Foreground="Gray" HorizontalAlignment="Center" FontWeight="DemiBold"  Margin="1" FontSize="12" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" />
-                                                        <TextBlock Text="barack@obama.com" Foreground="Gray" HorizontalAlignment="Center" FontWeight="DemiBold" Margin="1" FontSize="12" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" />
-                                                        <TextBlock Text="05550877930" Foreground="Gray" HorizontalAlignment="Center" FontWeight="DemiBold" Margin="1" FontSize="12" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" />
-
-                                                    </StackPanel>
-                                                    <Button 
-                                                      Style="{StaticResource MaterialDesignFlatButton}"
-                                                      Command="{x:Static materialDesign:Flipper.FlipCommand}"
-                                                      Margin="0 2 0 0"
-                                                      Content="EDIT" />
-
-                                                </StackPanel>
-                                            </Grid>
-                                        </materialDesign:Flipper.FrontContent>
-
-                                        <materialDesign:Flipper.BackContent>
-                                            <Grid
-                                            Height="290" Width="175">
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition
-                                                 Height="Auto" />
-                                                    <RowDefinition
-                                             Height="*" />
-                                                </Grid.RowDefinitions>
-                                                <materialDesign:ColorZone
-                                          Mode="PrimaryMid"
-                                              Padding="6">
-                                                    <StackPanel
-                                                 Orientation="Horizontal">
-                                                        <Button
-                                        Style="{StaticResource MaterialDesignToolForegroundButton}"
-                                        Command="{x:Static materialDesign:Flipper.FlipCommand}"
-                                        HorizontalAlignment="Left">
-                                                            <materialDesign:PackIcon
-                                          Kind="ArrowLeft"
-                                          HorizontalAlignment="Right" />
-                                                        </Button>
-                                                        <TextBlock
-                                        Margin="8 0 0 0"
-                                        VerticalAlignment="Center"
-                                        Text="EDIT USER" />
-                                                    </StackPanel>
-                                                </materialDesign:ColorZone>
-                                                <Grid
-                                    Grid.Row="1"
-                                    Margin="0 6 0 0"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Top"
-                                    Width="172">
-                                                    <Grid.RowDefinitions>
-                                                        <RowDefinition />
-                                                        <RowDefinition />
-                                                        <RowDefinition />
-                                                        <RowDefinition />
-                                                        <RowDefinition />
-                                                    </Grid.RowDefinitions>
-                                                    <TextBox
-                                      materialDesign:HintAssist.Hint="Name"
-                                      materialDesign:HintAssist.IsFloating="True"
-                                      Margin="0 12 0 0"
-                                      Text="Manager 2" />
-                                                    <TextBox
-                                      Grid.Row="1"
-                                      materialDesign:HintAssist.Hint="Email"
-                                      materialDesign:HintAssist.IsFloating="True"
-                                      Margin="0 12 0 0"
-                                      Text="madahzadeh18@gmail.com" />
-                                                    <TextBox
-                                      Grid.Row="2"
-                                      materialDesign:HintAssist.Hint="Phone"
-                                      materialDesign:HintAssist.IsFloating="True"
-                                      Margin="0 12 0 0"
-                                      Text="05550877930" />
-                                                    <StackPanel
-                                      Grid.Row="3"
-                                      Orientation="Horizontal"
-                                      Margin="0 12 0 0"
-                                      HorizontalAlignment="Right">
-                                                        <TextBlock
-                                        VerticalAlignment="Center"
-                                        Text="Assign" />
-                                                        <ToggleButton
-                                        Margin="8 0 0 0" />
-                                                    </StackPanel>
-                                                    <StackPanel
-                                      Grid.Row="4"
-                                      Orientation="Horizontal"
-                                      Margin="0 12 0 0"
-                                      HorizontalAlignment="Right">
-                                                        <TextBlock
-                                        VerticalAlignment="Center"
-                                        Text="DeActivate" />
-                                                        <ToggleButton
-                                        Margin="8 0 0 0" />
-                                                    </StackPanel>
-                                                </Grid>
-                                            </Grid>
-                                        </materialDesign:Flipper.BackContent>
-
-                                    </materialDesign:Flipper>
-                                </StackPanel>
-                            </ListBoxItem>
+                           
 
                         </ListBox>
 

@@ -26,6 +26,9 @@ namespace docrafERP.Models
         public int CustodianID { get; set; }
         public string CustodianName { get; set; }
         public List<AssetMaintenance> AssetMaintenanceLogs { get; set; }
+        public string Model { get; set; }
+        public string Manufacture { get; set; }
+
         //private int custodianID;
 
         //public int CustodianID

@@ -583,7 +583,7 @@
                 
            
               BorderBrush="#0DCAF2"
-              HeadersVisibility="All">
+              HeadersVisibility="All" MouseRightButtonDown="LVsupplies_MouseRightButtonDown">
 
                         <DataGrid.ColumnHeaderStyle>
 

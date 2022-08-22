@@ -105,6 +105,8 @@ namespace docrafERP.Views
                 TbStatus.Text = EditingAsset.Status;
                 TBvendor.Text = EditingAsset.PurchasedVendor;
                 TBPrice.Text = EditingAsset.PurchasePrice;
+                TBManufacturer.Text = EditingAsset.Manufacture;
+                TBModel.Text = EditingAsset.Model;
                 // for bar code ....
                 if (EditingAsset.Barcode != null && EditingAsset.Barcode != string.Empty) 
                 {
@@ -296,7 +298,8 @@ namespace docrafERP.Views
                 EditingAsset.PurchasePrice = TBPrice.Text;
                 EditingAsset.Status = TbStatus.Text;
                 EditingAsset.SerialNumber = TBserial.Text;
-                
+                EditingAsset.Model = TBModel.Text;
+                EditingAsset.Manufacture = TBManufacturer.Text;
 
                 //save asset first...
                 if (ComeForAdding)

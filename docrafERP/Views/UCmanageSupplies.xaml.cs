@@ -165,5 +165,31 @@ namespace docrafERP.Views
                 e.Cancel = true;
             }
         }
+
+        private void LVsupplies_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            //Are you sure you want to order to consume thhis ? ... quantity... ask // ordered to SM
+            if (LVsupplies.SelectedIndex != -1)
+            {
+                var result = MessageBox.Show("Your order will be send to Supply department...", "Order to Use", MessageBoxButton.OKCancel);
+                if (result == MessageBoxResult.OK)
+                {
+                    //Testing Document thing...
+                    try
+                    {
+                        DocumentGanarator ris = new DocumentGanarator();
+                        ris.GenradeRIS(new List<Supply> { ((Supply)LVsupplies.SelectedItem) }, SingletoneHomeView.Instance.homeView.CurrentUser, SingletoneHomeView.Instance.homeView.Personels.Find(x => x.Role == "supply manager"));
+                    }
+                    catch
+                    {
+                        MessageBox.Show("UnSuccessfull!..");
+                    }
+
+                }
+            }
+            
+        }
+
+      
     }
 }

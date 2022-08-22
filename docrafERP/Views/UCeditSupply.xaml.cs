@@ -51,38 +51,40 @@ namespace docrafERP.Views
                     try
                     {
                         SupImage.Source = new BitmapImage(new Uri(@"/UIassets/image 21.png"));
-                    
+
                     }
                     catch { }
-                  
+
                 }
                 else
                 {
                     SingletoneHomeView.Instance.homeView.LabelMainBlueTittleOnTop.Content = "Edit Supply";
-                }
-                //update data from object            
-                // try { AssetImage.Source = EditingAsset.ImagePath } catch { } // for image ...
-                try
-                {
-                    SupImage.Source = new BitmapImage(new Uri(EditingSupply.ImagePath));
-                }
-                catch { }
-                TbName.Text = EditingSupply.Name;
-                TbQty.Text = EditingSupply.Quantity;
-                TbDate.Text = EditingSupply.ExpirationDate;
-                TbLotNum.Text = EditingSupply.LotNumber;
-                
-                TbVendor.Text = EditingSupply.PurchasedVendor;
-                TbPrice.Text = EditingSupply.PurchasePrice;
-                // for bar code ....
-                if (EditingSupply.Barcode != null && EditingSupply.Barcode != string.Empty)
-                {
-                    EncryptionKeyTB.Text = EditingSupply.Barcode;
-                    UpdateQRImage();
-                }
-                else
-                {
-                    GetNewCode();
+
+                    //update data from object            
+                    // try { AssetImage.Source = EditingAsset.ImagePath } catch { } // for image ...
+                    try
+                    {
+                        SupImage.Source = new BitmapImage(new Uri(EditingSupply.ImagePath));
+                    }
+                    catch { }
+                    TbName.Text = EditingSupply.Name;
+                    TbQty.Text = EditingSupply.Quantity;
+                    TbDate.Text = EditingSupply.ExpirationDate;
+                    TbLotNum.Text = EditingSupply.LotNumber;
+                    TbUnit.Text = EditingSupply.Unit;
+                    TbSize.Text = EditingSupply.Size;
+                    TbVendor.Text = EditingSupply.PurchasedVendor;
+                    TbPrice.Text = EditingSupply.PurchasePrice;
+                    // for bar code ....
+                    if (EditingSupply.Barcode != null && EditingSupply.Barcode != string.Empty)
+                    {
+                        EncryptionKeyTB.Text = EditingSupply.Barcode;
+                        UpdateQRImage();
+                    }
+                    else
+                    {
+                        GetNewCode();
+                    }
                 }
             }
         }
@@ -213,7 +215,9 @@ namespace docrafERP.Views
                 EditingSupply.PurchasedVendor = TbVendor.Text;
                 EditingSupply.PurchasePrice = TbPrice.Text;
                 EditingSupply.LotNumber = TbLotNum.Text;
-
+                EditingSupply.Unit = TbUnit.Text;
+                EditingSupply.Size = TbSize.Text;
+               
 
                 //save asset first...
                 if (ComeForAdding)

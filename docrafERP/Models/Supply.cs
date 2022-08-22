@@ -23,6 +23,9 @@ namespace docrafERP.Models
         public string Barcode { get; set; }
      // public string OwnerOrLocation { get; set; }
         public string StockStatus { get; set; }
+        public string Unit { get; set; }
+        public string Size { get; set; }
+
         public Supply()
         {
             //Low on stock
