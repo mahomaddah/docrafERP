@@ -42,7 +42,7 @@
                         </StackPanel>
                     </Grid>
                 </materialDesign:DialogHost.DialogContent>
-                
+
                 <Grid>
                     <StackPanel >
                         <StackPanel>
@@ -57,7 +57,7 @@
                             <ProgressBar Margin="0 0 0 10" Value="18.7" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
 
 
-                            <ListView ItemTemplateSelector="{StaticResource PRdataTemplateSelectorDirectory}"  Name="PurchaseRequestsLV" VerticalAlignment="Center" Margin="0,0,373,0" Height="379">
+                            <ListView ItemTemplateSelector="{StaticResource PRdataTemplateSelectorDirectory}"  Name="PurchaseRequestsLV"  HorizontalAlignment="Left"  Margin="0,0,0,0" Height="379" Width="700">
                                 <ListView.BorderBrush>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="Black" Offset="0"/>
@@ -126,11 +126,7 @@
 
                     </StackPanel>
 
-                    <Grid HorizontalAlignment="Right">
-
-                        <Image Source="/UIassets/image 16.png" Margin="25,96,42,80"/>
-
-                    </Grid>
+                    <Grid HorizontalAlignment="Right"/>
                 </Grid>
             </materialDesign:DialogHost>
 
