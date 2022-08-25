@@ -7,11 +7,12 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="550" d:DesignWidth="800">
+
     <Grid>
         <StackPanel>
             <Label Margin="0 5 0 0" Style="{StaticResource Header1}" Foreground="#000008" Content="Forms" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30.5" />
             <ProgressBar Margin="0 0 0 10" Value="6.5" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
-            <ListView x:Name="FormsLV" MouseDoubleClick="FormClicked" Height="280" VerticalAlignment="Center">
+            <ListView x:Name="FormsLV" MouseDoubleClick="FormClicked" Height="350" VerticalAlignment="Center">
                 <ListView.BorderBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0"/>
@@ -20,36 +21,106 @@
                 </ListView.BorderBrush>
                 
            
-                    <Label Width="250" VerticalAlignment="Center"
+                    <Label VerticalAlignment="Center"
                      BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
-                     Content="Appendix 59 - Inventory Custodian Slip - ICS" />
+                     Content="Appendix 56-RAWO : REGISTRY OF ACCOUNTS WRITTEN OFF" />
+                    
+                    <Label VerticalAlignment="Center"
+                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                     Content="Appendix 57-SLC : SUPPLIES LEDGER CARD" />
+              
+                     <Label VerticalAlignment="Center"
+                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                     Content="Appendix 58-SC : STOCK CARD" />
 
-              
+                     <Label VerticalAlignment="Center"
+                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                     Content="Appendix 59-ICS : INVENTORY CUSTODIAN SLIP" />
+
+                     <Label VerticalAlignment="Center"
+                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                     Content="Appendix 60-PR : PURCHASE REQUEST" />
             
-                    <Label Width="250" VerticalAlignment="Center"
-                        BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
-                        Content="Appendix 60 - Purchase Request - PR" />
+                    <Label VerticalAlignment="Center"
+                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                     Content="Appendix 61-PO : PURCHASE ORDER" />
+
+                        <Label VerticalAlignment="Center"
+                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                     Content="Appendix 62-IAR : INSPECTION AND ACCEPTANCE REPORT" />
               
-         
-                    <Label VerticalAlignment="Center" Width="250"
-                    BorderBrush="Black" Style="{StaticResource Header2}" FontFamily="Roboto"
-                 Content="Appendix 61 - Purchase Order - PO" />
-              
-           
-                    <Label VerticalAlignment="Center"  Width="250"
-                        BorderBrush="Black" Style="{StaticResource Header2}" FontFamily="Roboto"
-                        Content="Appendix 71 - Property Acknowledgement Receipt - PAR" />
-              
-          
-                    <Label VerticalAlignment="Center" Width="250"
-                        BorderBrush="Black" Style="{StaticResource Header2}" FontFamily="Roboto"
-                        Content="Appendix 73 - Report on the Physical Count of Property, Plant and Equipment - RPCPPE" />
-         
+                     <Label VerticalAlignment="Center"
+                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                     Content="Appendix 63-RIS : REQUISITION AND ISSUE SLIP" />
+
+                     <Label VerticalAlignment="Center"
+                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                     Content="Appendix 64-RSMI : REPORT OF SUPPLIES AND MATERIALS ISSUED" />
             
-                    <Label VerticalAlignment="Center" Width="250"
-                        BorderBrush="Black" Style="{StaticResource Header2}" FontFamily="Roboto"
-                        Content="Appendix 74 - Inventory and Inspection Report of Unserviceable Property - IIRUP" />
-        
+                    <Label VerticalAlignment="Center"
+                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                     Content="Appendix 65-WMR : WASTE MATERIALS REPORT" />
+
+                    <Label VerticalAlignment="Center"
+                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                     Content="Appendix 66-RPCI : REPORT ON THE PHYSICAL COUNT OF INVENTORIES" />
+              
+                     <Label VerticalAlignment="Center"
+                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                     Content="Appendix 67-RAAF : REPORT OF ACCOUNTABILITY FOR ACCOUNTABLE FORMS" />
+
+                     <Label VerticalAlignment="Center"
+                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                     Content="Appendix 68-IPLC : INVESTMENT PROPERTY LEDGER CARD" />
+
+                     <Label VerticalAlignment="Center"
+                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                     Content="Appendix 69-PC : PROPERTY CARD" />
+            
+                    <Label VerticalAlignment="Center"
+                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                     Content="Appendix 70-PPELC : PROPERTY, PLANT AND EQUIPMENT LEDGER CARD" />
+
+                    <Label VerticalAlignment="Center"
+                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                     Content="Appendix 71-PAR : PROPERTY ACKNOWLEDGMENT RECEIPT" />
+              
+                     <Label VerticalAlignment="Center"
+                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                     Content="Appendix 72-RHAS : REGISTRY OF HERITAGE ASSET" />
+
+                     <Label VerticalAlignment="Center"
+                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                     Content="Appendix 73-RPCPPE : REPORT ON THE PHYSICAL COUNT OF PROPERTY, PLANT AND EQUIPMENT" />
+
+                     <Label VerticalAlignment="Center"
+                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                     Content="Appendix 74-IIRUP : INVENTORY AND INSPECTION REPORT OF UNSERVICEABLE PROPERTY" />
+            
+                    <Label VerticalAlignment="Center"
+                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                     Content="Appendix 75-RLSDDP : REPORT OF LOST, STOLEN, DAMAGED OR DESTROYED PROPERTY" />  
+
+                     <Label VerticalAlignment="Center"
+                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                     Content="Appendix 76-PTR : PROPERTY TRANSFER REPORT" />
+              
+                     <Label VerticalAlignment="Center"
+                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                     Content="Appendix 77-CIPLC : CONSTRUCTION IN PROGRESS LEDGER CARD" />
+
+                     <Label VerticalAlignment="Center"
+                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                     Content="Appendix 78-BAPC : BIOLOGICAL ASSETS PROPERTY CARD" />
+
+                     <Label VerticalAlignment="Center"
+                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                     Content="Appendix 79-QRBA : QUARTERLY REPORT OF BIOLOGICAL ASSETS" />
+            
+                    <Label VerticalAlignment="Center"
+                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                     Content="Appendix 80-BRS-MDS : Monthly Reconciliation Statement" />                  
+
             </ListView>
             <Line Stretch="Fill" Margin="0,5,0,0" HorizontalAlignment="Left" Width="247" Stroke="DarkGray" X2="1" Opacity="0.4" />
             <Label Margin="0 10 0 10" FontSize="11" FontFamily="Roboto" Foreground="#07AD40" FontWeight="Light" Content="In this panel you can issue any document manually"></Label>

@@ -29,9 +29,44 @@ namespace docrafERP.Views
         public List<string> Locations { get; set; }
         public List<string> SearchBarSuggestions { get; set; }
 
+        //public bool? IsAllItemsSelected 
+        //{
+            
+        //    get
+        //    {
+        //        //hepsi seciliyse tik yap hepsi secili degilse null
+               
+        //            var selectedList = AssetGridView.SelectedItems;
+        //            if (selectedList.Count == AssetGridView.SelectedItems.Count)
+        //            {
+        //                return true;
+        //            }
+        //            else
+        //            {
+        //                return false;
+        //            }
+               
+                
+        //    }
+        //    set
+        //    {
+        //        //bu secili ise hepsini sec
+        //        if (value==true)
+        //        {
+        //            AssetGridView.SelectAll();
+                 
+        //        }
+        //        else
+        //        {
+        //            AssetGridView.UnselectAll();
+        //        }
+        //    }
+        //}
+
         public void RefreshAssetsListViewFromViewModel()
         {
             DataContext = this;
+          //  IsAllItemsSelected = false;
             Locations = new List<string>();
             SingletoneHomeView.Instance.homeView.Assets.ForEach(x => Locations.Add(x.OwnerOrLocation));
             AssetsForListview = SingletoneHomeView.Instance.homeView.Assets.ToList();

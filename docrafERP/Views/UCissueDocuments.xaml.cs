@@ -33,31 +33,111 @@ namespace docrafERP.Views
         string getSamplePdfPath(string SelectedItem)
         {
             string returning = Environment.CurrentDirectory + @"\sampleForms\";
-       
-            if (SelectedItem.Contains("ICS"))
+
+            if (SelectedItem.Contains("56-RAWO")) 
             {
-                returning += "ICS" + ".pdf";
+                returning += "56-RAWO" + ".pdf";
             }
-            else if (SelectedItem.Contains("PO"))
+            else if (SelectedItem.Contains("57-SLC"))
             {
-                returning += "PO" + ".pdf";
+                returning += "57-SLC" + ".pdf";
             }
-            else if (SelectedItem.Contains("PR"))
+            else if (SelectedItem.Contains("58-SC"))
             {
-                returning += "PR" + ".pdf";
+                returning += "58-SC" + ".pdf";
             }
-            else if (SelectedItem.Contains("PAR"))
+            else if (SelectedItem.Contains("59-ICS"))
             {
-                returning += "PAR" + ".pdf";
+                returning += "59-ICS" + ".pdf";
             }
-            else if (SelectedItem.Contains("IIRUP"))
+            else if (SelectedItem.Contains("60-PR"))
             {
-                returning += "IIRUP" + ".pdf";
+                returning += "60-PR" + ".pdf";
             }
-            else if (SelectedItem.Contains("RPCPPE"))
+            else if (SelectedItem.Contains("61-PO"))
             {
-                returning += "RPCPPE" + ".pdf";
+                returning += "61-PO" + ".pdf";
             }
+            else if (SelectedItem.Contains("62-IAR"))
+            {
+                returning += "62-IAR" + ".pdf";
+            }
+            else if (SelectedItem.Contains("63-RIS"))
+            {
+                returning += "63-RIS" + ".pdf";
+            }
+            else if (SelectedItem.Contains("64-RSMI"))
+            {
+                returning += "64-RSMI" + ".pdf";
+            }
+            else if (SelectedItem.Contains("65-WMR"))
+            {
+                returning += "65-WMR" + ".pdf";
+            }
+            else if (SelectedItem.Contains("66-RPCI"))
+            {
+                returning += "66-RPCI" + ".pdf";
+            }
+            else if (SelectedItem.Contains("67-RAAF"))
+            {
+                returning += "67-RAAF" + ".pdf";
+            }
+            else if (SelectedItem.Contains("68-IPLC"))
+            {
+                returning += "68-IPLC" + ".pdf";
+            }
+            else if (SelectedItem.Contains("69-PC"))
+            {
+                returning += "69-PC" + ".pdf";
+            }
+            else if (SelectedItem.Contains("70-PPELC"))
+            {
+                returning += "70-PPELC" + ".pdf";
+            }
+            else if (SelectedItem.Contains("71-PAR"))
+            {
+                returning += "71-PAR" + ".pdf";
+            }
+            else if (SelectedItem.Contains("72-RHA"))
+            {
+                returning += "72-RHA" + ".pdf";
+            }
+            else if (SelectedItem.Contains("72-RHAS"))
+            {
+                returning += "72-RHAS" + ".pdf";
+            }
+            else if (SelectedItem.Contains("73-RPCPPE"))
+            {
+                returning += "73-RPCPPE" + ".pdf";
+            }
+            else if (SelectedItem.Contains("74-IIRUP"))
+            {
+                returning += "74-IIRUP" + ".pdf";
+            }
+            else if (SelectedItem.Contains("75-RLSDDP"))
+            {
+                returning += "75-RLSDDP" + ".pdf";
+            }
+            else if (SelectedItem.Contains("76-PTR"))
+            {
+                returning += "76-PTR" + ".pdf";
+            }
+            else if (SelectedItem.Contains("77-CIPLC"))
+            {
+                returning += "77-CIPLC" + ".pdf";
+            }
+            else if (SelectedItem.Contains("78-BAPC"))
+            {
+                returning += "78-BAPC" + ".pdf";
+            }
+            else if (SelectedItem.Contains("79-QRBA"))
+            {
+                returning += "79-QRBA" + ".pdf";
+            }
+            else if (SelectedItem.Contains("80-BRS-MDS"))
+            {
+                returning += "80-BRS-MDS" + ".pdf";
+            }       
             return returning;
         }
 
