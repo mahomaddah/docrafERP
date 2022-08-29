@@ -406,8 +406,7 @@
                     </ListBoxItem>
 
                     <ListBoxItem
-                         x:Name="Filterthismonth"
-                        >
+                         x:Name="Filterthismonth" >
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:Badged>
                                 <materialDesign:PackIcon
@@ -464,7 +463,7 @@
                                 Background="Transparent">
 
                                       <CheckBox
-                                IsChecked="{Binding Path IsAllItemsSelected, Mode=TwoWay}" />
+                                 />
                             </Border>
                         </DataGridCheckBoxColumn.Header>
                         <DataGridCheckBoxColumn.HeaderStyle>

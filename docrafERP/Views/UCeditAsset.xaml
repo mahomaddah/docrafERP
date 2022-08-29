@@ -156,13 +156,13 @@
                                             <ComboBoxItem Content="Accounting Approved">
 
                                             </ComboBoxItem>
-                                            <ComboBoxItem Content="Director Approved ( PO linked )">
+                                            <ComboBoxItem Content="Director Approved">
 
                                             </ComboBoxItem>
                                             <ComboBoxItem Content="Ordered">
 
                                             </ComboBoxItem>
-                                            <ComboBoxItem Content="Accepting by SM">
+                                            <ComboBoxItem Content="Accepting by Supply Manager">
 
                                             </ComboBoxItem>
                                             <ComboBoxItem Content="Available">

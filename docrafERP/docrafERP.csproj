@@ -62,21 +62,6 @@
     <Reference Include="office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="Syncfusion.Compression.Base, Version=20.2460.0.36, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>packages\Syncfusion.Compression.Base.20.2.0.36\lib\net46\Syncfusion.Compression.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.ExcelToPdfConverter.Base, Version=20.2460.0.36, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>packages\Syncfusion.ExcelToPdfConverter.Wpf.20.2.0.36\lib\net46\Syncfusion.ExcelToPdfConverter.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Licensing, Version=20.2460.0.36, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
-      <HintPath>packages\Syncfusion.Licensing.20.2.0.36\lib\net46\Syncfusion.Licensing.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Pdf.Base, Version=20.2460.0.36, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>packages\Syncfusion.Pdf.Wpf.20.2.0.36\lib\net46\Syncfusion.Pdf.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.XlsIO.Base, Version=20.2460.0.36, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>packages\Syncfusion.XlsIO.Wpf.20.2.0.36\lib\net46\Syncfusion.XlsIO.Base.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -450,13 +435,5 @@
       <ErrorText>Bu proje bu bilgisayarda olmayan NuGet paketlerine başvuru yapıyor. Bunları indirmek için NuGet Paket Geri Yükleme'yi kullanın. Daha fazla bilgi için, bkz. http://go.microsoft.com/fwlink/?LinkID=322105. Eksik dosya: {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets'))" />
-    <Error Condition="!Exists('packages\Leadtools.Kernel.22.0.0.4\build\net40\Leadtools.Kernel.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Leadtools.Kernel.22.0.0.4\build\net40\Leadtools.Kernel.targets'))" />
-    <Error Condition="!Exists('packages\Leadtools.Formats.Raster.Common.22.0.0.4\build\net40\Leadtools.Formats.Raster.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Leadtools.Formats.Raster.Common.22.0.0.4\build\net40\Leadtools.Formats.Raster.Common.targets'))" />
-    <Error Condition="!Exists('packages\Leadtools.Image.Processing.22.0.0.4\build\net40\Leadtools.Image.Processing.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Leadtools.Image.Processing.22.0.0.4\build\net40\Leadtools.Image.Processing.targets'))" />
-    <Error Condition="!Exists('packages\Leadtools.Barcode.22.0.0.4\build\net40\Leadtools.Barcode.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Leadtools.Barcode.22.0.0.4\build\net40\Leadtools.Barcode.targets'))" />
   </Target>
-  <Import Project="packages\Leadtools.Kernel.22.0.0.4\build\net40\Leadtools.Kernel.targets" Condition="Exists('packages\Leadtools.Kernel.22.0.0.4\build\net40\Leadtools.Kernel.targets')" />
-  <Import Project="packages\Leadtools.Formats.Raster.Common.22.0.0.4\build\net40\Leadtools.Formats.Raster.Common.targets" Condition="Exists('packages\Leadtools.Formats.Raster.Common.22.0.0.4\build\net40\Leadtools.Formats.Raster.Common.targets')" />
-  <Import Project="packages\Leadtools.Image.Processing.22.0.0.4\build\net40\Leadtools.Image.Processing.targets" Condition="Exists('packages\Leadtools.Image.Processing.22.0.0.4\build\net40\Leadtools.Image.Processing.targets')" />
-  <Import Project="packages\Leadtools.Barcode.22.0.0.4\build\net40\Leadtools.Barcode.targets" Condition="Exists('packages\Leadtools.Barcode.22.0.0.4\build\net40\Leadtools.Barcode.targets')" />
 </Project>

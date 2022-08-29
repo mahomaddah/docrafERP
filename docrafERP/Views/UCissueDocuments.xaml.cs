@@ -12,9 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Syncfusion.Pdf;
-using Syncfusion.XlsIO;
-using Syncfusion.ExcelToPdfConverter;
 using System.Diagnostics;
 
 
@@ -177,26 +174,6 @@ namespace docrafERP.Views
             }
         }
 
-        void excelToPDF(string inputPath , string PdfPath)
-        {
-            //Paid Lib.
-            using (ExcelEngine excelEngine = new ExcelEngine())
-            {
-                IApplication application = excelEngine.Excel;
-                application.DefaultVersion = ExcelVersion.Excel2016;
-                IWorkbook workbook = application.Workbooks.Open(inputPath, ExcelOpenType.Automatic);
-                //Open the Excel document to convert
-                ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
-                //Initialize PDF document
-                PdfDocument pdfDocument = new PdfDocument();
-                //Convert Excel document into PDF document
-                pdfDocument = converter.Convert();
-                //Save the PDF file
-                pdfDocument.Save(PdfPath);
-                //This will open the PDF file so, the result will be seen in default PDF viewer
-                System.Diagnostics.Process.Start(PdfPath);
-            }
-        }
 
 
     }

@@ -23,7 +23,7 @@ namespace docrafERP.DataAccessLayer
           //  DESKTOP-O66ATKR\\SQLEXPRESS //possible username : DESKTOP-O66ATKR\\1
               string conString = "Server=MAHOLAPTOP\\SQLEXPRESS;Database=docrafERPDB;Trusted_Connection=True;";  //ME //making server localhost for not chaning
           //  conString = "Server=DESKTOP-O66ATKR\\SQLEXPRESS;Database=docrafERPDB;Trusted_Connection=True;";      //BUTCH
-          //  conString = "Server=localhost;Database=docrafERPDB;Trusted_Connection=True;";      //BUTCH PC or new Laptop...
+        //  conString = "Server=localhost;Database=docrafERPDB;Trusted_Connection=True;";      //BUTCH PC or new Laptop...
 
             Connection = new SqlConnection(conString);
 

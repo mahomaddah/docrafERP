@@ -102,7 +102,7 @@
             <DataTemplate x:Key="AssetAvailableTemplate">
                 <StackPanel  Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="ClipboardCheck" Foreground="#00CE46"  Margin="0 0 0 0" Height="18" Width="18" HorizontalAlignment="Center" VerticalAlignment="Center"  />
-                    <Label Content="Available" Width="100" FontWeight="Bold"  Foreground="#00CE46" VerticalAlignment="Center" HorizontalAlignment="Center"   Margin="0 0 0 0" FontSize="11" Style="{StaticResource Header3}" FontFamily="Roboto" />
+                    <Label Content="Available" Width="160" FontWeight="Bold"  Foreground="#00CE46" VerticalAlignment="Center" HorizontalAlignment="Center"   Margin="0 0 0 0" FontSize="11" Style="{StaticResource Header3}" FontFamily="Roboto" />
                     <Image Source="{Binding ImagePath}" Margin="0 0 0 0" Width="35"  Height="35"  HorizontalAlignment="Center" VerticalAlignment="Center"  />
 
                 </StackPanel>
@@ -111,7 +111,70 @@
             <DataTemplate x:Key="AssetUnAvailableTemplate">
                 <StackPanel  Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="ClipboardOff" Foreground="#FF3232"  Margin="0 0 0 0" Height="18" Width="18" HorizontalAlignment="Center" VerticalAlignment="Center"  />
-                    <Label Content="Unavailable" FontWeight="Bold" Width="100" Foreground="#FF3232" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="0 0 0 0"  FontSize="11"  Style="{StaticResource Header3}" FontFamily="Roboto" />
+                    <Label Content="Unavailable" FontWeight="Bold" Width="160" Foreground="#FF3232" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="0 0 0 0"  FontSize="11"  Style="{StaticResource Header3}" FontFamily="Roboto" />
+                    <Image Source="{Binding ImagePath}" Margin="0 0 0 0"   Width="35"  Height="35"  HorizontalAlignment="Center" VerticalAlignment="Center"  />
+
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="AssetTempRequested">
+                <StackPanel  Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="AccountQuestionOutline" Foreground="#FFD30F5C"  Margin="0 0 0 0" Height="18" Width="18" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+                    <Label Content="{Binding Status}" FontWeight="Bold" Width="160" Foreground="#FFD30F5C" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="0 0 0 0"  FontSize="11"  Style="{StaticResource Header4}" FontFamily="Roboto" />
+                    <Image Source="{Binding ImagePath}" Margin="0 0 0 0"   Width="35"  Height="35"  HorizontalAlignment="Center" VerticalAlignment="Center"  />
+
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="AssetTempAccountingApproved">
+                <StackPanel  Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="AccountCash" Foreground="#FF00EA56"  Margin="0 0 0 0" Height="18" Width="18" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+                    <Label Content="{Binding Status}" FontWeight="Bold" Width="160" Foreground="#FF00EA56" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="0 0 0 0"  FontSize="11"  Style="{StaticResource Header4}" FontFamily="Roboto" />
+                    <Image Source="{Binding ImagePath}" Margin="0 0 0 0"   Width="35"  Height="35"  HorizontalAlignment="Center" VerticalAlignment="Center"  />
+
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="AssetTempDirectorApproved">
+                <StackPanel  Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="AccountTieHat" Foreground="#FF00F5FF"  Margin="0 0 0 0" Height="18" Width="18" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+                    <Label Content="{Binding Status}" FontWeight="Bold" Width="160" Foreground="#FF00F5FF" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="0 0 0 0"  FontSize="11"  Style="{StaticResource Header4}" FontFamily="Roboto" />
+                    <Image Source="{Binding ImagePath}" Margin="0 0 0 0"   Width="35"  Height="35"  HorizontalAlignment="Center" VerticalAlignment="Center"  />
+
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="AssetTempOrdered">
+                <StackPanel  Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="AccountTieVoice" Foreground="#FFAF00EA"  Margin="0 0 0 0" Height="18" Width="18" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+                    <Label Content="{Binding Status}" FontWeight="Bold" Width="160" Foreground="#FFAF00EA" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="0 0 0 0"  FontSize="11"  Style="{StaticResource Header4}" FontFamily="Roboto" />
+                    <Image Source="{Binding ImagePath}" Margin="0 0 0 0"   Width="35"  Height="35"  HorizontalAlignment="Center" VerticalAlignment="Center"  />
+
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="AssetTempAcceptingbySupplyManager">
+                <StackPanel  Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="AccountTieVoice" Foreground="#FF005AEA"  Margin="0 0 0 0" Height="18" Width="18" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+                    <Label Content="{Binding Status}" FontWeight="Bold" Width="160" Foreground="#FF005AEA" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="0 0 0 0"  FontSize="11"  Style="{StaticResource Header4}" FontFamily="Roboto" />
+                    <Image Source="{Binding ImagePath}" Margin="0 0 0 0"   Width="35"  Height="35"  HorizontalAlignment="Center" VerticalAlignment="Center"  />
+
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="AssetTempInStorage">
+                <StackPanel  Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="HouseCircle" Foreground="#FFEA5300"  Margin="0 0 0 0" Height="18" Width="18" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+                    <Label Content="{Binding Status}" FontWeight="Bold" Width="160" Foreground="#FFEA5300" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="0 0 0 0"  FontSize="11"  Style="{StaticResource Header4}" FontFamily="Roboto" />
+                    <Image Source="{Binding ImagePath}" Margin="0 0 0 0"   Width="35"  Height="35"  HorizontalAlignment="Center" VerticalAlignment="Center"  />
+
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="AssetTempOutForRepair">
+                <StackPanel  Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="CarRepair" Foreground="#FF530B0B"  Margin="0 0 0 0" Height="18" Width="18" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+                    <Label Content="{Binding Status}" FontWeight="Bold" Width="160" Foreground="#FF530B0B" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="0 0 0 0"  FontSize="11"  Style="{StaticResource Header4}" FontFamily="Roboto" />
                     <Image Source="{Binding ImagePath}" Margin="0 0 0 0"   Width="35"  Height="35"  HorizontalAlignment="Center" VerticalAlignment="Center"  />
 
                 </StackPanel>
@@ -2556,8 +2619,18 @@
               PersoneltempEmployee="{StaticResource employeePersonelTemplate}" />
 
             <viewsDir:AssetTamplateSelector x:Key="dataTemplateSelectorDirectory"
+
               AssetAvailableTemp="{StaticResource AssetAvailableTemplate}"
-              AssetUnAvailableTemp="{StaticResource AssetUnAvailableTemplate}" />
+              AssetUnAvailableTemp="{StaticResource AssetUnAvailableTemplate}" 
+              AssetTempRequested="{StaticResource AssetTempRequested}"
+              AssetTempAccountingApproved="{StaticResource AssetTempAccountingApproved}" 
+              AssetTempDirectorApproved="{StaticResource AssetTempDirectorApproved}"
+              AssetTempOrdered="{StaticResource AssetTempOrdered}" 
+              AssetTempAcceptingbySupplyManager="{StaticResource AssetTempAcceptingbySupplyManager}"
+              AssetTempInStorage="{StaticResource AssetTempInStorage}" 
+              AssetTempOutForRepair="{StaticResource AssetTempOutForRepair}"
+     
+              />
 
             <viewsDir:SupplyTamplateSelector x:Key="supplydataTemplateSelectorDirectory"
               SupplyReadyToUseTemp="{StaticResource SupplyReadyToUseTemplate}"
