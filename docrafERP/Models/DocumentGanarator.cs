@@ -12,7 +12,7 @@ namespace docrafERP.Models
 {
     public class DocumentGanarator
     {
-        public void GenradeRIS(List<Supply> supplies , Personel ConsumingPerson , Personel SM )
+        public void GenradeRIS(List<Supply> supplies , Personel ConsumingPerson , Personel SM, int quantityToUse)
         {
             Excel.Application excel = new Excel.Application();
             string RISdocPath = Environment.CurrentDirectory + @"\sampleForms\Appendix 63 - Requisition and Issue Slip - RIS.xlsx";
@@ -25,7 +25,7 @@ namespace docrafERP.Models
 
 
             //set data
-            int quantityToUse = 30;
+           
 
             //Stock Number
             worksheet.Cells[12 , 1] =  supplies.First().Barcode;

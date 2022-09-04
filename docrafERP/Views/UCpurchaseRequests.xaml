@@ -74,19 +74,19 @@
 
 
                                 <Button
-                      Width="109"                
-                      Style="{StaticResource MaterialDesignOutlinedButton}"
-                      ToolTip="CLick to delete an User..."
-                      Content="Delete"     
-                      IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="Delete_Click" />
+                                  Width="109"                
+                                  Style="{StaticResource MaterialDesignOutlinedButton}"
+                                  ToolTip="CLick to delete an User..."
+                                  Content="Delete"     
+                                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="Delete_Click" />
 
                                 <Button
-                      Margin="10 0 0 0"
-                      Width="109"            
-                      Style="{StaticResource MaterialDesignOutlinedButton}"
-                      ToolTip="CLick to edit an User..."
-                      Content="Edit"     
-                      IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="Edit_click"  />
+                                  Margin="10 0 0 0"
+                                  Width="109"            
+                                  Style="{StaticResource MaterialDesignOutlinedButton}"
+                                  ToolTip="CLick to edit an User..."
+                                  Content="Edit"     
+                                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="Edit_click"  />
 
 
                                 <Button
@@ -103,20 +103,20 @@
 
 
                                 <Button
-                        Width="152"
-                        Margin="35 0 0 0"
-                        Style="{StaticResource MaterialDesignOutlinedButton}"
-                        ToolTip="CLick to delete an User..."
-                        Content="PRINT"     
-                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Click="PrintClick"  />
+                                    Width="152"
+                                    Margin="35 0 0 0"
+                                    Style="{StaticResource MaterialDesignOutlinedButton}"
+                                    ToolTip="CLick to delete an User..."
+                                    Content="PRINT"     
+                                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Click="PrintClick"  />
 
                                 <Button
-                        Margin="10 0 0 0"
-                        Width="153"                     
-                        Style="{StaticResource MaterialDesignOutlinedButton}"
-                        ToolTip="CLick to edit an User..."
-                        Content="SAVE AS PDF"     
-                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Click="SaveAsPDfClick"  />
+                                    Margin="10 0 0 0"
+                                    Width="153"                     
+                                    Style="{StaticResource MaterialDesignOutlinedButton}"
+                                    ToolTip="CLick to edit an User..."
+                                    Content="SAVE AS PDF"     
+                                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Click="SaveAsPDfClick"  />
 
                             </StackPanel>
 

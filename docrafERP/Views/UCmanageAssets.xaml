@@ -400,7 +400,7 @@
                                     
                                     />
                             </materialDesign:Badged>
-                            <TextBlock Text="Status is Accepting by SM" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
+                            <TextBlock Text="Status is Accepting by Supply Manager" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignButtonTextBlock}" ></TextBlock>
 
                         </StackPanel>
                     </ListBoxItem>
@@ -503,6 +503,30 @@
                         </DataGridTextColumn.HeaderStyle>
                     </DataGridTextColumn>
 
+                    <DataGridTextColumn
+                       
+                      Binding="{Binding CustodianName}"
+                      Header="Custodian"
+                      ElementStyle="{StaticResource MaterialDesignDataGridTextColumnStyle}"
+                      
+                      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" 
+                     
+
+                      >
+                        <DataGridTextColumn.HeaderStyle>
+                            <Style
+                                
+                                  TargetType="{x:Type DataGridColumnHeader}"
+                                  BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+                                <Setter
+                                Property="HorizontalContentAlignment"
+                                Value="Center" />
+                                <Setter Property="FontWeight" Value="SemiBold" />
+                                <Setter Property="Foreground" Value="#0DCAF2"/>
+                            </Style>
+                        </DataGridTextColumn.HeaderStyle>
+                    </DataGridTextColumn>
+                    
                     <!-- if you want to use the pop up style (MaterialDesignDataGridTextColumnPopupEditingStyle), you must use MaterialDataGridTextColumn -->
 
                     <materialDesign:DataGridComboBoxColumn

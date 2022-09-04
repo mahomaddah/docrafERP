@@ -23,7 +23,7 @@ namespace docrafERP.DataAccessLayer
           //  DESKTOP-O66ATKR\\SQLEXPRESS //possible username : DESKTOP-O66ATKR\\1
               string conString = "Server=MAHOLAPTOP\\SQLEXPRESS;Database=docrafERPDB;Trusted_Connection=True;";  //ME //making server localhost for not chaning
           //  conString = "Server=DESKTOP-O66ATKR\\SQLEXPRESS;Database=docrafERPDB;Trusted_Connection=True;";      //BUTCH
-        //  conString = "Server=localhost;Database=docrafERPDB;Trusted_Connection=True;";      //BUTCH PC or new Laptop...
+      // conString = "Server=localhost;Database=docrafERPDB;Trusted_Connection=True;";      //BUTCH PC or new Laptop...
 
             Connection = new SqlConnection(conString);
 
@@ -77,6 +77,7 @@ namespace docrafERP.DataAccessLayer
             // string query = @"INSERT INTO [dbo].[ASSET]([PurchaseRequestID],[DocumentsFolderPath],[ImagePath],[RemarksJson],[Device],[OwnerOrLocation],[Status],[SerialNumber],[DateReceived],[PurchasedVendor],[PurchasePrice],[Barcode]) VALUES ( @PurchaseRequestID,@DocumentsFolderPath,@ImagePath,@RemarksJson,@Device,@OwnerOrLocation,@Status,@SerialNumber,@DateReceived,@PurchasedVendor,@PurchasePrice,@Barcode)";
             string query = @"INSERT INTO [dbo].[ASSET]([PurchaseRequestID],[DocumentsFolderPath],[ImagePath],[RemarksJson],[Device],[OwnerOrLocation],[Status],[SerialNumber],[DateReceived],[PurchasedVendor],[PurchasePrice],[Barcode]) VALUES ( " + asset.PurchaseRequetID + ",'" + asset.DocumentsFolderPath + "','" + asset.ImagePath + "','" + asset.RemarksJson + "','" + asset.Device + "','" + asset.OwnerOrLocation + "','" + asset.Status + "','" + asset.SerialNumber + "','" + asset.DateReceived + "','" + asset.PurchasedVendor + "','" + asset.PurchasePrice + "','" + asset.Barcode + "')";
             Connection.Execute(query);
+           
         }
 
         public void DeleteAsset(Asset asset)

@@ -155,7 +155,7 @@
 
             <DataTemplate x:Key="AssetTempAcceptingbySupplyManager">
                 <StackPanel  Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="AccountTieVoice" Foreground="#FF005AEA"  Margin="0 0 0 0" Height="18" Width="18" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+                    <materialDesign:PackIcon Kind="AccountDetailsOutline" Foreground="#FF005AEA"  Margin="0 0 0 0" Height="18" Width="18" HorizontalAlignment="Center" VerticalAlignment="Center"  />
                     <Label Content="{Binding Status}" FontWeight="Bold" Width="160" Foreground="#FF005AEA" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="0 0 0 0"  FontSize="11"  Style="{StaticResource Header4}" FontFamily="Roboto" />
                     <Image Source="{Binding ImagePath}" Margin="0 0 0 0"   Width="35"  Height="35"  HorizontalAlignment="Center" VerticalAlignment="Center"  />
 

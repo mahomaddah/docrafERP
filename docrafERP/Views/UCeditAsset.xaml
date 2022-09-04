@@ -443,36 +443,14 @@
 
 
 
-                                <StackPanel  Margin="5 5 5 10" Orientation="Horizontal">
-
-                                    <TextBox Width="180"  VerticalAlignment="Center" x:Name="SalvageValueTB"
-                                    Margin="0 1 0 5"
-                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                    materialDesign:HintAssist.Hint="Salvage Value"
-                                    materialDesign:HintAssist.HelperText="The value for the end of the lifespan"
-                                    Text="0"
-                                    materialDesign:TextFieldAssist.PrefixText="₱"
-                                    materialDesign:TextFieldAssist.HasClearButton="True"
-                                    materialDesign:TextFieldAssist.TextBoxViewMargin="7"
-                                    HorizontalAlignment="Left"
-                                    AcceptsReturn="True"
-                                    TextWrapping="Wrap"
-                                    MaxWidth="400"
-                                    Foreground="#000009"
-                                    SelectionBrush="#07AD40"
-                                    BorderBrush="#0DCAF2"
-                                    FontFamily="Roboto"
-                                    FontSize="14" CaretBrush="#FF07AD40"/>
-
-
-                                </StackPanel>
+                       
 
                                 <ProgressBar Margin="0 15 0 0" Value="56.5" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
 
                                 <StackPanel Margin="0 5 0 2" Orientation="Vertical">
                                     <Label FontWeight="DemiBold" Width="119" Content="Asset Life (months)"  Foreground="#0DCAF2"  Style="{StaticResource Header2}" VerticalAlignment="Center"  Margin="0 0 2 0"   />
                                     <Slider Margin="2 5 2 5"
-                                     
+                                     Name="AssetLifeSlider"
                                       Value="31"
                                       Minimum="1"
                                       Maximum="300"
@@ -482,7 +460,7 @@
                                       SelectionStart="24"
                                       SelectionEnd="60"
                                       materialDesign:HintAssist.HelperText="Select product lifespan"
-                                      IsSelectionRangeEnabled="True" />
+                                      IsSelectionRangeEnabled="True" ValueChanged="AssetLifeSlider_ValueChanged" />
                                     <Label Content="Depreciation yearly stats:" Width="180" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header3}" HorizontalAlignment="Left" Margin="0 0 2 0"   />
 
                                     <ProgressBar Margin="0 4 0 10" Value="15.5" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
@@ -501,7 +479,7 @@
                                         <chart:RadialGaugeChart Margin="0 0 0 0" HorizontalAlignment="Right" Height="340" Width="710" ChartTitle="Asset Value" ChartSubTitle="accumulated  yearly" >
                                             <chart:RadialGaugeChart.Series >
                                                 <chart:ChartSeries    
-                                                        
+                                                         Name="AssGeuge"
                                                         SeriesTitle="Asset Value"                                       
                                                         DisplayMember="ValueDisplay"    
                                                         ValueMember="ValueNumber"
@@ -513,7 +491,7 @@
                                     </ListViewItem>
 
                                     <ListViewItem Margin="0 0 0 0" Height="330" Foreground="Transparent" >
-                                        <ListView ItemsSource="{Binding Path = YearsDepreciation}">
+                                        <ListView Name="yearsChart" ItemsSource="{Binding Path = YearsDepreciation}">
                                             <ListView.View>
                                                 <GridView>
 
@@ -532,10 +510,10 @@
                                     </ListViewItem>
 
                                     <ListViewItem Height="330" Foreground="Transparent" >
-                                        <chart:ClusteredColumnChart Margin="0 -5 0 0" HorizontalAlignment="Right" Height="340" Width="710"  ChartTitle="Depreciation" ChartSubTitle="yearly stats..." >
+                                        <chart:ClusteredColumnChart  Margin="0 -5 0 0" HorizontalAlignment="Right" Height="340" Width="710"  ChartTitle="Depreciation" ChartSubTitle="yearly stats..." >
                                             <chart:ClusteredColumnChart.Series >
                                                 <chart:ChartSeries    
-                                                       
+                                                       Name="GraphChart"
                                                         SeriesTitle="Asset sValue"                                       
                                                         DisplayMember="ValueDisplay"    
                                                         ValueMember="ValueNumber"
@@ -818,7 +796,7 @@
                                                      VerticalAlignment="Center">
                                                     <StackPanel Orientation="Vertical" >
 
-                                                        <TextBlock Text="Barack Obama" Foreground="Gray" HorizontalAlignment="Center" FontWeight="Bold"  FontSize="15" Style="{StaticResource MaterialDesignSubtitle1TextBlock}" />
+                                                        <TextBlock Text="{Binding EditingAsset.CustodianName ,Mode=TwoWay}" Foreground="Gray" HorizontalAlignment="Center" FontWeight="Bold"  FontSize="15" Style="{StaticResource MaterialDesignSubtitle1TextBlock}" />
                                                         <TextBlock Text="supply manager" Foreground="Gray" HorizontalAlignment="Center" FontWeight="DemiBold"  Margin="1" FontSize="12" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" />
                                                         <TextBlock Text="barack@obama.com" Foreground="Gray" HorizontalAlignment="Center" FontWeight="DemiBold" Margin="1" FontSize="12" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" />
                                                         <TextBlock Text="05550877930" Foreground="Gray" HorizontalAlignment="Center" FontWeight="DemiBold" Margin="1" FontSize="12" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" />
@@ -879,7 +857,7 @@
                                       materialDesign:HintAssist.Hint="Name"
                                       materialDesign:HintAssist.IsFloating="True"
                                       Margin="0 12 0 0"
-                                      Text="Barack Obama" />
+                                      Text="{Binding EditingAsset.CustodianName ,Mode=TwoWay}" />
                                                     <TextBox
                                       Grid.Row="1"
                                       materialDesign:HintAssist.Hint="Email"

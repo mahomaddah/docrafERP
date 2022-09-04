@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -14,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MaterialDesignThemes.Wpf;
 
 namespace docrafERP.Views
 {
@@ -177,8 +179,8 @@ namespace docrafERP.Views
                     //Testing Document thing...
                     try
                     {
-                        DocumentGanarator ris = new DocumentGanarator();
-                        ris.GenradeRIS(new List<Supply> { ((Supply)LVsupplies.SelectedItem) }, SingletoneHomeView.Instance.homeView.CurrentUser, SingletoneHomeView.Instance.homeView.Personels.Find(x => x.Role == "supply manager"));
+                     //   DocumentGanarator ris = new DocumentGanarator();
+                     //   ris.GenradeRIS(new List<Supply> { ((Supply)LVsupplies.SelectedItem) }, SingletoneHomeView.Instance.homeView.CurrentUser, SingletoneHomeView.Instance.homeView.Personels.Find(x => x.Role == "supply manager"));
                     }
                     catch
                     {
@@ -190,6 +192,35 @@ namespace docrafERP.Views
             
         }
 
-      
+        private void OrderConsumeSup(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PreviewICSSup(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                DocumentGanarator ris = new DocumentGanarator();
+                ris.GenradeRIS(new List<Supply> { ((Supply)LVsupplies.SelectedItem) }, SingletoneHomeView.Instance.homeView.CurrentUser, SingletoneHomeView.Instance.homeView.Personels.Find(x => x.Role == "supply manager"),Convert.ToInt32(DialogHostText.Text));
+            }
+            catch
+            {
+                MessageBox.Show("UnSuccessfull!..");
+            }
+        }
+
+        private void LVsupplies_OnMouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+         
+            ////
+
+
+        }
+
+        private void RunOrderSupBTn_OnClick(object sender, RoutedEventArgs e)
+        {
+        }
     }
 }

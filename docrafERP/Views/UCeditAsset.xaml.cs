@@ -34,6 +34,7 @@ namespace docrafERP.Views
         public List<AssetValueGauge> AssetGauge { get; private set; }
         public List<AssetValueGauge> valuePerYear { get; private set; }
         public List<YearDepreciation> YearsDepreciation { get; private set; }
+
         Bitmap lastQrimage;
         public List<AssetDocument> AssetDocuments { get; set; }
         public List<string> AssetDocumentforLV { get; set; }
@@ -42,23 +43,98 @@ namespace docrafERP.Views
         {
             DataContext = this;
             AssetDocumentforLV = new List<string>();
-            YearsDepreciation = new List<YearDepreciation> { new YearDepreciation { BookedValue= "$960.40" , AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2022" } , new YearDepreciation { BookedValue = "$960.40", AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2023" },new YearDepreciation { BookedValue = "$960.40", AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2022" }, new YearDepreciation { BookedValue = "$960.40", AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2023" }, new YearDepreciation { BookedValue = "$960.40", AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2022" }, new YearDepreciation { BookedValue = "$960.40", AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2023" }, new YearDepreciation { BookedValue = "$960.40", AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2022" }, new YearDepreciation { BookedValue = "$960.40", AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2023" } };
             AssetDocuments = new List<AssetDocument>();
-            
-            int c = 0;      
-            c = Convert.ToInt32(Convert.ToInt32(460)/10+1 / ((1 + Convert.ToInt32(1200))));
-            AssetGauge = new List<AssetValueGauge> { new AssetValueGauge(98, "Net Value to Depreciable Cost"), new AssetValueGauge(290, "Asset life left") , new AssetValueGauge(c, "Salvage Value to Brand new price") };
-            
-            valuePerYear = new List<AssetValueGauge> { new AssetValueGauge(1200, "2022"), new AssetValueGauge(1100, "2023"), new AssetValueGauge(1000, "2024"), new AssetValueGauge(999, "2025"), new AssetValueGauge(850, "2026"), new AssetValueGauge(700, "2027"), new AssetValueGauge(600, "2028"), new AssetValueGauge(500, "2029"), new AssetValueGauge(450, "2030"), new AssetValueGauge(350, "2031"), new AssetValueGauge(200, "2032"), new AssetValueGauge(150, "2033"), new AssetValueGauge(100, "2034"), new AssetValueGauge(50, "2035"), new AssetValueGauge(30, "2036"), new AssetValueGauge(20, "2037"), new AssetValueGauge(2, "2038") };
+
+
 
 
             EditingAsset = new Asset();
+
+            valuePerYear = new List<AssetValueGauge>();
+            AssetGauge = new List<AssetValueGauge>();
+            YearsDepreciation = new List<YearDepreciation>();
+
+           // UpdateDeprication();
+
             InitializeComponent();
             GetNewCode();
 
+          
 
         }
         
+        public void UpdateDeprication()
+        {
+           
+            if (EditingAsset != null)
+            {
+                try
+                {
+
+                    if (EditingAsset.PurchasePrice != null) { 
+                    bool IsPriceCorrectFormat = Int32.TryParse(EditingAsset.PurchasePrice.ToString(), out int PriceNumber);
+                    int years = Convert.ToInt32(Math.Round((AssetLifeSlider.Value / 12), 0));
+
+                    int RecevedYear = Convert.ToDateTime(EditingAsset.DateReceived).Year;
+
+                   
+
+
+                    if (IsPriceCorrectFormat)
+                    {
+                        int acumulatedPerMounth = PriceNumber / years;
+                        int thisYear = DateTime.Now.Year;
+
+                            //YearsDepreciation = new List<YearDepreciation> { new YearDepreciation { BookedValue = "$960.40", AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2022" }, new YearDepreciation { BookedValue = "$960.40", AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2023" }, new YearDepreciation { BookedValue = "$960.40", AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2022" }, new YearDepreciation { BookedValue = "$960.40", AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2023" }, new YearDepreciation { BookedValue = "$960.40", AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2022" }, new YearDepreciation { BookedValue = "$960.40", AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2023" }, new YearDepreciation { BookedValue = "$960.40", AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2022" }, new YearDepreciation { BookedValue = "$960.40", AccumulatedDepreciation = "$19.60", DepreciationExpense = "$19.60", Year = "2023" } };
+
+                            //AssetGauge = new List<AssetValueGauge> { new AssetValueGauge(98, "Net Value to Depreciable Cost"), new AssetValueGauge(290, "Asset life left"), new AssetValueGauge(70, "Salvage Value to Brand new price") };
+
+                            //valuePerYear = new List<AssetValueGauge> { new AssetValueGauge(1200, "2022"), new AssetValueGauge(1100, "2023"), new AssetValueGauge(1000, "2024"), new AssetValueGauge(999, "2025"), new AssetValueGauge(850, "2026"), new AssetValueGauge(700, "2027"), new AssetValueGauge(600, "2028"), new AssetValueGauge(500, "2029"), new AssetValueGauge(450, "2030"), new AssetValueGauge(350, "2031"), new AssetValueGauge(200, "2032"), new AssetValueGauge(150, "2033"), new AssetValueGauge(100, "2034"), new AssetValueGauge(50, "2035"), new AssetValueGauge(30, "2036"), new AssetValueGauge(20, "2037"), new AssetValueGauge(2, "2038") };
+
+                            
+                      
+                        AssetGauge.Add(new AssetValueGauge(((PriceNumber - (acumulatedPerMounth * (thisYear - RecevedYear)))), "Net Value"));
+                        AssetGauge.Add(new AssetValueGauge(Convert.ToInt32(Math.Round(Convert.ToDecimal(years - (thisYear - RecevedYear) / years),2) *10), "Asset life left"));
+                        AssetGauge.Add(new AssetValueGauge(acumulatedPerMounth, "Acumulated Depreciation Rate"));
+
+                     
+
+                        for (int y = 1; y <= years; y++)
+                        {
+                            YearsDepreciation.Add(new YearDepreciation { BookedValue = "₱ " + (PriceNumber - acumulatedPerMounth * y), AccumulatedDepreciation = "₱ " + acumulatedPerMounth.ToString(), DepreciationExpense = "₱ " + (acumulatedPerMounth*y).ToString(), Year = (thisYear-1+y).ToString() });
+                            valuePerYear.Add(new AssetValueGauge((PriceNumber - acumulatedPerMounth*y), Convert.ToString(RecevedYear + y)));
+
+                        }
+
+                            AssGeuge.ItemsSource = AssetGauge;
+                            ICollectionView view = CollectionViewSource.GetDefaultView(AssGeuge.ItemsSource);
+                            view.Refresh();
+                                yearsChart.ItemsSource = YearsDepreciation;
+                                GraphChart.ItemsSource = valuePerYear;
+                            ICollectionView view2 = CollectionViewSource.GetDefaultView(yearsChart.ItemsSource);
+                            view2.Refresh();
+                            ICollectionView view3 = CollectionViewSource.GetDefaultView(GraphChart.ItemsSource);
+                            view3.Refresh();
+                        }
+                    else
+                    {
+                        MessageBox.Show("Depreciation Calculating Error: Please select enter a correct price value for the asset!");
+                    }
+
+                   // ChartGuage.UpdateLayout();
+                   // GraphicChart.UpdateLayout();
+                  //  yearsChart.UpdateLayout();
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Depreciation Calculating Error: Please select enter a correct price value for the asset!");
+                }
+          
+
+            }
+        }
+
         private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Visibility == Visibility.Visible)
@@ -95,29 +171,32 @@ namespace docrafERP.Views
                     }
                     catch { }
 
-                }
-                //update data from object            
-                refreshMaintanceGV();
-                TbDevice.Text = EditingAsset.Device;
-                TbLocation.Text = EditingAsset.OwnerOrLocation;
-                TbDate.Text = EditingAsset.DateReceived;
-                TBserial.Text = EditingAsset.SerialNumber;
-                TbStatus.Text = EditingAsset.Status;
-                TBvendor.Text = EditingAsset.PurchasedVendor;
-                TBPrice.Text = EditingAsset.PurchasePrice;
-                TBManufacturer.Text = EditingAsset.Manufacture;
-                TBModel.Text = EditingAsset.Model;
-                // for bar code ....
-                if (EditingAsset.Barcode != null && EditingAsset.Barcode != string.Empty) 
-                {
-                    EncryptionKeyTB.Text = EditingAsset.Barcode;
-                    UpdateQRImage();
-                }
-                else
-                {
-                    GetNewCode();
-                }
+                    //update data from object            
+                    refreshMaintanceGV();
+                
+                    UpdateDeprication();
+                    TbDevice.Text = EditingAsset.Device;
+                    TbLocation.Text = EditingAsset.OwnerOrLocation;
+                    TbDate.Text = EditingAsset.DateReceived;
+                    TBserial.Text = EditingAsset.SerialNumber;
+                    TbStatus.Text = EditingAsset.Status;
+                    TBvendor.Text = EditingAsset.PurchasedVendor;
+                    TBPrice.Text = EditingAsset.PurchasePrice;
+                    TBManufacturer.Text = EditingAsset.Manufacture;
+                    TBModel.Text = EditingAsset.Model;
+                    
+                    // for bar code ....
+                    if (EditingAsset.Barcode != null && EditingAsset.Barcode != string.Empty) 
+                    {
+                        EncryptionKeyTB.Text = EditingAsset.Barcode;
+                        UpdateQRImage();
+                    }
+                    else
+                    {
+                        GetNewCode();
+                    }
 
+                }
                 //LVAssetDocs // For updating list view of document from path of related doc path in database and filse name on that folder...
             }
         }
@@ -486,6 +565,11 @@ namespace docrafERP.Views
             }
             catch { }
         
+        }
+
+        private void AssetLifeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            UpdateDeprication();
         }
     }
 }
