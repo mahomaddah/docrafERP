@@ -50,7 +50,7 @@ namespace docrafERP
         public HomeView(Personel user)
         {
             InitializeComponent();
-         //  this.WindowState = WindowState.Maximized;
+       
             CurrentUser = new Personel { Role = "supply manager", Name = "Admin Mode" };
 
             if (user != null)
@@ -149,7 +149,8 @@ namespace docrafERP
 
         private void CloseBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+           // this.Close();
+            Application.Current.Shutdown();
         }
 
         private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
@@ -232,8 +233,19 @@ namespace docrafERP
             bringTheUC("Manage Personnel");
         }
 
+
         #endregion
 
-
+        private void MaximizeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (WindowState == WindowState.Maximized)
+            {
+                WindowState = WindowState.Normal;
+            }
+            else
+            {
+                WindowState = WindowState.Maximized;
+            }
+        }
     }
 }

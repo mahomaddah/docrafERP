@@ -10,7 +10,7 @@
              xmlns:domain="docrafERP.Views.UCmanageAssets" 
              d:DesignHeight="550" d:DesignWidth="800" Loaded="UserControl_Loaded">
 
- 
+
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -20,48 +20,34 @@
     </UserControl.Resources>
 
     <Grid Margin="-6 0 0 0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="97*"/>
+            <RowDefinition Height="13*"/>
+        </Grid.RowDefinitions>
 
-        <StackPanel>
-            <DockPanel Name="SearchBar" Margin="0 -160 70 0">
-                <Grid HorizontalAlignment="Right" >
-                    <ComboBox Name="SearchBarTB"
+        <StackPanel  Grid.Row="1" >
+           
 
-                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                        materialDesign:HintAssist.Hint="Search..."
-                        materialDesign:HintAssist.HelperText="Note: Use the Search field in finding by Barcode scanner or RFID reader..."
-                        materialDesign:TextFieldAssist.HasClearButton="True"
-                        materialDesign:HintAssist.HelperTextFontSize="8.3"                       
-                        IsDropDownOpen="False"
-                        MaxDropDownHeight="0"
-                        IsEditable="True"
-                        Foreground="White"
-                        Background="#07AEFF"
-                        BorderBrush="White"
-                        materialDesign:HintAssist.Foreground="White"
-                        materialDesign:HintAssist.Background="#07AEFF"
-                        BorderThickness="3"
-                        Padding="4"
-                        Height="35"
-                        FontSize="16"
-                        FontWeight="DemiBold"
-                        Margin="3"
-  
-                        Width="300" PreviewTextInput="SearchBarTB_PreviewTextInput" MouseLeave="SearchBarTB_MouseLeave" PreviewKeyDown="SearchBarTB_PreviewKeyDown"/>
-                </Grid>
-            </DockPanel>
-
-            <StackPanel Margin="0 3 0 7" Orientation="Horizontal">
-                <materialDesign:PackIcon Height="18" Width="18"  Margin="3 0 0 0" Kind="ClipboardCheck" Foreground="#00CE46"/>
-                <Label  Content="Available" Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#00CE46"/>
-                <materialDesign:PackIcon Height="18" Width="18"  Margin="50 0 0 0" Kind="ClipboardOff" Foreground="#FF3232"/>
-                <Label Content="Unavailable" Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#FF3232"/>
-            </StackPanel>
+           
 
 
-            <DockPanel >
-                <Label DockPanel.Dock="Left" Margin="0 0 0 0" FontSize="20" Foreground="{StaticResource PrimaryHueMidBrush}" Content="Assets:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                <ListBox SelectionChanged="AssetFilterSLB_SelectionChanged"  MaxWidth="520"  Height="80" MinWidth="100" DockPanel.Dock="Right" Name="AssetFilterSLB" Margin="20 -35 -15 0" HorizontalAlignment="Right" HorizontalContentAlignment="Right"
-                    Style="{StaticResource MaterialDesignFilterChipPrimaryOutlineListBox}"   Width="600" >
+            <DockPanel Margin="0 0 0 5" >
+
+                <StackPanel DockPanel.Dock="Left" Orientation="Vertical">
+                    <StackPanel Margin="0 3 0 7" Orientation="Horizontal">
+                        <materialDesign:PackIcon Height="18" Width="18"  Margin="3 0 0 0" Kind="ClipboardCheck" Foreground="#00CE46"/>
+                        <Label  Content="Available" Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#00CE46"/>
+                        <materialDesign:PackIcon Height="18" Width="18"  Margin="50 0 0 0" Kind="ClipboardOff" Foreground="#FF3232"/>
+                        <Label Content="Unavailable" Style="{StaticResource Header3}" FontFamily="Roboto" Foreground="#FF3232"/>
+                    </StackPanel>
+                    <Label  Margin="0 0 0 0" FontSize="20" Foreground="{StaticResource PrimaryHueMidBrush}" Content="Assets:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                </StackPanel>
+
+
+
+                <ListBox SelectionChanged="AssetFilterSLB_SelectionChanged"  MinWidth="100"  Height="80" DockPanel.Dock="Right" Name="AssetFilterSLB" HorizontalAlignment="Right" HorizontalContentAlignment="Right"
+                    Style="{StaticResource MaterialDesignFilterChipPrimaryOutlineListBox}"    >
 
 
                     <ListBoxItem 
@@ -426,6 +412,7 @@
 
 
                 </ListBox>
+                
             </DockPanel>
 
 
@@ -436,8 +423,12 @@
 
             <DataGrid 
               x:Name="AssetGridView"
-              MouseDoubleClick="ItemSelected" Height="380"
-              MaxWidth="820"
+              MouseDoubleClick="ItemSelected" 
+                 Height="690"
+                
+              
+                
+             
               Background="Transparent"
               ItemsSource="{Binding Path = AssetsForListview}"
               CanUserAddRows="False"
@@ -445,13 +436,13 @@
               ColumnHeaderHeight="60"
               BorderThickness="0.8"
                 
-              Margin="0 2 -15 8"
+              Margin="0 2 2 8"
               BorderBrush="#0DCAF2"
               HeadersVisibility="All">
 
                 <DataGrid.Columns>
 
-                
+
 
                     <DataGridCheckBoxColumn 
                       Binding="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged}"
@@ -462,7 +453,7 @@
                                 
                                 Background="Transparent">
 
-                                      <CheckBox
+                                <CheckBox
                                  />
                             </Border>
                         </DataGridCheckBoxColumn.Header>
@@ -526,7 +517,7 @@
                             </Style>
                         </DataGridTextColumn.HeaderStyle>
                     </DataGridTextColumn>
-                    
+
                     <!-- if you want to use the pop up style (MaterialDesignDataGridTextColumnPopupEditingStyle), you must use MaterialDataGridTextColumn -->
 
                     <materialDesign:DataGridComboBoxColumn
@@ -554,6 +545,25 @@
 
                     </materialDesign:DataGridComboBoxColumn>
 
+
+                    <DataGridTemplateColumn
+                        Header="    Status                  Image"
+                        CellTemplateSelector="{StaticResource dataTemplateSelectorDirectory}"
+                       
+                     >
+                        <DataGridTemplateColumn.HeaderStyle>
+                            <Style
+                                  TargetType="{x:Type DataGridColumnHeader}"
+                                  BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+                                <Setter
+                                Property="HorizontalContentAlignment"
+                                Value="Center" />
+                                <Setter Property="FontWeight" Value="SemiBold" />
+                                <Setter Property="Foreground" Value="#0DCAF2"/>
+
+                            </Style>
+                        </DataGridTemplateColumn.HeaderStyle>
+                    </DataGridTemplateColumn>
 
                     <!-- set a max length to get an indicator in the editor -->
 
@@ -599,24 +609,7 @@
                     </materialDesign:DataGridTextColumn>
                     <!-- use custom combo box column to get better combos. Use ItemsSourceBinding as your binding template to be applied to each combo -->
 
-                    <DataGridTemplateColumn
-                        Header="    Status                  Image"
-                        CellTemplateSelector="{StaticResource dataTemplateSelectorDirectory}"
-                       
-                     >
-                        <DataGridTemplateColumn.HeaderStyle>
-                            <Style
-                                  TargetType="{x:Type DataGridColumnHeader}"
-                                  BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
-                                <Setter
-                                Property="HorizontalContentAlignment"
-                                Value="Center" />
-                                <Setter Property="FontWeight" Value="SemiBold" />
-                                <Setter Property="Foreground" Value="#0DCAF2"/>
 
-                            </Style>
-                        </DataGridTemplateColumn.HeaderStyle>
-                    </DataGridTemplateColumn>
 
                     <DataGridTextColumn
                       Header="Date Received"
@@ -641,10 +634,47 @@
 
 
 
+
+            <!--<Label x:Name="LabelLisans" FontWeight="Normal"  Margin="0 0 0 0" Style="{StaticResource Header3}" Foreground="#000008" Content="License" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30.5" />
+            <ProgressBar Margin="0 0 0 1" Value="8" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
+            <Label  Style="{StaticResource Header4}" Margin="0 5 0 0" Foreground="DarkGray" Content="ERP Desktop, valid until 22.06. 2030" HorizontalAlignment="Left" VerticalAlignment="Top" Height="42.5" />-->
+        </StackPanel>
+
+        <DockPanel Grid.Row="0"  Name="SearchBar" Margin="0 -160 70 0">
+            <Grid HorizontalAlignment="Right" >
+                <ComboBox Name="SearchBarTB"
+
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                        materialDesign:HintAssist.Hint="Search..."
+                        materialDesign:HintAssist.HelperText="Note: Use the Search field in finding by Barcode scanner or RFID reader..."
+                        materialDesign:TextFieldAssist.HasClearButton="True"
+                        materialDesign:HintAssist.HelperTextFontSize="8.3"                       
+                        IsDropDownOpen="False"
+                        MaxDropDownHeight="0"
+                        IsEditable="True"
+                        Foreground="White"
+                        Background="#07AEFF"
+                        BorderBrush="White"
+                        materialDesign:HintAssist.Foreground="White"
+                        materialDesign:HintAssist.Background="#07AEFF"
+                        BorderThickness="3"
+                        Padding="4"
+                        Height="35"
+                        FontSize="16"
+                        FontWeight="DemiBold"
+                        Margin="3"
+  
+                        Width="300" PreviewTextInput="SearchBarTB_PreviewTextInput" MouseLeave="SearchBarTB_MouseLeave" PreviewKeyDown="SearchBarTB_PreviewKeyDown"/>
+            </Grid>
+        </DockPanel>
+
+
+        <StackPanel Grid.Row="2" Orientation="Vertical">
             <Line  Stretch="Fill" Margin="0,5,0,0" HorizontalAlignment="Center" Width="442" Stroke="DarkGray" X2="1" Opacity="0.4" />
-            <StackPanel Name="EditAssetsBar" HorizontalAlignment="Center" Orientation="Horizontal" Margin="4 8 10 0">
+            <StackPanel  Name="EditAssetsBar" HorizontalAlignment="Center" Orientation="Horizontal" Margin="4 8 10 0">
                 <Button
                   Width="109"
+                  Height="32"
                   x:Name="MobieDeleteBtn"
                   Style="{StaticResource MaterialDesignOutlinedButton}"
                   ToolTip="CLick to delete an Asset..."
@@ -679,9 +709,6 @@
                   IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Click="AssetAddBtn_Click" />
             </StackPanel>
 
-            <!--<Label x:Name="LabelLisans" FontWeight="Normal"  Margin="0 0 0 0" Style="{StaticResource Header3}" Foreground="#000008" Content="License" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30.5" />
-            <ProgressBar Margin="0 0 0 1" Value="8" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
-            <Label  Style="{StaticResource Header4}" Margin="0 5 0 0" Foreground="DarkGray" Content="ERP Desktop, valid until 22.06. 2030" HorizontalAlignment="Left" VerticalAlignment="Top" Height="42.5" />-->
         </StackPanel>
 
         <materialDesign:Snackbar
@@ -690,8 +717,8 @@
               IsActive="False"
               Foreground="White"
               FontFamily="ROBOTO"        
-              Width="445"
-              Height="180"
+              Width="446"
+              Height="180" Margin="180,0" Grid.RowSpan="3"
          >
             <materialDesign:Snackbar.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">

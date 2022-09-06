@@ -479,10 +479,11 @@
                                         <chart:RadialGaugeChart Margin="0 0 0 0" HorizontalAlignment="Right" Height="340" Width="710" ChartTitle="Asset Value" ChartSubTitle="accumulated  yearly" >
                                             <chart:RadialGaugeChart.Series >
                                                 <chart:ChartSeries    
-                                                         Name="AssGeuge"
+                                                        Name="AssGeuge"
                                                         SeriesTitle="Asset Value"                                       
                                                         DisplayMember="ValueDisplay"    
                                                         ValueMember="ValueNumber"
+                                                    
                                                         ItemsSource="{Binding Path = AssetGauge}"
                                                         >
                                                 </chart:ChartSeries>

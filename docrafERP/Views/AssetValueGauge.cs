@@ -2,7 +2,7 @@
 {
     public class AssetValueGauge
     {
-        public int ValueNumber { get; set; }
+        public double ValueNumber { get; set; }
         public string ValueDisplay { get; set; }
 
         public AssetValueGauge(int value , string displayText)

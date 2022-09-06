@@ -49,7 +49,7 @@
                                     Order
                                 </Button>
                                 <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Style="{DynamicResource MaterialDesignFlatButton}" Margin="4" VerticalAlignment="Center" Click="PreviewICSSup">
-                                    Preview ICS
+                                    Preview RIS
                                 </Button>
                                 <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Style="{DynamicResource MaterialDesignFlatButton}" Margin="4" VerticalAlignment="Center" >
                                     Cancel

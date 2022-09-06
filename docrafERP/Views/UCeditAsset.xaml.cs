@@ -105,7 +105,7 @@ namespace docrafERP.Views
                             valuePerYear.Add(new AssetValueGauge((PriceNumber - acumulatedPerMounth*y), Convert.ToString(RecevedYear + y)));
 
                         }
-
+                          
                             AssGeuge.ItemsSource = AssetGauge;
                             ICollectionView view = CollectionViewSource.GetDefaultView(AssGeuge.ItemsSource);
                             view.Refresh();
