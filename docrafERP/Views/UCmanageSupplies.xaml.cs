@@ -24,7 +24,7 @@ namespace docrafERP.Views
     /// </summary>
     public partial class UCmanageSupplies : UserControl
     {
-
+        public InventoryTreeViewModel InventoryTreeViewModel { get; set; }
         public List<Supply> SuppliesForListview { get; set; }
         public List<string> SearchBarSuggestions { get; set; }
         public List<string> Projects { get; set; }
@@ -36,7 +36,11 @@ namespace docrafERP.Views
             // SingletoneHomeView.Instance.homeView.Supplies.ForEach(x => Projects.Add(x.project));
             SuppliesForListview = SingletoneHomeView.Instance.homeView.Supplies.ToList();
             LVsupplies.ItemsSource = SuppliesForListview;
+            InventoryTreeViewModel = new InventoryTreeViewModel();
+
             
+          //  ParentItem.ItemTemplate.DataType = typeof(TreeViewItem);
+          //  ParentItem.ItemsSource = InventoryTreeViewModel.InventoryTreeItems.Items;
         }
 
         public void refreshAssetsListViewFromList()
@@ -60,6 +64,7 @@ namespace docrafERP.Views
 
         public UCmanageSupplies()
         {
+
             InitializeComponent();
         }
 
@@ -119,8 +124,11 @@ namespace docrafERP.Views
         {
             try
             {
-                if (InventoryTree.SelectedItem!=null)
-                ((TreeViewItem)InventoryTree.SelectedItem).Items.Add("new node");
+               
+                InventoryTreeViewModel.ParentItem.Children[0].Children.Add(new InventoryTreeItemModel { InventoryName = "Program "+( InventoryTreeViewModel.ParentItem.Children[0].Children.Count+1) });
+                InventoryTree.ItemsSource = InventoryTreeViewModel.ParentItem.Children;
+                ICollectionView view = CollectionViewSource.GetDefaultView(InventoryTree.ItemsSource);
+                view.Refresh();
             }
             catch
             {
@@ -132,8 +140,18 @@ namespace docrafERP.Views
         private void DeleteTreeItem(object sender, RoutedEventArgs e)
         {
             try {
-                if (InventoryTree.SelectedItem != null)
-                    InventoryTree.Items.Remove((TreeViewItem)InventoryTree.SelectedItem);
+                if (InventoryTree.SelectedItem != null) 
+                {
+                   
+                 
+                        InventoryTreeViewModel.ParentItem.Children[0].Children.Remove(((InventoryTreeItemModel)InventoryTree.SelectedItem));
+
+                    InventoryTree.ItemsSource = InventoryTreeViewModel.ParentItem.Children;
+                    ICollectionView view = CollectionViewSource.GetDefaultView(InventoryTree.ItemsSource);
+                    view.Refresh();
+                }
+                
+
             } catch { MessageBox.Show("Onley Director can delete a program..."); }
        
         }
@@ -221,6 +239,15 @@ namespace docrafERP.Views
 
         private void RunOrderSupBTn_OnClick(object sender, RoutedEventArgs e)
         {
+        }
+
+   
+        private void TreeFilterItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+
+            InvntoryNameTB.Text = ((InventoryTreeItemModel)InventoryTree.SelectedItem).InventoryName+"...";
+         
+     
         }
     }
 }

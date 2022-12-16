@@ -7,8 +7,9 @@
              xmlns:local="clr-namespace:docrafERP.Views"
              xmlns:Models="clr-namespace:docrafERP.Models" x:Class="docrafERP.Views.UCmanageAssets"
              mc:Ignorable="d"
+ 
              xmlns:domain="docrafERP.Views.UCmanageAssets" 
-             d:DesignHeight="550" d:DesignWidth="800" Loaded="UserControl_Loaded">
+             d:DesignHeight="600" d:DesignWidth="800" Loaded="UserControl_Loaded">
 
 
     <UserControl.Resources>
@@ -21,16 +22,13 @@
 
     <Grid Margin="-6 0 0 0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0*"/>
-            <RowDefinition Height="97*"/>
-            <RowDefinition Height="13*"/>
+            <RowDefinition/>
+            <RowDefinition Height="98"/>
+            <RowDefinition Height="391*"/>
+            <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
 
-        <StackPanel  Grid.Row="1" >
-           
-
-           
-
+        <StackPanel Name="Filterbar"  Grid.Row="1" Margin="0,0.2,0,1.2"  >
 
             <DockPanel Margin="0 0 0 5" >
 
@@ -46,15 +44,14 @@
 
 
 
-                <ListBox SelectionChanged="AssetFilterSLB_SelectionChanged"  MinWidth="100"  Height="80" DockPanel.Dock="Right" Name="AssetFilterSLB" HorizontalAlignment="Right" HorizontalContentAlignment="Right"
+                <ListBox SelectionChanged="FilterHandler"  MinWidth="100"  Height="80" DockPanel.Dock="Right" Name="AssetFilterSLB" HorizontalAlignment="Right" HorizontalContentAlignment="Right"
                     Style="{StaticResource MaterialDesignFilterChipPrimaryOutlineListBox}"    >
 
 
                     <ListBoxItem 
-                      Selected="FilterAccountCodeSelected"
-                      Unselected="FilterAccountCode_Unselected"
-                      x:Name="FilterAccountCode"
-                   
+                    
+                
+                       Name="FilterAccountCode"
                        IsSelected="True">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:Badged>
@@ -74,6 +71,7 @@
                     </ListBoxItem>
 
                     <ListBoxItem 
+                   
                      x:Name="FilterCustodian"
                        IsSelected="True">
                         <StackPanel Orientation="Horizontal">
@@ -95,7 +93,7 @@
 
                     <ListBoxItem
                          x:Name="FilterThisYear"
-                        >
+                     >
 
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:Badged>
@@ -116,6 +114,8 @@
 
                     <ListBoxItem
                          x:Name="FilterPrice"
+                    
+                        
                         >
 
                         <StackPanel Orientation="Horizontal">
@@ -138,6 +138,9 @@
                     <ListBoxItem 
                       x:Name="FilterAssetName"
                    
+                       Selected="FilterAssetName_Selected"
+                       Unselected="FilterAssetName_Unselected"
+                        
                        IsSelected="True">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:Badged>
@@ -159,6 +162,7 @@
 
                     <ListBoxItem
                          x:Name="FilterStatusisAvailable"
+                      
                         >
 
                         <StackPanel Orientation="Horizontal">
@@ -180,7 +184,7 @@
 
                     <ListBoxItem
                          x:Name="FilterStatusisDirectorApproved"
-                        
+                    
                         
 
                     >
@@ -203,6 +207,7 @@
 
                     <ListBoxItem
                          x:Name="FilterPriceislessthan1000us"
+           
                         >
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:Badged>
@@ -224,6 +229,7 @@
 
                     <ListBoxItem
                          x:Name="FilterStatusisAccountingApproved"
+           
                       >
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:Badged>
@@ -247,6 +253,8 @@
 
                     <ListBoxItem
                          x:Name="FilterSerialNumber"
+               
+                        
                         >
 
                         <StackPanel Orientation="Horizontal">
@@ -269,6 +277,7 @@
 
                     <ListBoxItem
                          x:Name="FilterBrand"
+              
                        IsSelected="True">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:Badged>
@@ -289,6 +298,8 @@
 
 
                     <ListBoxItem
+                   
+                        
                          x:Name="FilterLocation"
                         >
 
@@ -310,6 +321,8 @@
                     </ListBoxItem>
 
                     <ListBoxItem
+                     
+                        
                          x:Name="FilterVendor"
                         IsEnabled="False"
                        >
@@ -331,6 +344,7 @@
                     </ListBoxItem>
 
                     <ListBoxItem
+                       
                          x:Name="FilterStatusisRequested"
                       >
                         <StackPanel Orientation="Horizontal">
@@ -352,6 +366,7 @@
 
 
                     <ListBoxItem
+                       
                          x:Name="FilterStatusisOrdered"
                         >
                         <StackPanel Orientation="Horizontal">
@@ -372,6 +387,7 @@
                     </ListBoxItem>
 
                     <ListBoxItem
+                     
                          x:Name="FilterStatusisAcceptingbySM"
                         >
                         <StackPanel Orientation="Horizontal">
@@ -392,6 +408,7 @@
                     </ListBoxItem>
 
                     <ListBoxItem
+             
                          x:Name="Filterthismonth" >
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:Badged>
@@ -412,7 +429,7 @@
 
 
                 </ListBox>
-                
+
             </DockPanel>
 
 
@@ -421,216 +438,7 @@
 
             <!--RowStyle="{StaticResource CenteredDataGrdidClm}"-->
 
-            <DataGrid 
-              x:Name="AssetGridView"
-              MouseDoubleClick="ItemSelected" 
-                 Height="690"
-                
-              
-                
-             
-              Background="Transparent"
-              ItemsSource="{Binding Path = AssetsForListview}"
-              CanUserAddRows="False"
-              AutoGenerateColumns="False"
-              ColumnHeaderHeight="60"
-              BorderThickness="0.8"
-                
-              Margin="0 2 2 8"
-              BorderBrush="#0DCAF2"
-              HeadersVisibility="All">
 
-                <DataGrid.Columns>
-
-
-
-                    <DataGridCheckBoxColumn 
-                      Binding="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged}"
-                      ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}"
-                      EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}">
-                        <DataGridCheckBoxColumn.Header>
-                            <Border
-                                
-                                Background="Transparent">
-
-                                <CheckBox
-                                 />
-                            </Border>
-                        </DataGridCheckBoxColumn.Header>
-                        <DataGridCheckBoxColumn.HeaderStyle>
-                            <Style
-                                  TargetType="{x:Type DataGridColumnHeader}"
-                                  BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
-                                <Setter
-                                Property="HorizontalContentAlignment"
-                                Value="Center" />
-                                <Setter Property="FontWeight" Value="SemiBold" />
-                                <Setter Property="Foreground" Value="#0DCAF2"/>
-                            </Style>
-                        </DataGridCheckBoxColumn.HeaderStyle>
-                    </DataGridCheckBoxColumn>
-
-                    <DataGridTextColumn
-                       
-                      Binding="{Binding Device}"
-                      Header="Asset"
-                      ElementStyle="{StaticResource MaterialDesignDataGridTextColumnStyle}"
-                      
-                      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" 
-                     
-
-                      >
-                        <DataGridTextColumn.HeaderStyle>
-                            <Style
-                                
-                                  TargetType="{x:Type DataGridColumnHeader}"
-                                  BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
-                                <Setter
-                                Property="HorizontalContentAlignment"
-                                Value="Center" />
-                                <Setter Property="FontWeight" Value="SemiBold" />
-                                <Setter Property="Foreground" Value="#0DCAF2"/>
-                            </Style>
-                        </DataGridTextColumn.HeaderStyle>
-                    </DataGridTextColumn>
-
-                    <DataGridTextColumn
-                       
-                      Binding="{Binding CustodianName}"
-                      Header="Custodian"
-                      ElementStyle="{StaticResource MaterialDesignDataGridTextColumnStyle}"
-                      
-                      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" 
-                     
-
-                      >
-                        <DataGridTextColumn.HeaderStyle>
-                            <Style
-                                
-                                  TargetType="{x:Type DataGridColumnHeader}"
-                                  BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
-                                <Setter
-                                Property="HorizontalContentAlignment"
-                                Value="Center" />
-                                <Setter Property="FontWeight" Value="SemiBold" />
-                                <Setter Property="Foreground" Value="#0DCAF2"/>
-                            </Style>
-                        </DataGridTextColumn.HeaderStyle>
-                    </DataGridTextColumn>
-
-                    <!-- if you want to use the pop up style (MaterialDesignDataGridTextColumnPopupEditingStyle), you must use MaterialDataGridTextColumn -->
-
-                    <materialDesign:DataGridComboBoxColumn
-                      Header="Location"
-                      IsEditable="True"
-                      
-                      SelectedValueBinding="{Binding OwnerOrLocation}"
-                      ItemsSourceBinding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.Locations}">
-                        <!--Setting the editing element style allows access to all of the combo box's properties
-                      <materialDesign:MaterialDataGridComboBoxColumn.EditingElementStyle>
-                          <Style TargetType="ComboBox" BasedOn="{StaticResource {ComponentResourceKey TypeInTargetAssembly={x:Type ComboBox}, ResourceId=MaterialDataGridComboBoxColumnEditingStyle}}" >
-                              <Setter Property="IsEditable" Value="True" />
-                          </Style>
-                      </materialDesign:MaterialDataGridComboBoxColumn.EditingElementStyle>
-                      -->
-                        <materialDesign:DataGridComboBoxColumn.HeaderStyle>
-                            <Style  BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}"   TargetType="{x:Type DataGridColumnHeader}">
-
-                                <Setter Property="FontWeight" Value="SemiBold" />
-                                <Setter Property="Foreground" Value="#0DCAF2"/>
-                                <Setter Property="HorizontalContentAlignment" Value="Center" />
-                            </Style>
-                        </materialDesign:DataGridComboBoxColumn.HeaderStyle>
-
-
-                    </materialDesign:DataGridComboBoxColumn>
-
-
-                    <DataGridTemplateColumn
-                        Header="    Status                  Image"
-                        CellTemplateSelector="{StaticResource dataTemplateSelectorDirectory}"
-                       
-                     >
-                        <DataGridTemplateColumn.HeaderStyle>
-                            <Style
-                                  TargetType="{x:Type DataGridColumnHeader}"
-                                  BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
-                                <Setter
-                                Property="HorizontalContentAlignment"
-                                Value="Center" />
-                                <Setter Property="FontWeight" Value="SemiBold" />
-                                <Setter Property="Foreground" Value="#0DCAF2"/>
-
-                            </Style>
-                        </DataGridTemplateColumn.HeaderStyle>
-                    </DataGridTemplateColumn>
-
-                    <!-- set a max length to get an indicator in the editor -->
-
-                    <materialDesign:DataGridTextColumn
-                      Binding="{Binding PurchasePrice}"
-                      Header="Price"
-                     
-                      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
-                        <DataGridTextColumn.HeaderStyle>
-                            <Style
-                          TargetType="{x:Type DataGridColumnHeader}"
-                          BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
-                                <Setter
-                          Property="HorizontalContentAlignment"
-                          Value="Center" />
-                                <Setter
-                          Property="ContentTemplate">
-                                    <Setter.Value>
-                                        <DataTemplate>
-                                            <TextBlock
-                                             
-                                              TextWrapping="Wrap"
-                                              Text="{Binding}"
-                                              TextAlignment="Center" />
-                                        </DataTemplate>
-                                    </Setter.Value>
-                                </Setter>
-
-                                <Setter Property="FontWeight" Value="SemiBold" />
-
-                                <Setter Property="Foreground" Value="#0DCAF2"/>
-
-
-                            </Style>
-                        </DataGridTextColumn.HeaderStyle>
-                        <DataGridTextColumn.ElementStyle>
-                            <Style
-                          TargetType="{x:Type TextBlock}"
-                          BasedOn="{StaticResource MaterialDesignDataGridTextColumnStyle}">
-
-                            </Style>
-                        </DataGridTextColumn.ElementStyle>
-                    </materialDesign:DataGridTextColumn>
-                    <!-- use custom combo box column to get better combos. Use ItemsSourceBinding as your binding template to be applied to each combo -->
-
-
-
-                    <DataGridTextColumn
-                      Header="Date Received"
-                        Width="116"
-                      ElementStyle="{StaticResource MaterialDesignDataGridTextColumnStyle}"
-                      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}">
-                        <DataGridTextColumn.Binding>
-                            <Binding
-                              Path="DateReceived">
-                            </Binding>
-                        </DataGridTextColumn.Binding>
-                        <DataGridTextColumn.HeaderStyle>
-                            <Style  BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}"   TargetType="{x:Type DataGridColumnHeader}">
-                                <Setter Property="FontWeight" Value="SemiBold" />
-                                <Setter Property="Foreground" Value="#0DCAF2"/>
-                                <Setter Property="HorizontalContentAlignment" Value="Center" />
-                            </Style>
-                        </DataGridTextColumn.HeaderStyle>
-                    </DataGridTextColumn>
-                </DataGrid.Columns>
-            </DataGrid>
 
 
 
@@ -640,7 +448,215 @@
             <Label  Style="{StaticResource Header4}" Margin="0 5 0 0" Foreground="DarkGray" Content="ERP Desktop, valid until 22.06. 2030" HorizontalAlignment="Left" VerticalAlignment="Top" Height="42.5" />-->
         </StackPanel>
 
-        <DockPanel Grid.Row="0"  Name="SearchBar" Margin="0 -160 70 0">
+        <DataGrid 
+              Grid.Row="2"
+              x:Name="AssetGridView"
+              MouseDoubleClick="ItemSelected" 
+              
+    
+              Background="Transparent"
+              ItemsSource="{Binding Path = AssetsForListview}"
+              CanUserAddRows="False"
+              AutoGenerateColumns="False"
+              ColumnHeaderHeight="60"
+              BorderThickness="0.8"  
+              Margin="0,1.8,2,5.4"
+              BorderBrush="#0DCAF2"
+              HeadersVisibility="All">
+
+            <DataGrid.Columns>
+
+
+
+                <DataGridCheckBoxColumn 
+                      Binding="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged}"
+                      ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}"
+                      EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}">
+                    <DataGridCheckBoxColumn.Header>
+                        <Border
+                                
+                                Background="Transparent">
+
+                            <CheckBox
+                                 />
+                        </Border>
+                    </DataGridCheckBoxColumn.Header>
+                    <DataGridCheckBoxColumn.HeaderStyle>
+                        <Style
+                                  TargetType="{x:Type DataGridColumnHeader}"
+                                  BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+                            <Setter
+                                Property="HorizontalContentAlignment"
+                                Value="Center" />
+                            <Setter Property="FontWeight" Value="SemiBold" />
+                            <Setter Property="Foreground" Value="#0DCAF2"/>
+                        </Style>
+                    </DataGridCheckBoxColumn.HeaderStyle>
+                </DataGridCheckBoxColumn>
+
+                <DataGridTextColumn
+                       
+                      Binding="{Binding Device}"
+                      Header="Asset"
+                      ElementStyle="{StaticResource MaterialDesignDataGridTextColumnStyle}"
+                      
+                      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" 
+                     
+
+                      >
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style
+                                
+                                  TargetType="{x:Type DataGridColumnHeader}"
+                                  BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+                            <Setter
+                                Property="HorizontalContentAlignment"
+                                Value="Center" />
+                            <Setter Property="FontWeight" Value="SemiBold" />
+                            <Setter Property="Foreground" Value="#0DCAF2"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn
+                       
+                      Binding="{Binding CustodianName}"
+                      Header="Custodian"
+                      ElementStyle="{StaticResource MaterialDesignDataGridTextColumnStyle}"
+                      
+                      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" 
+                     
+
+                      >
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style
+                                
+                                  TargetType="{x:Type DataGridColumnHeader}"
+                                  BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+                            <Setter
+                                Property="HorizontalContentAlignment"
+                                Value="Center" />
+                            <Setter Property="FontWeight" Value="SemiBold" />
+                            <Setter Property="Foreground" Value="#0DCAF2"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+
+                <!-- if you want to use the pop up style (MaterialDesignDataGridTextColumnPopupEditingStyle), you must use MaterialDataGridTextColumn -->
+
+                <materialDesign:DataGridComboBoxColumn
+                      Header="Location"
+                      IsEditable="True"
+                      
+                      SelectedValueBinding="{Binding OwnerOrLocation}"
+                      ItemsSourceBinding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.Locations}">
+                    <!--Setting the editing element style allows access to all of the combo box's properties
+                      <materialDesign:MaterialDataGridComboBoxColumn.EditingElementStyle>
+                          <Style TargetType="ComboBox" BasedOn="{StaticResource {ComponentResourceKey TypeInTargetAssembly={x:Type ComboBox}, ResourceId=MaterialDataGridComboBoxColumnEditingStyle}}" >
+                              <Setter Property="IsEditable" Value="True" />
+                          </Style>
+                      </materialDesign:MaterialDataGridComboBoxColumn.EditingElementStyle>
+                      -->
+                    <materialDesign:DataGridComboBoxColumn.HeaderStyle>
+                        <Style  BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}"   TargetType="{x:Type DataGridColumnHeader}">
+
+                            <Setter Property="FontWeight" Value="SemiBold" />
+                            <Setter Property="Foreground" Value="#0DCAF2"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </materialDesign:DataGridComboBoxColumn.HeaderStyle>
+
+
+                </materialDesign:DataGridComboBoxColumn>
+
+
+                <DataGridTemplateColumn
+                        Header="    Status                  Image"
+                        CellTemplateSelector="{StaticResource dataTemplateSelectorDirectory}"
+                       
+                     >
+                    <DataGridTemplateColumn.HeaderStyle>
+                        <Style
+                                  TargetType="{x:Type DataGridColumnHeader}"
+                                  BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+                            <Setter
+                                Property="HorizontalContentAlignment"
+                                Value="Center" />
+                            <Setter Property="FontWeight" Value="SemiBold" />
+                            <Setter Property="Foreground" Value="#0DCAF2"/>
+
+                        </Style>
+                    </DataGridTemplateColumn.HeaderStyle>
+                </DataGridTemplateColumn>
+
+                <!-- set a max length to get an indicator in the editor -->
+
+                <materialDesign:DataGridTextColumn
+                      Binding="{Binding PurchasePrice}"
+                      Header="Price"
+                     
+                      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style
+                          TargetType="{x:Type DataGridColumnHeader}"
+                          BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+                            <Setter
+                          Property="HorizontalContentAlignment"
+                          Value="Center" />
+                            <Setter
+                          Property="ContentTemplate">
+                                <Setter.Value>
+                                    <DataTemplate>
+                                        <TextBlock
+                                             
+                                              TextWrapping="Wrap"
+                                              Text="{Binding}"
+                                              TextAlignment="Center" />
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
+
+                            <Setter Property="FontWeight" Value="SemiBold" />
+
+                            <Setter Property="Foreground" Value="#0DCAF2"/>
+
+
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style
+                          TargetType="{x:Type TextBlock}"
+                          BasedOn="{StaticResource MaterialDesignDataGridTextColumnStyle}">
+
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </materialDesign:DataGridTextColumn>
+                <!-- use custom combo box column to get better combos. Use ItemsSourceBinding as your binding template to be applied to each combo -->
+
+
+
+                <DataGridTextColumn
+                      Header="Date Received"
+                        Width="116"
+                      ElementStyle="{StaticResource MaterialDesignDataGridTextColumnStyle}"
+                      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}">
+                    <DataGridTextColumn.Binding>
+                        <Binding
+                              Path="DateReceived">
+                        </Binding>
+                    </DataGridTextColumn.Binding>
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style  BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}"   TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="FontWeight" Value="SemiBold" />
+                            <Setter Property="Foreground" Value="#0DCAF2"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DockPanel Grid.Row="0"  Name="SearchBar" Margin="0,-160,70,7.8">
             <Grid HorizontalAlignment="Right" >
                 <ComboBox Name="SearchBarTB"
 
@@ -669,7 +685,7 @@
         </DockPanel>
 
 
-        <StackPanel Grid.Row="2" Orientation="Vertical">
+        <StackPanel Grid.Row="3" Orientation="Vertical" Margin="5,7.6,5,5.4">
             <Line  Stretch="Fill" Margin="0,5,0,0" HorizontalAlignment="Center" Width="442" Stroke="DarkGray" X2="1" Opacity="0.4" />
             <StackPanel  Name="EditAssetsBar" HorizontalAlignment="Center" Orientation="Horizontal" Margin="4 8 10 0">
                 <Button
@@ -718,7 +734,7 @@
               Foreground="White"
               FontFamily="ROBOTO"        
               Width="446"
-              Height="180" Margin="180,0" Grid.RowSpan="3"
+              Height="180" Margin="180,0,180,-1.6" Grid.RowSpan="2" Grid.Row="2"
          >
             <materialDesign:Snackbar.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">

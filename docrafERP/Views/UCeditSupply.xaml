@@ -12,17 +12,18 @@
 
             <TabItem  FontSize="14" Style="{StaticResource TabItemStyle}"   Foreground="#979797" Background="White" FontWeight="Bold" Header="Supply Details"  >
                 <Grid>
+                    
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="99*"/>
+                        <ColumnDefinition Width="455"/>
                         <ColumnDefinition Width="61*"/>
                     </Grid.ColumnDefinitions>
 
                     <Grid Grid.Column="1" Margin="30 0 0 0">
                         <StackPanel>
-                            <Image Name="SupImage" Source="/UIassets/image 21.png" Width="220" Height="220" Margin="0 0 0 5" MouseDown="SupImage_MouseDown"/>
+                            <Image HorizontalAlignment="Left" Name="SupImage" Source="/UIassets/image 21.png" Width="220" Height="220" Margin="0 0 0 5" MouseDown="SupImage_MouseDown"/>
                             <Label Content="Related Documents" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header1}" Margin="0 0 0 5"  />
                             <StackPanel Margin="0 0 20 0">
-                                <ListView Height="236"  BorderThickness="2" BorderBrush="#0DCAF2" >
+                                <ListView HorizontalAlignment="Left" Height="236" MinWidth="220" MaxWidth="1500"  BorderThickness="2" BorderBrush="#0DCAF2" Margin="-10,0,0,0"  >
                                     <ListViewItem Content="Purchase Request.pdf" Margin="1"  BorderThickness="1" BorderBrush="#0DCAF2" ></ListViewItem>
                                     <ListViewItem Content="Purchase Order.pdf" Margin="1" BorderThickness="1" BorderBrush="#0DCAF2" ></ListViewItem>
                                     <ListViewItem Content="AIR.pdf" Margin="1"  BorderThickness="1" BorderBrush="#0DCAF2" ></ListViewItem>
@@ -45,7 +46,7 @@
                                             </LinearGradientBrush>
                                         </materialDesign:PackIcon.Foreground>
                                     </materialDesign:PackIcon>
-                                    <materialDesign:PackIcon Height="27"  Width="27" Kind="ContentSave" Margin="120 6 0 0" MouseDown="SavetoSupBtn">
+                                    <materialDesign:PackIcon Height="27"  Width="27" Kind="ContentSave" Margin="100 6 0 0" MouseDown="SavetoSupBtn">
                                         <materialDesign:PackIcon.Foreground>
                                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                                 <GradientStop Color="#0DCAF2" Offset="0"/>
@@ -338,7 +339,7 @@
             <TabItem FontSize="14" Foreground="#979797" Background="White"   Style="{StaticResource TabItemStyle}" Margin="1 0 -4 0" Header="Inventory Details"  FontWeight="Bold">
                 <StackPanel>
                     <Label  Content="Assigned Program Details" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header1}" Margin="0 10 0 5"  />
-                    <ListBox Style="{StaticResource MaterialDesignFilterChipPrimaryOutlineListBox}"  Background="Transparent" Margin="-420 0 0 5"  Width="300"   Height="355" BorderThickness="2" BorderBrush="{StaticResource PrimaryHueDarkBrush}" >
+                    <ListBox Style="{StaticResource MaterialDesignFilterChipPrimaryOutlineListBox}"  Background="Transparent" Margin="10 0 0 5" HorizontalAlignment="Left"  Width="300"   Height="355" BorderThickness="2" BorderBrush="{StaticResource PrimaryHueDarkBrush}" >
                         <ListBoxItem Background="Transparent" Style="{x:Null}" BorderThickness="1" BorderBrush="{StaticResource PrimaryHueDarkBrush}" Margin="10" >
                             <StackPanel >
 
@@ -534,7 +535,7 @@
                             </StackPanel>
                         </StackPanel>
 
-                        <StackPanel Margin="50 -365 0 17" >
+                        <StackPanel HorizontalAlignment="Left" Margin="50 -365 0 17" >
                             <ComboBox VerticalAlignment="Center" 
                                         FontWeight="Normal"
                                         Width="289"
@@ -621,7 +622,10 @@
             <TabItem FontSize="14" Foreground="#979797" Background="White"   Style="{StaticResource TabItemStyle}" Margin="1 0 -4 0" Header="Notes"  FontWeight="Bold">
                 <StackPanel Margin="15">
 
-                    <TextBox Margin="0 20 0 0"
+                    <TextBox Margin="30 40 0 0"
+                        MaxWidth="1000"
+                        MinWidth="650"
+                        HorizontalAlignment="Left"
                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
                         VerticalAlignment="Top"
                         Height="150"
@@ -638,7 +642,7 @@
                 <StackPanel>
                     <Label  Content="Related Documents" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header1}" Margin="0 10 0 5"  />
 
-                    <ListView   Style="{StaticResource Header2}" Name="LVAssetHistory" Height="505"  BorderThickness="2" BorderBrush="#0DCAF2" >
+                    <ListView HorizontalAlignment="Left" MinWidth="500" MaxWidth="1000"  Style="{StaticResource Header2}" Name="LVAssetHistory" Height="505"  BorderThickness="2" BorderBrush="#0DCAF2" >
                         <ListViewItem  Margin="1"  BorderThickness="1" BorderBrush="#0DCAF2" >
                             <StackPanel Orientation="Horizontal">
                                 <Label Style="{StaticResource Header2}" Margin="0 0 15 0" Content="7/28/2022 3:20:03"></Label>

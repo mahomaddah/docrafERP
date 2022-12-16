@@ -8,30 +8,41 @@
              mc:Ignorable="d" 
      d:DesignHeight="550" d:DesignWidth="800" Loaded="UserControl_Loaded">
     <Grid>
-        <StackPanel >
-            <StackPanel>
-                
-                <StackPanel Margin="0 5 0 10" Orientation="Horizontal"/>
 
-                <Label Margin="0 5 0 0" Style="{StaticResource Header1}" Foreground="#000008" Content="List of Personnel" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30.5" />
-                <ProgressBar Margin="0 0 0 10" Value="80.7" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="473*"></RowDefinition>
+            <RowDefinition Height="78*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
 
-                <ListView MouseDown="LVpersonels_MouseDown"   Name="LVpersonels" Style="{StaticResource MaterialDesignCardsListBox}" ItemTemplateSelector="{StaticResource PersonelTemplateSelectorDirectory}"   Background="Transparent" Margin="10,1,10,1" Height="400" Width="450"  BorderThickness="2" BorderBrush="{StaticResource PrimaryHueDarkBrush}" >
-         
+            <StackPanel Margin="0 5 0 10" Orientation="Horizontal"/>
 
-                </ListView>
-                
-                <Line Stretch="Fill" Margin="-1,5,0,0" HorizontalAlignment="Center" Width="351" Stroke="DarkGray" X2="1" Opacity="0.4" />
+            <Label Margin="0 5 0 0" Style="{StaticResource Header1}" Foreground="#000008" Content="List of Personnel" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30.5" />
+            <ProgressBar Margin="0 0 0 10" Value="80.7" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
 
-                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0 10 0 0">
-                    <Button
+            <ListView MouseDown="LVpersonels_MouseDown"   Name="LVpersonels" Style="{StaticResource MaterialDesignCardsListBox}" ItemTemplateSelector="{StaticResource PersonelTemplateSelectorDirectory}"   Background="Transparent" Margin="10,1,10,1" Height="2000" MinWidth="450"  BorderThickness="2" BorderBrush="{StaticResource PrimaryHueDarkBrush}" >
+
+
+            </ListView>
+
+
+          
+
+        </StackPanel>
+
+        <StackPanel  Grid.Row="1"  Orientation="Vertical">
+            <Line Stretch="Fill" Margin="-1,5,0,10" HorizontalAlignment="Center" Width="351" Stroke="DarkGray" X2="1" Opacity="0.4" />
+
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0 0 0 0">
+
+                <Button
                   Width="109"
                  
                   Style="{StaticResource MaterialDesignOutlinedButton}"
                   ToolTip="CLick to delete an User..."
                   Content="Delete"     
                   IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="Delete_Click" />
-                    <Button
+                <Button
                   Margin="10 0 0 0"
                   Width="109"
                
@@ -39,7 +50,7 @@
                   ToolTip="CLick to edit an User..."
                   Content="Save"     
                   IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="Save_Click"  />
-                    <Button
+                <Button
                   Margin="10 0 0 0"
                   Width="110"
                  
@@ -47,13 +58,11 @@
                   ToolTip="CLick to add a new User..."
                   Content="Add New"     
                   IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Click="Add_click" />
-                </StackPanel>
             </StackPanel>
-
-
-
         </StackPanel>
-        <Grid HorizontalAlignment="Right"/>
+      
+
+
 
     </Grid>
 

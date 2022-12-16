@@ -5,17 +5,25 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:docrafERP.Views"
              mc:Ignorable="d"
+   
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             d:DesignHeight="550" d:DesignWidth="800">
+             >
     <Grid>
-        <StackPanel>
-            <Grid Grid.Row="1" >
-                <StackPanel Margin="5">
-                    <Label Margin="0 -10 0 0" FontSize="18" FontFamily="Roboto" FontWeight="Medium" Content="Connection Settings"></Label>
-                    <ProgressBar Margin="0 0 0 0" Value="23" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
-                    <Label Margin="0 30 0 -2" FontSize="15" FontFamily="Roboto" Foreground="Gray" FontWeight="Light" Content="Mssql Server address:"></Label>
-                    <StackPanel  Orientation="Horizontal">
-                        <TextBox
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="183*"  />
+            <RowDefinition Height="17*"  />
+        </Grid.RowDefinitions>
+
+
+
+
+        <StackPanel  Margin="5,5,5,3">
+            <Label Margin="0 -10 0 0" FontSize="18" FontFamily="Roboto" FontWeight="Medium" Content="Connection Settings"></Label>
+            <ProgressBar Margin="0 0 0 0" Value="23" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
+            <Label Margin="0 30 0 -2" FontSize="15" FontFamily="Roboto" Foreground="Gray" FontWeight="Light" Content="Mssql Server address:"></Label>
+            <StackPanel  Orientation="Horizontal">
+                <TextBox
                             FontWeight="Normal"
                         
                             Margin="0 0 0 0"
@@ -32,39 +40,39 @@
                             BorderBrush="#07AEFF"
                             FontFamily="Roboto"
                             FontSize="16px" CaretBrush="#FF07AD40" Width="300"/>
-                        <Button Margin="10 0 0 0" VerticalAlignment="Center"
+                <Button Margin="10 0 0 0" VerticalAlignment="Center"
                           Width="70" 
                                 Height="50"
                           Style="{StaticResource MaterialDesignOutlinedButton}"
                           ToolTip="CLick to Save ip:port..."
                           Content="SAVE"     
                           IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="Button_Click" />
-                    </StackPanel>
-                    <StackPanel Margin="0 50 0 0" Orientation="Horizontal">
-                        <CheckBox IsChecked="True"  BorderBrush="#FF308D99" Foreground="#07AEFF" Background="#07AEFF"></CheckBox>
-                        <Label  FontSize="15" FontFamily="Roboto" FontWeight="Medium" Content="Save locally while disconnected"></Label>
-                    </StackPanel>
-                    <Line HorizontalAlignment="Left" Stretch="Fill" Margin="0 10 0 0" Stroke="DarkGray" X2="1" Width="350" />
-                    <StackPanel Margin="0 10 0 0" Orientation="Horizontal">
-                        <CheckBox  IsChecked="True"  Foreground="#07AEFF" Background="#07AEFF" BorderBrush="#FF308D99"></CheckBox>
-                        <Label  FontSize="15" FontFamily="Roboto" FontWeight="Medium" Content="Notify while a supply was about to run out"></Label>
-                      
-                    </StackPanel>
-                </StackPanel>
-                <DockPanel VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 40 -260">
-                    <StackPanel Orientation="Horizontal">
+            </StackPanel>
+            <StackPanel Margin="0 50 0 0" Orientation="Horizontal">
+                <CheckBox IsChecked="True"  BorderBrush="#FF308D99" Foreground="#07AEFF" Background="#07AEFF"></CheckBox>
+                <Label  FontSize="15" FontFamily="Roboto" FontWeight="Medium" Content="Save locally while disconnected"></Label>
+            </StackPanel>
+            <Line HorizontalAlignment="Left" Stretch="Fill" Margin="0 10 0 0" Stroke="DarkGray" X2="1" Width="350" />
+            <StackPanel Margin="0 10 0 0" Orientation="Horizontal">
+                <CheckBox  IsChecked="True"  Foreground="#07AEFF" Background="#07AEFF" BorderBrush="#FF308D99"></CheckBox>
+                <Label  FontSize="15" FontFamily="Roboto" FontWeight="Medium" Content="Notify while a supply was about to run out"></Label>
 
-                        <materialDesign:Badged 
+            </StackPanel>
+        </StackPanel>
+        <DockPanel Grid.Row="1"  VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 0 0" Height="36" Width="199">
+            <StackPanel Orientation="Horizontal">
+
+                <materialDesign:Badged 
                          
                                  Badge="{materialDesign:PackIcon Kind=Restart}"
                                  BadgeColorZoneMode="SecondaryMid" Height="36" Width="87">
 
-                            <materialDesign:Badged 
+                    <materialDesign:Badged 
                                     Badge="{materialDesign:PackIcon Kind=Restart}"
                                     Width="87" Height="36"
                                     BadgeColorZoneMode="SecondaryMid" >
 
-                                <Button
+                        <Button
                                 Foreground="#07AEFF"
                                     Width="87" Height="36"
                                     Background="Transparent"
@@ -72,21 +80,21 @@
                                     BorderBrush="#07AEFF"
                                     Content="RESET"
                                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"  />
-                            </materialDesign:Badged>
-                        </materialDesign:Badged>
-                        
+                    </materialDesign:Badged>
+                </materialDesign:Badged>
 
-                        <materialDesign:Badged Margin="25 0 0 0"
+
+                <materialDesign:Badged Margin="25 0 0 0"
                          
                                  Badge="{materialDesign:PackIcon Kind=ContentSave}"
                                  BadgeColorZoneMode="SecondaryMid" Height="36" Width="87">
 
-                            <materialDesign:Badged 
+                    <materialDesign:Badged 
                                     Badge="{materialDesign:PackIcon Kind=ContentSave}"
                                     Width="87" Height="36"
                                     BadgeColorZoneMode="SecondaryMid" >
 
-                                <Button
+                        <Button
                                 Foreground="White"
                                     Width="87" Height="36"
                                     Background="#07AEFF"
@@ -94,12 +102,12 @@
                                     BorderBrush="#07AEFF"
                                     Content="SAVE"
                                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Click="MssqlSaveBTN"  />
-                            </materialDesign:Badged>
-                        </materialDesign:Badged>
+                    </materialDesign:Badged>
+                </materialDesign:Badged>
 
-                    </StackPanel>
-                </DockPanel>
-            </Grid>
-        </StackPanel>
+            </StackPanel>
+        </DockPanel>
+
+
     </Grid>
 </UserControl>

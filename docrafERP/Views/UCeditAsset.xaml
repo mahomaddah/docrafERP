@@ -33,16 +33,16 @@
                         <ProgressBar Margin="0 3 0 12" Value="15"  Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="99*"/>
+                                <ColumnDefinition Width="455"/>
                                 <ColumnDefinition Width="61*"/>
                             </Grid.ColumnDefinitions>
 
                             <Grid Grid.Column="1" Margin="30 0 0 0">
                                 <StackPanel>
-                                    <Image  x:Name="AssetImage" Source="/UIassets/image 14.png" Width="220" Height="220" Margin="0 0 0 5" MouseDown="AssetImage_MouseDown"/>
+                                    <Image HorizontalAlignment="Left" x:Name="AssetImage" Source="/UIassets/image 14.png" Width="220" Height="220" Margin="0 0 0 5" MouseDown="AssetImage_MouseDown"/>
                                     <Label Content="Related Documents" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header1}" Margin="0 0 0 5"  />
                                     <StackPanel Margin="0 0 20 0">
-                                        <ListView  Style="{StaticResource Header2}" Name="LVAssetDocs" Height="236"  BorderThickness="2" BorderBrush="#0DCAF2" MouseDoubleClick="LVAssetDocs_MouseDoubleClick"
+                                        <ListView  Style="{StaticResource Header2}" HorizontalAlignment="Left" Name="LVAssetDocs" MinWidth="235"  MaxWidth="400" Height="236"  BorderThickness="2" BorderBrush="#0DCAF2" MouseDoubleClick="LVAssetDocs_MouseDoubleClick"
                                                     >
 
                                             <ListViewItem Content="Purchase Request.pdf" Selected="ListViewItem_Selected"  />
@@ -96,7 +96,7 @@
                                         <Label Content="Asset Name *" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
                                         <TextBox VerticalAlignment="Center" x:Name="TbDevice"
                                     FontWeight="Normal"
-                                    Width="330"
+                                    MinWidth="330"
                                     Margin="0 0 0 0"
                                     Style="{StaticResource MaterialDesignFilledTextBox}"
                             
@@ -134,7 +134,7 @@
                                     </StackPanel>
                                     <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
                                         <Label Content="Status" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header2}" VerticalAlignment="Center" Width="100" Margin="0 0 2 0"   />
-                                        <ComboBox VerticalAlignment="Center" x:Name="TbStatus"
+                                        <ComboBox SelectedValuePath="{Binding EditingAsset.Status ,Mode=TwoWay}" VerticalAlignment="Center" x:Name="TbStatus"
                                          FontWeight="Normal"
                                         Width="330"
                                         Margin="0 0 0 0"
@@ -299,8 +299,8 @@
                                     BorderBrush="#0DCAF2"
                                     FontFamily="Roboto"
                                     FontSize="12px" CaretBrush="#FF07AD40"/>
-    
-                             <TextBox VerticalAlignment="Center" x:Name="TBModel"
+
+                                        <TextBox VerticalAlignment="Center" x:Name="TBModel"
                                     FontWeight="Normal"
                                    Width="85"
                                     Margin="0 0 0 0"
@@ -429,7 +429,7 @@
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="240*"/>
-                            <RowDefinition Height="3000*"/>
+                            <RowDefinition Height="300*"/>
 
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
@@ -443,13 +443,14 @@
 
 
 
-                       
+
 
                                 <ProgressBar Margin="0 15 0 0" Value="56.5" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
 
                                 <StackPanel Margin="0 5 0 2" Orientation="Vertical">
                                     <Label FontWeight="DemiBold" Width="119" Content="Asset Life (months)"  Foreground="#0DCAF2"  Style="{StaticResource Header2}" VerticalAlignment="Center"  Margin="0 0 2 0"   />
-                                    <Slider Margin="2 5 2 5"
+                                    <Slider Margin="2,0,2.4,0"
+                                            
                                      Name="AssetLifeSlider"
                                       Value="31"
                                       Minimum="1"
@@ -460,7 +461,7 @@
                                       SelectionStart="24"
                                       SelectionEnd="60"
                                       materialDesign:HintAssist.HelperText="Select product lifespan"
-                                      IsSelectionRangeEnabled="True" ValueChanged="AssetLifeSlider_ValueChanged" />
+                                      IsSelectionRangeEnabled="True" ValueChanged="AssetLifeSlider_ValueChanged" Height="30" />
                                     <Label Content="Depreciation yearly stats:" Width="180" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header3}" HorizontalAlignment="Left" Margin="0 0 2 0"   />
 
                                     <ProgressBar Margin="0 4 0 10" Value="15.5" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
@@ -472,11 +473,11 @@
                         </Grid>
 
                         <Grid  Grid.Row="1" >
-                            <Grid >
-                                <ListView  Margin="3 -20 3 3" Height="375" ScrollViewer.CanContentScroll="True" >
+                            <Grid>
+                                <ListView  Margin="3 -20 3 3"  ScrollViewer.CanContentScroll="True" >
 
-                                    <ListViewItem Height="330" Foreground="Transparent" Background="Transparent" >
-                                        <chart:RadialGaugeChart Margin="0 0 0 0" HorizontalAlignment="Right" Height="340" Width="710" ChartTitle="Asset Value" ChartSubTitle="accumulated  yearly" >
+                                    <ListViewItem  Foreground="Transparent" Background="Transparent" >
+                                        <chart:RadialGaugeChart Margin="0 0 0 0" HorizontalAlignment="Right" Height="340" MinWidth="710" ChartTitle="Asset Value" ChartSubTitle="accumulated  yearly" >
                                             <chart:RadialGaugeChart.Series >
                                                 <chart:ChartSeries    
                                                         Name="AssGeuge"
@@ -511,7 +512,7 @@
                                     </ListViewItem>
 
                                     <ListViewItem Height="330" Foreground="Transparent" >
-                                        <chart:ClusteredColumnChart  Margin="0 -5 0 0" HorizontalAlignment="Right" Height="340" Width="710"  ChartTitle="Depreciation" ChartSubTitle="yearly stats..." >
+                                        <chart:ClusteredColumnChart  Margin="0 -5 0 0" HorizontalAlignment="Right" Height="340" MinWidth="710"  ChartTitle="Depreciation" ChartSubTitle="yearly stats..." >
                                             <chart:ClusteredColumnChart.Series >
                                                 <chart:ChartSeries    
                                                        Name="GraphChart"
@@ -585,23 +586,23 @@
                         <DataGrid HorizontalAlignment="Left" Name="MainTanceDG" CanUserAddRows="False" AutoGenerateColumns="False" Background="Transparent" CanUserDeleteRows="True" ItemsSource="{Binding Path = TempMaintenances  ,Mode=TwoWay}" MaxHeight="285"  MinHeight="200" BorderThickness="2" Margin="2 10 2 10"  Width="720" BorderBrush="#0DCAF2" >
 
                             <DataGrid.ColumnHeaderStyle>
-                               
-                                    <Style
+
+                                <Style
                                         
                                          TargetType="{x:Type DataGridColumnHeader}"
                                          BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
                                     <Setter Property="Width" Value="160">
-                                        
+
                                     </Setter>
-                                        <Setter
+                                    <Setter
                                             Property="HorizontalContentAlignment"
                                             Value="Center" />
-                                        <Setter Property="FontWeight" Value="SemiBold" />
-                                        <Setter Property="Foreground" Value="#0DCAF2"/>
+                                    <Setter Property="FontWeight" Value="SemiBold" />
+                                    <Setter Property="Foreground" Value="#0DCAF2"/>
                                     <Setter Property="Background" Value="Transparent"></Setter>
 
-                                    </Style>
-                          
+                                </Style>
+
                             </DataGrid.ColumnHeaderStyle>
                             <DataGrid.CellStyle>
                                 <Style
@@ -615,7 +616,7 @@
                                             Property="HorizontalContentAlignment"
                                             Value="Center" />
                                     <Setter Property="FontWeight" Value="Light" />
-                                  
+
                                     <Setter Property="Background" Value="Transparent"></Setter>
 
                                 </Style>
@@ -625,7 +626,7 @@
                                         
                                          TargetType="{x:Type DataGridRow}"
                                          BasedOn="{StaticResource MaterialDesignDataGridRow}">
-                           
+
                                     <Setter
                                             Property="HorizontalContentAlignment"
                                             Value="Center" />
@@ -637,7 +638,7 @@
                                 </Style>
                             </DataGrid.RowStyle>
                             <DataGrid.Columns >
-                           
+
 
                                 <DataGridTextColumn 
                                     Width="160"
@@ -696,16 +697,17 @@
 
 
                             </DataGrid.Columns>
-                            
+
                         </DataGrid>
                         <materialDesign:PopupBox
+                          
   
                         Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
                         PlacementMode="LeftAndAlignMiddles"
                         UnfurlOrientation="Horizontal"
                         ToolTip="Manage items"
-                        Margin="0 0 10 10"
-                        HorizontalAlignment="Right"
+                        Margin="70 0 10 10"
+                       
                         VerticalAlignment="Bottom">
                             <StackPanel
                           Orientation="Horizontal">
@@ -742,7 +744,7 @@
                 <TabItem FontSize="14" Foreground="#979797" Background="White"   Style="{StaticResource TabItemStyle}" Margin="1 0 -4 0" Header="Custodian Details"  FontWeight="Bold">
                     <StackPanel>
                         <Label  Content="Checked Out To" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header1}" Margin="0 10 0 5"  />
-                        <ListBox Style="{StaticResource MaterialDesignFilterChipPrimaryOutlineListBox}"  Background="Transparent" Margin="-420 0 0 5"  Width="300"   Height="355" BorderThickness="2" BorderBrush="{StaticResource PrimaryHueDarkBrush}" >
+                        <ListBox HorizontalAlignment="Left" Style="{StaticResource MaterialDesignFilterChipPrimaryOutlineListBox}"  Background="Transparent" Margin="0 0 0 5"  Width="300"   Height="355" BorderThickness="2" BorderBrush="{StaticResource PrimaryHueDarkBrush}" >
                             <ListBoxItem Background="Transparent" Style="{x:Null}" BorderThickness="1" BorderBrush="{StaticResource PrimaryHueDarkBrush}" Margin="10" >
                                 <StackPanel >
 
@@ -900,7 +902,7 @@
                                     </materialDesign:Flipper>
                                 </StackPanel>
                             </ListBoxItem>
-                           
+
 
                         </ListBox>
 
@@ -965,7 +967,7 @@
                 <TabItem FontSize="14" Foreground="#979797" Background="White"   Style="{StaticResource TabItemStyle}" Margin="1 0 -4 0" Header="Notes"  FontWeight="Bold">
                     <StackPanel Margin="15">
 
-                        <TextBox Margin="0 20 0 0"
+                        <TextBox Margin="40 40 0 0"
                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
                         VerticalAlignment="Top"
                         Height="150"
@@ -973,16 +975,16 @@
                         MaxLength="120"
                         AcceptsReturn="True"
                         AcceptsTab="True"
-                        VerticalScrollBarVisibility="Auto"
+                        VerticalScrollBarVisibility="Auto" MinWidth="600"  MaxWidth="1500" HorizontalAlignment="Left"
                         materialDesign:HintAssist.Hint="Enter notes" />
                     </StackPanel>
                 </TabItem>
 
                 <TabItem FontSize="14" Foreground="#979797" Background="White"   Style="{StaticResource TabItemStyle}" Margin="0,0,-3,0" Header="History"  FontWeight="Bold">
-                    <StackPanel>
+                    <StackPanel >
                         <Label  Content="Related Documents" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header1}" Margin="0 10 0 5"  />
 
-                        <ListView   Style="{StaticResource Header2}" Name="LVAssetHistory" Height="505"  BorderThickness="2" BorderBrush="#0DCAF2" >
+                        <ListView   Style="{StaticResource Header2}" Name="LVAssetHistory" Height="500" MaxHeight="800" HorizontalAlignment="Left" MinWidth="700" MaxWidth="1500" HorizontalContentAlignment="Left"  BorderThickness="2" BorderBrush="#0DCAF2" >
                             <ListViewItem  Margin="1"  BorderThickness="1" BorderBrush="#0DCAF2" >
                                 <StackPanel Orientation="Horizontal">
                                     <Label Style="{StaticResource Header2}" Margin="0 0 15 0" Content="7/28/2022 3:20:03"></Label>

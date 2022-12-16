@@ -67,7 +67,7 @@
         <Grid x:Name="LeftBarBackGround"  Grid.Column="0" Grid.RowSpan="3" Background="#F1F1F1"/>
         <Grid Grid.RowSpan="2" Grid.Row="1" Grid.Column="1"  Margin="30 30 30 30">
             
-            <views:UCmanageAssets x:Name="manageAssetsUC" Visibility="Visible" />
+            <views:UCmanageAssets x:Name="manageAssetsUC" Visibility="Visible" Margin="0,0,0.2,-1.4" />
             <views:UCmanageSupplies x:Name="manageSuppliesUC" Visibility="Hidden" />
             <views:UCeditAsset x:Name="editAssetUC" Visibility="Hidden" />
             <views:UCeditSupply x:Name="editSupplyUC" Visibility="Hidden" />

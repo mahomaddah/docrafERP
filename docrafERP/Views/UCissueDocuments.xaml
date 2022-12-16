@@ -10,140 +10,164 @@
 
     <Grid>
 
-          <TabControl Style="{StaticResource Header2}"  Background="Transparent" Foreground="#979797" DockPanel.Dock="Left"  FontWeight="Bold"  FontFamily="Roboto"   BorderBrush="{x:Null}">
+
+        <TabControl Style="{StaticResource Header2}"  Background="Transparent" Foreground="#979797" DockPanel.Dock="Left"  FontWeight="Bold"  FontFamily="Roboto"   BorderBrush="{x:Null}">
 
 
             <TabItem FontSize="14" Foreground="#979797" Background="White"   Style="{StaticResource TabItemStyle}" Margin="1 0 -4 0" Header="Forms"  FontWeight="Bold">
-                <StackPanel>
-            <Label Margin="0 5 0 0" Style="{StaticResource Header2}" Foreground="#000008" Content="Forms" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30.5" />
-            <ProgressBar Margin="0 0 0 10" Value="6.5" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
-            <ListView x:Name="FormsLV" MouseDoubleClick="FormClicked" Height="350" VerticalAlignment="Center">
-                <ListView.BorderBrush>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black" Offset="0"/>
-                        <GradientStop Color="#FFD1CECE" Offset="1"/>
-                    </LinearGradientBrush>
-                </ListView.BorderBrush>
-                
-           
-                    <Label VerticalAlignment="Center"
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="62">
+
+                        </RowDefinition>
+                        <RowDefinition Height="377*"/>
+                        <RowDefinition Height="82"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0" Margin="0,0,0.4,0.2" Grid.RowSpan="2" >
+                        <Label Margin="0 5 0 0" Style="{StaticResource Header2}" Foreground="#000008" Content="Forms" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30.5" />
+                        <ProgressBar Margin="0 0 0 10" Value="6.5" Height="2" Background="#F1F1F1" Foreground="#0DCAF2" materialDesign:TransitionAssist.DisableTransitions="False" BorderBrush="#F1F1F1" />
+
+
+
+                        <StackPanel Orientation="Vertical">
+                            <Line Stretch="Fill" Margin="0,-40,0,0" HorizontalAlignment="Left" Width="247" Stroke="DarkGray" X2="1" Opacity="0.4" />
+                            <Label Padding="2" Margin="0 13 0 10" FontSize="11" FontFamily="Roboto" Foreground="#0DCAF2" FontWeight="Light" Content="In this panel you can issue any document manually"></Label>
+
+                        </StackPanel>
+
+
+                    </StackPanel>
+                    <Grid Grid.Row="1" Margin="0 10 0 10"  >
+                        <ListView HorizontalAlignment="Left" x:Name="FormsLV" MouseDoubleClick="FormClicked"  Width="700" >
+                            <ListView.BorderBrush>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Black" Offset="0"/>
+                                    <GradientStop Color="#FFD1CECE" Offset="1"/>
+                                </LinearGradientBrush>
+                            </ListView.BorderBrush>
+
+
+                            <Label VerticalAlignment="Center"
                      BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
                      Content="Appendix 56-RAWO : REGISTRY OF ACCOUNTS WRITTEN OFF" />
-                    
-                    <Label VerticalAlignment="Center"
+
+                            <Label VerticalAlignment="Center"
                      BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
                      Content="Appendix 57-SLC : SUPPLIES LEDGER CARD" />
-              
-                     <Label VerticalAlignment="Center"
+
+                            <Label VerticalAlignment="Center"
                      BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
                      Content="Appendix 58-SC : STOCK CARD" />
 
-                     <Label VerticalAlignment="Center"
+                            <Label VerticalAlignment="Center"
                      BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
                      Content="Appendix 59-ICS : INVENTORY CUSTODIAN SLIP" />
 
-                     <Label VerticalAlignment="Center"
+                            <Label VerticalAlignment="Center"
                      BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
                      Content="Appendix 60-PR : PURCHASE REQUEST" />
-            
-                    <Label VerticalAlignment="Center"
+
+                            <Label VerticalAlignment="Center"
                      BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
                      Content="Appendix 61-PO : PURCHASE ORDER" />
 
-                        <Label VerticalAlignment="Center"
+                            <Label VerticalAlignment="Center"
                      BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
                      Content="Appendix 62-IAR : INSPECTION AND ACCEPTANCE REPORT" />
-              
-                     <Label VerticalAlignment="Center"
+
+                            <Label VerticalAlignment="Center"
                      BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
                      Content="Appendix 63-RIS : REQUISITION AND ISSUE SLIP" />
 
-                     <Label VerticalAlignment="Center"
+                            <Label VerticalAlignment="Center"
                      BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
                      Content="Appendix 64-RSMI : REPORT OF SUPPLIES AND MATERIALS ISSUED" />
-            
-                    <Label VerticalAlignment="Center"
+
+                            <Label VerticalAlignment="Center"
                      BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
                      Content="Appendix 65-WMR : WASTE MATERIALS REPORT" />
 
-                    <Label VerticalAlignment="Center"
+                            <Label VerticalAlignment="Center"
                      BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
                      Content="Appendix 66-RPCI : REPORT ON THE PHYSICAL COUNT OF INVENTORIES" />
-              
-                     <Label VerticalAlignment="Center"
+
+                            <Label VerticalAlignment="Center"
                      BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
                      Content="Appendix 67-RAAF : REPORT OF ACCOUNTABILITY FOR ACCOUNTABLE FORMS" />
 
-                     <Label VerticalAlignment="Center"
+                            <Label VerticalAlignment="Center"
                      BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
                      Content="Appendix 68-IPLC : INVESTMENT PROPERTY LEDGER CARD" />
 
-                     <Label VerticalAlignment="Center"
+                            <Label VerticalAlignment="Center"
                      BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
                      Content="Appendix 69-PC : PROPERTY CARD" />
-            
-                    <Label VerticalAlignment="Center"
+
+                            <Label VerticalAlignment="Center"
                      BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
                      Content="Appendix 70-PPELC : PROPERTY, PLANT AND EQUIPMENT LEDGER CARD" />
 
-                    <Label VerticalAlignment="Center"
+                            <Label VerticalAlignment="Center"
                      BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
                      Content="Appendix 71-PAR : PROPERTY ACKNOWLEDGMENT RECEIPT" />
-              
-                     <Label VerticalAlignment="Center"
+
+                            <Label VerticalAlignment="Center"
                      BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
                      Content="Appendix 72-RHAS : REGISTRY OF HERITAGE ASSET" />
 
-                     <Label VerticalAlignment="Center"
+                            <Label VerticalAlignment="Center"
                      BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
                      Content="Appendix 73-RPCPPE : REPORT ON THE PHYSICAL COUNT OF PROPERTY, PLANT AND EQUIPMENT" />
 
-                     <Label VerticalAlignment="Center"
+                            <Label VerticalAlignment="Center"
                      BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
                      Content="Appendix 74-IIRUP : INVENTORY AND INSPECTION REPORT OF UNSERVICEABLE PROPERTY" />
-            
-                    <Label VerticalAlignment="Center"
-                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
-                     Content="Appendix 75-RLSDDP : REPORT OF LOST, STOLEN, DAMAGED OR DESTROYED PROPERTY" />  
 
-                     <Label VerticalAlignment="Center"
+                            <Label VerticalAlignment="Center"
+                     BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
+                     Content="Appendix 75-RLSDDP : REPORT OF LOST, STOLEN, DAMAGED OR DESTROYED PROPERTY" />
+
+                            <Label VerticalAlignment="Center"
                      BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
                      Content="Appendix 76-PTR : PROPERTY TRANSFER REPORT" />
-              
-                     <Label VerticalAlignment="Center"
+
+                            <Label VerticalAlignment="Center"
                      BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
                      Content="Appendix 77-CIPLC : CONSTRUCTION IN PROGRESS LEDGER CARD" />
 
-                     <Label VerticalAlignment="Center"
+                            <Label VerticalAlignment="Center"
                      BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
                      Content="Appendix 78-BAPC : BIOLOGICAL ASSETS PROPERTY CARD" />
 
-                     <Label VerticalAlignment="Center"
+                            <Label VerticalAlignment="Center"
                      BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
                      Content="Appendix 79-QRBA : QUARTERLY REPORT OF BIOLOGICAL ASSETS" />
-            
-                    <Label VerticalAlignment="Center"
+
+                            <Label VerticalAlignment="Center"
                      BorderBrush="Black"  Style="{StaticResource Header2}" FontFamily="Roboto"
-                     Content="Appendix 80-BRS-MDS : Monthly Reconciliation Statement" />                  
+                     Content="Appendix 80-BRS-MDS : Monthly Reconciliation Statement" />
 
-            </ListView>
-            <Line Stretch="Fill" Margin="0,5,0,0" HorizontalAlignment="Left" Width="247" Stroke="DarkGray" X2="1" Opacity="0.4" />
-            <Label Margin="0 10 0 10" FontSize="11" FontFamily="Roboto" Foreground="#07AD40" FontWeight="Light" Content="In this panel you can issue any document manually"></Label>
- 
-        <DockPanel VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 40 30">
-            <StackPanel Orientation="Horizontal">
+                        </ListView>
 
-                <materialDesign:Badged 
+                    </Grid>
+
+                    <DockPanel Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,40.4,29.8" Height="36" Width="199">
+                        <StackPanel Orientation="Vertical">
+
+                            <StackPanel Orientation="Horizontal">
+
+                                <materialDesign:Badged 
                          
                                  Badge="{materialDesign:PackIcon Kind=Eye}"
                                  BadgeColorZoneMode="SecondaryMid" Height="36" Width="87">
 
-                    <materialDesign:Badged 
+                                    <materialDesign:Badged 
                                     Badge="{materialDesign:PackIcon Kind=Eye}"
                                     Width="87" Height="36"
                                     BadgeColorZoneMode="SecondaryMid" >
 
-                        <Button
+                                        <Button
                                 Foreground="#07AEFF"
                                     Width="87" Height="36"
                                     Background="Transparent"
@@ -151,21 +175,21 @@
                                     BorderBrush="#07AEFF"
                                     Content="VIEW "
                                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Click="FormViewClicked"  />
-                    </materialDesign:Badged>
-                </materialDesign:Badged>
+                                    </materialDesign:Badged>
+                                </materialDesign:Badged>
 
 
-                <materialDesign:Badged Margin="25 0 0 0"
+                                <materialDesign:Badged Margin="25 0 0 0"
                          
                                  Badge="{materialDesign:PackIcon Kind=Printer}"
                                  BadgeColorZoneMode="SecondaryMid" Height="36" Width="87">
 
-                    <materialDesign:Badged 
+                                    <materialDesign:Badged 
                                     Badge="{materialDesign:PackIcon Kind=Printer}"
                                     Width="87" Height="36"
                                     BadgeColorZoneMode="SecondaryMid" >
 
-                        <Button
+                                        <Button
                                 Foreground="White"
                                     Width="87" Height="36"
                                     Background="#07AEFF"
@@ -173,41 +197,67 @@
                                     BorderBrush="#07AEFF"
                                     Content="PRINT"
                                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Click="FormPrintBtn"  />
-                    </materialDesign:Badged>
-                </materialDesign:Badged>
+                                    </materialDesign:Badged>
+                                </materialDesign:Badged>
 
-            </StackPanel>
-        </DockPanel>
-        </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+
+                    </DockPanel>
+                </Grid>
+
             </TabItem>
 
             <TabItem FontSize="14" Foreground="#979797" Background="White"   Style="{StaticResource TabItemStyle}" Margin="1 0 -4 0" Header="Supplies and Materials Issued"  FontWeight="Bold">
-                <StackPanel>
-                    <Label  Content="Supplies and Materials Issued" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header1}" Margin="0 10 0 5"  />
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="436*"></RowDefinition>
+                        <RowDefinition Height="85*"></RowDefinition>
+                    </Grid.RowDefinitions>
 
-                    <ListView   Style="{StaticResource Header2}" Height="380"  BorderThickness="2" Margin="1 1 1 30" BorderBrush="#0DCAF2" >
-                 
-                    <ListViewItem Content="REQUISITION AND ISSUE SLIP1 with Quantity 23 Received by Program 1 26.08.2022" />
-                    <ListViewItem Content="REQUISITION AND ISSUE SLIP2 with Quantity 40 Received by Program 2 28.08.2022" />
-                    <ListViewItem Content="REQUISITION AND ISSUE SLIP3 with Quantity 11 Received by Program 3 29.08.2022" />
+                    <Label  Content="Supplies and Materials Issued" FontWeight="Medium" Foreground="Gray" Style="{StaticResource Header1}" Margin="0,10,0.4,3.8" Grid.RowSpan="2"  />
+                    <Grid >
+                        <Border BorderThickness="2" Margin="1,1,1,7" BorderBrush="#0DCAF2">
+                            <ListView   Style="{StaticResource Header2}"   BorderThickness="2" Margin="1,1,1,7" BorderBrush="#0DCAF2" >
 
-                    </ListView>
+                                <ListViewItem Content="REQUISITION AND ISSUE SLIP1 with Quantity 23 Received by Program 1 26.08.2022" />
+                                <ListViewItem Content="REQUISITION AND ISSUE SLIP2 with Quantity 40 Received by Program 2 28.08.2022" />
+                                <ListViewItem Content="REQUISITION AND ISSUE SLIP3 with Quantity 11 Received by Program 3 29.08.2022" />
+                                <ListViewItem Content="REQUISITION AND ISSUE SLIP1 with Quantity 23 Received by Program 1 26.08.2022" />
+                                <ListViewItem Content="REQUISITION AND ISSUE SLIP2 with Quantity 40 Received by Program 2 28.08.2022" />
+                                <ListViewItem Content="REQUISITION AND ISSUE SLIP3 with Quantity 11 Received by Program 3 29.08.2022" />
+                                <ListViewItem Content="REQUISITION AND ISSUE SLIP1 with Quantity 23 Received by Program 1 26.08.2022" />
+                                <ListViewItem Content="REQUISITION AND ISSUE SLIP2 with Quantity 40 Received by Program 2 28.08.2022" />
+                                <ListViewItem Content="REQUISITION AND ISSUE SLIP3 with Quantity 11 Received by Program 3 29.08.2022" />
+                                <ListViewItem Content="REQUISITION AND ISSUE SLIP1 with Quantity 23 Received by Program 1 26.08.2022" />
+                                <ListViewItem Content="REQUISITION AND ISSUE SLIP2 with Quantity 40 Received by Program 2 28.08.2022" />
+                                <ListViewItem Content="REQUISITION AND ISSUE SLIP3 with Quantity 11 Received by Program 3 29.08.2022" />
 
- 
-        <DockPanel VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 10 0">
-            <StackPanel Orientation="Horizontal">
 
-                <materialDesign:Badged 
+                                <ListViewItem Content="REQUISITION AND ISSUE SLIP1 with Quantity 23 Received by Program 1 26.08.2022" />
+                                <ListViewItem Content="REQUISITION AND ISSUE SLIP2 with Quantity 40 Received by Program 2 28.08.2022" />
+                                <ListViewItem Content="REQUISITION AND ISSUE SLIP3 with Quantity 11 Received by Program 3 29.08.2022" />
+                            </ListView>
+                        </Border>
+
+                    </Grid>
+
+
+
+                    <DockPanel Grid.Row="1"  VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,6" Height="36" Width="245">
+                        <StackPanel Orientation="Horizontal">
+
+                            <materialDesign:Badged 
                          
                                  Badge="{materialDesign:PackIcon Kind=Eye}"
                                  BadgeColorZoneMode="SecondaryMid" Height="36" Width="110">
 
-                    <materialDesign:Badged 
+                                <materialDesign:Badged 
                                     Badge="{materialDesign:PackIcon Kind=Eye}"
                                     Width="110" Height="36"
                                     BadgeColorZoneMode="SecondaryMid" >
 
-                        <Button
+                                    <Button
                                 Foreground="#07AEFF"
                                     Width="110" Height="36"
                                     Background="Transparent"
@@ -215,21 +265,21 @@
                                     BorderBrush="#07AEFF"
                                     Content="VIEW RIS"
                                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"   />
-                    </materialDesign:Badged>
-                </materialDesign:Badged>
+                                </materialDesign:Badged>
+                            </materialDesign:Badged>
 
 
-                <materialDesign:Badged Margin="25 0 0 0"
+                            <materialDesign:Badged Margin="25 0 0 0"
                          
                                  Badge="{materialDesign:PackIcon Kind=Printer}"
                                  BadgeColorZoneMode="SecondaryMid" Height="36" Width="110">
 
-                    <materialDesign:Badged 
+                                <materialDesign:Badged 
                                     Badge="{materialDesign:PackIcon Kind=Printer}"
                                     Width="110" Height="36"
                                     BadgeColorZoneMode="SecondaryMid" >
 
-                        <Button
+                                    <Button
                                 Foreground="White"
                                     Width="110" Height="36"
                                     Background="#07AEFF"
@@ -237,17 +287,17 @@
                                     BorderBrush="#07AEFF"
                                     Content="PRINT RSMI"
                                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
-                    </materialDesign:Badged>
-                </materialDesign:Badged>
+                                </materialDesign:Badged>
+                            </materialDesign:Badged>
 
-            </StackPanel>
-        </DockPanel>
-                </StackPanel>
+                        </StackPanel>
+                    </DockPanel>
+                </Grid>
 
             </TabItem>
 
         </TabControl>
 
-    
+
     </Grid>
 </UserControl>

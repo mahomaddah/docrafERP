@@ -131,6 +131,7 @@
     <Compile Include="Models\Supply.cs" />
     <Compile Include="Views\AssetTamplateSelector.cs" />
     <Compile Include="Views\AssetValueGauge.cs" />
+    <Compile Include="Views\InventoryTreeViewModel.cs" />
     <Compile Include="Views\PersonelTemplateSelector.cs" />
     <Compile Include="Views\PRTamplateSelector.cs" />
     <Compile Include="Views\SingletoneHomeView.cs" />

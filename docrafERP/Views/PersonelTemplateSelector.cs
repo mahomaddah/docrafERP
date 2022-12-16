@@ -11,7 +11,7 @@ namespace docrafERP.Views
 {
     public class PersonelTemplateSelector : DataTemplateSelector
     {
-        public DataTemplate PersoneltempSM { get; set; }        
+        public DataTemplate PersoneltempSM { get; set; }     
         public DataTemplate PersoneltempAM { get; set; }
         public DataTemplate PersoneltempManager { get; set; }
         public DataTemplate PersoneltempDirector { get; set; }

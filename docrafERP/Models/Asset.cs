@@ -28,6 +28,7 @@ namespace docrafERP.Models
         public List<AssetMaintenance> AssetMaintenanceLogs { get; set; }
         public string Model { get; set; }
         public string Manufacture { get; set; }
+        public string AccountCode { get; set; }
 
         //private int custodianID;
 
@@ -47,7 +48,11 @@ namespace docrafERP.Models
             Status = "Available";
             ImagePath = @"/UIassets/image 9.png";
             AssetMaintenanceLogs = new List<AssetMaintenance>();
+            AccountCode = "";
+            CustodianName = "";
+           
         }
 
     }
+ 
 }
