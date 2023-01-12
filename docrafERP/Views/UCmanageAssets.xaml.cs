@@ -63,6 +63,7 @@ namespace docrafERP.Views
         //    }
         //}
 
+
         public void RefreshAssetsListViewFromViewModel()
         {
 
@@ -93,6 +94,8 @@ namespace docrafERP.Views
         {
             SearchBarSuggestions = new List<string>();
             InitializeComponent();
+
+
         }
 
         private void AssetDeleteBtn_Click(object sender, RoutedEventArgs e)

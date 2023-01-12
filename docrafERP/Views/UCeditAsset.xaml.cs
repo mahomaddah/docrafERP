@@ -31,9 +31,11 @@ namespace docrafERP.Views
     {
         public Asset EditingAsset { get; set; }
         public bool ComeForAdding { get; set; }
+
         public List<AssetValueGauge> AssetGauge { get; private set; }
         public List<AssetValueGauge> valuePerYear { get; private set; }
         public List<YearDepreciation> YearsDepreciation { get; private set; }
+
 
         Bitmap lastQrimage;
         public List<AssetDocument> AssetDocuments { get; set; }
@@ -45,16 +47,13 @@ namespace docrafERP.Views
             AssetDocumentforLV = new List<string>();
             AssetDocuments = new List<AssetDocument>();
 
-
-
-
             EditingAsset = new Asset();
 
             valuePerYear = new List<AssetValueGauge>();
             AssetGauge = new List<AssetValueGauge>();
             YearsDepreciation = new List<YearDepreciation>();
 
-           // UpdateDeprication();
+           UpdateDeprication();
 
             InitializeComponent();
             GetNewCode();

@@ -123,6 +123,7 @@
     <Compile Include="Models\Asset.cs" />
     <Compile Include="Models\AssetDocument.cs" />
     <Compile Include="Models\AssetMaintenance.cs" />
+    <Compile Include="Models\DataLog.cs" />
     <Compile Include="Models\DocumentGanarator.cs" />
     <Compile Include="Models\ImageModel.cs" />
     <Compile Include="Models\Personel.cs" />

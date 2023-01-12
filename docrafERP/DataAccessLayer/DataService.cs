@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Drawing;
 using System.IO;
 
+
 namespace docrafERP.DataAccessLayer
 {
     public class DataService
@@ -23,8 +24,12 @@ namespace docrafERP.DataAccessLayer
           //  https://1drv.ms/u/s!AmAErmGFGIBagTlqEwwv9S-LdBTh?e=zsLQni
           //  DESKTOP-O66ATKR\\SQLEXPRESS //possible username : DESKTOP-O66ATKR\\1
               string conString = @"Server=.\SQLEXPRESS;Database=docrafERPDB;Trusted_Connection=True;";  //ME //making server localhost for not chaning
-          //  conString = "Server=DESKTOP-O66ATKR\\SQLEXPRESS;Database=docrafERPDB;Trusted_Connection=True;";      //BUTCH
-    // conString = "Server=localhost;Database=docrafERPDB;Trusted_Connection=True;";      //BUTCH PC or new Laptop...
+
+
+            conString = @"Data Source=philippinehealth.database.windows.net;Initial Catalog=docrafERPDB;User ID=adminMohammad;Password=Mohammadmahdi1376;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";//azure...
+
+            //  conString = "Server=DESKTOP-O66ATKR\\SQLEXPRESS;Database=docrafERPDB;Trusted_Connection=True;";      //BUTCH
+            // conString = "Server=localhost;Database=docrafERPDB;Trusted_Connection=True;";      //BUTCH PC or new Laptop...
 
             Connection = new SqlConnection(conString);
 
@@ -33,6 +38,11 @@ namespace docrafERP.DataAccessLayer
                 if (Connection.State == ConnectionState.Closed)
                 {
                     Connection.Open();
+
+                    System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+                    dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+                    dispatcherTimer.Interval = new TimeSpan(0, 0, 5);
+                    dispatcherTimer.Start();
                 }
             }
             catch
@@ -40,6 +50,61 @@ namespace docrafERP.DataAccessLayer
                 System.Windows.MessageBox.Show("Could not connect to the Database server.");
             }
 
+        }
+
+        string lastAssetDataLogID = "";
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            string ping = GetLastDatalogRecordID();
+            if (ping != lastAssetDataLogID)
+            {
+                lastAssetDataLogID = ping;
+
+              //  System.Windows.MessageBox.Show("ping query test: "+lastDataLogID);
+                //Replace the new data...
+                //For Assets...
+                docrafERP.Views.SingletoneHomeView.Instance.homeView.Assets = GetAllAssets();
+
+
+                //update the listview
+                // refreshAssetsListViewFromList();
+
+
+                //update list view in a more optimized way ( per record per oprations....)
+                docrafERP.Views.SingletoneHomeView.Instance.homeView.manageAssetsUC.RefreshAssetsListViewFromViewModel();
+
+            }
+        }
+
+        public string GetLastDatalogRecordID()
+        {
+            string result = "";
+
+            string query = "SELECT top 1 * FROM [dbo].[DataLog] order by DataLogID desc";
+            try
+            {
+                result = Connection.Query<string>(query).ToList().First();
+            }
+            catch
+            {
+
+            }
+
+
+            return result;
+        }
+
+        public void InsertAsset(Asset asset)
+        {
+            // string query = @"INSERT INTO [dbo].[ASSET]([PurchaseRequestID],[DocumentsFolderPath],[ImagePath],[RemarksJson],[Device],[OwnerOrLocation],[Status],[SerialNumber],[DateReceived],[PurchasedVendor],[PurchasePrice],[Barcode]) VALUES ( @PurchaseRequestID,@DocumentsFolderPath,@ImagePath,@RemarksJson,@Device,@OwnerOrLocation,@Status,@SerialNumber,@DateReceived,@PurchasedVendor,@PurchasePrice,@Barcode)";
+            string query = @"INSERT INTO [dbo].[ASSET]([PurchaseRequestID],[DocumentsFolderPath],[ImagePath],[RemarksJson],[Device],[OwnerOrLocation],[Status],[SerialNumber],[DateReceived],[PurchasedVendor],[PurchasePrice],[Barcode]) VALUES ( " + asset.PurchaseRequetID + ",'" + asset.DocumentsFolderPath + "','" + asset.ImagePath + "','" + asset.RemarksJson + "','" + asset.Device + "','" + asset.OwnerOrLocation + "','" + asset.Status + "','" + asset.SerialNumber + "','" + asset.DateReceived + "','" + asset.PurchasedVendor + "','" + asset.PurchasePrice + "','" + asset.Barcode + "')";
+            Connection.Execute(query);
+
+
+            //TEST CODE DELETE ME :
+            //Connection.Execute("INSERT INTO [dbo].[DataLog]([UserID],[RecordID],[TableName],[CRUDtype])VALUES(@UserID ,@RecordID,@TableName,@CRUDtype);", new DataLog { UserID = 1, RecordID = new Random().Next(100), TableName = "ASSET", CRUDtype = "C" });
+            //now we have triggers
+            //TEST END...
         }
 
         public List<AssetDocument> GetAllAssetDocuments()
@@ -50,7 +115,7 @@ namespace docrafERP.DataAccessLayer
 
         public List<Personel> GetAllPersonels()
         {
-            string query = "SELECT * FROM [docrafERPDB].[dbo].[Personel]";
+            string query = "SELECT * FROM [dbo].[Personel]";
             return Connection.Query<Personel>(query).ToList();
         }
 
@@ -73,13 +138,7 @@ namespace docrafERP.DataAccessLayer
             return Connection.Query<Asset>(query).ToList().First();
         }
 
-        public void InsertAsset(Asset asset)
-        {
-            // string query = @"INSERT INTO [dbo].[ASSET]([PurchaseRequestID],[DocumentsFolderPath],[ImagePath],[RemarksJson],[Device],[OwnerOrLocation],[Status],[SerialNumber],[DateReceived],[PurchasedVendor],[PurchasePrice],[Barcode]) VALUES ( @PurchaseRequestID,@DocumentsFolderPath,@ImagePath,@RemarksJson,@Device,@OwnerOrLocation,@Status,@SerialNumber,@DateReceived,@PurchasedVendor,@PurchasePrice,@Barcode)";
-            string query = @"INSERT INTO [dbo].[ASSET]([PurchaseRequestID],[DocumentsFolderPath],[ImagePath],[RemarksJson],[Device],[OwnerOrLocation],[Status],[SerialNumber],[DateReceived],[PurchasedVendor],[PurchasePrice],[Barcode]) VALUES ( " + asset.PurchaseRequetID + ",'" + asset.DocumentsFolderPath + "','" + asset.ImagePath + "','" + asset.RemarksJson + "','" + asset.Device + "','" + asset.OwnerOrLocation + "','" + asset.Status + "','" + asset.SerialNumber + "','" + asset.DateReceived + "','" + asset.PurchasedVendor + "','" + asset.PurchasePrice + "','" + asset.Barcode + "')";
-            Connection.Execute(query);
-           
-        }
+      
 
         public void DeleteAsset(Asset asset)
         {
